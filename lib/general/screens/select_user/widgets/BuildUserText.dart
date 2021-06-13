@@ -4,19 +4,20 @@ class BuildUserText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 40),
+      margin: const EdgeInsets.symmetric(vertical: 50),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           MyText(
-            title: tr(context,"register"),
-            size: 19,
-            color: MyColors.primary,
+            title: "مرحبا بك",
+            size: 16,
+            color: MyColors.black,
           ),
           MyText(
-            title:tr(context,"selectAccount"),
-            size: 14,
-            color: MyColors.black.withOpacity(.6),
+            title: "حدد نوع الحساب الخاص بك ",
+            size: 12,
+            color: MyColors.blackOpacity,
+            fontWeight: FontWeight.w500,
           ),
         ],
       ),

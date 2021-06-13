@@ -6,8 +6,9 @@ import 'package:google_fonts/google_fonts.dart';
 class CustomInputTextStyle extends TextStyle{
 
   final String lang;
+  final Color color;
 
-  CustomInputTextStyle({required this.lang});
+  CustomInputTextStyle({required this.lang,this.color=Colors.black});
 
 
   @override
@@ -17,8 +18,5 @@ class CustomInputTextStyle extends TextStyle{
   // TODO: implement fontSize
   double get fontSize => lang =="ar"?16:18;
 
-  @override
-  // TODO: implement color
-  Color get color => MyColors.black;
 
 }

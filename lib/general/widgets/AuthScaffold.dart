@@ -1,18 +1,31 @@
 import 'package:base_flutter/general/constants/MyColors.dart';
 import 'package:flutter/material.dart';
 
-class AuthScaffold extends StatelessWidget {
+
+class AuthScaffold extends StatefulWidget {
   final Widget child;
 
-  AuthScaffold({
-    required this.child,
-  });
+  const AuthScaffold({required this.child});
+  @override
+  _AuthScaffoldState createState() => _AuthScaffoldState();
+}
+
+class _AuthScaffoldState extends State<AuthScaffold>{
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MyColors.white,
-      body: child,
+      body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [MyColors.primary, MyColors.white],
+              begin: Alignment.bottomCenter,
+
+            )),
+        child: widget.child
+      ),
+
     );
   }
 }
+

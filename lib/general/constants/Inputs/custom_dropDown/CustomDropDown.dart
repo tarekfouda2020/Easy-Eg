@@ -1,11 +1,7 @@
 import 'dart:async';
-
-import 'package:base_flutter/general/constants/MyColors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:google_fonts/google_fonts.dart';
-
 import 'src/popupMenu.dart';
 import 'src/selectDialog.dart';
 
@@ -67,6 +63,8 @@ class DropdownSearch<T> extends StatefulWidget {
   final DropdownSearchBuilder<T>? dropdownBuilder;
 
   final TextStyle style;
+
+  final TextStyle itemStyle;
 
   ///to customize selected item
   final DropdownSearchPopupItemBuilder<T>? popupItemBuilder;
@@ -191,6 +189,7 @@ class DropdownSearch<T> extends StatefulWidget {
     this.onSaved,
     this.validator,
     required this.style,
+    required this.itemStyle,
     this.autoValidateMode = AutovalidateMode.disabled,
     this.onChanged,
     this.mode = Mode.DIALOG,
@@ -468,7 +467,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
       filterFn: widget.filterFn,
       items: widget.items,
       onFind: widget.onFind,
-      style: widget.style,
+      style: widget.itemStyle,
       showSearchBox: widget.showSearchBox,
       itemBuilder: widget.popupItemBuilder,
       selectedValue: data,

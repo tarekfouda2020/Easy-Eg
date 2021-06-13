@@ -22,10 +22,12 @@ class DropdownTextField<DataType> extends StatefulWidget {
   final dynamic finData;
   final EdgeInsets? downIconPadding;
   final bool useName;
+  final Color? iconsColor;
 
   DropdownTextField(
       {this.label,
         this.hint,
+        this.iconsColor,
         this.margin,
         this.validate,
         this.downIconPadding,
@@ -54,7 +56,7 @@ class _DropdownTextFieldState<DataType> extends State<DropdownTextField> {
         key: widget.dropKey,
         mode: Mode.BOTTOM_SHEET,
         isFilteredOnline: true,
-        maxHeight: 300,
+        maxHeight: 350,
         label: widget.label,
         items: widget.data,
         onFind: widget.finData,
@@ -65,7 +67,10 @@ class _DropdownTextFieldState<DataType> extends State<DropdownTextField> {
         selectedItem: widget.selectedItem,
         itemAsString: (dynamic u) => widget.useName ? u.name : u,
         showSelectedItem: widget.showSelectedItem,
-        style: CustomInputTextStyle(lang: lang),
+        clearButton: Icon(Icons.clear,size: 25,color: widget.iconsColor??MyColors.black,),
+        dropDownButton: Icon(Icons.arrow_drop_down,size: 30,color: widget.iconsColor??MyColors.black,),
+        style: CustomInputTextStyle(lang: lang,color: MyColors.white),
+        itemStyle: CustomInputTextStyle(lang: lang,color: MyColors.black),
         searchBoxDecoration: CustomInputDecoration(
             lang: lang,
             hint: "search",
@@ -100,10 +105,12 @@ class _DropdownTextFieldState<DataType> extends State<DropdownTextField> {
         dropdownSearchDecoration: CustomInputDecoration(
             lang: lang,
             hint: widget.hint,
-            enableColor: Colors.black,
+            hintColor: MyColors.white,
+            enableColor: MyColors.primary,
             focusColor: MyColors.primary,
-            borderRaduis: 2,
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 17)
+            fillColor: MyColors.primary,
+            borderRaduis: 5,
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12)
         ),
       ),
     );

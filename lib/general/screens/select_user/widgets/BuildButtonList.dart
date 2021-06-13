@@ -6,13 +6,13 @@ class BuildButtonList extends StatelessWidget {
     return Column(
       children: [
         DefaultButton(
-          title: tr(context,"customer"),
-          onTap: () => AutoRouter.of(context).push(LoginRoute()),
+          title: "مستخدم",
+          onTap: () => AutoRouter.of(context).push(SelectAddressRoute()),
           margin: const EdgeInsets.symmetric(vertical: 15),
           color: MyColors.primary,
         ),
         DefaultButton(
-          title:tr(context,"agency"),
+          title: "مقدم خدمة",
           onTap: () => AutoRouter.of(context).push(LoginRoute()),
           margin: const EdgeInsets.symmetric(horizontal: 0),
           color: MyColors.white,

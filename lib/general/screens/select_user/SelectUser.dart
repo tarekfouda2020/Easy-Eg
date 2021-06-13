@@ -12,12 +12,9 @@ class _SelectUserState extends State<SelectUser> {
   Widget build(BuildContext context) {
     return AuthScaffold(
       child: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        physics: BouncingScrollPhysics(
-          parent: AlwaysScrollableScrollPhysics(),
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         children: [
-          HeaderLogo(),
+          HeaderLogo(haveBack: false,),
           BuildUserText(),
           BuildButtonList(),
         ],
