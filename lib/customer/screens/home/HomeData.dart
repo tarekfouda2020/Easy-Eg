@@ -22,7 +22,7 @@ class HomeData {
 
   void initBottomNavigation(TickerProvider ticker,Color color,BuildContext context) {
     context.read<TabsColorCubit>().onUpdateColor(color);
-    tabController = new TabController(length: 5, vsync: ticker);
+    tabController = new TabController(length: 5, vsync: ticker,initialIndex: 4);
     animationController = AnimationController(
       duration: Duration(seconds: 1),
       vsync: ticker,
@@ -43,8 +43,6 @@ class HomeData {
   }
 
   void animateTabsPages(int index, BuildContext context,Color color) {
-    print("====================>$index");
-    print("====================>$color");
     if (index != homeTabCubit.state.data) {
       homeTabCubit.onUpdateData(index);
       tabController.animateTo(index);

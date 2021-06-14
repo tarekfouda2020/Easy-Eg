@@ -8,11 +8,13 @@ class DefaultAppBar extends PreferredSize {
   final List<Widget> actions;
   final Size preferredSize ;
   final Color? color;
+  final bool back;
 
   DefaultAppBar({
     required this.title,
     this.actions = const [],
     this.leading,
+    this.back=true,
     this.color,
     this.preferredSize = const Size.fromHeight(kToolbarHeight + 5),
   }) : super(child: Container(),preferredSize: preferredSize);
@@ -30,13 +32,16 @@ class DefaultAppBar extends PreferredSize {
       elevation: 0,
       brightness: Brightness.dark,
       leading: leading ??
-          IconButton(
-            icon: Icon(
-              Icons.arrow_back,
-              size: 25,
-              color: MyColors.white,
+          Offstage(
+            offstage: !back,
+            child: IconButton(
+              icon: Icon(
+                Icons.arrow_back,
+                size: 25,
+                color: MyColors.white,
+              ),
+              onPressed: () => Navigator.of(context).pop(),
             ),
-            onPressed: () => Navigator.of(context).pop(),
           ),
       actions: actions,
     );

@@ -8,6 +8,9 @@ import 'tabs/home_main/HomeMainImports.dart';
 import 'widgets/HomeWidgetsImports.dart';
 import 'tabs/favourite/FavouriteWidgetsImports.dart';
 import 'tabs_color_cubit/tabs_color_cubit.dart';
+import 'tabs/notification/NotificationImports.dart';
+import 'tabs/settings/SettingsImports.dart';
+import 'tabs/orders/OrdersImports.dart';
 
 
 

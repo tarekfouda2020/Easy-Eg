@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class MyColors{
   static Color primary =  Color(0xff269492);
   static Color secondary =  Color(0xff8a8a8a);
+  static Color header =  Color(0xff4f91a8);
   static Color bg=Color(0xfffffafa);
   static Color offWhite=Color(0xffF2F2F2);
   static Color gold=Color(0xffe4aa69);

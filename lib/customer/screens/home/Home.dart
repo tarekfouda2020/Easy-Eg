@@ -1,5 +1,6 @@
 part of 'HomeImports.dart';
 
+
 class Home extends StatefulWidget {
   final Color color;
   final int tab;
@@ -16,7 +17,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   @override
   void initState() {
     homeData.initBottomNavigation(this, widget.color,context);
-    homeData.animateTabsPages(widget.tab, context, widget.color);
+    homeData.animateTabsPages(4, context, widget.color);
     super.initState();
   }
 
@@ -26,6 +27,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     return WillPopScope(
       child: DefaultTabController(
         length: 5,
+        initialIndex: 4,
         child: Scaffold(
           key: homeData.scaffold,
           extendBody: true,
@@ -34,9 +36,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             physics: NeverScrollableScrollPhysics(),
             children: [
               Favourite(),
-              Container(),
-              Container(),
-              Container(),
+              Orders(),
+              Notifications(),
+              Settings(),
               HomeMain(),
             ],
           ),
@@ -45,7 +47,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             backgroundColor: currentColor,
             elevation: 0,
             child: Icon(
-              Icons.add,
+              Icons.home_outlined,
               size: 30,
               color: MyColors.white,
             ),

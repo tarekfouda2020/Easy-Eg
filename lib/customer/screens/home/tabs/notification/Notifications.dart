@@ -1,14 +1,13 @@
-part of 'FavouriteWidgetsImports.dart';
+part of 'NotificationImports.dart';
 
-class Favourite extends StatelessWidget {
-
+class Notifications extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     var currentColor = context.watch<TabsColorCubit>().state.color;
     return Scaffold(
       appBar: PreferredSize(
-        child: DefaultAppBar(title: "المفضلة",color: currentColor,back: false,),
+        child: DefaultAppBar(title: "الاشعارات",color: currentColor,back: false,),
         preferredSize: Size.fromHeight(60),
       ),
       body: Container(
@@ -20,11 +19,14 @@ class Favourite extends StatelessWidget {
 
             )),
         child: CupertinoScrollbar(
-          child: ListView.builder(
+          child: ListView.separated(
             padding: EdgeInsets.symmetric(horizontal: 15),
             itemCount: 10,
             itemBuilder: (BuildContext context, int index) {
-              return BuildProductItem();
+              return BuildNotifyItem();
+            },
+            separatorBuilder: (_,index){
+              return Divider(color: MyColors.greyWhite,);
             },
           ),
         ),

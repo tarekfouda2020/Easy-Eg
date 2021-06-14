@@ -11,16 +11,21 @@ class HomeMain extends StatelessWidget {
         preferredSize: Size.fromHeight(60),
       ),
       body: Container(
+        padding: EdgeInsets.only(bottom: 100),
         decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [currentColor, MyColors.white],
               begin: Alignment.bottomCenter,
 
             )),
-        child: ListView(
-          children: [
-
-          ],
+        child: CupertinoScrollbar(
+          child: ListView.builder(
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            itemCount: 10,
+            itemBuilder: (BuildContext context, int index) {
+              return BuildCategoryItem(color: currentColor,);
+            },
+          ),
         ),
       ),
     );
