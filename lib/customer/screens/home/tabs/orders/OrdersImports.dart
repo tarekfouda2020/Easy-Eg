@@ -4,5 +4,8 @@ import 'package:base_flutter/general/widgets/DefaultAppBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'widgets/OrdersWidgetsImports.dart';
+import 'tabs/waiting/WaitingImports.dart';
+import 'tabs/current/CurrentImports.dart';
+import 'tabs/finish/FinishImports.dart';
 
 part 'Orders.dart';

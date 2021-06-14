@@ -1,6 +1,5 @@
 part of 'OrdersImports.dart';
 
-
 class Orders extends StatelessWidget {
 
   @override
@@ -28,11 +27,10 @@ class Orders extends StatelessWidget {
 
               )),
           child: TabBarView(
-            physics: NeverScrollableScrollPhysics(),
             children: [
-              Container(),
-              Container(),
-              Container(),
+              Waiting(color: currentColor),
+              Current(color: currentColor),
+              Finish(color: currentColor),
             ],
           ),
         ),
