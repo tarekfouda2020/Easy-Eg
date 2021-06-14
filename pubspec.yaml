@@ -63,6 +63,7 @@ dependencies:
   dio2: ^5.0.0-nullsafety
   flutter_html: ^2.0.0
   pin_code_fields: ^7.2.0
+  animated_bottom_navigation_bar: ^0.3.2
 
 
 

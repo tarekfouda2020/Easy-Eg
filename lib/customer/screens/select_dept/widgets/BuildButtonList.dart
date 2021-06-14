@@ -1,4 +1,4 @@
-part of 'SelectUserWidgetsImports.dart';
+part of 'SelectDeptWidgetsImports.dart';
 
 class BuildButtonList extends StatelessWidget {
   @override
@@ -6,14 +6,14 @@ class BuildButtonList extends StatelessWidget {
     return Column(
       children: [
         DefaultButton(
-          title: "مستخدم",
-          onTap: () => AutoRouter.of(context).push(SelectAddressRoute()),
+          title: "الفرح",
+          onTap: () => AutoRouter.of(context).push(HomeRoute(color: Color(0xff79617f))),
           margin: const EdgeInsets.symmetric(vertical: 15),
           color: MyColors.primary,
         ),
         DefaultButton(
-          title: "مقدم خدمة",
-          onTap: () => AutoRouter.of(context).push(LoginRoute()),
+          title: "المحلات",
+          onTap: () => AutoRouter.of(context).push(HomeRoute(color: Color(0xff286a93))),
           margin: const EdgeInsets.symmetric(horizontal: 0),
           color: MyColors.primary,
         ),

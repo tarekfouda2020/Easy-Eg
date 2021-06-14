@@ -28,7 +28,7 @@ class _SelectAddressState extends State<SelectAddress> {
             borderColor: MyColors.white,
             textColor: MyColors.primary,
             margin: EdgeInsets.symmetric(horizontal: 20,vertical: 25),
-            onTap: (){},
+            onTap: ()=> AutoRouter.of(context).push(SelectDeptRoute()),
           ),
         ],
       ),

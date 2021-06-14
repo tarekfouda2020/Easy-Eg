@@ -5,8 +5,11 @@
 // **************************************************************************
 
 import 'package:auto_route/auto_route.dart' as _i1;
+import 'package:base_flutter/customer/screens/home/HomeImports.dart' as _i18;
 import 'package:base_flutter/customer/screens/select_address/SelectAddressImports.dart'
     as _i16;
+import 'package:base_flutter/customer/screens/select_dept/SelectDeptImports.dart'
+    as _i17;
 import 'package:base_flutter/general/screens/about/AboutImports.dart' as _i10;
 import 'package:base_flutter/general/screens/active_account/ActiveAccountImports.dart'
     as _i6;
@@ -28,7 +31,7 @@ import 'package:base_flutter/general/screens/select_user/SelectUserImports.dart'
     as _i12;
 import 'package:base_flutter/general/screens/splash/SplashImports.dart' as _i3;
 import 'package:base_flutter/general/screens/terms/TermsImports.dart' as _i9;
-import 'package:flutter/cupertino.dart' as _i17;
+import 'package:flutter/cupertino.dart' as _i19;
 import 'package:flutter/material.dart' as _i2;
 
 class AppRouter extends _i1.RootStackRouter {
@@ -114,7 +117,22 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (_) {
           return _i16.SelectAddress();
-        })
+        }),
+    SelectDeptRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return _i17.SelectDept();
+        }),
+    HomeRoute.name: (routeData) => _i1.CustomPage<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<HomeRouteArgs>();
+          return _i18.Home(color: args.color, tab: args.tab);
+        },
+        transitionsBuilder: _i1.TransitionsBuilders.fadeIn,
+        durationInMilliseconds: 1000,
+        opaque: true,
+        barrierDismissible: false)
   };
 
   @override
@@ -132,12 +150,14 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(ConfirmPasswordRoute.name, path: '/confirm-password'),
         _i1.RouteConfig(ChangePasswordRoute.name, path: '/change-password'),
         _i1.RouteConfig(ImageZoomRoute.name, path: '/image-zoom'),
-        _i1.RouteConfig(SelectAddressRoute.name, path: '/select-address')
+        _i1.RouteConfig(SelectAddressRoute.name, path: '/select-address'),
+        _i1.RouteConfig(SelectDeptRoute.name, path: '/select-dept'),
+        _i1.RouteConfig(HomeRoute.name, path: '/Home')
       ];
 }
 
 class SplashRoute extends _i1.PageRouteInfo<SplashRouteArgs> {
-  SplashRoute({required _i17.GlobalKey<_i17.NavigatorState> navigatorKey})
+  SplashRoute({required _i19.GlobalKey<_i19.NavigatorState> navigatorKey})
       : super(name,
             path: '/', args: SplashRouteArgs(navigatorKey: navigatorKey));
 
@@ -147,7 +167,7 @@ class SplashRoute extends _i1.PageRouteInfo<SplashRouteArgs> {
 class SplashRouteArgs {
   const SplashRouteArgs({required this.navigatorKey});
 
-  final _i17.GlobalKey<_i17.NavigatorState> navigatorKey;
+  final _i19.GlobalKey<_i19.NavigatorState> navigatorKey;
 }
 
 class LoginRoute extends _i1.PageRouteInfo {
@@ -252,4 +272,25 @@ class SelectAddressRoute extends _i1.PageRouteInfo {
   const SelectAddressRoute() : super(name, path: '/select-address');
 
   static const String name = 'SelectAddressRoute';
+}
+
+class SelectDeptRoute extends _i1.PageRouteInfo {
+  const SelectDeptRoute() : super(name, path: '/select-dept');
+
+  static const String name = 'SelectDeptRoute';
+}
+
+class HomeRoute extends _i1.PageRouteInfo<HomeRouteArgs> {
+  HomeRoute({required _i19.Color color, int tab = 3})
+      : super(name, path: '/Home', args: HomeRouteArgs(color: color, tab: tab));
+
+  static const String name = 'HomeRoute';
+}
+
+class HomeRouteArgs {
+  const HomeRouteArgs({required this.color, this.tab = 3});
+
+  final _i19.Color color;
+
+  final int tab;
 }

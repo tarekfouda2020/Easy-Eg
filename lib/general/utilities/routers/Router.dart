@@ -20,6 +20,8 @@ part of 'RouterImports.dart';
 
     //customer pages
     AdaptiveRoute(page: SelectAddress),
+    AdaptiveRoute(page: SelectDept),
+    CustomRoute(page: Home,transitionsBuilder: TransitionsBuilders.fadeIn,durationInMilliseconds: 1000),
 
 
   ],
