@@ -1,6 +1,5 @@
 part of 'HomeImports.dart';
 
-
 class Home extends StatefulWidget {
   final Color color;
   final int tab;
@@ -12,13 +11,12 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> with TickerProviderStateMixin {
-
-  final HomeData homeData=new HomeData();
+  final HomeData homeData = new HomeData();
 
   @override
   void initState() {
-    homeData.initBottomNavigation(this);
-    homeData.animateTabsPages(widget.tab, context);
+    homeData.initBottomNavigation(this, widget.color);
+    homeData.animateTabsPages(widget.tab, context, widget.color);
     super.initState();
   }
 
@@ -30,33 +28,50 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         child: Scaffold(
           key: homeData.scaffold,
           extendBody: true,
-          body: TabBarView(
-            controller: homeData.tabController,
-            physics: NeverScrollableScrollPhysics(),
-            children: [
-              Container(),
-              Container(),
-              Container(),
-              Container(),
-              Container(),
-            ],
+          body: BlocBuilder<GenericCubit<Color>, GenericState<Color>>(
+            bloc: homeData.homeColorCubit,
+            builder: (context, state) {
+              return TabBarView(
+                controller: homeData.tabController,
+                physics: NeverScrollableScrollPhysics(),
+                children: [
+                  Container(),
+                  Container(),
+                  Container(),
+                  Container(),
+                  HomeMain(color: state.data),
+                ],
+              );
+            },
           ),
-          floatingActionButton: FloatingActionButton(
-            onPressed: () => homeData.animateTabsPages(3,context),
-            backgroundColor: widget.color,
-            elevation: 0,
-            child: Icon(
-              Icons.add,
-              size: 30,
-              color: MyColors.white,
-            ),
+          floatingActionButton:
+              BlocBuilder<GenericCubit<Color>, GenericState<Color>>(
+            bloc: homeData.homeColorCubit,
+            builder: (context, state) {
+              return FloatingActionButton(
+                onPressed: () =>
+                    homeData.animateTabsPages(4, context, widget.color),
+                backgroundColor: state.data,
+                elevation: 0,
+                child: Icon(
+                  Icons.add,
+                  size: 30,
+                  color: MyColors.white,
+                ),
+              );
+            },
           ),
           floatingActionButtonLocation:
-          FloatingActionButtonLocation.centerDocked,
-          bottomNavigationBar: BlocBuilder<GenericCubit<int>, GenericState<int>>(
+              FloatingActionButtonLocation.centerDocked,
+          bottomNavigationBar:
+              BlocBuilder<GenericCubit<int>, GenericState<int>>(
             bloc: homeData.homeTabCubit,
             builder: (context, state) {
-              return BuildBottomNavigationBar(color: widget.color,current: state.data,homeData: homeData,);
+              return BuildBottomNavigationBar(
+                color: state.data == 4 ? widget.color : homeData.tabs[state.data].color,
+                current: state.data,
+                homeData: homeData,
+              );
             },
           ),
         ),
@@ -64,7 +79,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       onWillPop: homeData.onBackPressed,
     );
   }
-
 
   @override
   void dispose() {

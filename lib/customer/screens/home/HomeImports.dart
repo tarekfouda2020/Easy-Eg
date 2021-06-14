@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:base_flutter/general/constants/ModaLs/LoadingDialog.dart';
 import 'package:base_flutter/general/constants/MyColors.dart';
-import 'package:base_flutter/general/widgets/MyText.dart';
+import 'tabs/home_main/HomeMainImports.dart';
 import 'widgets/HomeWidgetsImports.dart';
 
 

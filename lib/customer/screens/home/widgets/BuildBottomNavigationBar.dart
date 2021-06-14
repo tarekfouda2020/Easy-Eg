@@ -25,7 +25,7 @@ class BuildBottomNavigationBar extends StatelessWidget {
       leftCornerRadius: 0,
       rightCornerRadius: 0,
       height: 65,
-      onTap: (index) => homeData.animateTabsPages(index, context),
+      onTap: (index) => homeData.animateTabsPages(index, context,homeData.tabs[index].color),
     );
   }
 }

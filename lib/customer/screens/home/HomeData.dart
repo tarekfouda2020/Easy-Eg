@@ -5,6 +5,7 @@ class HomeData {
   final GlobalKey<ScaffoldState> scaffold = new GlobalKey();
 
   final GenericCubit<int> homeTabCubit =new GenericCubit(3);
+  final GenericCubit<Color> homeColorCubit =new GenericCubit(Colors.white);
 
   late AnimationController animationController;
   late TabController tabController;
@@ -13,14 +14,14 @@ class HomeData {
   int currentIndex = 3;
 
   List<BottomTabModel> tabs = [
-    BottomTabModel(iconData: Icons.home, title: "المفضلة"),
-    BottomTabModel(iconData: Icons.favorite, title: "الطلبات"),
-    BottomTabModel(iconData: Icons.notifications, title: "الاشعارات"),
-    BottomTabModel(iconData: Icons.mail_outline, title: "المزيد"),
+    BottomTabModel(iconData: Icons.favorite_border, title: "المفضلة",color: Color(0xff269492)),
+    BottomTabModel(iconData: Icons.shopping_bag, title: "الطلبات",color: Color(0xff79617f)),
+    BottomTabModel(iconData: Icons.notifications, title: "الاشعارات",color: Color(0xffd2866e)),
+    BottomTabModel(iconData: Icons.settings, title: "المزيد",color: Color(0xffd2866e)),
   ];
 
-  void initBottomNavigation(TickerProvider ticker) {
-
+  void initBottomNavigation(TickerProvider ticker,Color color) {
+    homeColorCubit.onUpdateData(color);
     tabController = new TabController(length: 5, vsync: ticker);
     animationController = AnimationController(
       duration: Duration(seconds: 1),
@@ -41,15 +42,11 @@ class HomeData {
     );
   }
 
-  void animateTabsPages(int index, BuildContext context) {
-    bool result = context.read<AuthCubit>().state.authorized;
+  void animateTabsPages(int index, BuildContext context,Color color) {
     if (index != homeTabCubit.state.data) {
-      if (result) {
-        homeTabCubit.onUpdateData(index);
-        tabController.animateTo(index);
-      } else {
-        LoadingDialog.showAuthDialog(context: context);
-      }
+      homeTabCubit.onUpdateData(index);
+      tabController.animateTo(index);
+      homeColorCubit.onUpdateData(color);
     }
   }
 
