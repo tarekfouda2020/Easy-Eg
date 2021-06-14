@@ -1,17 +1,17 @@
 part of 'HomeImports.dart';
 
+
 class HomeData {
 
   final GlobalKey<ScaffoldState> scaffold = new GlobalKey();
 
-  final GenericCubit<int> homeTabCubit =new GenericCubit(3);
-  final GenericCubit<Color> homeColorCubit =new GenericCubit(Colors.white);
+  final GenericCubit<int> homeTabCubit =new GenericCubit(4);
+  // final GenericCubit<Color> homeColorCubit =new GenericCubit(Colors.white);
 
   late AnimationController animationController;
   late TabController tabController;
   late Animation<double> animation;
   late CurvedAnimation curve;
-  int currentIndex = 3;
 
   List<BottomTabModel> tabs = [
     BottomTabModel(iconData: Icons.favorite_border, title: "المفضلة",color: Color(0xff269492)),
@@ -20,8 +20,8 @@ class HomeData {
     BottomTabModel(iconData: Icons.settings, title: "المزيد",color: Color(0xffd2866e)),
   ];
 
-  void initBottomNavigation(TickerProvider ticker,Color color) {
-    homeColorCubit.onUpdateData(color);
+  void initBottomNavigation(TickerProvider ticker,Color color,BuildContext context) {
+    context.read<TabsColorCubit>().onUpdateColor(color);
     tabController = new TabController(length: 5, vsync: ticker);
     animationController = AnimationController(
       duration: Duration(seconds: 1),
@@ -43,10 +43,12 @@ class HomeData {
   }
 
   void animateTabsPages(int index, BuildContext context,Color color) {
+    print("====================>$index");
+    print("====================>$color");
     if (index != homeTabCubit.state.data) {
       homeTabCubit.onUpdateData(index);
       tabController.animateTo(index);
-      homeColorCubit.onUpdateData(color);
+      context.read<TabsColorCubit>().onUpdateColor(color);
     }
   }
 

@@ -20,6 +20,9 @@ class MainData {
     BlocProvider<AuthCubit>(
       create: (BuildContext context)=> AuthCubit(),
     ),
+    BlocProvider<TabsColorCubit>(
+      create: (BuildContext context)=> TabsColorCubit(),
+    ),
   ];
 
 

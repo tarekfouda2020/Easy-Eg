@@ -1,13 +1,14 @@
-part of 'HomeMainImports.dart';
+part of 'FavouriteWidgetsImports.dart';
 
-class HomeMain extends StatelessWidget {
+class Favourite extends StatelessWidget {
+
 
   @override
   Widget build(BuildContext context) {
     var currentColor = context.watch<TabsColorCubit>().state.color;
     return Scaffold(
       appBar: PreferredSize(
-        child: DefaultAppBar(title: "اسم القسم",color: currentColor,),
+        child: DefaultAppBar(title: "المفضلة",color: currentColor,),
         preferredSize: Size.fromHeight(60),
       ),
       body: Container(
@@ -25,5 +26,6 @@ class HomeMain extends StatelessWidget {
       ),
     );
   }
+
 }
 
