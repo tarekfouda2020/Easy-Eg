@@ -4,6 +4,7 @@ class Waiting extends StatelessWidget {
   final Color color;
 
   const Waiting({required this.color});
+
   @override
   Widget build(BuildContext context) {
     return CupertinoScrollbar(
@@ -11,13 +12,17 @@ class Waiting extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 15),
         itemCount: 10,
         itemBuilder: (BuildContext context, int index) {
-          return BuildOrderItem(color: color,);
+          return BuildOrderItem(
+            color: color,
+            onTap: ()=> AutoRouter.of(context).push(OrderDetailsRoute(color: color)),
+          );
         },
-        separatorBuilder: (_,index){
-          return Divider(color: MyColors.grey,);
+        separatorBuilder: (_, index) {
+          return Divider(
+            color: MyColors.grey,
+          );
         },
       ),
     );
   }
 }
-
