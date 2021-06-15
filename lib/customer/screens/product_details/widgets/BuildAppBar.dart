@@ -7,7 +7,7 @@ class BuildAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.transparent,
       elevation: 0,
       pinned: true,
       floating: false,
@@ -47,9 +47,8 @@ class BuildAppBar extends StatelessWidget {
         ),
       ],
       flexibleSpace: BuildSwiperView(),
-      expandedHeight: 350,
+      expandedHeight: 300,
       automaticallyImplyLeading: false,
-      bottom: BuildTabBar(),
     );
   }
 }

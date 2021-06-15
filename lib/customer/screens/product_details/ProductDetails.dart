@@ -12,18 +12,34 @@ class _ProductDetailsState extends State<ProductDetails> {
   ProductDetailsData productDetailsData = new ProductDetailsData();
 
   @override
+  void initState() {
+    productDetailsData.scrollController.addListener(productDetailsData.scrollListener);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
       child: Container(
-        color: Colors.white,
-        child: NestedScrollView(
-          headerSliverBuilder: (context, header) {
-            return [
-              BuildAppBar(color: widget.color)
-            ];
-          },
-          body: BuildTabBarView(),
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [widget.color.withOpacity(.5), MyColors.white],
+              begin: Alignment.bottomCenter,
+            )),
+        child: CustomScrollView(
+          controller: productDetailsData.scrollController,
+          slivers: [
+            BuildAppBar(color: widget.color),
+            SliverFillRemaining(
+              child: Column(
+                children: [
+                  BuildTabBar(detailsData: productDetailsData),
+                  BuildTabBarView(color: widget.color),
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );
