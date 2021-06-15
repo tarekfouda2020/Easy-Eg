@@ -23,6 +23,7 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: SelectDept),
     CustomRoute(page: Home,transitionsBuilder: TransitionsBuilders.fadeIn,durationInMilliseconds: 1000),
     AdaptiveRoute(page: OrderDetails),
+    AdaptiveRoute(page: ProductDetails),
 
 
   ],

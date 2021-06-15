@@ -24,7 +24,7 @@ class Favourite extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 15),
             itemCount: 10,
             itemBuilder: (BuildContext context, int index) {
-              return BuildProductItem();
+              return BuildProductItem(color: currentColor);
             },
           ),
         ),

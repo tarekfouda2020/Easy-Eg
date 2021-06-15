@@ -5,8 +5,7 @@ class BuildDetailsItem extends StatelessWidget {
   final String title;
   final String value;
 
-  const BuildDetailsItem(
-      {required this.color, required this.title, required this.value});
+  const BuildDetailsItem({required this.color, required this.title, required this.value});
 
   @override
   Widget build(BuildContext context) {

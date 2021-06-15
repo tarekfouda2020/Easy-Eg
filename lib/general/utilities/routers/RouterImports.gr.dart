@@ -8,6 +8,8 @@ import 'package:auto_route/auto_route.dart' as _i1;
 import 'package:base_flutter/customer/screens/home/HomeImports.dart' as _i18;
 import 'package:base_flutter/customer/screens/order_details/OrderDetailsImports.dart'
     as _i19;
+import 'package:base_flutter/customer/screens/product_details/ProductDetailsImports.dart'
+    as _i20;
 import 'package:base_flutter/customer/screens/select_address/SelectAddressImports.dart'
     as _i16;
 import 'package:base_flutter/customer/screens/select_dept/SelectDeptImports.dart'
@@ -33,7 +35,7 @@ import 'package:base_flutter/general/screens/select_user/SelectUserImports.dart'
     as _i12;
 import 'package:base_flutter/general/screens/splash/SplashImports.dart' as _i3;
 import 'package:base_flutter/general/screens/terms/TermsImports.dart' as _i9;
-import 'package:flutter/cupertino.dart' as _i20;
+import 'package:flutter/cupertino.dart' as _i21;
 import 'package:flutter/material.dart' as _i2;
 
 class AppRouter extends _i1.RootStackRouter {
@@ -140,6 +142,12 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (data) {
           final args = data.argsAs<OrderDetailsRouteArgs>();
           return _i19.OrderDetails(color: args.color);
+        }),
+    ProductDetailsRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<ProductDetailsRouteArgs>();
+          return _i20.ProductDetails(color: args.color);
         })
   };
 
@@ -161,12 +169,13 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(SelectAddressRoute.name, path: '/select-address'),
         _i1.RouteConfig(SelectDeptRoute.name, path: '/select-dept'),
         _i1.RouteConfig(HomeRoute.name, path: '/Home'),
-        _i1.RouteConfig(OrderDetailsRoute.name, path: '/order-details')
+        _i1.RouteConfig(OrderDetailsRoute.name, path: '/order-details'),
+        _i1.RouteConfig(ProductDetailsRoute.name, path: '/product-details')
       ];
 }
 
 class SplashRoute extends _i1.PageRouteInfo<SplashRouteArgs> {
-  SplashRoute({required _i20.GlobalKey<_i20.NavigatorState> navigatorKey})
+  SplashRoute({required _i21.GlobalKey<_i21.NavigatorState> navigatorKey})
       : super(name,
             path: '/', args: SplashRouteArgs(navigatorKey: navigatorKey));
 
@@ -176,7 +185,7 @@ class SplashRoute extends _i1.PageRouteInfo<SplashRouteArgs> {
 class SplashRouteArgs {
   const SplashRouteArgs({required this.navigatorKey});
 
-  final _i20.GlobalKey<_i20.NavigatorState> navigatorKey;
+  final _i21.GlobalKey<_i21.NavigatorState> navigatorKey;
 }
 
 class LoginRoute extends _i1.PageRouteInfo {
@@ -290,7 +299,7 @@ class SelectDeptRoute extends _i1.PageRouteInfo {
 }
 
 class HomeRoute extends _i1.PageRouteInfo<HomeRouteArgs> {
-  HomeRoute({required _i20.Color color, int tab = 4})
+  HomeRoute({required _i21.Color color, int tab = 4})
       : super(name, path: '/Home', args: HomeRouteArgs(color: color, tab: tab));
 
   static const String name = 'HomeRoute';
@@ -299,13 +308,13 @@ class HomeRoute extends _i1.PageRouteInfo<HomeRouteArgs> {
 class HomeRouteArgs {
   const HomeRouteArgs({required this.color, this.tab = 4});
 
-  final _i20.Color color;
+  final _i21.Color color;
 
   final int tab;
 }
 
 class OrderDetailsRoute extends _i1.PageRouteInfo<OrderDetailsRouteArgs> {
-  OrderDetailsRoute({required _i20.Color color})
+  OrderDetailsRoute({required _i21.Color color})
       : super(name,
             path: '/order-details', args: OrderDetailsRouteArgs(color: color));
 
@@ -315,5 +324,20 @@ class OrderDetailsRoute extends _i1.PageRouteInfo<OrderDetailsRouteArgs> {
 class OrderDetailsRouteArgs {
   const OrderDetailsRouteArgs({required this.color});
 
-  final _i20.Color color;
+  final _i21.Color color;
+}
+
+class ProductDetailsRoute extends _i1.PageRouteInfo<ProductDetailsRouteArgs> {
+  ProductDetailsRoute({required _i21.Color color})
+      : super(name,
+            path: '/product-details',
+            args: ProductDetailsRouteArgs(color: color));
+
+  static const String name = 'ProductDetailsRoute';
+}
+
+class ProductDetailsRouteArgs {
+  const ProductDetailsRouteArgs({required this.color});
+
+  final _i21.Color color;
 }
