@@ -12,11 +12,7 @@ class Information extends StatelessWidget {
       children: [
         BuildInfoDetails(color: color),
         BuildVideoView(),
-        DefaultButton(
-          title: "حجز القاعة",
-          margin: EdgeInsets.only(bottom: 30),
-          onTap: () {},
-        )
+        BuildReservationButton()
       ],
     );
   }
