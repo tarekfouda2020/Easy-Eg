@@ -15,6 +15,7 @@ class LabelTextField extends StatefulWidget {
   final Function()? onSubmit;
   final Function(String)? onChange;
   final TextInputAction? action;
+  final Color? borderColor;
 
   LabelTextField(
       {required this.label,
@@ -25,6 +26,7 @@ class LabelTextField extends StatefulWidget {
         this.action,
         this.onSubmit,
         this.type,
+        this.borderColor,
         required this.validate});
 
   @override
@@ -54,7 +56,7 @@ class _LabelTextFieldState extends State<LabelTextField> {
           textInputAction: widget.action ?? TextInputAction.next,
           validator: (value) => widget.validate(value),
           style: CustomInputTextStyle(lang: lang),
-          decoration: CustomInputDecoration(lang: lang,label: widget.label),
+          decoration: CustomInputDecoration(lang: lang,label: widget.label,enableColor: widget.borderColor, ),
         ),
       ),
     );

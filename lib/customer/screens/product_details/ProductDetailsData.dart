@@ -2,7 +2,7 @@ part of 'ProductDetailsImports.dart';
 
 class ProductDetailsData{
   final ScrollController scrollController = new ScrollController();
-  final GenericCubit<bool> barCubit = new GenericCubit(false);
+  final GenericBloc<bool> barCubit = new GenericBloc(false);
 
   void scrollListener() {
     if (scrollController.offset >= 200) {

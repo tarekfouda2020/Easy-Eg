@@ -12,7 +12,7 @@ class Information extends StatelessWidget {
       children: [
         BuildInfoDetails(color: color),
         BuildVideoView(),
-        BuildReservationButton()
+        BuildReservationButton(color: color,)
       ],
     );
   }

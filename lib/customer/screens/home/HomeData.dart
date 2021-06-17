@@ -5,7 +5,7 @@ class HomeData {
 
   final GlobalKey<ScaffoldState> scaffold = new GlobalKey();
 
-  final GenericCubit<int> homeTabCubit =new GenericCubit(4);
+  final GenericBloc<int> homeTabCubit =new GenericBloc(4);
   // final GenericCubit<Color> homeColorCubit =new GenericCubit(Colors.white);
 
   late AnimationController animationController;
@@ -24,7 +24,7 @@ class HomeData {
     context.read<TabsColorCubit>().onUpdateColor(color);
     tabController = new TabController(length: 5, vsync: ticker,initialIndex: 4);
     animationController = AnimationController(
-      duration: Duration(seconds: 1),
+      duration: Duration(milliseconds: 600),
       vsync: ticker,
     );
     curve = CurvedAnimation(
@@ -37,7 +37,7 @@ class HomeData {
     ).animate(curve);
 
     Future.delayed(
-      Duration(seconds: 1),
+      Duration(milliseconds: 600),
       () => animationController.forward(),
     );
   }

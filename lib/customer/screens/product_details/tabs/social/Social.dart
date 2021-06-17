@@ -1,7 +1,9 @@
 part of 'SocialImports.dart';
 
 class Social extends StatelessWidget {
+  final Color color;
 
+  const Social({required this.color});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,7 +24,7 @@ class Social extends StatelessWidget {
               ],
             ),
           ),
-          BuildReservationButton(),
+          BuildReservationButton(color: color,),
         ],
       ),
     );

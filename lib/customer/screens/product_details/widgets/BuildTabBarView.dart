@@ -10,8 +10,8 @@ class BuildTabBarView extends StatelessWidget {
       child: TabBarView(
         children: [
           Information(color: color),
-          Social(),
-          Gallery(),
+          Social(color: color,),
+          Gallery(color: color,),
         ],
       ),
     );

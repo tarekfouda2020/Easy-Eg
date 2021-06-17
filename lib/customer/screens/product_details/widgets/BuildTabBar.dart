@@ -9,7 +9,7 @@ class BuildTabBar extends PreferredSize {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<GenericCubit<bool>, GenericState<bool>>(
+    return BlocBuilder<GenericBloc<bool>, GenericState<bool>>(
       bloc: detailsData.barCubit,
       builder: (context, state) {
         return Container(
