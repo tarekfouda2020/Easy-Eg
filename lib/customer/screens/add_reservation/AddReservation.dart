@@ -18,6 +18,7 @@ class _AddReservationState extends State<AddReservation> {
       appBar: PreferredSize(
         child: DefaultAppBar(
           title: "بيانات الحجز",
+          color: widget.color,
         ),
         preferredSize: Size.fromHeight(60),
       ),
@@ -35,6 +36,7 @@ class _AddReservationState extends State<AddReservation> {
               BuildFormView(addReservationData: addReservationData),
               DefaultButton(
                 title: "ارسال",
+                color: widget.color,
                 onTap: () => AutoRouter.of(context).push(ReservationSuccessRoute(color: widget.color)),
               )
             ],
