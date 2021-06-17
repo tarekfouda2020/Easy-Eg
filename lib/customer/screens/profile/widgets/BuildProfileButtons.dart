@@ -18,7 +18,7 @@ class BuildProfileButtons extends StatelessWidget {
           ),
           DefaultButton(
             title: "تغيير كلمة المرور",
-            onTap: (){},
+            onTap: ()=> AutoRouter.of(context).push(ChangePasswordRoute(color: color)),
             color: Colors.transparent,
             borderColor: MyColors.black,
             textColor: MyColors.black,

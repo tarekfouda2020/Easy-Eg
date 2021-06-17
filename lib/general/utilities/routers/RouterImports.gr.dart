@@ -116,11 +116,17 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (_) {
           return _i13.ConfirmPassword();
         }),
-    ChangePasswordRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
+    ChangePasswordRoute.name: (routeData) => _i1.CustomPage<dynamic>(
         routeData: routeData,
-        builder: (_) {
-          return _i14.ChangePassword();
-        }),
+        builder: (data) {
+          final args = data.argsAs<ChangePasswordRouteArgs>();
+          return _i14.ChangePassword(color: args.color);
+        },
+        transitionsBuilder: _i1.TransitionsBuilders.slideBottom,
+        durationInMilliseconds: 800,
+        reverseDurationInMilliseconds: 800,
+        opaque: true,
+        barrierDismissible: false),
     ImageZoomRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
         routeData: routeData,
         builder: (data) {
@@ -317,10 +323,19 @@ class ConfirmPasswordRoute extends _i1.PageRouteInfo {
   static const String name = 'ConfirmPasswordRoute';
 }
 
-class ChangePasswordRoute extends _i1.PageRouteInfo {
-  const ChangePasswordRoute() : super(name, path: '/change-password');
+class ChangePasswordRoute extends _i1.PageRouteInfo<ChangePasswordRouteArgs> {
+  ChangePasswordRoute({required _i26.Color color})
+      : super(name,
+            path: '/change-password',
+            args: ChangePasswordRouteArgs(color: color));
 
   static const String name = 'ChangePasswordRoute';
+}
+
+class ChangePasswordRouteArgs {
+  const ChangePasswordRouteArgs({required this.color});
+
+  final _i26.Color color;
 }
 
 class ImageZoomRoute extends _i1.PageRouteInfo<ImageZoomRouteArgs> {

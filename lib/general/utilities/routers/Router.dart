@@ -17,9 +17,15 @@ part of 'RouterImports.dart';
     CustomRoute(
         page: SelectUser,
         transitionsBuilder: TransitionsBuilders.zoomIn,
-        durationInMilliseconds: 1000),
+        durationInMilliseconds: 1000,
+    ),
     AdaptiveRoute(page: ConfirmPassword),
-    AdaptiveRoute(page: ChangePassword),
+    CustomRoute(
+      page: ChangePassword,
+      transitionsBuilder: TransitionsBuilders.slideBottom,
+      durationInMilliseconds: 800,
+      reverseDurationInMilliseconds: 800,
+    ),
     AdaptiveRoute(page: ImageZoom),
 
     //customer pages
