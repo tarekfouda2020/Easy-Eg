@@ -40,6 +40,7 @@ part of 'RouterImports.dart';
     ),
     AdaptiveRoute(page: ReservationSuccess),
     AdaptiveRoute(page: Products),
+    AdaptiveRoute(page: Offers),
 
   ],
 )

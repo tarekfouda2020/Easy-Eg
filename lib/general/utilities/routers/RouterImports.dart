@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:base_flutter/customer/screens/add_reservation/AddReservationImports.dart';
 import 'package:base_flutter/customer/screens/home/HomeImports.dart';
+import 'package:base_flutter/customer/screens/offers/OffersImports.dart';
 import 'package:base_flutter/customer/screens/order_details/OrderDetailsImports.dart';
 import 'package:base_flutter/customer/screens/product_details/ProductDetailsImports.dart';
 import 'package:base_flutter/customer/screens/products/ProductsImports.dart';
