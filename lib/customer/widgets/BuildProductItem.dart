@@ -17,14 +17,14 @@ class BuildProductItem extends StatelessWidget {
     return InkWell(
       onTap: ()=>AutoRouter.of(context).push(ProductDetailsRoute(color: color)),
       child: Container(
-        margin: EdgeInsets.only(top: 20),
+        margin: EdgeInsets.only(bottom: 20),
         child: Column(
           children: [
             Container(
               height: 40,
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                color: MyColors.header,
+                color: color,
                 borderRadius: BorderRadius.circular(5)
               ),
               child: Row(

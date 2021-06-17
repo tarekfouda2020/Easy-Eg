@@ -34,7 +34,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             SliverFillRemaining(
               child: Column(
                 children: [
-                  BuildTabBar(detailsData: productDetailsData),
+                  BuildTabBar(detailsData: productDetailsData,color: widget.color,),
                   BuildTabBarView(color: widget.color),
                 ],
               ),

@@ -3,8 +3,9 @@ part of 'DetailsWidgetImports.dart';
 
 class BuildTabBar extends PreferredSize {
   final ProductDetailsData detailsData;
+  final Color color;
 
-  BuildTabBar({required this.detailsData})
+  BuildTabBar({required this.detailsData,required this.color})
       : super(preferredSize: const Size.fromHeight(50), child: Container());
 
   @override
@@ -24,7 +25,7 @@ class BuildTabBar extends PreferredSize {
             unselectedLabelColor: MyColors.black,
             indicatorColor: MyColors.secondary,
             indicator: BoxDecoration(
-                color: MyColors.primary,
+                color: color,
                 borderRadius: BorderRadius.circular(5)),
             tabs: [
               Tab(

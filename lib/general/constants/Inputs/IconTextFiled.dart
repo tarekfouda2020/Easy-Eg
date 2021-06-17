@@ -6,7 +6,7 @@ import 'CustomInputDecoration.dart';
 import 'CustomInputTextStyle.dart';
 
 class IconTextFiled extends StatelessWidget {
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final String label;
   final EdgeInsets? margin;
   final TextInputType? type;
@@ -16,24 +16,26 @@ class IconTextFiled extends StatelessWidget {
   final String? prefixText;
   final Function(String? value) validate;
   final Color? filledColor;
+  final Color? borderColor;
   final TextInputAction? action;
   final Function(String value)? submit;
   final Function(String)? onChange;
 
   IconTextFiled(
       {required this.label,
-        required this.controller,
-        this.margin,
-        this.type,
-        this.action,
-        this.submit,
-        this.prefixText,
-        this.suffixIcon,
-        this.isPassword = false,
-        this.prefixIcon,
-        this.filledColor,
-        required this.validate,
-        this.onChange});
+      this.controller,
+      this.margin,
+      this.borderColor,
+      this.type,
+      this.action,
+      this.submit,
+      this.prefixText,
+      this.suffixIcon,
+      this.isPassword = false,
+      this.prefixIcon,
+      this.filledColor,
+      required this.validate,
+      this.onChange});
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +58,14 @@ class IconTextFiled extends StatelessWidget {
           onChanged: onChange,
           validator: (value) => validate(value),
           style: CustomInputTextStyle(lang: lang),
-          decoration: CustomInputDecoration(lang: lang,label: label,prefixIcon: prefixIcon,suffixIcon: suffixIcon,),
+          decoration: CustomInputDecoration(
+            lang: lang,
+            label: null,
+            hint: label,
+            prefixIcon: prefixIcon,
+            suffixIcon: suffixIcon,
+            enableColor: borderColor,
+          ),
         ),
       ),
     );

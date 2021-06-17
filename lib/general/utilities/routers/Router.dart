@@ -39,6 +39,7 @@ part of 'RouterImports.dart';
       reverseDurationInMilliseconds: 800,
     ),
     AdaptiveRoute(page: ReservationSuccess),
+    AdaptiveRoute(page: Products),
 
   ],
 )

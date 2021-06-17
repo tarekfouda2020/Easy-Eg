@@ -3,6 +3,7 @@ import 'package:base_flutter/customer/screens/add_reservation/AddReservationImpo
 import 'package:base_flutter/customer/screens/home/HomeImports.dart';
 import 'package:base_flutter/customer/screens/order_details/OrderDetailsImports.dart';
 import 'package:base_flutter/customer/screens/product_details/ProductDetailsImports.dart';
+import 'package:base_flutter/customer/screens/products/ProductsImports.dart';
 import 'package:base_flutter/customer/screens/reservation_success/ReservationSuccessImports.dart';
 import 'package:base_flutter/customer/screens/select_address/SelectAddressImports.dart';
 import 'package:base_flutter/customer/screens/select_dept/SelectDeptImports.dart';

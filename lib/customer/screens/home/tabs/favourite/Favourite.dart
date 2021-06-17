@@ -12,7 +12,7 @@ class Favourite extends StatelessWidget {
         preferredSize: Size.fromHeight(60),
       ),
       body: Container(
-        padding: EdgeInsets.only(bottom: 100),
+        padding: EdgeInsets.only(bottom: 100,top: 10),
         decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [currentColor, MyColors.white],
