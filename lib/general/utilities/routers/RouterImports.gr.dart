@@ -6,45 +6,45 @@
 
 import 'package:auto_route/auto_route.dart' as _i1;
 import 'package:base_flutter/customer/screens/add_reservation/AddReservationImports.dart'
-    as _i21;
-import 'package:base_flutter/customer/screens/home/HomeImports.dart' as _i18;
-import 'package:base_flutter/customer/screens/offers/OffersImports.dart'
-    as _i24;
-import 'package:base_flutter/customer/screens/order_details/OrderDetailsImports.dart'
-    as _i19;
-import 'package:base_flutter/customer/screens/product_details/ProductDetailsImports.dart'
     as _i20;
-import 'package:base_flutter/customer/screens/products/ProductsImports.dart'
-    as _i23;
-import 'package:base_flutter/customer/screens/profile/ProfileImports.dart'
-    as _i25;
-import 'package:base_flutter/customer/screens/repeated_questions/RepeatedQuestionsImports.dart'
+import 'package:base_flutter/customer/screens/contact_us/ContactUsImports.dart'
     as _i26;
-import 'package:base_flutter/customer/screens/reservation_success/ReservationSuccessImports.dart'
+import 'package:base_flutter/customer/screens/home/HomeImports.dart' as _i17;
+import 'package:base_flutter/customer/screens/offers/OffersImports.dart'
+    as _i23;
+import 'package:base_flutter/customer/screens/order_details/OrderDetailsImports.dart'
+    as _i18;
+import 'package:base_flutter/customer/screens/product_details/ProductDetailsImports.dart'
+    as _i19;
+import 'package:base_flutter/customer/screens/products/ProductsImports.dart'
     as _i22;
+import 'package:base_flutter/customer/screens/profile/ProfileImports.dart'
+    as _i24;
+import 'package:base_flutter/customer/screens/repeated_questions/RepeatedQuestionsImports.dart'
+    as _i25;
+import 'package:base_flutter/customer/screens/reservation_success/ReservationSuccessImports.dart'
+    as _i21;
 import 'package:base_flutter/customer/screens/select_address/SelectAddressImports.dart'
-    as _i16;
+    as _i15;
 import 'package:base_flutter/customer/screens/select_dept/SelectDeptImports.dart'
-    as _i17;
+    as _i16;
 import 'package:base_flutter/general/screens/about/AboutImports.dart' as _i10;
 import 'package:base_flutter/general/screens/active_account/ActiveAccountImports.dart'
     as _i6;
 import 'package:base_flutter/general/screens/change_password/ChangePasswordImports.dart'
-    as _i14;
-import 'package:base_flutter/general/screens/confirm_password/ConfirmPasswordImports.dart'
     as _i13;
-import 'package:base_flutter/general/screens/contact_us/ContactUsImports.dart'
-    as _i11;
+import 'package:base_flutter/general/screens/confirm_password/ConfirmPasswordImports.dart'
+    as _i12;
 import 'package:base_flutter/general/screens/forget_password/ForgetPasswordImports.dart'
     as _i5;
-import 'package:base_flutter/general/screens/image_zoom/ImageZoom.dart' as _i15;
+import 'package:base_flutter/general/screens/image_zoom/ImageZoom.dart' as _i14;
 import 'package:base_flutter/general/screens/login/LoginImports.dart' as _i4;
 import 'package:base_flutter/general/screens/reset_password/ResetPasswordImports.dart'
     as _i7;
 import 'package:base_flutter/general/screens/select_lang/SelectLangImports.dart'
     as _i8;
 import 'package:base_flutter/general/screens/select_user/SelectUserImports.dart'
-    as _i12;
+    as _i11;
 import 'package:base_flutter/general/screens/splash/SplashImports.dart' as _i3;
 import 'package:base_flutter/general/screens/terms/TermsImports.dart' as _i9;
 import 'package:flutter/cupertino.dart' as _i27;
@@ -91,23 +91,20 @@ class AppRouter extends _i1.RootStackRouter {
         }),
     TermsRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
         routeData: routeData,
-        builder: (_) {
-          return _i9.Terms();
+        builder: (data) {
+          final args = data.argsAs<TermsRouteArgs>();
+          return _i9.Terms(color: args.color);
         }),
     AboutRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
         routeData: routeData,
-        builder: (_) {
-          return _i10.About();
-        }),
-    ContactUsRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
-        routeData: routeData,
-        builder: (_) {
-          return _i11.ContactUs();
+        builder: (data) {
+          final args = data.argsAs<AboutRouteArgs>();
+          return _i10.About(color: args.color);
         }),
     SelectUserRoute.name: (routeData) => _i1.CustomPage<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return _i12.SelectUser();
+          return _i11.SelectUser();
         },
         transitionsBuilder: _i1.TransitionsBuilders.zoomIn,
         durationInMilliseconds: 1000,
@@ -116,13 +113,13 @@ class AppRouter extends _i1.RootStackRouter {
     ConfirmPasswordRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return _i13.ConfirmPassword();
+          return _i12.ConfirmPassword();
         }),
     ChangePasswordRoute.name: (routeData) => _i1.CustomPage<dynamic>(
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<ChangePasswordRouteArgs>();
-          return _i14.ChangePassword(color: args.color);
+          return _i13.ChangePassword(color: args.color);
         },
         transitionsBuilder: _i1.TransitionsBuilders.slideBottom,
         durationInMilliseconds: 800,
@@ -133,23 +130,23 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<ImageZoomRouteArgs>();
-          return _i15.ImageZoom(images: args.images);
+          return _i14.ImageZoom(images: args.images);
         }),
     SelectAddressRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return _i16.SelectAddress();
+          return _i15.SelectAddress();
         }),
     SelectDeptRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return _i17.SelectDept();
+          return _i16.SelectDept();
         }),
     HomeRoute.name: (routeData) => _i1.CustomPage<dynamic>(
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<HomeRouteArgs>();
-          return _i18.Home(color: args.color, tab: args.tab);
+          return _i17.Home(color: args.color, tab: args.tab);
         },
         transitionsBuilder: _i1.TransitionsBuilders.fadeIn,
         durationInMilliseconds: 1000,
@@ -159,19 +156,19 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<OrderDetailsRouteArgs>();
-          return _i19.OrderDetails(color: args.color);
+          return _i18.OrderDetails(color: args.color);
         }),
     ProductDetailsRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<ProductDetailsRouteArgs>();
-          return _i20.ProductDetails(color: args.color);
+          return _i19.ProductDetails(color: args.color);
         }),
     AddReservationRoute.name: (routeData) => _i1.CustomPage<dynamic>(
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<AddReservationRouteArgs>();
-          return _i21.AddReservation(color: args.color);
+          return _i20.AddReservation(color: args.color);
         },
         transitionsBuilder: _i1.TransitionsBuilders.slideBottom,
         durationInMilliseconds: 800,
@@ -182,31 +179,37 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<ReservationSuccessRouteArgs>();
-          return _i22.ReservationSuccess(color: args.color);
+          return _i21.ReservationSuccess(color: args.color);
         }),
     ProductsRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<ProductsRouteArgs>();
-          return _i23.Products(color: args.color);
+          return _i22.Products(color: args.color);
         }),
     OffersRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<OffersRouteArgs>();
-          return _i24.Offers(color: args.color);
+          return _i23.Offers(color: args.color);
         }),
     ProfileRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<ProfileRouteArgs>();
-          return _i25.Profile(color: args.color);
+          return _i24.Profile(color: args.color);
         }),
     RepeatedQuestionsRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<RepeatedQuestionsRouteArgs>();
-          return _i26.RepeatedQuestions(color: args.color);
+          return _i25.RepeatedQuestions(color: args.color);
+        }),
+    ContactUsRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<ContactUsRouteArgs>();
+          return _i26.ContactUs(color: args.color);
         })
   };
 
@@ -220,7 +223,6 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(SelectLangRoute.name, path: '/select-lang'),
         _i1.RouteConfig(TermsRoute.name, path: '/Terms'),
         _i1.RouteConfig(AboutRoute.name, path: '/About'),
-        _i1.RouteConfig(ContactUsRoute.name, path: '/contact-us'),
         _i1.RouteConfig(SelectUserRoute.name, path: '/select-user'),
         _i1.RouteConfig(ConfirmPasswordRoute.name, path: '/confirm-password'),
         _i1.RouteConfig(ChangePasswordRoute.name, path: '/change-password'),
@@ -237,7 +239,8 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(OffersRoute.name, path: '/Offers'),
         _i1.RouteConfig(ProfileRoute.name, path: '/Profile'),
         _i1.RouteConfig(RepeatedQuestionsRoute.name,
-            path: '/repeated-questions')
+            path: '/repeated-questions'),
+        _i1.RouteConfig(ContactUsRoute.name, path: '/contact-us')
       ];
 }
 
@@ -303,22 +306,30 @@ class SelectLangRoute extends _i1.PageRouteInfo {
   static const String name = 'SelectLangRoute';
 }
 
-class TermsRoute extends _i1.PageRouteInfo {
-  const TermsRoute() : super(name, path: '/Terms');
+class TermsRoute extends _i1.PageRouteInfo<TermsRouteArgs> {
+  TermsRoute({required _i27.Color color})
+      : super(name, path: '/Terms', args: TermsRouteArgs(color: color));
 
   static const String name = 'TermsRoute';
 }
 
-class AboutRoute extends _i1.PageRouteInfo {
-  const AboutRoute() : super(name, path: '/About');
+class TermsRouteArgs {
+  const TermsRouteArgs({required this.color});
+
+  final _i27.Color color;
+}
+
+class AboutRoute extends _i1.PageRouteInfo<AboutRouteArgs> {
+  AboutRoute({required _i27.Color color})
+      : super(name, path: '/About', args: AboutRouteArgs(color: color));
 
   static const String name = 'AboutRoute';
 }
 
-class ContactUsRoute extends _i1.PageRouteInfo {
-  const ContactUsRoute() : super(name, path: '/contact-us');
+class AboutRouteArgs {
+  const AboutRouteArgs({required this.color});
 
-  static const String name = 'ContactUsRoute';
+  final _i27.Color color;
 }
 
 class SelectUserRoute extends _i1.PageRouteInfo {
@@ -500,6 +511,20 @@ class RepeatedQuestionsRoute
 
 class RepeatedQuestionsRouteArgs {
   const RepeatedQuestionsRouteArgs({required this.color});
+
+  final _i27.Color color;
+}
+
+class ContactUsRoute extends _i1.PageRouteInfo<ContactUsRouteArgs> {
+  ContactUsRoute({required _i27.Color color})
+      : super(name,
+            path: '/contact-us', args: ContactUsRouteArgs(color: color));
+
+  static const String name = 'ContactUsRoute';
+}
+
+class ContactUsRouteArgs {
+  const ContactUsRouteArgs({required this.color});
 
   final _i27.Color color;
 }

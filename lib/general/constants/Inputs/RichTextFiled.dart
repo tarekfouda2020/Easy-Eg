@@ -19,6 +19,7 @@ class RichTextFiled extends StatelessWidget {
   final bool readOnly;
   final TextInputAction? action;
   final Function(String value)? submit;
+  final Color? borderColor;
 
   RichTextFiled(
       { required this.label,
@@ -28,6 +29,7 @@ class RichTextFiled extends StatelessWidget {
         required this.max,
         required this.validate,
         this.fillColor,
+        this.borderColor,
         this.readOnly = false,
         this.action,
         this.submit});
@@ -46,7 +48,7 @@ class RichTextFiled extends StatelessWidget {
         readOnly: readOnly,
         validator: (value) => validate(value),
         style: CustomInputTextStyle(lang: lang),
-        decoration: CustomInputDecoration(lang: lang,label: label),
+        decoration: CustomInputDecoration(lang: lang,label: label,enableColor: borderColor),
       ),
     );
   }

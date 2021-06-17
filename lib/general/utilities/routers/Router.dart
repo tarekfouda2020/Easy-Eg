@@ -13,7 +13,6 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: SelectLang),
     AdaptiveRoute(page: Terms),
     AdaptiveRoute(page: About),
-    AdaptiveRoute(page: ContactUs),
     CustomRoute(
         page: SelectUser,
         transitionsBuilder: TransitionsBuilders.zoomIn,
@@ -49,6 +48,7 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: Offers),
     AdaptiveRoute(page: Profile),
     AdaptiveRoute(page: RepeatedQuestions),
+    AdaptiveRoute(page: ContactUs),
 
   ],
 )

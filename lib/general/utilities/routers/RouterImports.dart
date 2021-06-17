@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:base_flutter/customer/screens/add_reservation/AddReservationImports.dart';
+import 'package:base_flutter/customer/screens/contact_us/ContactUsImports.dart';
 import 'package:base_flutter/customer/screens/home/HomeImports.dart';
 import 'package:base_flutter/customer/screens/offers/OffersImports.dart';
 import 'package:base_flutter/customer/screens/order_details/OrderDetailsImports.dart';
@@ -14,7 +15,6 @@ import 'package:base_flutter/general/screens/about/AboutImports.dart';
 import 'package:base_flutter/general/screens/active_account/ActiveAccountImports.dart';
 import 'package:base_flutter/general/screens/change_password/ChangePasswordImports.dart';
 import 'package:base_flutter/general/screens/confirm_password/ConfirmPasswordImports.dart';
-import 'package:base_flutter/general/screens/contact_us/ContactUsImports.dart';
 import 'package:base_flutter/general/screens/forget_password/ForgetPasswordImports.dart';
 import 'package:base_flutter/general/screens/image_zoom/ImageZoom.dart';
 import 'package:base_flutter/general/screens/login/LoginImports.dart';

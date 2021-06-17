@@ -45,7 +45,7 @@ class Settings extends StatelessWidget {
               BuildPageItem(
                 name: "الشروض والاحكام",
                 color: currentColor,
-                onTap: (){},
+                onTap: ()=> AutoRouter.of(context).push(TermsRoute(color: currentColor)),
               ),
               BuildPageItem(
                 name: "عن التطبيق",
@@ -55,7 +55,7 @@ class Settings extends StatelessWidget {
               BuildPageItem(
                 name: "اتصل بنا",
                 color: currentColor,
-                onTap: (){},
+                onTap: ()=> AutoRouter.of(context).push(ContactUsRoute(color: currentColor)),
               ),
               BuildPageItem(
                 name: "مشاركة التطبيق",
