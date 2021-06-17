@@ -103,6 +103,7 @@ flutter:
     - assets/images/hands.png
     - assets/images/icon.png
     - assets/images/instagram.png
+    - assets/images/ksa.png
     - assets/images/logo.png
     - assets/images/logoWhite.png
     - assets/images/nodata.png
@@ -113,6 +114,7 @@ flutter:
     - assets/images/success.png
     - assets/images/telegram.png
     - assets/images/twitter.png
+    - assets/images/usa.png
     - assets/images/youtube.png
     - assets/lang/ar.json
     - assets/lang/en.json

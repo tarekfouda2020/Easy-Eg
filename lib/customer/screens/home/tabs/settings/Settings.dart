@@ -65,13 +65,14 @@ class Settings extends StatelessWidget {
               BuildPageItem(
                 name: "اللغة",
                 color: currentColor,
-                onTap: (){},
+                onTap: ()=> AutoRouter.of(context).push(LanguagesRoute(color: currentColor)),
               ),
               BuildPageItem(
                 name: "تسجيل خروج",
                 color: currentColor,
                 onTap: (){},
               ),
+              SizedBox(height: 50)
             ],
           ),
         ),
