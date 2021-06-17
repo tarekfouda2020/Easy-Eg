@@ -31,12 +31,8 @@ class _ProductsState extends State<Products>{
 
       body: GestureDetector(
         onTap: ()=> FocusScope.of(context).requestFocus(FocusNode()),
-        child: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [widget.color, MyColors.white],
-                begin: Alignment.bottomCenter,
-              )),
+        child: LinearContainer(
+          color: widget.color,
           child: ListView.builder(
             padding: EdgeInsets.symmetric(horizontal: 15),
             itemCount: 12,

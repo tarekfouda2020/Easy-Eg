@@ -22,25 +22,18 @@ class _AddReservationState extends State<AddReservation> {
         ),
         preferredSize: Size.fromHeight(60),
       ),
-      body: GestureDetector(
-        onTap: ()=> FocusScope.of(context).requestFocus(FocusNode()),
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 15,vertical: 20),
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-            colors: [widget.color.withOpacity(.5), MyColors.white],
-            begin: Alignment.bottomCenter,
-          )),
-          child: Column(
-            children: [
-              BuildFormView(addReservationData: addReservationData),
-              DefaultButton(
-                title: "ارسال",
-                color: widget.color,
-                onTap: () => AutoRouter.of(context).push(ReservationSuccessRoute(color: widget.color)),
-              )
-            ],
-          ),
+      body: LinearContainer(
+        padding: EdgeInsets.symmetric(horizontal: 15,vertical: 20),
+        color: widget.color,
+        child: Column(
+          children: [
+            BuildFormView(addReservationData: addReservationData),
+            DefaultButton(
+              title: "ارسال",
+              color: widget.color,
+              onTap: () => AutoRouter.of(context).push(ReservationSuccessRoute(color: widget.color)),
+            )
+          ],
         ),
       ),
     );

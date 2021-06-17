@@ -18,14 +18,9 @@ class Orders extends StatelessWidget {
           ),
           preferredSize: Size.fromHeight(130),
         ),
-        body: Container(
+        body: LinearContainer(
           padding: EdgeInsets.only(bottom: 100),
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [currentColor, MyColors.white],
-                begin: Alignment.bottomCenter,
-
-              )),
+          color: currentColor,
           child: TabBarView(
             children: [
               Waiting(color: currentColor),

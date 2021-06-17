@@ -10,14 +10,9 @@ class Notifications extends StatelessWidget {
         child: DefaultAppBar(title: "الاشعارات",color: currentColor,back: false,),
         preferredSize: Size.fromHeight(60),
       ),
-      body: Container(
+      body: LinearContainer(
         padding: EdgeInsets.only(bottom: 100),
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [currentColor, MyColors.white],
-              begin: Alignment.bottomCenter,
-
-            )),
+        color: currentColor,
         child: CupertinoScrollbar(
           child: ListView.separated(
             padding: EdgeInsets.symmetric(horizontal: 15),

@@ -10,14 +10,9 @@ class Settings extends StatelessWidget {
         child: DefaultAppBar(title: "المزيد",color: currentColor,back: false,),
         preferredSize: Size.fromHeight(60),
       ),
-      body: Container(
+      body: LinearContainer(
         padding: EdgeInsets.only(bottom: 100),
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [currentColor, MyColors.white],
-              begin: Alignment.bottomCenter,
-
-            )),
+        color: currentColor,
         child: CupertinoScrollbar(
           child: ListView(
             padding: EdgeInsets.symmetric(horizontal: 15),
@@ -40,7 +35,7 @@ class Settings extends StatelessWidget {
               BuildPageItem(
                 name: "الملف الشخصي",
                 color: currentColor,
-                onTap: (){},
+                onTap: ()=> AutoRouter.of(context).push(ProfileRoute(color: currentColor)),
               ),
               BuildPageItem(
                 name: "اسئلة متكررة",

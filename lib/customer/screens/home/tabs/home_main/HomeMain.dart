@@ -1,29 +1,28 @@
 part of 'HomeMainImports.dart';
 
 class HomeMain extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     var currentColor = context.watch<TabsColorCubit>().state.color;
     return Scaffold(
       appBar: PreferredSize(
-        child: DefaultAppBar(title: "اسم القسم",color: currentColor,),
+        child: DefaultAppBar(
+          title: "اسم القسم",
+          color: currentColor,
+        ),
         preferredSize: Size.fromHeight(60),
       ),
-      body: Container(
+      body: LinearContainer(
         padding: EdgeInsets.only(bottom: 100),
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [currentColor, MyColors.white],
-              begin: Alignment.bottomCenter,
-
-            )),
+        color: currentColor,
         child: CupertinoScrollbar(
           child: ListView.builder(
             padding: EdgeInsets.symmetric(horizontal: 15),
             itemCount: 10,
             itemBuilder: (BuildContext context, int index) {
-              return BuildCategoryItem(color: currentColor,);
+              return BuildCategoryItem(
+                color: currentColor,
+              );
             },
           ),
         ),
@@ -31,4 +30,3 @@ class HomeMain extends StatelessWidget {
     );
   }
 }
-

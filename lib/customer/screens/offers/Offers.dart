@@ -22,12 +22,8 @@ class _OffersState extends State<Offers> {
         ),
         preferredSize: Size.fromHeight(60),
       ),
-      body: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-          colors: [widget.color.withOpacity(.5), MyColors.white],
-          begin: Alignment.bottomCenter,
-        )),
+      body: LinearContainer(
+        color: widget.color,
         child: ListView.builder(
           padding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
           itemCount: 4,

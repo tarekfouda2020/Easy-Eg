@@ -83,7 +83,7 @@ class CustomInputDecoration extends InputDecoration {
   @override
   // TODO: implement contentPadding
   EdgeInsetsGeometry get contentPadding =>
-      padding?? EdgeInsets.symmetric(horizontal: 10, vertical: 18);
+      padding?? EdgeInsets.symmetric(horizontal: 10, vertical: 12);
 
   @override
   // TODO: implement filled

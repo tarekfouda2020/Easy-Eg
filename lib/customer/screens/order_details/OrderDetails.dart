@@ -21,13 +21,8 @@ class _OrderDetailsState extends State<OrderDetails>{
         preferredSize: Size.fromHeight(60),
       ),
 
-      body: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [widget.color, MyColors.white],
-              begin: Alignment.bottomCenter,
-
-            )),
+      body: LinearContainer(
+        color: widget.color,
         child: ListView(
           children: [
             Padding(

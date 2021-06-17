@@ -21,12 +21,8 @@ class _ProductDetailsState extends State<ProductDetails> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
-      child: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [widget.color.withOpacity(.5), MyColors.white],
-              begin: Alignment.bottomCenter,
-            )),
+      child: LinearContainer(
+        color: widget.color,
         child: CustomScrollView(
           controller: productDetailsData.scrollController,
           slivers: [

@@ -16,6 +16,8 @@ import 'package:base_flutter/customer/screens/product_details/ProductDetailsImpo
     as _i20;
 import 'package:base_flutter/customer/screens/products/ProductsImports.dart'
     as _i23;
+import 'package:base_flutter/customer/screens/profile/ProfileImports.dart'
+    as _i25;
 import 'package:base_flutter/customer/screens/reservation_success/ReservationSuccessImports.dart'
     as _i22;
 import 'package:base_flutter/customer/screens/select_address/SelectAddressImports.dart'
@@ -43,7 +45,7 @@ import 'package:base_flutter/general/screens/select_user/SelectUserImports.dart'
     as _i12;
 import 'package:base_flutter/general/screens/splash/SplashImports.dart' as _i3;
 import 'package:base_flutter/general/screens/terms/TermsImports.dart' as _i9;
-import 'package:flutter/cupertino.dart' as _i25;
+import 'package:flutter/cupertino.dart' as _i26;
 import 'package:flutter/material.dart' as _i2;
 
 class AppRouter extends _i1.RootStackRouter {
@@ -185,6 +187,12 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (data) {
           final args = data.argsAs<OffersRouteArgs>();
           return _i24.Offers(color: args.color);
+        }),
+    ProfileRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<ProfileRouteArgs>();
+          return _i25.Profile(color: args.color);
         })
   };
 
@@ -212,12 +220,13 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(ReservationSuccessRoute.name,
             path: '/reservation-success'),
         _i1.RouteConfig(ProductsRoute.name, path: '/Products'),
-        _i1.RouteConfig(OffersRoute.name, path: '/Offers')
+        _i1.RouteConfig(OffersRoute.name, path: '/Offers'),
+        _i1.RouteConfig(ProfileRoute.name, path: '/Profile')
       ];
 }
 
 class SplashRoute extends _i1.PageRouteInfo<SplashRouteArgs> {
-  SplashRoute({required _i25.GlobalKey<_i25.NavigatorState> navigatorKey})
+  SplashRoute({required _i26.GlobalKey<_i26.NavigatorState> navigatorKey})
       : super(name,
             path: '/', args: SplashRouteArgs(navigatorKey: navigatorKey));
 
@@ -227,7 +236,7 @@ class SplashRoute extends _i1.PageRouteInfo<SplashRouteArgs> {
 class SplashRouteArgs {
   const SplashRouteArgs({required this.navigatorKey});
 
-  final _i25.GlobalKey<_i25.NavigatorState> navigatorKey;
+  final _i26.GlobalKey<_i26.NavigatorState> navigatorKey;
 }
 
 class LoginRoute extends _i1.PageRouteInfo {
@@ -341,7 +350,7 @@ class SelectDeptRoute extends _i1.PageRouteInfo {
 }
 
 class HomeRoute extends _i1.PageRouteInfo<HomeRouteArgs> {
-  HomeRoute({required _i25.Color color, int tab = 4})
+  HomeRoute({required _i26.Color color, int tab = 4})
       : super(name, path: '/Home', args: HomeRouteArgs(color: color, tab: tab));
 
   static const String name = 'HomeRoute';
@@ -350,13 +359,13 @@ class HomeRoute extends _i1.PageRouteInfo<HomeRouteArgs> {
 class HomeRouteArgs {
   const HomeRouteArgs({required this.color, this.tab = 4});
 
-  final _i25.Color color;
+  final _i26.Color color;
 
   final int tab;
 }
 
 class OrderDetailsRoute extends _i1.PageRouteInfo<OrderDetailsRouteArgs> {
-  OrderDetailsRoute({required _i25.Color color})
+  OrderDetailsRoute({required _i26.Color color})
       : super(name,
             path: '/order-details', args: OrderDetailsRouteArgs(color: color));
 
@@ -366,11 +375,11 @@ class OrderDetailsRoute extends _i1.PageRouteInfo<OrderDetailsRouteArgs> {
 class OrderDetailsRouteArgs {
   const OrderDetailsRouteArgs({required this.color});
 
-  final _i25.Color color;
+  final _i26.Color color;
 }
 
 class ProductDetailsRoute extends _i1.PageRouteInfo<ProductDetailsRouteArgs> {
-  ProductDetailsRoute({required _i25.Color color})
+  ProductDetailsRoute({required _i26.Color color})
       : super(name,
             path: '/product-details',
             args: ProductDetailsRouteArgs(color: color));
@@ -381,11 +390,11 @@ class ProductDetailsRoute extends _i1.PageRouteInfo<ProductDetailsRouteArgs> {
 class ProductDetailsRouteArgs {
   const ProductDetailsRouteArgs({required this.color});
 
-  final _i25.Color color;
+  final _i26.Color color;
 }
 
 class AddReservationRoute extends _i1.PageRouteInfo<AddReservationRouteArgs> {
-  AddReservationRoute({required _i25.Color color})
+  AddReservationRoute({required _i26.Color color})
       : super(name,
             path: '/add-reservation',
             args: AddReservationRouteArgs(color: color));
@@ -396,12 +405,12 @@ class AddReservationRoute extends _i1.PageRouteInfo<AddReservationRouteArgs> {
 class AddReservationRouteArgs {
   const AddReservationRouteArgs({required this.color});
 
-  final _i25.Color color;
+  final _i26.Color color;
 }
 
 class ReservationSuccessRoute
     extends _i1.PageRouteInfo<ReservationSuccessRouteArgs> {
-  ReservationSuccessRoute({required _i25.Color color})
+  ReservationSuccessRoute({required _i26.Color color})
       : super(name,
             path: '/reservation-success',
             args: ReservationSuccessRouteArgs(color: color));
@@ -412,11 +421,11 @@ class ReservationSuccessRoute
 class ReservationSuccessRouteArgs {
   const ReservationSuccessRouteArgs({required this.color});
 
-  final _i25.Color color;
+  final _i26.Color color;
 }
 
 class ProductsRoute extends _i1.PageRouteInfo<ProductsRouteArgs> {
-  ProductsRoute({required _i25.Color color})
+  ProductsRoute({required _i26.Color color})
       : super(name, path: '/Products', args: ProductsRouteArgs(color: color));
 
   static const String name = 'ProductsRoute';
@@ -425,11 +434,11 @@ class ProductsRoute extends _i1.PageRouteInfo<ProductsRouteArgs> {
 class ProductsRouteArgs {
   const ProductsRouteArgs({required this.color});
 
-  final _i25.Color color;
+  final _i26.Color color;
 }
 
 class OffersRoute extends _i1.PageRouteInfo<OffersRouteArgs> {
-  OffersRoute({required _i25.Color color})
+  OffersRoute({required _i26.Color color})
       : super(name, path: '/Offers', args: OffersRouteArgs(color: color));
 
   static const String name = 'OffersRoute';
@@ -438,5 +447,18 @@ class OffersRoute extends _i1.PageRouteInfo<OffersRouteArgs> {
 class OffersRouteArgs {
   const OffersRouteArgs({required this.color});
 
-  final _i25.Color color;
+  final _i26.Color color;
+}
+
+class ProfileRoute extends _i1.PageRouteInfo<ProfileRouteArgs> {
+  ProfileRoute({required _i26.Color color})
+      : super(name, path: '/Profile', args: ProfileRouteArgs(color: color));
+
+  static const String name = 'ProfileRoute';
+}
+
+class ProfileRouteArgs {
+  const ProfileRouteArgs({required this.color});
+
+  final _i26.Color color;
 }
