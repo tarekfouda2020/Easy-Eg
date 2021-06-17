@@ -40,7 +40,7 @@ class Settings extends StatelessWidget {
               BuildPageItem(
                 name: "اسئلة متكررة",
                 color: currentColor,
-                onTap: (){},
+                onTap: ()=> AutoRouter.of(context).push(RepeatedQuestionsRoute(color: currentColor)),
               ),
               BuildPageItem(
                 name: "الشروض والاحكام",

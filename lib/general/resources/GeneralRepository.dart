@@ -1,4 +1,4 @@
-import 'package:base_flutter/general/models/QuestionModel.dart';
+import 'package:base_flutter/customer/models/QuestionModel.dart';
 import 'package:base_flutter/general/models/UserModel.dart';
 import 'package:flutter/material.dart';
 

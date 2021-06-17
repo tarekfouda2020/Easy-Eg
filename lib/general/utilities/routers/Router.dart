@@ -48,6 +48,7 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: Products),
     AdaptiveRoute(page: Offers),
     AdaptiveRoute(page: Profile),
+    AdaptiveRoute(page: RepeatedQuestions),
 
   ],
 )

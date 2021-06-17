@@ -1,8 +1,8 @@
 import 'dart:io';
+import 'package:base_flutter/customer/models/QuestionModel.dart';
 import 'package:base_flutter/general/blocks/lang_cubit/lang_cubit.dart';
 import 'package:base_flutter/general/blocks/user_cubit/user_cubit.dart';
 import 'package:base_flutter/general/constants/GlobalState.dart';
-import 'package:base_flutter/general/models/QuestionModel.dart';
 import 'package:base_flutter/general/models/UserModel.dart';
 import 'package:base_flutter/general/utilities/dio_helper/DioImports.dart';
 import 'package:base_flutter/general/utilities/utils_functions/UtilsImports.dart';

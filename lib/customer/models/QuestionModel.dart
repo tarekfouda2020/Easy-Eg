@@ -5,17 +5,13 @@ part 'QuestionModel.g.dart';
 @JsonSerializable()
 class QuestionModel {
 
-  @JsonKey(name: "question")
-  String question;
-  @JsonKey(name: "answer")
+
+  String title;
   String answer;
-  @JsonKey(defaultValue: true)
-  bool closed;
-
-  QuestionModel({required this.question,required this.answer,required this.closed});
+  bool expanded;
 
 
-
+  QuestionModel({required this.title, required this.answer, required this.expanded});
 
   factory QuestionModel.fromJson(Map<String, dynamic> json) => _$QuestionModelFromJson(json);
 
