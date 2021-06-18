@@ -13,6 +13,14 @@ class HomeData {
   late Animation<double> animation;
   late CurvedAnimation curve;
 
+  List<Widget> tabsView=[
+    Favourite(),
+    Orders(),
+    Notifications(),
+    Settings(),
+    HomeMain(),
+  ];
+
   List<BottomTabModel> tabs = [
     BottomTabModel(iconData: Icons.favorite_border, title: "المفضلة",color: Color(0xff269492)),
     BottomTabModel(iconData: Icons.shopping_bag, title: "الطلبات",color: Color(0xff79617f)),

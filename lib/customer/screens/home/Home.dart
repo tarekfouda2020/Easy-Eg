@@ -1,6 +1,5 @@
 part of 'HomeImports.dart';
 
-
 class Home extends StatefulWidget {
   final Color color;
   final int tab;
@@ -16,7 +15,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    homeData.initBottomNavigation(this, widget.color,context);
+    homeData.initBottomNavigation(this, widget.color, context);
     homeData.animateTabsPages(4, context, widget.color);
     super.initState();
   }
@@ -31,19 +30,25 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         child: Scaffold(
           key: homeData.scaffold,
           extendBody: true,
-          body: TabBarView(
-            controller: homeData.tabController,
-            physics: NeverScrollableScrollPhysics(),
-            children: [
-              Favourite(),
-              Orders(),
-              Notifications(),
-              Settings(),
-              HomeMain(),
-            ],
+          body: BlocBuilder<GenericBloc<int>, GenericState<int>>(
+            bloc: homeData.homeTabCubit,
+            builder: (context, state) {
+              return PageTransitionSwitcher(
+                transitionBuilder:
+                    (child, primaryAnimation, secondaryAnimation) {
+                  return FadeThroughTransition(
+                    animation: primaryAnimation,
+                    secondaryAnimation: secondaryAnimation,
+                    child: child,
+                  );
+                },
+                child: homeData.tabsView[state.data],
+              );
+            },
           ),
           floatingActionButton: FloatingActionButton(
-            onPressed: () => homeData.animateTabsPages(4, context, widget.color),
+            onPressed: () =>
+                homeData.animateTabsPages(4, context, widget.color),
             backgroundColor: currentColor,
             elevation: 0,
             child: Icon(
@@ -52,7 +57,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               color: MyColors.white,
             ),
           ),
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
           bottomNavigationBar: BlocBuilder<GenericBloc<int>, GenericState<int>>(
             bloc: homeData.homeTabCubit,
             builder: (context, state) {
