@@ -18,20 +18,32 @@ class BuildConversationItem extends StatelessWidget {
           ),
           SizedBox(width: 5),
           Container(
-            width: MediaQuery.of(context).size.width-120,
+            width: MediaQuery.of(context).size.width-100,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                MyText(
-                  title: "طارق فودة",
-                  color: MyColors.black,
-                  size: 12,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    MyText(
+                      title: "طارق فودة",
+                      color: MyColors.black,
+                      size: 12,
+                    ),
+                    MyText(
+                      title: "12/12/2021",
+                      color: Colors.blueAccent,
+                      size: 8,
+                    ),
+                  ],
                 ),
                 SizedBox(height: 10),
                 MyText(
                   title: "هذا النص يمكن استبدالة بنص " * 2,
                   color: MyColors.black,
-                  size: 12,
+                  size: 8,
                   overflow: TextOverflow.ellipsis,
+                  fontWeight: FontWeight.w600,
                 ),
               ],
             ),

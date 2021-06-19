@@ -20,14 +20,18 @@ class _ConversationsState extends State<Conversations>{
         preferredSize: Size.fromHeight(60),
       ),
 
-      body: ListView.separated(
-        itemCount: 8,
-        itemBuilder: (BuildContext context, int index){
-          return BuildConversationItem();
-        },
-        separatorBuilder: (BuildContext context, int index) {
-          return Divider(color: MyColors.greyWhite);
-        },
+      body: LinearContainer(
+        color: widget.color,
+        child: ListView.separated(
+          padding: EdgeInsets.only(top: 20),
+          itemCount: 4,
+          itemBuilder: (BuildContext context, int index){
+            return BuildConversationItem();
+          },
+          separatorBuilder: (BuildContext context, int index) {
+            return Divider(color: MyColors.greyWhite);
+          },
+        ),
       ),
 
     );
