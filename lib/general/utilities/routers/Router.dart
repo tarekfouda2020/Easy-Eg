@@ -55,6 +55,7 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: RepeatedQuestions),
     AdaptiveRoute(page: ContactUs),
     AdaptiveRoute(page: Languages),
+    AdaptiveRoute(page: Conversations),
 
   ],
 )

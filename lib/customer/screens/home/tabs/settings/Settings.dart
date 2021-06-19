@@ -30,7 +30,7 @@ class Settings extends StatelessWidget {
               BuildPageItem(
                 name: "المحادثات",
                 color: currentColor,
-                onTap: (){},
+                onTap: ()=> AutoRouter.of(context).push(ConversationsRoute(color: currentColor)),
               ),
               BuildPageItem(
                 name: "الملف الشخصي",
