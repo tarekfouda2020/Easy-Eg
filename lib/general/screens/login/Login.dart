@@ -14,17 +14,13 @@ class _LoginState extends State<Login> {
       child: GestureDetector(
         onTap: ()=> FocusScope.of(context).requestFocus(FocusNode()),
         child: ListView(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          physics: BouncingScrollPhysics(
-            parent: AlwaysScrollableScrollPhysics(),
-          ),
           children: [
             HeaderLogo(),
             BuildText(),
             BuildFormInputs(loginData: loginData),
             BuildForgetText(),
             BuildLoginButton(loginData: loginData),
-            BuildNewRegister(),
+            // BuildNewRegister(),
             BuildRegisterButton(),
           ],
         ),

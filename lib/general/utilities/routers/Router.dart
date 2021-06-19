@@ -26,6 +26,11 @@ part of 'RouterImports.dart';
       reverseDurationInMilliseconds: 800,
     ),
     AdaptiveRoute(page: ImageZoom),
+    CustomRoute(page: SelectAuth,
+      transitionsBuilder: TransitionsBuilders.zoomIn,
+      durationInMilliseconds: 800,
+      reverseDurationInMilliseconds: 800
+    ),
 
     //customer pages
     AdaptiveRoute(page: SelectAddress),

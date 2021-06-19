@@ -12,4 +12,12 @@ class ProductDetailsData{
     }
   }
 
+  navigateToReservation(BuildContext context,Color color){
+    if (context.read<AuthCubit>().state.authorized) {
+      AutoRouter.of(context).push(AddReservationRoute(color: color));
+    } else{
+      AutoRouter.of(context).push(LoginRoute());
+    }
+  }
+
 }

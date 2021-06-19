@@ -6,7 +6,7 @@ abstract class AuthState extends Equatable {
 }
 
 class AuthInitial extends AuthState {
-  AuthInitial() : super(true);
+  AuthInitial() : super(false);
 
   @override
   List<Object> get props => [authorized];

@@ -4,6 +4,7 @@ class ProductDetails extends StatefulWidget {
   final Color color;
 
   const ProductDetails({required this.color});
+
   @override
   _ProductDetailsState createState() => _ProductDetailsState();
 }
@@ -13,7 +14,8 @@ class _ProductDetailsState extends State<ProductDetails> {
 
   @override
   void initState() {
-    productDetailsData.scrollController.addListener(productDetailsData.scrollListener);
+    productDetailsData.scrollController
+        .addListener(productDetailsData.scrollListener);
     super.initState();
   }
 
@@ -30,8 +32,14 @@ class _ProductDetailsState extends State<ProductDetails> {
             SliverFillRemaining(
               child: Column(
                 children: [
-                  BuildTabBar(detailsData: productDetailsData,color: widget.color,),
-                  BuildTabBarView(color: widget.color),
+                  BuildTabBar(
+                    detailsData: productDetailsData,
+                    color: widget.color,
+                  ),
+                  BuildTabBarView(
+                    color: widget.color,
+                    detailsData: productDetailsData,
+                  ),
                 ],
               ),
             )

@@ -16,7 +16,7 @@ class LinearContainer extends StatelessWidget {
         padding: padding,
         decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [color.withOpacity(.5), MyColors.white],
+              colors: [color.withOpacity(.8), MyColors.white],
               begin: Alignment.bottomCenter,
             )),
         child: child,

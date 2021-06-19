@@ -12,7 +12,7 @@ class BuildButton extends StatelessWidget {
       title: tr(context,"continue"),
       onTap: () => forgerPasswordData.onForgetPassword(context),
       color: MyColors.primary,
-      margin: const EdgeInsets.symmetric(vertical: 30),
+      margin: const EdgeInsets.symmetric(vertical: 30,horizontal: 15),
     );
   }
 }

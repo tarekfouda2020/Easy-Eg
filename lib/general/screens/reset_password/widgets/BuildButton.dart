@@ -13,7 +13,7 @@ class BuildButton extends StatelessWidget {
       title: tr(context,"confirm"),
       onTap: () => resetPasswordData.onResetPassword(context, userId),
       color: MyColors.primary,
-      margin: const EdgeInsets.symmetric( vertical: 30),
+      margin: const EdgeInsets.symmetric( vertical: 30,horizontal: 15),
     );
   }
 }

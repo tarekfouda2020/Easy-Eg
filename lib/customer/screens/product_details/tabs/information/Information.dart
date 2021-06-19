@@ -1,9 +1,11 @@
 part of 'InformationImports.dart';
 
+
 class Information extends StatelessWidget {
   final Color color;
+  final ProductDetailsData detailsData;
 
-  const Information({required this.color});
+  const Information({required this.color,required this.detailsData});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +14,7 @@ class Information extends StatelessWidget {
       children: [
         BuildInfoDetails(color: color),
         BuildVideoView(),
-        BuildReservationButton(color: color,)
+        BuildReservationButton(color: color,detailsData: detailsData,),
       ],
     );
   }
