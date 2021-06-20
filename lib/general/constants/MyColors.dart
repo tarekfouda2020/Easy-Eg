@@ -8,6 +8,7 @@ class MyColors{
   static Color bg=Color(0xfffffafa);
   static Color providerPrimary = Color(0xff79617f);
   static Color gold=Color(0xffe4aa69);
+  static Color red=Color(0xffb9072b);
   static Color grey=Colors.grey;
   static Color greyWhite=Colors.grey.withOpacity(.2);
   static Color black=Color(0xff031626);

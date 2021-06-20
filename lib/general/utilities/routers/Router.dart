@@ -63,6 +63,9 @@ part of 'RouterImports.dart';
       transitionsBuilder: TransitionsBuilders.fadeIn,
       durationInMilliseconds: 1000,
     ),
+    AdaptiveRoute(page: ProviderOrderDetails),
+    AdaptiveRoute(page: AcceptOrderSuccess),
+
 
   ],
 )

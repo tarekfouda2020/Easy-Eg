@@ -32,7 +32,7 @@ class BuildOrderCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  MyText(title: "نادي الجزيرة", color: MyColors.black, size: 10),
+                  MyText(title: "طارق فودة", color: MyColors.black, size: 10),
                   SizedBox(height: 5),
                   MyText(
                       title: "قاعة",

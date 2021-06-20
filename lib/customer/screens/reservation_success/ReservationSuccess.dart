@@ -28,7 +28,7 @@ class _ReservationSuccessState extends State<ReservationSuccess> {
               textColor: MyColors.white,
               borderColor: MyColors.white,
               onTap: ()=> AutoRouter.of(context).popUntilRouteWithName(HomeRoute.name),
-            )
+            ),
           ],
         ),
       ),

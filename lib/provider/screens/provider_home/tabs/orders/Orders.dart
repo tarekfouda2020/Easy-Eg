@@ -23,6 +23,7 @@ class Orders extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 return BuildOrderCard(
                   color: currentColor,
+                  onTap: ()=>AutoRouter.of(context).push(ProviderOrderDetailsRoute(color: currentColor)),
                 );
               },
               separatorBuilder: (BuildContext context, int index) {
