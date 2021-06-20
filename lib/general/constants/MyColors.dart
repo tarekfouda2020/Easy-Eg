@@ -6,7 +6,7 @@ class MyColors{
   static Color secondary =  Color(0xff8a8a8a);
   static Color header =  Color(0xff4f91a8);
   static Color bg=Color(0xfffffafa);
-  static Color offWhite=Color(0xffF2F2F2);
+  static Color providerPrimary = Color(0xff79617f);
   static Color gold=Color(0xffe4aa69);
   static Color grey=Colors.grey;
   static Color greyWhite=Colors.grey.withOpacity(.2);

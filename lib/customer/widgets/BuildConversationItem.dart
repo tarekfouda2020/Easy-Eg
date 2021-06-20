@@ -1,4 +1,8 @@
-part of 'ConvWidgetsImports.dart';
+
+import 'package:base_flutter/general/constants/MyColors.dart';
+import 'package:base_flutter/general/widgets/CachedImage.dart';
+import 'package:base_flutter/general/widgets/MyText.dart';
+import 'package:flutter/material.dart';
 
 class BuildConversationItem extends StatelessWidget {
   @override
@@ -39,7 +43,7 @@ class BuildConversationItem extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 MyText(
-                  title: "هذا النص يمكن استبدالة بنص " * 2,
+                  title: "هذا النص يمكن استبدالة بنص " ,
                   color: MyColors.black,
                   size: 8,
                   overflow: TextOverflow.ellipsis,

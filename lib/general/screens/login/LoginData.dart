@@ -11,7 +11,13 @@ class LoginData {
 
   void userLogin(BuildContext context) async {
     FocusScope.of(context).requestFocus(FocusNode());
-    AutoRouter.of(context).popUntilRouteWithName(HomeRoute.name);
+
+    if (context.read<UserCubit>().state.model.type=="user") {
+      AutoRouter.of(context).popUntilRouteWithName(HomeRoute.name);
+    } else{
+      AutoRouter.of(context).push(ProviderHomeRoute());
+    }
+
     return;
     if (formKey.currentState!.validate()) {
       btnKey.currentState!.animateForward();

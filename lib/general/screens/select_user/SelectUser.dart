@@ -16,7 +16,7 @@ class _SelectUserState extends State<SelectUser> {
         children: [
           HeaderLogo(haveBack: false,),
           BuildUserText(),
-          BuildButtonList(),
+          BuildButtonList(selectUserData: selectUserData),
         ],
       ),
     );

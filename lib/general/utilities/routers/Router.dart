@@ -57,6 +57,13 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: Languages),
     AdaptiveRoute(page: Conversations),
 
+    //provider pages
+    CustomRoute(
+      page: ProviderHome,
+      transitionsBuilder: TransitionsBuilders.fadeIn,
+      durationInMilliseconds: 1000,
+    ),
+
   ],
 )
 class $AppRouter {}
