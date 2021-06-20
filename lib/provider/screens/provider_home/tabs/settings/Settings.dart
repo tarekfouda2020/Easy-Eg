@@ -20,17 +20,7 @@ class Settings extends StatelessWidget {
               BuildPageItem(
                 name: "العروض",
                 color: currentColor,
-                onTap: ()=> AutoRouter.of(context).push(OffersRoute(color: currentColor)),
-              ),
-              BuildPageItem(
-                name: "المسابقات",
-                color: currentColor,
-                onTap: (){},
-              ),
-              BuildPageItem(
-                name: "المحادثات",
-                color: currentColor,
-                onTap: ()=> AutoRouter.of(context).push(ConversationsRoute(color: currentColor)),
+                onTap: ()=> AutoRouter.of(context).push(ProviderOffersRoute(color: currentColor)),
               ),
               BuildPageItem(
                 name: "الملف الشخصي",

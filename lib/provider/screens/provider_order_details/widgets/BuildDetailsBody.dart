@@ -12,17 +12,16 @@ class BuildDetailsBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              BuildDetailsItem(
-                color: color,
-                title: "تاريخ الحجز",
-                value: "24/03/2022",
-              ),
-              BuildDetailsItem(
-                  color: color, title: "رقم الجوال", value: "01551575332"),
-            ],
+          BuildDetailsItem(
+            color: color,
+            title: "تاريخ الحجز",
+            value: "24/03/2022",
+          ),
+          SizedBox(height: 20),
+          BuildDetailsItem(
+            color: color,
+            title: "رقم الجوال",
+            value: "01551575332",
           ),
         ],
       ),

@@ -3,8 +3,9 @@ part of 'ProviderOrderDetailsImports.dart';
 
 class ProviderOrderDetails extends StatefulWidget {
   final Color color;
+  final int type;
 
-  const ProviderOrderDetails({required this.color});
+  const ProviderOrderDetails({required this.color,required this.type});
   @override
   _ProviderOrderDetailsState createState() => _ProviderOrderDetailsState();
 }
@@ -37,7 +38,7 @@ class _ProviderOrderDetailsState extends State<ProviderOrderDetails>{
                 ],
               ),
             ),
-            BuildOrderActions(color: widget.color),
+            BuildOrderActions(color: widget.color,type: widget.type,),
           ],
         ),
       ),

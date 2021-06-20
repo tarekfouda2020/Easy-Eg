@@ -65,6 +65,7 @@ part of 'RouterImports.dart';
     ),
     AdaptiveRoute(page: ProviderOrderDetails),
     AdaptiveRoute(page: AcceptOrderSuccess),
+    AdaptiveRoute(page: ProviderOffers),
 
 
   ],
