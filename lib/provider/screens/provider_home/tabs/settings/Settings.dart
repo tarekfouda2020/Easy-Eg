@@ -25,7 +25,7 @@ class Settings extends StatelessWidget {
               BuildPageItem(
                 name: "الملف الشخصي",
                 color: currentColor,
-                onTap: ()=> AutoRouter.of(context).push(ProfileRoute(color: currentColor)),
+                onTap: ()=> AutoRouter.of(context).push(ProviderProfileRoute(color: currentColor)),
               ),
               BuildPageItem(
                 name: "اسئلة متكررة",
