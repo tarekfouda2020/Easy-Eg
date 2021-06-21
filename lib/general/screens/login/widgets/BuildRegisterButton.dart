@@ -10,8 +10,14 @@ class BuildRegisterButton extends StatelessWidget {
         children: [
           MyText(title: "ليس لديك حساب ؟ ", color: MyColors.white, size: 12),
           SizedBox(width: 5),
-          MyText(title: "تسجيل جديد", color: MyColors.white, size: 12),
-
+          InkWell(
+            onTap: ()=>AutoRouter.of(context).push(RegisterRoute()),
+            child: MyText(
+              title: "تسجيل جديد",
+              color: MyColors.white,
+              size: 12,
+            ),
+          ),
         ],
       ),
     );

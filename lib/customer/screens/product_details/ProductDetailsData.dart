@@ -16,7 +16,7 @@ class ProductDetailsData{
     if (context.read<AuthCubit>().state.authorized) {
       AutoRouter.of(context).push(AddReservationRoute(color: color));
     } else{
-      AutoRouter.of(context).push(LoginRoute());
+      AutoRouter.of(context).push(SelectAuthRoute());
     }
   }
 

@@ -12,12 +12,12 @@ class BuildButtonList extends StatelessWidget {
         ),
         DefaultButton(
           title: "مستخدم جديد",
-          onTap: () => AutoRouter.of(context).push(LoginRoute()),
+          onTap: () => AutoRouter.of(context).push(RegisterRoute()),
           margin: EdgeInsets.zero,
         ),
         DefaultButton(
           title: "المساعدة",
-          onTap: () => AutoRouter.of(context).push(LoginRoute()),
+          onTap: (){},
           margin: const EdgeInsets.symmetric(vertical: 15),
         ),
       ],

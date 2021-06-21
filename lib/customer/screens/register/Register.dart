@@ -20,6 +20,7 @@ class _RegisterState extends State<Register>{
             BuildText(),
             BuildRegisterForm(registerData: registerData),
             BuildRegisterButton(registerData: registerData),
+            BuildLoginAction()
           ],
         ),
       ),

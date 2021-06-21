@@ -13,7 +13,7 @@ class BuildRegisterButton extends StatelessWidget {
       onTap: (){},
       color: MyColors.primary,
       textColor: MyColors.white,
-      margin: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
     );
   }
 }
