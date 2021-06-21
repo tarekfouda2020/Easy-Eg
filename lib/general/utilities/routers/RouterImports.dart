@@ -9,6 +9,7 @@ import 'package:base_flutter/customer/screens/order_details/OrderDetailsImports.
 import 'package:base_flutter/customer/screens/product_details/ProductDetailsImports.dart';
 import 'package:base_flutter/customer/screens/products/ProductsImports.dart';
 import 'package:base_flutter/customer/screens/profile/ProfileImports.dart';
+import 'package:base_flutter/customer/screens/register/RegisterImports.dart';
 import 'package:base_flutter/customer/screens/repeated_questions/RepeatedQuestionsImports.dart';
 import 'package:base_flutter/customer/screens/reservation_success/ReservationSuccessImports.dart';
 import 'package:base_flutter/customer/screens/select_address/SelectAddressImports.dart';

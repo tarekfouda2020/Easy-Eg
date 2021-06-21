@@ -33,6 +33,7 @@ part of 'RouterImports.dart';
     ),
 
     //customer pages
+    AdaptiveRoute(page: Register),
     AdaptiveRoute(page: SelectAddress),
     AdaptiveRoute(page: SelectDept),
     CustomRoute(
