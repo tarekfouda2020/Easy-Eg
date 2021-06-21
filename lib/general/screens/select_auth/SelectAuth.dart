@@ -13,7 +13,6 @@ class _SelectAuthState extends State<SelectAuth>{
    Widget build(BuildContext context) {
      return AuthScaffold(
        child: ListView(
-         padding: const EdgeInsets.symmetric(horizontal: 20),
          children: [
            HeaderLogo(),
            BuildUserText(),

@@ -4,7 +4,7 @@ class BuildUserText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 50),
+      margin: const EdgeInsets.symmetric(vertical: 40,horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -18,6 +18,7 @@ class BuildUserText extends StatelessWidget {
             size: 12,
             color: MyColors.blackOpacity,
             fontWeight: FontWeight.w500,
+            alien: TextAlign.center,
           ),
         ],
       ),
