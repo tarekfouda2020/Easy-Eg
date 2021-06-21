@@ -35,7 +35,12 @@ part of 'RouterImports.dart';
     //customer pages
     AdaptiveRoute(page: Register),
     AdaptiveRoute(page: SelectAddress),
-    AdaptiveRoute(page: SelectDept),
+    CustomRoute(
+      page: SelectDept,
+        transitionsBuilder: TransitionsBuilders.fadeIn,
+        durationInMilliseconds: 800,
+        reverseDurationInMilliseconds: 800
+    ),
     CustomRoute(
       page: Home,
       transitionsBuilder: TransitionsBuilders.fadeIn,

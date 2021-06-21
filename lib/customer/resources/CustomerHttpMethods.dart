@@ -1,4 +1,5 @@
 import 'package:base_flutter/customer/models/DropDownModel.dart';
+import 'package:base_flutter/customer/models/category.dart';
 import 'package:base_flutter/general/blocks/lang_cubit/lang_cubit.dart';
 import 'package:base_flutter/general/utilities/dio_helper/DioImports.dart';
 import 'package:flutter/material.dart';
@@ -60,6 +61,20 @@ class CustomerHttpMethods{
     await DioHelper(context: context,forceRefresh: refresh).get(url: "/api/v1/ListRegoins", body:body);
     if (_data != null) {
       return List<DropDownModel>.from(_data["data"].map((e) => DropDownModel.fromJson(e)));
+    } else {
+      return [];
+    }
+  }
+
+  Future<List<Category>> getCategories(int regionId,bool refresh) async {
+    Map<String, dynamic> body = {
+      "lang": context.read<LangCubit>().state.locale.languageCode,
+      "idRegoin":"$regionId"
+    };
+    var _data =
+    await DioHelper(context: context,forceRefresh: refresh).get(url: "/api/v1/ListCategories", body:body);
+    if (_data != null) {
+      return List<Category>.from(_data["data"].map((e) => Category.fromJson(e)));
     } else {
       return [];
     }

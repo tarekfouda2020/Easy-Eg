@@ -1,4 +1,5 @@
 import 'package:base_flutter/customer/models/DropDownModel.dart';
+import 'package:base_flutter/customer/models/category.dart';
 import 'package:flutter/material.dart';
 import 'CustomerHttpMethods.dart';
 
@@ -22,6 +23,9 @@ class CustomerRepository{
 
   Future<List<DropDownModel>> getRegions(int? cityId,bool refresh)=>
       _customerHttpMethods.getRegions(cityId, refresh);
+
+  Future<List<Category>> getCategories(int regionId,bool refresh)=>
+      _customerHttpMethods.getCategories(regionId, refresh);
 
 
 

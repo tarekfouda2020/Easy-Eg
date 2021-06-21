@@ -17,5 +17,10 @@ class MyColors{
   static Color notifyColor=Colors.black54;
 
 
+  static Color convertColor(String color){
+    int hex = int.parse(color.replaceFirst("#", "0xff"));
+    return Color(hex);
+  }
+
 
 }

@@ -2,23 +2,33 @@ part of 'SelectDeptImports.dart';
 
 
 class SelectDept extends StatefulWidget {
+  final int regionId;
+
+  const SelectDept({required this.regionId});
   @override
   _SelectDeptState createState() => _SelectDeptState();
 }
 
 class _SelectDeptState extends State<SelectDept>{
 
-   SelectDeptData selectDeptData = new SelectDeptData();
+   final SelectDeptData selectDeptData = new SelectDeptData();
+
 
    @override
+  void initState() {
+     selectDeptData.fetchCategoriesData(context, widget.regionId,refresh: false);
+     selectDeptData.fetchCategoriesData(context, widget.regionId);
+     super.initState();
+  }
+
+  @override
    Widget build(BuildContext context) {
      return AuthScaffold(
        child: ListView(
-         padding: const EdgeInsets.symmetric(horizontal: 20),
          children: [
-           HeaderLogo(haveBack: false,),
+           HeaderLogo(),
            BuildUserText(),
-           BuildButtonList(),
+           BuildButtonList(selectDeptData: selectDeptData),
          ],
        ),
      );

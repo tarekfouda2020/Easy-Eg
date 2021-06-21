@@ -170,11 +170,17 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (_) {
           return _i17.SelectAddress();
         }),
-    SelectDeptRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
+    SelectDeptRoute.name: (routeData) => _i1.CustomPage<dynamic>(
         routeData: routeData,
-        builder: (_) {
-          return _i18.SelectDept();
-        }),
+        builder: (data) {
+          final args = data.argsAs<SelectDeptRouteArgs>();
+          return _i18.SelectDept(regionId: args.regionId);
+        },
+        transitionsBuilder: _i1.TransitionsBuilders.fadeIn,
+        durationInMilliseconds: 800,
+        reverseDurationInMilliseconds: 800,
+        opaque: true,
+        barrierDismissible: false),
     HomeRoute.name: (routeData) => _i1.CustomPage<dynamic>(
         routeData: routeData,
         builder: (data) {
@@ -480,10 +486,19 @@ class SelectAddressRoute extends _i1.PageRouteInfo {
   static const String name = 'SelectAddressRoute';
 }
 
-class SelectDeptRoute extends _i1.PageRouteInfo {
-  const SelectDeptRoute() : super(name, path: '/select-dept');
+class SelectDeptRoute extends _i1.PageRouteInfo<SelectDeptRouteArgs> {
+  SelectDeptRoute({required int regionId})
+      : super(name,
+            path: '/select-dept',
+            args: SelectDeptRouteArgs(regionId: regionId));
 
   static const String name = 'SelectDeptRoute';
+}
+
+class SelectDeptRouteArgs {
+  const SelectDeptRouteArgs({required this.regionId});
+
+  final int regionId;
 }
 
 class HomeRoute extends _i1.PageRouteInfo<HomeRouteArgs> {
