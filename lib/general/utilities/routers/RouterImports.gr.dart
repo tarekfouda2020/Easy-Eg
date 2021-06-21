@@ -5,6 +5,7 @@
 // **************************************************************************
 
 import 'package:auto_route/auto_route.dart' as _i1;
+import 'package:base_flutter/customer/models/category.dart' as _i37;
 import 'package:base_flutter/customer/screens/add_reservation/AddReservationImports.dart'
     as _i22;
 import 'package:base_flutter/customer/screens/contact_us/ContactUsImports.dart'
@@ -185,7 +186,8 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<HomeRouteArgs>();
-          return _i19.Home(color: args.color, tab: args.tab);
+          return _i19.Home(
+              color: args.color, tab: args.tab, category: args.category);
         },
         transitionsBuilder: _i1.TransitionsBuilders.fadeIn,
         durationInMilliseconds: 1000,
@@ -502,18 +504,24 @@ class SelectDeptRouteArgs {
 }
 
 class HomeRoute extends _i1.PageRouteInfo<HomeRouteArgs> {
-  HomeRoute({required _i36.Color color, int tab = 4})
-      : super(name, path: '/Home', args: HomeRouteArgs(color: color, tab: tab));
+  HomeRoute(
+      {required _i36.Color color, int tab = 4, required _i37.Category category})
+      : super(name,
+            path: '/Home',
+            args: HomeRouteArgs(color: color, tab: tab, category: category));
 
   static const String name = 'HomeRoute';
 }
 
 class HomeRouteArgs {
-  const HomeRouteArgs({required this.color, this.tab = 4});
+  const HomeRouteArgs(
+      {required this.color, this.tab = 4, required this.category});
 
   final _i36.Color color;
 
   final int tab;
+
+  final _i37.Category category;
 }
 
 class OrderDetailsRoute extends _i1.PageRouteInfo<OrderDetailsRouteArgs> {

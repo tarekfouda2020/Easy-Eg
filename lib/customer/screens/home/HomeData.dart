@@ -13,13 +13,7 @@ class HomeData {
   late Animation<double> animation;
   late CurvedAnimation curve;
 
-  List<Widget> tabsView=[
-    Favourite(),
-    Orders(),
-    Notifications(),
-    Settings(),
-    HomeMain(),
-  ];
+  List<Widget> tabsView=[];
 
   List<BottomTabModel> tabs = [
     BottomTabModel(iconData: Icons.favorite_border, title: "المفضلة",color: Color(0xff269492)),
@@ -28,8 +22,15 @@ class HomeData {
     BottomTabModel(iconData: Icons.settings, title: "المزيد",color: Color(0xffd2866e)),
   ];
 
-  void initBottomNavigation(TickerProvider ticker,Color color,BuildContext context) {
+  void initBottomNavigation(TickerProvider ticker,Color color,BuildContext context,Category category) {
     context.read<TabsColorCubit>().onUpdateColor(color);
+    tabsView=[
+      Favourite(),
+      Orders(),
+      Notifications(),
+      Settings(),
+      HomeMain(category: category,),
+    ];
     tabController = new TabController(length: 5, vsync: ticker,initialIndex: 4);
     animationController = AnimationController(
       duration: Duration(milliseconds: 600),

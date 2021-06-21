@@ -22,6 +22,7 @@ class BuildButtonList extends StatelessWidget {
                     HomeRoute(
                       color: MyColors.convertColor(state.data[index].color),
                       tab: 4,
+                      category: state.data[index]
                     ),
                   ),
                   margin: const EdgeInsets.symmetric(vertical: 15),
@@ -31,7 +32,7 @@ class BuildButtonList extends StatelessWidget {
             ),
           );
         }
-        return Expanded(child: LoadingDialog.showLoadingView());
+        return LoadingDialog.showLoadingView();
       },
     );
   }

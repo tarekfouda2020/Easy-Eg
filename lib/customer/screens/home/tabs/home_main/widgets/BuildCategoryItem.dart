@@ -2,13 +2,14 @@ part of 'HomeMainWidgetImports.dart';
 
 class BuildCategoryItem extends StatelessWidget {
   final Color color;
+  final SubCategory model;
 
-  const BuildCategoryItem({required this.color});
+  const BuildCategoryItem({required this.color,required this.model});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: ()=>AutoRouter.of(context).push(ProductsRoute(color: Color(0xff4f91a8))),
+      onTap: ()=>AutoRouter.of(context).push(ProductsRoute(color: MyColors.convertColor(model.color))),
       child: Container(
         margin: EdgeInsets.only(top: 15),
         child: Row(
@@ -23,7 +24,7 @@ class BuildCategoryItem extends StatelessWidget {
                   color: color,
                   borderRadius: BorderRadius.circular(10)
                 ),
-                child: MyText(title: "اسم القسم", color: MyColors.white, size: 12),
+                child: MyText(title: model.name, color: MyColors.white, size: 12),
               ),
             ),
             SizedBox(width: 15,),
