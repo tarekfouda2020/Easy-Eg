@@ -2,15 +2,19 @@ part of 'OrdersWidgetsImports.dart';
 
 class BuildOrderItem extends StatelessWidget {
   final Color color;
-  final Function()? onTap;
 
-  const BuildOrderItem({required this.color,this.onTap});
+  const BuildOrderItem({required this.color});
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
+    return OpenContainer(
+      closedElevation: 0,
+      openElevation: 0,
+      closedColor: Colors.transparent,
+      transitionDuration: Duration(milliseconds: 800),
+      transitionType: ContainerTransitionType.fadeThrough,
+      openBuilder: (context, action) => OrderDetails(color:color),
+      closedBuilder: (context, action) => Container(
         margin: EdgeInsets.only(top: 10),
         padding: EdgeInsets.symmetric(vertical: 5),
         child: Row(
@@ -18,7 +22,7 @@ class BuildOrderItem extends StatelessWidget {
           children: [
             CachedImage(
               url:
-                  "https://images.unsplash.com/photo-1587987501183-33e43fdde781?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1103&q=80",
+              "https://images.unsplash.com/photo-1587987501183-33e43fdde781?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1103&q=80",
               width: 60,
               height: 60,
             ),
