@@ -171,7 +171,7 @@ class _SelectDialogState<T> extends State<SelectDialog<T>> {
                         return _itemWidget(item);
                       },
                       separatorBuilder: (_,inndex){
-                        return Divider(color: MyColors.grey,thickness: .8,);
+                        return Divider(color: MyColors.grey,thickness: .5,);
                       },
                     );
                   },
@@ -340,11 +340,6 @@ class _SelectDialogState<T> extends State<SelectDialog<T>> {
             : () => _handleSelectItem(item),
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
-          decoration: BoxDecoration(
-            border: Border(
-              bottom: BorderSide(color: MyColors.greyWhite,width: .5)
-            )
-          ),
           child: Row(
             children: [
               Text(_selectedItemAsString(item),style: widget.style,),

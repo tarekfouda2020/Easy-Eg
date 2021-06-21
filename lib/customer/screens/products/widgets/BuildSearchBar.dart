@@ -35,8 +35,8 @@ class BuildSearchBar extends StatelessWidget {
                   ),
                   SizedBox(width: 10),
                   Container(
-                    height: 60,
-                    width: 60,
+                    height: 55,
+                    width: 50,
                     decoration: BoxDecoration(
                       color: MyColors.white,
                       borderRadius: BorderRadius.circular(6),

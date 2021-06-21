@@ -18,7 +18,7 @@ class _SelectAddressState extends State<SelectAddress> {
               children: [
                 HeaderLogo(),
                 BuildHeaderText(),
-                BuildSelectAddressForm(),
+                BuildSelectAddressForm(selectAddressData: selectAddressData),
               ],
             ),
           ),
