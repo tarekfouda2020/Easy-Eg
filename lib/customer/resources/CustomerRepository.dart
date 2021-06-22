@@ -1,8 +1,10 @@
 import 'package:base_flutter/customer/models/DropDownModel.dart';
 import 'package:base_flutter/customer/models/CategoryModel.dart';
+import 'package:base_flutter/customer/models/Dtos/AddCompetitionModel.dart';
 import 'package:base_flutter/customer/models/Dtos/AddReservationModel.dart';
 import 'package:base_flutter/customer/models/Dtos/CustomerRegisterModel.dart';
 import 'package:base_flutter/customer/models/Dtos/UpdateCustomerModel.dart';
+import 'package:base_flutter/customer/models/offer_model.dart';
 import 'package:base_flutter/customer/models/order_model.dart';
 import 'package:base_flutter/customer/models/product_model.dart';
 import 'package:base_flutter/customer/models/question_model.dart';
@@ -45,6 +47,8 @@ class CustomerRepository{
 
   Future<bool> addOrder(AddReservationModel model)=> _customerHttpMethods.addOrder(model);
 
+  Future<bool> addCompetition(AddCompetitionModel model)=> _customerHttpMethods.addCompetition(model);
+
   Future<List<ProductModel>> getFavouriteProducts(bool refresh)=>
       _customerHttpMethods.getFavouriteProducts(refresh);
 
@@ -65,5 +69,11 @@ class CustomerRepository{
 
   Future<List<QuestionModel>> getRepeatedQuestions(bool refresh)=>
       _customerAuthMethods.getRepeatedQuestions(refresh);
+
+  Future<List<OfferModel>> getOffers(bool refresh)=>
+      _customerHttpMethods.getOffers(refresh);
+
+  Future<DropDownModel?> getCompetitions(bool refresh)=>
+      _customerHttpMethods.getCompetitions(refresh);
 
 }

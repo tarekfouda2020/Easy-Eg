@@ -24,8 +24,9 @@ ProductModel _$ProductModelFromJson(Map<String, dynamic> json) {
     instagram: json['instagram'] as String,
     youType: json['youType'] as String,
     checkWishList: json['checkWishList'] as bool,
-    imgList:
-        (json['imgList'] as List<dynamic>).map((e) => e as String).toList(),
+    imgList: (json['imgList'] as List<dynamic>)
+        .map((e) => ImageModel.fromJson(e as Map<String, dynamic>))
+        .toList(),
     phone: json['phone'] as String,
   );
 }

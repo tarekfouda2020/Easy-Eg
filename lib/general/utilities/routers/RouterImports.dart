@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:base_flutter/customer/screens/add_reservation/AddReservationImports.dart';
+import 'package:base_flutter/customer/screens/competitions/CompetitionsImports.dart';
 import 'package:base_flutter/customer/screens/contact_us/ContactUsImports.dart';
 import 'package:base_flutter/customer/screens/conversations/ConversationsImports.dart';
 import 'package:base_flutter/customer/screens/home/HomeImports.dart';

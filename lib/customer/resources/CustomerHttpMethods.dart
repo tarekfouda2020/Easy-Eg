@@ -1,6 +1,8 @@
 import 'package:base_flutter/customer/models/DropDownModel.dart';
 import 'package:base_flutter/customer/models/CategoryModel.dart';
+import 'package:base_flutter/customer/models/Dtos/AddCompetitionModel.dart';
 import 'package:base_flutter/customer/models/Dtos/AddReservationModel.dart';
+import 'package:base_flutter/customer/models/offer_model.dart';
 import 'package:base_flutter/customer/models/order_model.dart';
 import 'package:base_flutter/customer/models/product_model.dart';
 import 'package:base_flutter/general/blocks/lang_cubit/lang_cubit.dart';
@@ -125,6 +127,16 @@ class CustomerHttpMethods {
     return (_data != null);
   }
 
+  Future<bool> addCompetition(AddCompetitionModel model) async {
+    model.lang = context.read<LangCubit>().state.locale.languageCode;
+    var _data = await DioHelper(context: context).post(
+      url: "/api/v1/AddCompetitions",
+      body: model.toJson(),
+      showLoader: false,
+    );
+    return (_data != null);
+  }
+
   Future<List<ProductModel>> getFavouriteProducts(bool refresh) async {
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,
@@ -180,5 +192,33 @@ class CustomerHttpMethods {
       return null;
     }
   }
+
+  Future<List<OfferModel>> getOffers(bool refresh) async {
+    Map<String, dynamic> body = {
+      "lang": context.read<LangCubit>().state.locale.languageCode,
+    };
+    var _data = await DioHelper(context: context, forceRefresh: refresh)
+        .get(url: "/api/v1/ListOffers", body: body);
+    if (_data != null) {
+      return List<OfferModel>.from(
+          _data["data"].map((e) => OfferModel.fromJson(e)));
+    } else {
+      return [];
+    }
+  }
+
+  Future<DropDownModel?> getCompetitions(bool refresh) async {
+    Map<String, dynamic> body = {
+      "lang": context.read<LangCubit>().state.locale.languageCode,
+    };
+    var _data = await DioHelper(context: context, forceRefresh: refresh)
+        .get(url: "/api/v1/GetCompetitions", body: body);
+    if (_data != null) {
+      return DropDownModel.fromJson(_data["data"]);
+    } else {
+      return null;
+    }
+  }
+
 
 }

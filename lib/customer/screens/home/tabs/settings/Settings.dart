@@ -25,7 +25,7 @@ class Settings extends StatelessWidget {
               BuildPageItem(
                 name: "المسابقات",
                 color: currentColor,
-                onTap: (){},
+                onTap: ()=> AutoRouter.of(context).push(CompetitionsRoute(color: currentColor)),
               ),
               BuildPageItem(
                 name: "المحادثات",

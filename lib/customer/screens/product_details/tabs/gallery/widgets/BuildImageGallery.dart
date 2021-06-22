@@ -12,7 +12,7 @@ class BuildImageGallery extends StatelessWidget {
         itemCount: model.imgList.length,
         itemBuilder: (BuildContext context, int index){
           return CachedImage(
-            url: model.imgList[index],
+            url: model.imgList[index].img,
             borderRadius: BorderRadius.circular(5),
           );
         },

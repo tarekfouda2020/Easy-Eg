@@ -62,6 +62,8 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: ContactUs),
     AdaptiveRoute(page: Languages),
     AdaptiveRoute(page: Conversations),
+    AdaptiveRoute(page: Competitions),
+
 
     //provider pages
     CustomRoute(

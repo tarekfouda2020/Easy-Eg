@@ -1,5 +1,6 @@
 part of 'OffersImports.dart';
 
+
 class Offers extends StatefulWidget {
   final Color color;
 
@@ -13,6 +14,13 @@ class _OffersState extends State<Offers> {
   OffersData offersData = new OffersData();
 
   @override
+  void initState() {
+    offersData.fetchData(context, refresh: false);
+    offersData.fetchData(context);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
@@ -24,19 +32,20 @@ class _OffersState extends State<Offers> {
       ),
       body: LinearContainer(
         color: widget.color,
-        child: ListView.builder(
-          padding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
-          itemCount: 4,
-          itemBuilder: (BuildContext context, int index) {
-            return Padding(
-              padding: const EdgeInsets.only(bottom: 15),
-              child: CachedImage(
-                height: 140,
-                width: MediaQuery.of(context).size.width,
-                url: "https://images.unsplash.com/photo-1611403570720-162d8829689a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1567&q=80",
-                borderRadius: BorderRadius.circular(10),
-              ),
-            );
+        child: BlocBuilder<GenericBloc<List<OfferModel>>,
+            GenericState<List<OfferModel>>>(
+          bloc: offersData.offersCubit,
+          builder: (context, state) {
+            if (state is GenericUpdateState) {
+              if (state.data.length>0) {
+                return BuildOfferList(color: widget.color,offers: state.data,);
+              } else{
+                return Center(
+                  child: MyText(title: "لايوجد عروض حاليا", color: MyColors.black, size: 12),
+                );
+              }
+            }
+            return LoadingDialog.showLoadingView(color: widget.color);
           },
         ),
       ),

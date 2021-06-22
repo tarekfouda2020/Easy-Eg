@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'image_model.dart';
+
 part 'product_model.g.dart';
 
 @JsonSerializable(ignoreUnannotated: false)
@@ -39,7 +41,7 @@ class ProductModel {
   @JsonKey(name: 'checkWishList')
   bool checkWishList;
   @JsonKey(name: 'imgList')
-  final List<String> imgList;
+  final List<ImageModel> imgList;
 
   ProductModel({
     required this.idProvider,
