@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'QuestionModel.dart';
+part of 'question_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
@@ -8,15 +8,15 @@ part of 'QuestionModel.dart';
 
 QuestionModel _$QuestionModelFromJson(Map<String, dynamic> json) {
   return QuestionModel(
-    title: json['title'] as String,
+    title: json['question'] as String,
     answer: json['answer'] as String,
-    expanded: json['expanded'] as bool,
+    expanded: json['expanded'] as bool? ?? false,
   );
 }
 
 Map<String, dynamic> _$QuestionModelToJson(QuestionModel instance) =>
     <String, dynamic>{
-      'title': instance.title,
+      'question': instance.title,
       'answer': instance.answer,
       'expanded': instance.expanded,
     };

@@ -1,4 +1,3 @@
-import 'package:base_flutter/customer/models/QuestionModel.dart';
 import 'package:base_flutter/general/models/UserModel.dart';
 import 'package:flutter/material.dart';
 
@@ -34,8 +33,6 @@ class GeneralRepository {
   Future<bool> resetUserPassword(String userId, String code, String pass) =>
       _generalHttpMethods.resetUserPassword(userId, code, pass);
 
-  Future<List<QuestionModel>> frequentQuestions() =>
-      _generalHttpMethods.frequentQuestions();
 
   Future<bool> sendMessage({ String? name, String? mail, String? message}) =>
       _generalHttpMethods.sendMessage(name, mail, message);

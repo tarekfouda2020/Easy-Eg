@@ -5,6 +5,7 @@ import 'package:base_flutter/customer/models/Dtos/CustomerRegisterModel.dart';
 import 'package:base_flutter/customer/models/Dtos/UpdateCustomerModel.dart';
 import 'package:base_flutter/customer/models/order_model.dart';
 import 'package:base_flutter/customer/models/product_model.dart';
+import 'package:base_flutter/customer/models/question_model.dart';
 import 'package:base_flutter/customer/resources/CustomerAuthMethods.dart';
 import 'package:flutter/material.dart';
 import 'CustomerHttpMethods.dart';
@@ -61,5 +62,8 @@ class CustomerRepository{
 
   Future<bool> changePassword(String oldPass,String newPass)=>
       _customerAuthMethods.changePassword(oldPass, newPass);
+
+  Future<List<QuestionModel>> getRepeatedQuestions(bool refresh)=>
+      _customerAuthMethods.getRepeatedQuestions(refresh);
 
 }

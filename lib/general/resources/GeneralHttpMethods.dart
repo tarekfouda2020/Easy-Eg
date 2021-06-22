@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:base_flutter/customer/models/QuestionModel.dart';
 import 'package:base_flutter/general/blocks/lang_cubit/lang_cubit.dart';
 import 'package:base_flutter/general/blocks/user_cubit/user_cubit.dart';
 import 'package:base_flutter/general/models/UserModel.dart';
@@ -91,19 +90,6 @@ class GeneralHttpMethods {
       return _data["data"]["condetions"];
     } else {
       return null;
-    }
-  }
-
-  Future<List<QuestionModel>> frequentQuestions() async {
-    Map<String, dynamic> body = {
-      "lang": context.read<LangCubit>().state.locale.languageCode,
-    };
-    var _data = await DioHelper(context: context).get(url: "/api/v1/FrequentlyAskedQuestions", body:body);
-    if (_data != null) {
-      return List<QuestionModel>.from(
-          _data["data"].map((e) => QuestionModel.fromJson(e)));
-    } else {
-      return [];
     }
   }
 

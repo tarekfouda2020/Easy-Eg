@@ -1,13 +1,14 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:json_annotation/json_annotation.dart'; 
 
-part 'QuestionModel.g.dart';
+part 'question_model.g.dart'; 
 
-@JsonSerializable()
+@JsonSerializable(ignoreUnannotated: false)
 class QuestionModel {
-
-
-  String title;
-  String answer;
+  @JsonKey(name: 'question')
+  final  String title;
+  @JsonKey(name: 'answer')
+  final  String answer;
+  @JsonKey(defaultValue: false)
   bool expanded;
 
 
@@ -17,3 +18,4 @@ class QuestionModel {
 
   Map<String, dynamic> toJson() => _$QuestionModelToJson(this);
 }
+

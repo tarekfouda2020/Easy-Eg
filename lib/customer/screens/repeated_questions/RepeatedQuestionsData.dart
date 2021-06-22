@@ -5,13 +5,10 @@ class RepeatedQuestionsData{
 
  final GenericBloc<List<QuestionModel>> dataCubit = new GenericBloc([]);
 
- List<QuestionModel> data = [
-   QuestionModel(title: "هذا النص يمكن استبدالة بنص اخر",answer: "هذا النص يمكن استبدالة بنص اخر",expanded: false),
-   QuestionModel(title: "هذا النص يمكن استبدالة بنص اخر",answer: "هذا النص يمكن استبدالة بنص اخر",expanded: false),
-   QuestionModel(title: "هذا النص يمكن استبدالة بنص اخر",answer: "هذا النص يمكن استبدالة بنص اخر",expanded: false),
-   QuestionModel(title: "هذا النص يمكن استبدالة بنص اخر",answer: "هذا النص يمكن استبدالة بنص اخر",expanded: false),
-   QuestionModel(title: "هذا النص يمكن استبدالة بنص اخر",answer: "هذا النص يمكن استبدالة بنص اخر",expanded: false),
- ];
+ fetchData(BuildContext context,{bool refresh = true})async{
+   var data = await CustomerRepository(context).getRepeatedQuestions(refresh);
+   dataCubit.onUpdateData(data);
+ }
 
  setExpandItem(int index){
    dataCubit.state.data[index].expanded=!dataCubit.state.data[index].expanded;
