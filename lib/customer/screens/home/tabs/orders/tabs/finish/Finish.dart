@@ -11,7 +11,7 @@ class Finish extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 15),
         itemCount: 10,
         itemBuilder: (BuildContext context, int index) {
-          return BuildOrderItem(color: color);
+          return Container();
         },
         separatorBuilder: (_,index){
           return Divider(color: MyColors.grey,);

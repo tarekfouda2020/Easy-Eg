@@ -2,6 +2,7 @@ import 'package:base_flutter/customer/models/DropDownModel.dart';
 import 'package:base_flutter/customer/models/CategoryModel.dart';
 import 'package:base_flutter/customer/models/Dtos/AddReservationModel.dart';
 import 'package:base_flutter/customer/models/Dtos/CustomerRegisterModel.dart';
+import 'package:base_flutter/customer/models/order_model.dart';
 import 'package:base_flutter/customer/models/product_model.dart';
 import 'package:base_flutter/customer/resources/CustomerAuthMethods.dart';
 import 'package:flutter/material.dart';
@@ -44,5 +45,11 @@ class CustomerRepository{
 
   Future<List<ProductModel>> getFavouriteProducts(bool refresh)=>
       _customerHttpMethods.getFavouriteProducts(refresh);
+
+  Future<List<OrderModel>> getNewOrders(bool refresh)=>
+      _customerHttpMethods.getNewOrders(refresh);
+
+  Future<List<OrderModel>> getCurrentOrders(bool refresh)=>
+      _customerHttpMethods.getCurrentOrders(refresh);
 
 }

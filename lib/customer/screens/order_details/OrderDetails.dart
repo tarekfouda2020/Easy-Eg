@@ -27,7 +27,7 @@ class _OrderDetailsState extends State<OrderDetails>{
           children: [
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
-              child: BuildOrderItem(color: widget.color),
+              child: BuildOrderDetailsCard(color: widget.color,),
             ),
             BuildDetailsHeader(),
             BuildDetailsBody(color: widget.color,)

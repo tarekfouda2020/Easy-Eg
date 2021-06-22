@@ -6,7 +6,7 @@ class Orders extends StatelessWidget {
   Widget build(BuildContext context) {
     var currentColor = context.watch<TabsColorCubit>().state.color;
     return DefaultTabController(
-      length: 3,
+      length: 2,
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: PreferredSize(
@@ -25,7 +25,7 @@ class Orders extends StatelessWidget {
             children: [
               Waiting(color: currentColor),
               Current(color: currentColor),
-              Finish(color: currentColor),
+              // Finish(color: currentColor),
             ],
           ),
         ),

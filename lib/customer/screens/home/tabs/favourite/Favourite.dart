@@ -59,7 +59,7 @@ class _FavouriteState extends State<Favourite> {
                 );
               }
             }else{
-              return LoadingDialog.showLoadingView();
+              return LoadingDialog.showLoadingView(color: currentColor);
             }
           },
         ),

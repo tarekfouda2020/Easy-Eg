@@ -32,7 +32,7 @@ class BuildTabBarView extends StatelessWidget {
                 tabs: [
                   Tab(text: "قيد المراجعة"),
                   Tab(text: "الحالية"),
-                  Tab(text: "المنتهية"),
+                  // Tab(text: "المنتهية"),
                 ],
               ),
             ),

@@ -2,8 +2,9 @@ part of 'OrdersWidgetsImports.dart';
 
 class BuildOrderItem extends StatelessWidget {
   final Color color;
+  final OrderModel model;
 
-  const BuildOrderItem({required this.color});
+  const BuildOrderItem({required this.color, required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +22,7 @@ class BuildOrderItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CachedImage(
-              url:
-              "https://images.unsplash.com/photo-1587987501183-33e43fdde781?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1103&q=80",
+              url: model.logoImg,
               width: 60,
               height: 60,
             ),
@@ -32,10 +32,10 @@ class BuildOrderItem extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  MyText(title: "نادي الجزيرة", color: MyColors.black, size: 10),
+                  MyText(title: model.name, color: MyColors.black, size: 10),
                   SizedBox(height: 5),
                   MyText(
-                      title: "مصر - المنصورة - برج السوسن",
+                      title: model.providerLocation,
                       color: color.withOpacity(.7),
                       size: 10),
                 ],
@@ -45,7 +45,7 @@ class BuildOrderItem extends StatelessWidget {
               children: [
                 MyText(
                     title: "رقم الطلب", color: color.withOpacity(.7), size: 10),
-                MyText(title: "#####", color: color.withOpacity(.7), size: 10),
+                MyText(title: "${model.id}", color: color.withOpacity(.7), size: 10),
               ],
             )
           ],
