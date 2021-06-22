@@ -10,7 +10,7 @@ class BuildRegisterButton extends StatelessWidget {
     return LoadingButton(
       btnKey: registerData.btnKey,
       title: tr(context,"continue"),
-      onTap: (){},
+      onTap: ()=>registerData.setRegisterCustomer(context),
       color: MyColors.primary,
       textColor: MyColors.white,
       margin: const EdgeInsets.symmetric(horizontal: 20),

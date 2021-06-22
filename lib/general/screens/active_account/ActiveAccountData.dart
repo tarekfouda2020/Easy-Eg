@@ -11,12 +11,12 @@ class ActiveAccountData {
 
   void onActiveAccount(BuildContext context, String userId) async {
     if (formKey.currentState!.validate()) {
-      // btnKey.currentState.animateForward();
-      // var result =  await GeneralRepository(context).sendCode(code.text, userId);
-      // btnKey.currentState.animateReverse();
-      // if(result){
-      //   ExtendedNavigator.of(context).popUntilPath(Routes.login);
-      // }
+      btnKey.currentState!.animateForward();
+      var result =  await GeneralRepository(context).sendCode(code.text, userId);
+      btnKey.currentState!.animateReverse();
+      if(result){
+        AutoRouter.of(context).popAndPush(LoginRoute());
+      }
     }
   }
 

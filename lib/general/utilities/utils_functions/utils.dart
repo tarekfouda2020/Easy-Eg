@@ -11,8 +11,8 @@ class Utils {
     if (strUser != null) {
       UserModel data = UserModel.fromJson(json.decode("$strUser"));
       GlobalState.instance.set("token", data.token);
-      changeLanguage(data.lang,context);
-      setCurrentUserData(data,context);
+      changeLanguage(data.lang??"ar",context);
+      setSplashCurrentUserData(data,context);
     } else {
       changeLanguage("ar",context);
       AutoRouter.of(context).push(SelectUserRoute());
@@ -20,9 +20,40 @@ class Utils {
 
   }
 
+  static Future<void> manipulateLoginData(Map<String,dynamic> data,BuildContext context)async{
+    if (data["status"]) {
+      UserModel user = UserModel();
+      int type = data["data"]["typeUser"];
+      if (type==1) {
+        user.customerModel=CustomerModel.fromJson(data["data"]);
+      }
+      user.type = type == 1 ? "user" : "provider";
+      user.token = data["token"];
+      user.lang = context.read<LangCubit>().state.locale.languageCode;
+      GlobalState.instance.set("token", user.token);
+      await Utils.saveUserData(user);
+      Utils.setCurrentUserData(user, context);
+    } else{
+      AutoRouter.of(context).push(ActiveAccountRoute(userId: data["data"]["id"]));
+    }
+  }
+
   static void  setCurrentUserData(UserModel model,BuildContext context)async{
-    // context.read<UserCubit>().onUpdateUserData(model);
-    // ExtendedNavigator.of(context).push(Routes.home,arguments: HomeArguments(parentCount: parentCount));
+    context.read<UserCubit>().onUpdateUserData(model);
+    if (context.read<UserCubit>().state.model.type=="user") {
+      AutoRouter.of(context).popUntilRouteWithName(HomeRoute.name);
+    } else{
+      AutoRouter.of(context).push(ProviderHomeRoute());
+    }
+  }
+
+  static void  setSplashCurrentUserData(UserModel model,BuildContext context)async{
+    context.read<UserCubit>().onUpdateUserData(model);
+    if (context.read<UserCubit>().state.model.type=="user") {
+      AutoRouter.of(context).push(SelectAddressRoute());
+    } else{
+      AutoRouter.of(context).push(ProviderHomeRoute());
+    }
   }
 
   static Future<void> saveUserData(UserModel model)async{
@@ -95,10 +126,10 @@ class Utils {
   //   changeLanguage(lang,context);
   // }
 
-  static String getCurrentUserId({required BuildContext context}){
-    var provider = context.watch<UserCubit>().state.model;
-    return provider.id;
-  }
+  // static String getCurrentUserId({required BuildContext context}){
+  //   var provider = context.watch<UserCubit>().state.model;
+  //   return provider.id;
+  // }
 
 
   // static void setSelectUser({@required int type, @required BuildContext context}) async {

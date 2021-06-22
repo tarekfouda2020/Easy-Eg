@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:base_flutter/customer/models/QuestionModel.dart';
 import 'package:base_flutter/general/blocks/lang_cubit/lang_cubit.dart';
 import 'package:base_flutter/general/blocks/user_cubit/user_cubit.dart';
-import 'package:base_flutter/general/constants/GlobalState.dart';
 import 'package:base_flutter/general/models/UserModel.dart';
 import 'package:base_flutter/general/utilities/dio_helper/DioImports.dart';
 import 'package:base_flutter/general/utilities/utils_functions/UtilsImports.dart';
@@ -31,21 +30,8 @@ class GeneralHttpMethods {
     var _data = await DioHelper(context: context).post(url: "/api/v1/login",body: body,showLoader: false);
 
     if (_data != null) {
-      int status = _data["status"];
-      if (status == 1) {
-        await Utils.setDeviceId("$_token");
-        UserModel user = UserModel.fromJson(_data["data"]);
-        int type = _data["data"]["type"];
-        user.type = type == 1 ? "user" : "company";
-        user.token = _data["token"];
-        user.lang = _lang;
-        GlobalState.instance.set("token", user.token);
-        await Utils.saveUserData(user);
-        Utils.setCurrentUserData(user, context);
-      } else if (status == 2) {
-        // ExtendedNavigator.of(context).push(Routes.activeAccount,
-        //     arguments: ActiveAccountArguments(userId: _data["data"]["id"]));
-      }
+      await Utils.setDeviceId("$_token");
+      await Utils.manipulateLoginData(_data,context);
       return true;
     } else {
       return false;

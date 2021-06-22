@@ -1,6 +1,8 @@
 import 'package:base_flutter/customer/models/DropDownModel.dart';
 import 'package:base_flutter/customer/models/CategoryModel.dart';
+import 'package:base_flutter/customer/models/Dtos/CustomerRegisterModel.dart';
 import 'package:base_flutter/customer/models/product_model.dart';
+import 'package:base_flutter/customer/resources/CustomerAuthMethods.dart';
 import 'package:flutter/material.dart';
 import 'CustomerHttpMethods.dart';
 
@@ -8,9 +10,11 @@ class CustomerRepository{
 
   late BuildContext _context;
   late CustomerHttpMethods _customerHttpMethods;
+  late CustomerAuthMethods _customerAuthMethods;
   CustomerRepository(BuildContext context) {
     _context = context;
     _customerHttpMethods = new CustomerHttpMethods(_context);
+    _customerAuthMethods = new CustomerAuthMethods(_context);
   }
 
   Future<List<DropDownModel>> getCountries(bool refresh) =>
@@ -32,5 +36,7 @@ class CustomerRepository{
       _customerHttpMethods.getProducts(subCatId, page, refresh);
 
   Future<bool> setAddToFavourite(String id)=> _customerHttpMethods.setAddToFavourite(id);
+
+  Future<bool> registerUser(CustomerRegisterModel model)=> _customerAuthMethods.registerUser(model);
 
 }

@@ -10,4 +10,22 @@ class RegisterData{
   final TextEditingController mail = new TextEditingController();
   final TextEditingController pass = new TextEditingController();
   final TextEditingController confirm = new TextEditingController();
+
+
+  setRegisterCustomer(BuildContext context)async{
+    if (formKey.currentState!.validate()) {
+      btnKey.currentState!.animateForward();
+      CustomerRegisterModel model = new CustomerRegisterModel(
+        userName: name.text,
+        phone: phone.text,
+        email: mail.text,
+        deviceType: "ios",
+        password: pass.text,
+        projectName: "Easy"
+      );
+      await CustomerRepository(context).registerUser(model);
+      btnKey.currentState!.animateReverse();
+    }
+  }
+
 }

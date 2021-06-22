@@ -15,9 +15,7 @@ class BuildButtonList extends StatelessWidget {
           title: tr(context,"continue"),
           onTap: () => activeAccountData.onActiveAccount(context, userId),
           color: MyColors.primary,
-          margin: const EdgeInsets.symmetric(
-            vertical: 30,
-          ),
+          margin: const EdgeInsets.symmetric(vertical: 30,horizontal: 20),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,

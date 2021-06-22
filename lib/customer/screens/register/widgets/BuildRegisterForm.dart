@@ -39,7 +39,7 @@ class BuildRegisterForm extends StatelessWidget {
               type: TextInputType.emailAddress,
               action: TextInputAction.next,
               borderColor: MyColors.grey,
-              validate: (value) => value!.validatePhone(context),
+              validate: (value) => value!.validateEmail(context),
             ),
             LabelTextField(
               label: "كلمة المرور",
@@ -60,7 +60,7 @@ class BuildRegisterForm extends StatelessWidget {
               borderColor: MyColors.grey,
               isPassword: true,
               validate: (value) => value!.validatePasswordConfirm(context,pass: registerData.pass.text),
-              onSubmit: (){},
+              onSubmit: ()=>registerData.setRegisterCustomer(context),
             ),
           ],
         ),

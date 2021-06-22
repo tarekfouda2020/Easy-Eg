@@ -1,3 +1,5 @@
+import 'package:base_flutter/customer/models/Dtos/CustomerRegisterModel.dart';
+import 'package:base_flutter/customer/resources/CustomerRepository.dart';
 import 'package:base_flutter/customer/widgets/LinearContainer.dart';
 import 'package:base_flutter/general/constants/CustomButtonAnimation.dart';
 import 'package:base_flutter/general/constants/MyColors.dart';

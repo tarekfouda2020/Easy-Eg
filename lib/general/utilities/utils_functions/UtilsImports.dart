@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:base_flutter/customer/models/customer_model.dart';
 import 'package:base_flutter/general/blocks/lang_cubit/lang_cubit.dart';
 import 'package:base_flutter/general/blocks/user_cubit/user_cubit.dart';
 import 'package:file_picker/file_picker.dart';
