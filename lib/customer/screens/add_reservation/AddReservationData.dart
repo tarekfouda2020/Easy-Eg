@@ -2,6 +2,7 @@ part of 'AddReservationImports.dart';
 
 class AddReservationData {
   final GlobalKey<FormState> formKey = new GlobalKey();
+  final GlobalKey<CustomButtonState> btnKey = new GlobalKey();
 
   final TextEditingController name = new TextEditingController();
   final TextEditingController phone = new TextEditingController();
@@ -23,4 +24,22 @@ class AddReservationData {
       title: "تاريخ الحجز",
     );
   }
+
+  setAddReservation(BuildContext context,ProductModel productModel,Color color)async{
+    if (formKey.currentState!.validate()) {
+      btnKey.currentState!.animateForward();
+      AddReservationModel model = new AddReservationModel(
+        phone: phone.text,
+        name: name.text,
+        date: dateCubit.state.data,
+        providerId: productModel.idProvider
+      );
+      var result = await CustomerRepository(context).addOrder(model);
+      if (result) {
+        AutoRouter.of(context).push(ReservationSuccessRoute(color: color,model: productModel));
+      }
+      btnKey.currentState!.animateReverse();
+    }
+  }
+
 }

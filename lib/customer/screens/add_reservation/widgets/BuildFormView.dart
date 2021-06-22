@@ -12,6 +12,7 @@ class BuildFormView extends StatelessWidget {
     return Expanded(
       child: SingleChildScrollView(
         child: Form(
+          key: addReservationData.formKey,
           child: Column(
             children: [
               LabelTextField(

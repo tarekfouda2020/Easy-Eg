@@ -2,8 +2,9 @@ part of 'ReservSuccessWidgetImports.dart';
 
 class BuildContactView extends StatelessWidget {
   final Color color;
+  final ProductModel model;
 
-  const BuildContactView({required this.color});
+  const BuildContactView({required this.color, required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class BuildContactView extends StatelessWidget {
             color: color,
             title: "رقم جوال",
             image: Res.phone,
-            onTap: (){},
+            onTap: ()=> Utils.callPhone(phone: model.phone),
           ),
           BuildContactItem(
             color: color,

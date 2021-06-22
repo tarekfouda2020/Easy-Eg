@@ -11,9 +11,9 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) {
     customerModel: json['customerModel'] == null
         ? null
         : CustomerModel.fromJson(json['customerModel'] as Map<String, dynamic>),
-    token: json['token'] as String,
-    lang: json['lang'] as String,
-    type: json['type'] as String,
+    token: json['token'] as String?,
+    lang: json['lang'] as String?,
+    type: json['type'] as String?,
   );
 }
 

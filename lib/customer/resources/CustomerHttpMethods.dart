@@ -1,13 +1,13 @@
 import 'package:base_flutter/customer/models/DropDownModel.dart';
 import 'package:base_flutter/customer/models/CategoryModel.dart';
+import 'package:base_flutter/customer/models/Dtos/AddReservationModel.dart';
 import 'package:base_flutter/customer/models/product_model.dart';
 import 'package:base_flutter/general/blocks/lang_cubit/lang_cubit.dart';
 import 'package:base_flutter/general/utilities/dio_helper/DioImports.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CustomerHttpMethods{
-
+class CustomerHttpMethods {
   final BuildContext context;
 
   CustomerHttpMethods(this.context);
@@ -16,81 +16,89 @@ class CustomerHttpMethods{
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,
     };
-    var _data =
-    await DioHelper(context: context,forceRefresh: refresh).get(url: "/api/v1/ListCountries", body:body);
+    var _data = await DioHelper(context: context, forceRefresh: refresh)
+        .get(url: "/api/v1/ListCountries", body: body);
     if (_data != null) {
-      return List<DropDownModel>.from(_data["data"].map((e) => DropDownModel.fromJson(e)));
+      return List<DropDownModel>.from(
+          _data["data"].map((e) => DropDownModel.fromJson(e)));
     } else {
       return [];
     }
   }
 
-  Future<List<DropDownModel>> getGovernments(int? countryId,bool refresh) async {
+  Future<List<DropDownModel>> getGovernments(
+      int? countryId, bool refresh) async {
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,
-      "idCountry":"$countryId"
+      "idCountry": "$countryId"
     };
-    var _data =
-    await DioHelper(context: context,forceRefresh: refresh).get(url: "/api/v1/ListGovernorates", body:body);
+    var _data = await DioHelper(context: context, forceRefresh: refresh)
+        .get(url: "/api/v1/ListGovernorates", body: body);
     if (_data != null) {
-      return List<DropDownModel>.from(_data["data"].map((e) => DropDownModel.fromJson(e)));
+      return List<DropDownModel>.from(
+          _data["data"].map((e) => DropDownModel.fromJson(e)));
     } else {
       return [];
     }
   }
 
-  Future<List<DropDownModel>> getCities(int? governId,bool refresh) async {
+  Future<List<DropDownModel>> getCities(int? governId, bool refresh) async {
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,
-      "idGovernorate":"$governId"
+      "idGovernorate": "$governId"
     };
-    var _data =
-    await DioHelper(context: context,forceRefresh: refresh).get(url: "/api/v1/ListCities", body:body);
+    var _data = await DioHelper(context: context, forceRefresh: refresh)
+        .get(url: "/api/v1/ListCities", body: body);
     if (_data != null) {
-      return List<DropDownModel>.from(_data["data"].map((e) => DropDownModel.fromJson(e)));
+      return List<DropDownModel>.from(
+          _data["data"].map((e) => DropDownModel.fromJson(e)));
     } else {
       return [];
     }
   }
 
-  Future<List<DropDownModel>> getRegions(int? cityId,bool refresh) async {
+  Future<List<DropDownModel>> getRegions(int? cityId, bool refresh) async {
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,
-      "idCities":"$cityId"
+      "idCities": "$cityId"
     };
-    var _data =
-    await DioHelper(context: context,forceRefresh: refresh).get(url: "/api/v1/ListRegoins", body:body);
+    var _data = await DioHelper(context: context, forceRefresh: refresh)
+        .get(url: "/api/v1/ListRegoins", body: body);
     if (_data != null) {
-      return List<DropDownModel>.from(_data["data"].map((e) => DropDownModel.fromJson(e)));
+      return List<DropDownModel>.from(
+          _data["data"].map((e) => DropDownModel.fromJson(e)));
     } else {
       return [];
     }
   }
 
-  Future<List<CategoryModel>> getCategories(int regionId,bool refresh) async {
+  Future<List<CategoryModel>> getCategories(int regionId, bool refresh) async {
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,
-      "idRegoin":"$regionId"
+      "idRegoin": "$regionId"
     };
-    var _data =
-    await DioHelper(context: context,forceRefresh: refresh).get(url: "/api/v1/ListCategories", body:body);
+    var _data = await DioHelper(context: context, forceRefresh: refresh)
+        .get(url: "/api/v1/ListCategories", body: body);
     if (_data != null) {
-      return List<CategoryModel>.from(_data["data"].map((e) => CategoryModel.fromJson(e)));
+      return List<CategoryModel>.from(
+          _data["data"].map((e) => CategoryModel.fromJson(e)));
     } else {
       return [];
     }
   }
 
-  Future<List<ProductModel>> getProducts(int subCatId,int page,bool refresh) async {
+  Future<List<ProductModel>> getProducts(
+      int subCatId, int page, bool refresh) async {
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,
-      "idCat":"$subCatId",
-      "currentPage":"$page",
+      "idCat": "$subCatId",
+      "currentPage": "$page",
     };
-    var _data =
-    await DioHelper(context: context,forceRefresh: refresh).get(url: "/api/v1/ListProviders", body:body);
+    var _data = await DioHelper(context: context, forceRefresh: refresh)
+        .get(url: "/api/v1/ListProviders", body: body);
     if (_data != null) {
-      return List<ProductModel>.from(_data["data"].map((e) => ProductModel.fromJson(e)));
+      return List<ProductModel>.from(
+          _data["data"].map((e) => ProductModel.fromJson(e)));
     } else {
       return [];
     }
@@ -99,11 +107,20 @@ class CustomerHttpMethods{
   Future<bool> setAddToFavourite(String id) async {
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,
-      "providerId":"$id",
+      "providerId": "$id",
     };
-    var _data =
-    await DioHelper(context: context).post(url: "/api/v1/AddOrRemoveFavourite", body:body);
-    return(_data != null);
+    var _data = await DioHelper(context: context)
+        .post(url: "/api/v1/AddOrRemoveFavourite", body: body);
+    return (_data != null);
   }
 
+  Future<bool> addOrder(AddReservationModel model) async {
+    model.lang = context.read<LangCubit>().state.locale.languageCode;
+    var _data = await DioHelper(context: context).post(
+      url: "/api/v1/AddOrRemoveFavourite",
+      body: model.toJson(),
+      showLoader: false,
+    );
+    return (_data != null);
+  }
 }

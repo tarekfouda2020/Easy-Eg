@@ -25,9 +25,9 @@ class ProductDetailsData{
     AutoRouter.of(context).push(SelectAuthRoute());
   }
 
-  navigateToReservation(BuildContext context,Color color,String id){
+  navigateToReservation(BuildContext context,Color color,ProductModel model){
     if (context.read<AuthCubit>().state.authorized) {
-      AutoRouter.of(context).push(AddReservationRoute(color: color));
+      AutoRouter.of(context).push(AddReservationRoute(color: color,model: model));
     } else{
       AutoRouter.of(context).push(SelectAuthRoute());
     }

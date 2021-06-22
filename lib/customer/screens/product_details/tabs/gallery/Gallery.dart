@@ -15,7 +15,7 @@ class Gallery extends StatelessWidget {
       child: Column(
         children: [
           BuildImageGallery(model: model),
-          BuildReservationButton(color: color,detailsData: detailsData,id: model.idProvider,),
+          BuildReservationButton(color: color,detailsData: detailsData,model: model),
         ],
       ),
     );

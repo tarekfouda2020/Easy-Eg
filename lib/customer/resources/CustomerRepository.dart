@@ -1,5 +1,6 @@
 import 'package:base_flutter/customer/models/DropDownModel.dart';
 import 'package:base_flutter/customer/models/CategoryModel.dart';
+import 'package:base_flutter/customer/models/Dtos/AddReservationModel.dart';
 import 'package:base_flutter/customer/models/Dtos/CustomerRegisterModel.dart';
 import 'package:base_flutter/customer/models/product_model.dart';
 import 'package:base_flutter/customer/resources/CustomerAuthMethods.dart';
@@ -38,5 +39,7 @@ class CustomerRepository{
   Future<bool> setAddToFavourite(String id)=> _customerHttpMethods.setAddToFavourite(id);
 
   Future<bool> registerUser(CustomerRegisterModel model)=> _customerAuthMethods.registerUser(model);
+
+  Future<bool> addOrder(AddReservationModel model)=> _customerHttpMethods.addOrder(model);
 
 }

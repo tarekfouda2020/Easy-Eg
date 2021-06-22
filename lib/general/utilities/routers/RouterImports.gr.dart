@@ -211,7 +211,7 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<AddReservationRouteArgs>();
-          return _i22.AddReservation(color: args.color);
+          return _i22.AddReservation(color: args.color, model: args.model);
         },
         transitionsBuilder: _i1.TransitionsBuilders.slideBottom,
         durationInMilliseconds: 800,
@@ -222,7 +222,7 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<ReservationSuccessRouteArgs>();
-          return _i23.ReservationSuccess(color: args.color);
+          return _i23.ReservationSuccess(color: args.color, model: args.model);
         }),
     ProductsRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
         routeData: routeData,
@@ -561,34 +561,40 @@ class ProductDetailsRouteArgs {
 }
 
 class AddReservationRoute extends _i1.PageRouteInfo<AddReservationRouteArgs> {
-  AddReservationRoute({required _i36.Color color})
+  AddReservationRoute(
+      {required _i36.Color color, required _i38.ProductModel model})
       : super(name,
             path: '/add-reservation',
-            args: AddReservationRouteArgs(color: color));
+            args: AddReservationRouteArgs(color: color, model: model));
 
   static const String name = 'AddReservationRoute';
 }
 
 class AddReservationRouteArgs {
-  const AddReservationRouteArgs({required this.color});
+  const AddReservationRouteArgs({required this.color, required this.model});
 
   final _i36.Color color;
+
+  final _i38.ProductModel model;
 }
 
 class ReservationSuccessRoute
     extends _i1.PageRouteInfo<ReservationSuccessRouteArgs> {
-  ReservationSuccessRoute({required _i36.Color color})
+  ReservationSuccessRoute(
+      {required _i36.Color color, required _i38.ProductModel model})
       : super(name,
             path: '/reservation-success',
-            args: ReservationSuccessRouteArgs(color: color));
+            args: ReservationSuccessRouteArgs(color: color, model: model));
 
   static const String name = 'ReservationSuccessRoute';
 }
 
 class ReservationSuccessRouteArgs {
-  const ReservationSuccessRouteArgs({required this.color});
+  const ReservationSuccessRouteArgs({required this.color, required this.model});
 
   final _i36.Color color;
+
+  final _i38.ProductModel model;
 }
 
 class ProductsRoute extends _i1.PageRouteInfo<ProductsRouteArgs> {

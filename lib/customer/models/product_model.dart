@@ -14,6 +14,8 @@ class ProductModel {
   final String mainImg;
   @JsonKey(name: 'name')
   final String name;
+  @JsonKey(name: 'phone')
+  final String phone;
   @JsonKey(name: 'lat')
   final String lat;
   @JsonKey(name: 'lng')
@@ -57,6 +59,7 @@ class ProductModel {
     required this.youType,
     required this.checkWishList,
     required this.imgList,
+    required this.phone,
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) =>

@@ -26,7 +26,7 @@ class Social extends StatelessWidget {
               ],
             ),
           ),
-          BuildReservationButton(color: color,detailsData: detailsData,id: model.idProvider,),
+          BuildReservationButton(color: color,detailsData: detailsData,model: model),
         ],
       ),
     );

@@ -2,8 +2,9 @@ part of 'AddReservationImports.dart';
 
 class AddReservation extends StatefulWidget {
   final Color color;
+  final ProductModel model;
 
-  const AddReservation({required this.color});
+  const AddReservation({required this.color, required this.model});
 
   @override
   _AddReservationState createState() => _AddReservationState();
@@ -28,10 +29,11 @@ class _AddReservationState extends State<AddReservation> {
         child: Column(
           children: [
             BuildFormView(addReservationData: addReservationData),
-            DefaultButton(
+            LoadingButton(
+              btnKey: addReservationData.btnKey,
               title: "ارسال",
               color: widget.color,
-              onTap: () => AutoRouter.of(context).push(ReservationSuccessRoute(color: widget.color)),
+              onTap: () => addReservationData.setAddReservation(context,widget.model,widget.color),
             )
           ],
         ),

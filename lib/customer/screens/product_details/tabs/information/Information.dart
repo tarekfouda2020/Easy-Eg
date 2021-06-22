@@ -15,7 +15,7 @@ class Information extends StatelessWidget {
       children: [
         BuildInfoDetails(color: color,model: model,),
         BuildVideoView(link: model.linkVideo,),
-        BuildReservationButton(color: color,detailsData: detailsData,id: model.idProvider,),
+        BuildReservationButton(color: color,detailsData: detailsData,model: model),
       ],
     );
   }
