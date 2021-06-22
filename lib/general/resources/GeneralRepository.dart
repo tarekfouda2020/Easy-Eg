@@ -21,9 +21,9 @@ class GeneralRepository {
   Future<bool> resendCode(String userId) =>
       _generalHttpMethods.resendCode(userId);
 
-  Future<String?> aboutApp() => _generalHttpMethods.aboutApp();
+  Future<String?> aboutApp(bool refresh) => _generalHttpMethods.aboutApp(refresh);
 
-  Future<String?> terms() => _generalHttpMethods.terms();
+  Future<String?> terms(bool refresh) => _generalHttpMethods.terms(refresh);
 
   Future<bool> switchNotify() => _generalHttpMethods.switchNotify();
 

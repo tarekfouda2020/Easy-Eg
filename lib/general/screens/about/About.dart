@@ -14,6 +14,7 @@ class _AboutState extends State<About> with AboutData {
 
   @override
   void initState() {
+    fetchData(context,refresh: false);
     fetchData(context);
     super.initState();
   }
@@ -28,7 +29,7 @@ class _AboutState extends State<About> with AboutData {
           if(state is GenericUpdateState){
             return BuildAboutView(text: state.data,color: widget.color,);
           }else{
-            return LoadingDialog.showLoadingView();
+            return LoadingDialog.showLoadingView(color: widget.color);
           }
         },
       ),

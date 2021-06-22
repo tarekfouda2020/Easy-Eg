@@ -67,27 +67,27 @@ class GeneralHttpMethods {
     return (_data != null);
   }
 
-  Future<String?> aboutApp() async {
+  Future<String?> aboutApp(bool refresh) async {
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,
     };
     var _data =
-    await DioHelper(context: context).get(url: "/api/v1/AboutApp", body:body);
+    await DioHelper(context: context,forceRefresh: refresh).get(url: "/api/v1/AboutUs", body:body);
     if (_data != null) {
-      return _data["data"]["about_app"];
+      return _data["data"]["aboutUs"];
     } else {
       return null;
     }
   }
 
-  Future<String?> terms() async {
+  Future<String?> terms(bool refresh) async {
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,
     };
     var _data =
-    await DioHelper(context: context).get(url: "/api/v1/AboutApp", body:body);
+    await DioHelper(context: context,forceRefresh: refresh).get(url: "/api/v1/Condtions", body:body);
     if (_data != null) {
-      return _data["data"]["condetions"];
+      return _data["data"]["condtions"];
     } else {
       return null;
     }

@@ -13,6 +13,7 @@ class _TermsState extends State<Terms> with TermsData {
 
   @override
   void initState() {
+    fetchData(context,refresh: false);
     fetchData(context);
     super.initState();
   }
@@ -20,14 +21,14 @@ class _TermsState extends State<Terms> with TermsData {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: DefaultAppBar(title: 'الشروط والاحكام'),
+      appBar: DefaultAppBar(title: 'الشروط والاحكام',color: widget.color,),
       body: BlocBuilder<GenericBloc<String>,GenericState<String>>(
         bloc: termsCubit,
         builder: (_,state){
           if(state is GenericUpdateState){
             return BuildTermsView(text: state.data,color: widget.color,);
           }else{
-            return LoadingDialog.showLoadingView();
+            return LoadingDialog.showLoadingView(color: widget.color);
           }
         },
       ),

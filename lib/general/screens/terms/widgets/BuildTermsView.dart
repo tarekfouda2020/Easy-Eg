@@ -14,7 +14,10 @@ class BuildTermsView extends StatelessWidget {
       child: ListView(
         // mainAxisSize: MainAxisSize.min,
         children: [
-          Image.asset(Res.logo,height: 100,),
+          Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: Image.asset(Res.logo,height: 100,),
+          ),
           Html(
             data: text,
           ),
