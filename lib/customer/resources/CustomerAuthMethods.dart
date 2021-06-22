@@ -52,5 +52,21 @@ class CustomerAuthMethods {
     return false;
   }
 
+  Future<bool> changePassword(String oldPass,String newPass) async {
+    Map<String, dynamic> body = {
+      "lang": context.read<LangCubit>().state.locale.languageCode,
+      "newPassword":newPass,
+      "oldPassword":oldPass
+    };
+    var _data = await DioHelper(context: context).uploadFile(
+      url: "/api/v1/ChangePassward",
+      body: body,
+      showLoader: false,
+    );
+    return (_data != null);
+  }
+
+
+
 
 }

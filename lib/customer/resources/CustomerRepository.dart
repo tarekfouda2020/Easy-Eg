@@ -59,4 +59,7 @@ class CustomerRepository{
   Future<bool> updateProfile(UpdateCustomerModel model )=>
       _customerAuthMethods.updateProfile(model);
 
+  Future<bool> changePassword(String oldPass,String newPass)=>
+      _customerAuthMethods.changePassword(oldPass, newPass);
+
 }
