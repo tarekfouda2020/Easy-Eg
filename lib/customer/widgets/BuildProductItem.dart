@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:base_flutter/customer/models/product_model.dart';
 import 'package:base_flutter/general/constants/MyColors.dart';
 import 'package:base_flutter/general/utilities/routers/RouterImports.gr.dart';
 import 'package:base_flutter/general/widgets/CachedImage.dart';
@@ -9,13 +10,14 @@ import 'package:flutter/material.dart';
 class BuildProductItem extends StatelessWidget {
 
   final Color color;
-
-  const BuildProductItem({required this.color});
+  final ProductModel model;
+  final Function()? onFavTap;
+  const BuildProductItem({required this.color,required this.model, this.onFavTap});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: ()=>AutoRouter.of(context).push(ProductDetailsRoute(color: color)),
+      onTap: ()=>AutoRouter.of(context).push(ProductDetailsRoute(color: color,model: model)),
       child: Container(
         margin: EdgeInsets.only(bottom: 20),
         child: Column(
@@ -30,17 +32,20 @@ class BuildProductItem extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  MyText(title: "اسم القاعة", color: MyColors.white, size: 12),
-                  Container(
-                    width: 27,
-                    height: 27,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                        color: Colors.white60, shape: BoxShape.circle,),
-                    child: Icon(
-                      Icons.favorite_border,
-                      size: 17,
-                      color: Colors.red,
+                  MyText(title: model.name, color: MyColors.white, size: 12),
+                  InkWell(
+                    onTap: onFavTap,
+                    child: Container(
+                      width: 27,
+                      height: 27,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.white60, shape: BoxShape.circle,),
+                      child: Icon(
+                        model.checkWishList? Icons.favorite :Icons.favorite_border,
+                        size: 17,
+                        color: Colors.red,
+                      ),
                     ),
                   ),
                 ],
@@ -53,8 +58,7 @@ class BuildProductItem extends StatelessWidget {
                 children: [
                   Expanded(
                     child: CachedImage(
-                      url:
-                          "https://images.unsplash.com/photo-1563694983011-6f4d90358083?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80",
+                      url: model.logoImg,
                       borderColor: MyColors.header,
                       borderRadius: BorderRadius.circular(6),
                     ),
@@ -62,8 +66,7 @@ class BuildProductItem extends StatelessWidget {
                   SizedBox(width: 15),
                   Expanded(
                     child: CachedImage(
-                      url:
-                          "https://images.unsplash.com/photo-1604639168969-02843477dce3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80",
+                      url: model.mainImg,
                       borderColor: MyColors.header,
                       borderRadius: BorderRadius.circular(6),
                     ),

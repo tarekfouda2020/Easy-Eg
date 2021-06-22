@@ -1,6 +1,6 @@
 import 'package:animations/animations.dart';
 import 'package:base_flutter/customer/models/BottomTabModel.dart';
-import 'package:base_flutter/customer/models/category.dart';
+import 'package:base_flutter/customer/models/CategoryModel.dart';
 import 'package:base_flutter/general/blocks/generic_cubit/generic_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

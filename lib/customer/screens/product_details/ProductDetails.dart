@@ -2,8 +2,9 @@ part of 'ProductDetailsImports.dart';
 
 class ProductDetails extends StatefulWidget {
   final Color color;
+  final ProductModel model;
 
-  const ProductDetails({required this.color});
+  const ProductDetails({required this.color, required this.model});
 
   @override
   _ProductDetailsState createState() => _ProductDetailsState();
@@ -28,7 +29,11 @@ class _ProductDetailsState extends State<ProductDetails> {
         child: CustomScrollView(
           controller: productDetailsData.scrollController,
           slivers: [
-            BuildAppBar(color: widget.color),
+            BuildAppBar(
+              color: widget.color,
+              model: widget.model,
+              detailsData: productDetailsData,
+            ),
             SliverFillRemaining(
               child: Column(
                 children: [
@@ -39,6 +44,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   BuildTabBarView(
                     color: widget.color,
                     detailsData: productDetailsData,
+                    model: widget.model,
                   ),
                 ],
               ),

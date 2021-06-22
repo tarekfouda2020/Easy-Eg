@@ -2,8 +2,9 @@ part of 'InformationWidgetImports.dart';
 
 class BuildInfoDetails extends StatelessWidget {
   final Color color;
+  final ProductModel model;
 
-  const BuildInfoDetails({required this.color});
+  const BuildInfoDetails({required this.color,required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,7 @@ class BuildInfoDetails extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         MyText(
-          title: "اسم القاعة",
+          title: model.name,
           color: MyColors.black,
           size: 14,
           fontWeight: FontWeight.w600,
@@ -27,7 +28,7 @@ class BuildInfoDetails extends StatelessWidget {
               ),
               SizedBox(width: 5),
               MyText(
-                title: "مصر - المنصورة - برج السوسن",
+                title: model.location,
                 color: color.withOpacity(.8),
                 size: 10,
                 fontWeight: FontWeight.w600,
@@ -43,7 +44,7 @@ class BuildInfoDetails extends StatelessWidget {
           fontWeight: FontWeight.w700,
         ),
         MyText(
-          title: "هذا النص يمكن استبدالة "*8,
+          title: model.info,
           color: MyColors.blackOpacity,
           size: 10,
           fontWeight: FontWeight.w600,

@@ -2,14 +2,14 @@ part of 'HomeMainWidgetImports.dart';
 
 class BuildCategoryItem extends StatelessWidget {
   final Color color;
-  final SubCategory model;
+  final SubCategoryModel model;
 
   const BuildCategoryItem({required this.color,required this.model});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: ()=>AutoRouter.of(context).push(ProductsRoute(color: MyColors.convertColor(model.color))),
+      onTap: ()=>AutoRouter.of(context).push(ProductsRoute(color: MyColors.convertColor(model.color), model: model)),
       child: Container(
         margin: EdgeInsets.only(top: 15),
         child: Row(

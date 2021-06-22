@@ -1,7 +1,7 @@
 part of 'HomeMainImports.dart';
 
 class HomeMain extends StatelessWidget {
-  final Category category;
+  final CategoryModel category;
 
   const HomeMain({required this.category});
 

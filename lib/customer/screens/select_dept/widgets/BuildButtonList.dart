@@ -7,8 +7,8 @@ class BuildButtonList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<GenericBloc<List<Category>>,
-        GenericState<List<Category>>>(
+    return BlocBuilder<GenericBloc<List<CategoryModel>>,
+        GenericState<List<CategoryModel>>>(
       bloc: selectDeptData.catsCubit,
       builder: (context, state) {
         if (state is GenericUpdateState) {

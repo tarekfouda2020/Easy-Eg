@@ -22,7 +22,7 @@ class HomeData {
     BottomTabModel(iconData: Icons.settings, title: "المزيد",color: Color(0xffd2866e)),
   ];
 
-  void initBottomNavigation(TickerProvider ticker,Color color,BuildContext context,Category category) {
+  void initBottomNavigation(TickerProvider ticker,Color color,BuildContext context,CategoryModel category) {
     context.read<TabsColorCubit>().onUpdateColor(color);
     tabsView=[
       Favourite(),

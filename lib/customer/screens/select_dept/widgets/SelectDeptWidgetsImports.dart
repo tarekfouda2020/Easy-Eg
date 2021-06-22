@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:base_flutter/customer/models/category.dart';
+import 'package:base_flutter/customer/models/CategoryModel.dart';
 import 'package:base_flutter/general/blocks/generic_cubit/generic_cubit.dart';
 import 'package:base_flutter/general/constants/ModaLs/LoadingDialog.dart';
 import 'package:base_flutter/general/constants/MyColors.dart';

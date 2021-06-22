@@ -209,11 +209,11 @@ class DioHelper {
 
   Future<void> logout() async {
     Utils.clearSavedData();
-    AutoRouter.of(context).popAndPush(LoginRoute());
+    AutoRouter.of(context).popAndPush(SelectAuthRoute());
   }
 
   void tokenExpired() {
     Utils.clearSavedData();
-    AutoRouter.of(context).popAndPush(LoginRoute());
+    AutoRouter.of(context).popAndPush(SelectAuthRoute());
   }
 }

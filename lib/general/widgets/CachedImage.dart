@@ -66,7 +66,7 @@ class CachedImage extends StatelessWidget{
             border: Border.all(color: borderColor??Colors.transparent,width: 1),
             shape: boxShape??BoxShape.rectangle,
             image: DecorationImage(
-                image: AssetImage(Res.placeholder),
+                image: AssetImage(Res.logo),
                 fit: BoxFit.contain,
                 colorFilter: ColorFilter.mode(Colors.black12, BlendMode.darken)
             ),
@@ -86,10 +86,11 @@ class CachedImage extends StatelessWidget{
             border: Border.all(color: borderColor??Colors.transparent,width: 1),
             shape: boxShape??BoxShape.rectangle,
             image: DecorationImage(
-              image: AssetImage(Res.placeholder),
+              image: AssetImage(Res.logo),
               fit: BoxFit.contain,
             )
         ),
+        child: child,
       ),
     );
   }

@@ -3,7 +3,7 @@ part of 'HomeImports.dart';
 class Home extends StatefulWidget {
   final Color color;
   final int tab;
-  final Category category;
+  final CategoryModel category;
 
   const Home({required this.color, this.tab = 4,required this.category});
 

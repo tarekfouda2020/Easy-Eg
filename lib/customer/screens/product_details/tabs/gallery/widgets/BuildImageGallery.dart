@@ -1,15 +1,18 @@
 part of 'GalleryWidgetImports.dart';
 
 class BuildImageGallery extends StatelessWidget {
+  final ProductModel model;
+
+  const BuildImageGallery({required this.model});
   @override
   Widget build(BuildContext context) {
     return Flexible(
       child: StaggeredGridView.countBuilder(
         crossAxisCount: 4,
-        itemCount: 8,
+        itemCount: model.imgList.length,
         itemBuilder: (BuildContext context, int index){
           return CachedImage(
-            url: "https://images.unsplash.com/photo-1623856680463-1b656c7fe438?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1019&q=80",
+            url: model.imgList[index],
             borderRadius: BorderRadius.circular(5),
           );
         },

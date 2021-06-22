@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:base_flutter/customer/models/product_model.dart';
 import 'package:base_flutter/customer/screens/product_details/tabs/gallery/GalleryImports.dart';
 import 'package:base_flutter/customer/screens/product_details/tabs/information/InformationImports.dart';
 import 'package:base_flutter/customer/screens/product_details/tabs/social/SocialImports.dart';
