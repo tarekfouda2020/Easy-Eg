@@ -123,4 +123,19 @@ class CustomerHttpMethods {
     );
     return (_data != null);
   }
+
+  Future<List<ProductModel>> getFavouriteProducts(bool refresh) async {
+    Map<String, dynamic> body = {
+      "lang": context.read<LangCubit>().state.locale.languageCode,
+    };
+    var _data = await DioHelper(context: context, forceRefresh: refresh)
+        .get(url: "/api/v1/ListFavourite", body: body);
+    if (_data != null) {
+      return List<ProductModel>.from(
+          _data["listFavourite"].map((e) => ProductModel.fromJson(e)));
+    } else {
+      return [];
+    }
+  }
+
 }

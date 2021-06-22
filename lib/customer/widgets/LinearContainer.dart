@@ -14,6 +14,8 @@ class LinearContainer extends StatelessWidget {
       onTap: ()=>FocusScope.of(context).requestFocus(FocusNode()),
       child: Container(
         padding: padding,
+        width: MediaQuery.of(context).size.width,
+        height:MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [color.withOpacity(.8), MyColors.white],

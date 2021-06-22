@@ -42,4 +42,7 @@ class CustomerRepository{
 
   Future<bool> addOrder(AddReservationModel model)=> _customerHttpMethods.addOrder(model);
 
+  Future<List<ProductModel>> getFavouriteProducts(bool refresh)=>
+      _customerHttpMethods.getFavouriteProducts(refresh);
+
 }

@@ -26,6 +26,7 @@ ProductModel _$ProductModelFromJson(Map<String, dynamic> json) {
     checkWishList: json['checkWishList'] as bool,
     imgList:
         (json['imgList'] as List<dynamic>).map((e) => e as String).toList(),
+    phone: json['phone'] as String,
   );
 }
 
@@ -36,6 +37,7 @@ Map<String, dynamic> _$ProductModelToJson(ProductModel instance) =>
       'logoImg': instance.logoImg,
       'mainImg': instance.mainImg,
       'name': instance.name,
+      'phone': instance.phone,
       'lat': instance.lat,
       'lng': instance.lng,
       'location': instance.location,
