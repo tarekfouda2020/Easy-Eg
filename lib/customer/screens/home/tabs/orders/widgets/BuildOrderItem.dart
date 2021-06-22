@@ -14,7 +14,7 @@ class BuildOrderItem extends StatelessWidget {
       closedColor: Colors.transparent,
       transitionDuration: Duration(milliseconds: 800),
       transitionType: ContainerTransitionType.fadeThrough,
-      openBuilder: (context, action) => OrderDetails(color:color),
+      openBuilder: (context, action) => OrderDetails(color:color, id: model.id,model: model,),
       closedBuilder: (context, action) => Container(
         margin: EdgeInsets.only(top: 10),
         padding: EdgeInsets.symmetric(vertical: 5),

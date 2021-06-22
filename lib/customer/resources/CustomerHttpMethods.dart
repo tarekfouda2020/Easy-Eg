@@ -167,4 +167,18 @@ class CustomerHttpMethods {
     }
   }
 
+  Future<OrderModel?> getOrderDetails(int id, bool refresh) async {
+    Map<String, dynamic> body = {
+      "lang": context.read<LangCubit>().state.locale.languageCode,
+      "orderId":"$id"
+    };
+    var _data = await DioHelper(context: context, forceRefresh: refresh)
+        .get(url: "/api/v1/GetOrderInfoUser", body: body);
+    if (_data != null) {
+      return  OrderModel.fromJson(_data["data"]);
+    } else {
+      return null;
+    }
+  }
+
 }

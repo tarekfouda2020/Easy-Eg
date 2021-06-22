@@ -52,4 +52,7 @@ class CustomerRepository{
   Future<List<OrderModel>> getCurrentOrders(bool refresh)=>
       _customerHttpMethods.getCurrentOrders(refresh);
 
+  Future<OrderModel?> getOrderDetails(int id, bool refresh)=>
+      _customerHttpMethods.getOrderDetails(id, refresh);
+
 }

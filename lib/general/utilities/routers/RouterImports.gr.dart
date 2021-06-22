@@ -6,8 +6,9 @@
 
 import 'package:auto_route/auto_route.dart' as _i1;
 import 'package:base_flutter/customer/models/CategoryModel.dart' as _i37;
-import 'package:base_flutter/customer/models/product_model.dart' as _i38;
-import 'package:base_flutter/customer/models/sub_category_model.dart' as _i39;
+import 'package:base_flutter/customer/models/order_model.dart' as _i38;
+import 'package:base_flutter/customer/models/product_model.dart' as _i39;
+import 'package:base_flutter/customer/models/sub_category_model.dart' as _i40;
 import 'package:base_flutter/customer/screens/add_reservation/AddReservationImports.dart'
     as _i22;
 import 'package:base_flutter/customer/screens/contact_us/ContactUsImports.dart'
@@ -199,7 +200,8 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<OrderDetailsRouteArgs>();
-          return _i20.OrderDetails(color: args.color);
+          return _i20.OrderDetails(
+              color: args.color, id: args.id, model: args.model);
         }),
     ProductDetailsRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
         routeData: routeData,
@@ -529,22 +531,29 @@ class HomeRouteArgs {
 }
 
 class OrderDetailsRoute extends _i1.PageRouteInfo<OrderDetailsRouteArgs> {
-  OrderDetailsRoute({required _i36.Color color})
+  OrderDetailsRoute(
+      {required _i36.Color color, required int id, _i38.OrderModel? model})
       : super(name,
-            path: '/order-details', args: OrderDetailsRouteArgs(color: color));
+            path: '/order-details',
+            args: OrderDetailsRouteArgs(color: color, id: id, model: model));
 
   static const String name = 'OrderDetailsRoute';
 }
 
 class OrderDetailsRouteArgs {
-  const OrderDetailsRouteArgs({required this.color});
+  const OrderDetailsRouteArgs(
+      {required this.color, required this.id, this.model});
 
   final _i36.Color color;
+
+  final int id;
+
+  final _i38.OrderModel? model;
 }
 
 class ProductDetailsRoute extends _i1.PageRouteInfo<ProductDetailsRouteArgs> {
   ProductDetailsRoute(
-      {required _i36.Color color, required _i38.ProductModel model})
+      {required _i36.Color color, required _i39.ProductModel model})
       : super(name,
             path: '/product-details',
             args: ProductDetailsRouteArgs(color: color, model: model));
@@ -557,12 +566,12 @@ class ProductDetailsRouteArgs {
 
   final _i36.Color color;
 
-  final _i38.ProductModel model;
+  final _i39.ProductModel model;
 }
 
 class AddReservationRoute extends _i1.PageRouteInfo<AddReservationRouteArgs> {
   AddReservationRoute(
-      {required _i36.Color color, required _i38.ProductModel model})
+      {required _i36.Color color, required _i39.ProductModel model})
       : super(name,
             path: '/add-reservation',
             args: AddReservationRouteArgs(color: color, model: model));
@@ -575,13 +584,13 @@ class AddReservationRouteArgs {
 
   final _i36.Color color;
 
-  final _i38.ProductModel model;
+  final _i39.ProductModel model;
 }
 
 class ReservationSuccessRoute
     extends _i1.PageRouteInfo<ReservationSuccessRouteArgs> {
   ReservationSuccessRoute(
-      {required _i36.Color color, required _i38.ProductModel model})
+      {required _i36.Color color, required _i39.ProductModel model})
       : super(name,
             path: '/reservation-success',
             args: ReservationSuccessRouteArgs(color: color, model: model));
@@ -594,12 +603,12 @@ class ReservationSuccessRouteArgs {
 
   final _i36.Color color;
 
-  final _i38.ProductModel model;
+  final _i39.ProductModel model;
 }
 
 class ProductsRoute extends _i1.PageRouteInfo<ProductsRouteArgs> {
   ProductsRoute(
-      {required _i36.Color color, required _i39.SubCategoryModel model})
+      {required _i36.Color color, required _i40.SubCategoryModel model})
       : super(name,
             path: '/Products',
             args: ProductsRouteArgs(color: color, model: model));
@@ -612,7 +621,7 @@ class ProductsRouteArgs {
 
   final _i36.Color color;
 
-  final _i39.SubCategoryModel model;
+  final _i40.SubCategoryModel model;
 }
 
 class OffersRoute extends _i1.PageRouteInfo<OffersRouteArgs> {
