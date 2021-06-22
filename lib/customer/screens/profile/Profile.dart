@@ -12,6 +12,13 @@ class _ProfileState extends State<Profile>{
 
    ProfileData profileData = new ProfileData();
 
+
+   @override
+  void initState() {
+     profileData.setInitUserData(context);
+     super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +40,7 @@ class _ProfileState extends State<Profile>{
                 ],
               ),
             ),
-            BuildProfileButtons(color: widget.color)
+            BuildProfileButtons(color: widget.color,profileData: profileData,)
           ],
         ),
       ),

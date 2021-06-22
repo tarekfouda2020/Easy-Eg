@@ -2,6 +2,7 @@ import 'package:base_flutter/customer/models/DropDownModel.dart';
 import 'package:base_flutter/customer/models/CategoryModel.dart';
 import 'package:base_flutter/customer/models/Dtos/AddReservationModel.dart';
 import 'package:base_flutter/customer/models/Dtos/CustomerRegisterModel.dart';
+import 'package:base_flutter/customer/models/Dtos/UpdateCustomerModel.dart';
 import 'package:base_flutter/customer/models/order_model.dart';
 import 'package:base_flutter/customer/models/product_model.dart';
 import 'package:base_flutter/customer/resources/CustomerAuthMethods.dart';
@@ -54,5 +55,8 @@ class CustomerRepository{
 
   Future<OrderModel?> getOrderDetails(int id, bool refresh)=>
       _customerHttpMethods.getOrderDetails(id, refresh);
+
+  Future<bool> updateProfile(UpdateCustomerModel model )=>
+      _customerAuthMethods.updateProfile(model);
 
 }

@@ -8,6 +8,7 @@ class BuildEditForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Form(
+        key: profileData.formKey,
         child: Column(
           children: [
             LabelTextField(
@@ -35,8 +36,8 @@ class BuildEditForm extends StatelessWidget {
               type: TextInputType.emailAddress,
               action: TextInputAction.done,
               borderColor: MyColors.grey,
-              validate: (value) => value!.validatePhone(context),
-              onSubmit: (){},
+              validate: (value) => value!.validateEmail(context),
+              onSubmit: ()=>profileData.setUpdateProfile(context),
             ),
           ],
         ),
