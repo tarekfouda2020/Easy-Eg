@@ -40,6 +40,7 @@ class Utils {
 
   static void  setCurrentUserData(UserModel model,BuildContext context)async{
     context.read<UserCubit>().onUpdateUserData(model);
+    context.read<AuthCubit>().onUpdateAuth(true);
     if (context.read<UserCubit>().state.model.type=="user") {
       AutoRouter.of(context).popUntilRouteWithName(HomeRoute.name);
     } else{
@@ -49,6 +50,7 @@ class Utils {
 
   static void  setSplashCurrentUserData(UserModel model,BuildContext context)async{
     context.read<UserCubit>().onUpdateUserData(model);
+    context.read<AuthCubit>().onUpdateAuth(true);
     if (context.read<UserCubit>().state.model.type=="user") {
       AutoRouter.of(context).push(SelectAddressRoute());
     } else{

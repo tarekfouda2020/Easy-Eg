@@ -17,6 +17,7 @@ class _ProductDetailsState extends State<ProductDetails> {
   void initState() {
     productDetailsData.scrollController
         .addListener(productDetailsData.scrollListener);
+    productDetailsData.favCubit.onUpdateData(widget.model.checkWishList);
     super.initState();
   }
 

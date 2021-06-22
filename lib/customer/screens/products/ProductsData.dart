@@ -2,7 +2,7 @@ part of 'ProductsImports.dart';
 
 class ProductsData{
 
-  final PagingController<int, ProductModel> pagingController = PagingController(firstPageKey: 1);
+  static final PagingController<int, ProductModel> pagingController = PagingController(firstPageKey: 1);
   final int pageSize = 10;
 
   Future<void> fetchPage(int pageKey, BuildContext context,int id, {bool refresh = true}) async {

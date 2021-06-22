@@ -18,6 +18,7 @@ class ProductDetailsData{
       var result = await CustomerRepository(context).setAddToFavourite(model.idProvider);
       if (result) {
         favCubit.onUpdateData(!favCubit.state.data);
+        ProductsData.pagingController.refresh();
       }
       return;
     }
