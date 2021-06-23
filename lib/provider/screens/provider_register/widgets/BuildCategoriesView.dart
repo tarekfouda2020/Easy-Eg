@@ -56,7 +56,7 @@ class BuildCategoriesView extends StatelessWidget {
                           width: 20,
                           height: 20,
                           child: Checkbox(
-                            value: true,
+                            value: state.data[index].selected,
                             onChanged: (value) => registerData.setSelectSubCat(index),
                           ),
                         ),

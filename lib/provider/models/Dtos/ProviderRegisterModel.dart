@@ -30,6 +30,7 @@ class ProviderRegisterModel{
   File? logoImg;
   File? mainImg;
   File? coverImg;
+  List<File>? images;
 
   ProviderRegisterModel(
       {this.userName,
@@ -60,6 +61,7 @@ class ProviderRegisterModel{
       this.telegram,
       this.logoImg,
       this.mainImg,
+      this.images,
       this.coverImg});
 
 
@@ -92,7 +94,8 @@ class ProviderRegisterModel{
     "telegram":telegram,
     "logoImg":logoImg,
     "mainImg":mainImg,
-    "coverImg":coverImg
+    "coverImg":coverImg,
+    "ImgProfiles":images
   };
 
 }

@@ -20,7 +20,7 @@ class RegisterData{
         userName: name.text,
         phone: phone.text,
         email: mail.text,
-        deviceType: "ios",
+          deviceType: Platform.isIOS?"ios":"android",
         password: pass.text,
         projectName: "Easy"
       );

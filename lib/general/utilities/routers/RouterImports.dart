@@ -29,6 +29,8 @@ import 'package:base_flutter/general/screens/select_user/SelectUserImports.dart'
 import 'package:base_flutter/general/screens/splash/SplashImports.dart';
 import 'package:base_flutter/general/screens/terms/TermsImports.dart';
 import 'package:base_flutter/provider/screens/accept_order_success/AcceptOrderSuccessImports.dart';
+import 'package:base_flutter/provider/screens/complete_register/CompleteRegisterImports.dart';
+import 'package:base_flutter/provider/screens/finish_register/FinishRegisterImports.dart';
 import 'package:base_flutter/provider/screens/provider_home/ProviderHomeImports.dart';
 import 'package:base_flutter/provider/screens/provider_offers/ProviderOffersImports.dart';
 import 'package:base_flutter/provider/screens/provider_order_details/ProviderOrderDetailsImports.dart';

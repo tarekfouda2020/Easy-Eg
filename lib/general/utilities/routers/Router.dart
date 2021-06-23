@@ -67,6 +67,9 @@ part of 'RouterImports.dart';
 
     //provider pages
     AdaptiveRoute(page: ProviderRegister),
+    AdaptiveRoute(page: CompleteRegister),
+    AdaptiveRoute(page: FinishRegister),
+    AdaptiveRoute(page: ProviderRegister),
     CustomRoute(
       page: ProviderHome,
       transitionsBuilder: TransitionsBuilders.fadeIn,

@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:base_flutter/customer/models/CategoryModel.dart';
 import 'package:base_flutter/customer/models/sub_category_model.dart';
@@ -14,13 +12,12 @@ import 'package:base_flutter/general/utilities/localization/LocalizationMethods.
 import 'package:base_flutter/general/utilities/validator/Validator.dart';
 import 'package:base_flutter/general/widgets/LoadingButton.dart';
 import 'package:base_flutter/general/widgets/MyText.dart';
+import 'package:base_flutter/provider/screens/complete_register/CompleteRegisterImports.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../ProviderRegisterImports.dart';
 
 
 part 'BuildRegisterForm.dart';
 part 'BuildText.dart';
 part 'BuildRegisterButton.dart';
 part 'BuildLoginAction.dart';
-part 'BuildCategoriesView.dart';

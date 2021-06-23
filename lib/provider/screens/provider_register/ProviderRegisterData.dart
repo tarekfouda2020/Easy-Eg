@@ -7,8 +7,7 @@ class ProviderRegisterData{
 
   final TextEditingController name = new TextEditingController();
   final TextEditingController phone = new TextEditingController();
-  final TextEditingController face = new TextEditingController();
-  final TextEditingController insta = new TextEditingController();
+  final TextEditingController mail = new TextEditingController();
   final TextEditingController logo = new TextEditingController();
   final TextEditingController desc = new TextEditingController();
   final TextEditingController video = new TextEditingController();
@@ -16,14 +15,21 @@ class ProviderRegisterData{
   final TextEditingController confirm = new TextEditingController();
   final TextEditingController images = new TextEditingController();
 
-  final GenericBloc<File?> imageCubit = new GenericBloc(null);
+  final GenericBloc<List<File>> imagesCubit = new GenericBloc([]);
+  final GenericBloc<File?> logoCubit = new GenericBloc(null);
   final GenericBloc<int> catCubit = new GenericBloc(0);
   final GenericBloc<List<SubCategoryModel>> subCatsCubit = new GenericBloc([]);
 
-  setProfileImage()async{
+  setLogoImage()async{
     var image = await Utils.getImage();
     if (image!=null) {
-      imageCubit.onUpdateData(image);
+      logoCubit.onUpdateData(image);
+    }
+  }
+  setImages()async{
+    var image = await Utils.getImages();
+    if (image.length>0) {
+      imagesCubit.onUpdateData(image);
     }
   }
 
@@ -38,7 +44,29 @@ class ProviderRegisterData{
   }
 
   setRegisterProvider(BuildContext context)async{
-
+    if (formKey.currentState!.validate()) {
+      var subCats = subCatsCubit.state.data.where((element) => element.selected).
+        map((e) => e.id.toString()).toList();
+      if (subCats.length==0) {
+        LoadingDialog.showSimpleToast("من فضلك حدد الخدمات التي تقدمها");
+        return;
+      }  
+      ProviderRegisterModel model = new ProviderRegisterModel(
+        userName: name.text,
+        phone: phone.text,
+        info: desc.text,
+        linkVideo: video.text,
+        projectName: "Easy",
+        deviceType: Platform.isIOS?"ios":"android",
+        password: pass.text,
+        email: mail.text,
+        logoImg: logoCubit.state.data,
+        images: imagesCubit.state.data,
+        idsSubCat: json.encode(subCats)
+      );
+      print("=======================>${model.toJson()}");
+      AutoRouter.of(context).push(CompleteRegisterRoute(model: model));
+    }
   }
 
 }
