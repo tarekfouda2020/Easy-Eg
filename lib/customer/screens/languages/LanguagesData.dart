@@ -7,7 +7,7 @@ class LanguagesData{
 
   setLanguage(BuildContext context,String lang)async{
     langCubit.onUpdateData(lang.toString());
-    if (!context.read<AuthCubit>().state.authorized) {
+    if (context.read<AuthCubit>().state.authorized) {
       await saveUserLanguage(context,lang);
     }
     Utils.changeLanguage(lang.toString(), context);
@@ -18,10 +18,16 @@ class LanguagesData{
     if (result) {
       var user = context.read<UserCubit>();
       user.state.model.lang=lang;
-      user.state.model.customerModel!.lang=lang;
+      var type = context.read<UserCubit>().state.model.type;
+      if (type=="user") {
+        user.state.model.customerModel!.lang=lang;
+      }else{
+        user.state.model.providerModel!.lang=lang;
+      }
       user.onUpdateUserData(user.state.model);
       Utils.saveUserData(user.state.model);
     }
   }
+
 
 }
