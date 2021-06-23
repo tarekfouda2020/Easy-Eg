@@ -56,7 +56,7 @@ class LoadingDialog {
       builder: (BuildContext context) {
         return _alertDialog(
             "قم بتسجيل الدخول للمتابعة",
-            () => context.router.popUntilRouteWithName(LoginRoute.name),
+            () => context.router.push(SelectAuthRoute()),
             context,
             "دخول");
       },

@@ -52,6 +52,12 @@ class HomeData {
   }
 
   void animateTabsPages(int index, BuildContext context,Color color) {
+    if (!context.read<AuthCubit>().state.authorized) {
+      if (index>=0&&index<=2) {
+        LoadingDialog.showAuthDialog(context: context);
+        return;
+      }
+    }
     if (index != homeTabCubit.state.data) {
       homeTabCubit.onUpdateData(index);
       tabController.animateTo(index);

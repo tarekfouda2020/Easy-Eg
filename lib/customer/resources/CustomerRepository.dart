@@ -74,4 +74,6 @@ class CustomerRepository{
   Future<bool> changeLanguage(String lang)=>
       _customerAuthMethods.changeLanguage(lang);
 
+  Future<bool> logout() => _customerAuthMethods.logout();
+
 }

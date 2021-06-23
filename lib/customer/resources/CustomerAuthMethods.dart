@@ -109,6 +109,27 @@ class CustomerAuthMethods {
     }
   }
 
+  Future<bool> logout() async {
+    String? deviceId = await messaging.getToken();
+    Map<String, dynamic> body = {
+      "lang": context.read<LangCubit>().state.locale.languageCode,
+      "deviceId":deviceId
+    };
+    var _data = await DioHelper(context: context).post(
+      url: "/api/v1/logout",
+      body: body,
+    );
+    if (_data != null) {
+      EasyLoading.dismiss().then((value){
+        Utils.clearSavedData();
+        GlobalState.instance.set("token", "");
+        Phoenix.rebirth(context);
+      });
+      return true;
+    } else {
+      return false;
+    }
+  }
 
 
 }

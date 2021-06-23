@@ -27,15 +27,21 @@ class Settings extends StatelessWidget {
                 color: currentColor,
                 onTap: ()=> AutoRouter.of(context).push(CompetitionsRoute(color: currentColor)),
               ),
-              BuildPageItem(
-                name: "المحادثات",
-                color: currentColor,
-                onTap: ()=> AutoRouter.of(context).push(ConversationsRoute(color: currentColor)),
+              Offstage(
+                offstage: !context.read<AuthCubit>().state.authorized,
+                child: BuildPageItem(
+                  name: "المحادثات",
+                  color: currentColor,
+                  onTap: ()=> AutoRouter.of(context).push(ConversationsRoute(color: currentColor)),
+                ),
               ),
-              BuildPageItem(
-                name: "الملف الشخصي",
-                color: currentColor,
-                onTap: ()=> AutoRouter.of(context).push(ProfileRoute(color: currentColor)),
+              Offstage(
+                offstage: !context.read<AuthCubit>().state.authorized,
+                child: BuildPageItem(
+                  name: "الملف الشخصي",
+                  color: currentColor,
+                  onTap: ()=> AutoRouter.of(context).push(ProfileRoute(color: currentColor)),
+                ),
               ),
               BuildPageItem(
                 name: "اسئلة متكررة",
@@ -67,10 +73,18 @@ class Settings extends StatelessWidget {
                 color: currentColor,
                 onTap: ()=> AutoRouter.of(context).push(LanguagesRoute(color: currentColor)),
               ),
-              BuildPageItem(
-                name: "تسجيل خروج",
-                color: currentColor,
-                onTap: (){},
+              Visibility(
+                visible: context.read<AuthCubit>().state.authorized,
+                child: BuildPageItem(
+                  name: "تسجيل خروج",
+                  color: currentColor,
+                  onTap: ()=> CustomerRepository(context).logout(),
+                ),
+                replacement: BuildPageItem(
+                  name: "تسجيل دخول",
+                  color: currentColor,
+                  onTap: ()=> AutoRouter.of(context).push(SelectAuthRoute()),
+                ),
               ),
               SizedBox(height: 50)
             ],
