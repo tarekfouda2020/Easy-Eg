@@ -63,6 +63,7 @@ import 'package:base_flutter/general/screens/splash/SplashImports.dart' as _i3;
 import 'package:base_flutter/general/screens/terms/TermsImports.dart' as _i9;
 import 'package:base_flutter/provider/models/Dtos/ProviderRegisterModel.dart'
     as _i45;
+import 'package:base_flutter/provider/models/provider_order_model.dart' as _i46;
 import 'package:base_flutter/provider/screens/accept_order_success/AcceptOrderSuccessImports.dart'
     as _i37;
 import 'package:base_flutter/provider/screens/complete_register/CompleteRegisterImports.dart'
@@ -314,7 +315,8 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<ProviderOrderDetailsRouteArgs>();
-          return _i36.ProviderOrderDetails(color: args.color, type: args.type);
+          return _i36.ProviderOrderDetails(
+              color: args.color, type: args.type, model: args.model);
         }),
     AcceptOrderSuccessRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
         routeData: routeData,
@@ -804,21 +806,27 @@ class ProviderHomeRoute extends _i1.PageRouteInfo {
 
 class ProviderOrderDetailsRoute
     extends _i1.PageRouteInfo<ProviderOrderDetailsRouteArgs> {
-  ProviderOrderDetailsRoute({required _i40.Color color, required int type})
+  ProviderOrderDetailsRoute(
+      {required _i40.Color color,
+      required int type,
+      _i46.ProviderOrderModel? model})
       : super(name,
             path: '/provider-order-details',
-            args: ProviderOrderDetailsRouteArgs(color: color, type: type));
+            args: ProviderOrderDetailsRouteArgs(
+                color: color, type: type, model: model));
 
   static const String name = 'ProviderOrderDetailsRoute';
 }
 
 class ProviderOrderDetailsRouteArgs {
   const ProviderOrderDetailsRouteArgs(
-      {required this.color, required this.type});
+      {required this.color, required this.type, this.model});
 
   final _i40.Color color;
 
   final int type;
+
+  final _i46.ProviderOrderModel? model;
 }
 
 class AcceptOrderSuccessRoute

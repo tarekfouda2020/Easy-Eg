@@ -57,10 +57,18 @@ class Settings extends StatelessWidget {
                 color: currentColor,
                 onTap: ()=> AutoRouter.of(context).push(LanguagesRoute(color: currentColor)),
               ),
-              BuildPageItem(
-                name: "تسجيل خروج",
-                color: currentColor,
-                onTap: (){},
+              Visibility(
+                visible: context.read<AuthCubit>().state.authorized,
+                child: BuildPageItem(
+                  name: "تسجيل خروج",
+                  color: currentColor,
+                  onTap: ()=> ProviderRepository(context).logout(),
+                ),
+                replacement: BuildPageItem(
+                  name: "تسجيل دخول",
+                  color: currentColor,
+                  onTap: ()=> AutoRouter.of(context).push(SelectAuthRoute()),
+                ),
               ),
               SizedBox(height: 50)
             ],

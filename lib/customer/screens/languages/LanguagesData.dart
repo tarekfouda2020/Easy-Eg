@@ -7,7 +7,9 @@ class LanguagesData{
 
   setLanguage(BuildContext context,String lang)async{
     langCubit.onUpdateData(lang.toString());
-    await saveUserLanguage(context,lang);
+    if (context.read<AuthCubit>().state.authorized) {
+      await saveUserLanguage(context,lang);
+    }
     Utils.changeLanguage(lang.toString(), context);
   }
 

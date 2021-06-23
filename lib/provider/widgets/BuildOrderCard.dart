@@ -2,13 +2,15 @@
 import 'package:base_flutter/general/constants/MyColors.dart';
 import 'package:base_flutter/general/widgets/CachedImage.dart';
 import 'package:base_flutter/general/widgets/MyText.dart';
+import 'package:base_flutter/provider/models/provider_order_model.dart';
 import 'package:flutter/material.dart';
 
 class BuildOrderCard extends StatelessWidget {
   final Color color;
   final Function()? onTap;
+  final ProviderOrderModel model;
 
-  const BuildOrderCard({required this.color,this.onTap});
+  const BuildOrderCard({required this.color,this.onTap, required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +23,7 @@ class BuildOrderCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CachedImage(
-              url:
-                  "https://images.unsplash.com/photo-1587987501183-33e43fdde781?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1103&q=80",
+              url: model.userImg,
               width: 60,
               height: 60,
             ),
@@ -32,10 +33,10 @@ class BuildOrderCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  MyText(title: "طارق فودة", color: MyColors.black, size: 10),
+                  MyText(title: model.userName, color: MyColors.black, size: 10),
                   SizedBox(height: 5),
                   MyText(
-                      title: "قاعة",
+                      title: model.beneficiaryName,
                       color: color.withOpacity(.7),
                       size: 10),
                 ],
@@ -45,7 +46,7 @@ class BuildOrderCard extends StatelessWidget {
               children: [
                 MyText(
                     title: "رقم الطلب", color: color.withOpacity(.7), size: 10),
-                MyText(title: "#####", color: color.withOpacity(.7), size: 10),
+                MyText(title: "${model.id}", color: color.withOpacity(.7), size: 10),
               ],
             )
           ],

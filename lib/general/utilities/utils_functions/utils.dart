@@ -26,6 +26,8 @@ class Utils {
       int type = data["data"]["typeUser"];
       if (type==1) {
         user.customerModel=CustomerModel.fromJson(data["data"]);
+      }else{
+        user.providerModel=ProviderModel.fromJson(data["data"]);
       }
       user.type = type == 1 ? "user" : "provider";
       user.token = data["token"];

@@ -9,6 +9,7 @@ import 'package:base_flutter/general/blocks/user_cubit/user_cubit.dart';
 import 'package:base_flutter/general/models/LocationModel.dart';
 import 'package:base_flutter/general/screens/location_address/LocationAddressImports.dart';
 import 'package:base_flutter/general/screens/location_address/location_cubit/location_cubit.dart';
+import 'package:base_flutter/provider/models/provider_model.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:base_flutter/general/constants/ModaLs/LoadingDialog.dart';

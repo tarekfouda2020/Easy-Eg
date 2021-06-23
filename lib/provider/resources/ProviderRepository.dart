@@ -13,4 +13,13 @@ class ProviderRepository{
 
   Future<bool> registerUser(ProviderRegisterModel model)=> _authMethods.registerUser(model);
 
+  Future<List<ProviderOrderModel>> getNewOrders(bool refresh)=>
+      _httpMethods.getNewOrders(refresh);
+
+  Future<List<ProviderOrderModel>> getCurrentOrders(bool refresh)=>
+      _httpMethods.getCurrentOrders(refresh);
+
+  Future<bool> logout() => _authMethods.logout();
+
+
 }

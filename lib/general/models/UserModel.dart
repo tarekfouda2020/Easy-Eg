@@ -1,4 +1,5 @@
 import 'package:base_flutter/customer/models/customer_model.dart';
+import 'package:base_flutter/provider/models/provider_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'UserModel.g.dart';
@@ -8,6 +9,7 @@ class UserModel {
 
 
   CustomerModel? customerModel;
+  ProviderModel? providerModel;
   @JsonKey(name: "token")
   String? token;
   @JsonKey(name: "lang")
