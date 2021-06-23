@@ -31,6 +31,13 @@ class ProviderRepository{
 
   Future<bool> finishOrder(int id)=> _httpMethods.finishOrder(id);
 
+  Future<List<ProviderOfferModel>> getOffers(bool refresh)=>
+      _httpMethods.getOffers(refresh);
+
+  Future<bool> removeOffer(int id)=> _httpMethods.removeOffer(id);
+
+  Future<bool> addOffer(File image)=> _httpMethods.addOffer(image);
+
   Future<bool> logout() => _authMethods.logout();
 
 

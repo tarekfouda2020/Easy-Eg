@@ -89,6 +89,37 @@ class ProviderHttpMethods{
     return (_data != null) ;
   }
 
+  Future<bool> removeOffer(int id) async {
+    Map<String, dynamic> body = {
+      "lang": context.read<LangCubit>().state.locale.languageCode,
+      "id":"$id"
+    };
+    var _data = await DioHelper(context: context).post(url: "/api/v1/DeleteOfferById", body: body);
+    return (_data != null) ;
+  }
+
+  Future<bool> addOffer(File image) async {
+    Map<String, dynamic> body = {
+      "lang": context.read<LangCubit>().state.locale.languageCode,
+      "img": image
+    };
+    var _data = await DioHelper(context: context).uploadFile(url: "/api/v1/AddOffer", body: body);
+    return (_data != null) ;
+  }
+
+  Future<List<ProviderOfferModel>> getOffers(bool refresh) async {
+    Map<String, dynamic> body = {
+      "lang": context.read<LangCubit>().state.locale.languageCode,
+    };
+    var _data = await DioHelper(context: context, forceRefresh: refresh)
+        .get(url: "/api/v1/ListOffer", body: body);
+    if (_data != null) {
+      return List<ProviderOfferModel>.from(
+          _data["data"].map((e) => ProviderOfferModel.fromJson(e)));
+    } else {
+      return [];
+    }
+  }
 
 
 }
