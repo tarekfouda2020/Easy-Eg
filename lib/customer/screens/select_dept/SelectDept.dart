@@ -16,8 +16,12 @@ class _SelectDeptState extends State<SelectDept>{
 
    @override
   void initState() {
-     selectDeptData.fetchCategoriesData(context, widget.regionId,refresh: false);
-     selectDeptData.fetchCategoriesData(context, widget.regionId);
+     if (widget.regionId!=0) {
+       selectDeptData.fetchCategoriesData(context, widget.regionId,refresh: false);
+       selectDeptData.fetchCategoriesData(context, widget.regionId);
+     }else{
+       selectDeptData.catsCubit.onUpdateData(context.read<CatsCubit>().state.cats);
+     }
      super.initState();
   }
 

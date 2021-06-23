@@ -26,6 +26,9 @@ class MainData {
     BlocProvider<TabsColorCubit>(
       create: (BuildContext context)=> TabsColorCubit(),
     ),
+    BlocProvider<CatsCubit>(
+      create: (BuildContext context)=> CatsCubit(),
+    ),
   ];
 
 

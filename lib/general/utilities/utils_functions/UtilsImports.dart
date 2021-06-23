@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:base_flutter/customer/models/customer_model.dart';
+import 'package:base_flutter/customer/resources/CustomerRepoImports.dart';
 import 'package:base_flutter/general/blocks/auth_cubit/auth_cubit.dart';
+import 'package:base_flutter/general/blocks/cats_cubit/cats_cubit.dart';
 import 'package:base_flutter/general/blocks/lang_cubit/lang_cubit.dart';
 import 'package:base_flutter/general/blocks/user_cubit/user_cubit.dart';
 import 'package:file_picker/file_picker.dart';

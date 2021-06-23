@@ -19,4 +19,14 @@ class LoginData {
       btnKey.currentState!.animateReverse();
     }
   }
+
+  navigateUserRegister(BuildContext context){
+    var type = context.read<UserCubit>().state.model.type;
+    if (type=="user") {
+      AutoRouter.of(context).push(RegisterRoute());
+    } else{
+      AutoRouter.of(context).push(ProviderRegisterRoute());
+    }
+  }
+
 }

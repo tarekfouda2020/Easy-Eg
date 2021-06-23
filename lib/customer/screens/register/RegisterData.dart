@@ -12,6 +12,7 @@ class RegisterData{
   final TextEditingController confirm = new TextEditingController();
 
 
+
   setRegisterCustomer(BuildContext context)async{
     if (formKey.currentState!.validate()) {
       btnKey.currentState!.animateForward();

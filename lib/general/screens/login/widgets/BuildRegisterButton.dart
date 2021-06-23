@@ -1,6 +1,9 @@
 part of 'LoginWidgetsImports.dart';
 
 class BuildRegisterButton extends StatelessWidget {
+  final LoginData loginData;
+
+  const BuildRegisterButton({required this.loginData});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -11,7 +14,7 @@ class BuildRegisterButton extends StatelessWidget {
           MyText(title: "ليس لديك حساب ؟ ", color: MyColors.white, size: 12),
           SizedBox(width: 5),
           InkWell(
-            onTap: ()=>AutoRouter.of(context).push(RegisterRoute()),
+            onTap: ()=>loginData.navigateUserRegister(context),
             child: MyText(
               title: "تسجيل جديد",
               color: MyColors.white,

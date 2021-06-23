@@ -21,7 +21,7 @@ class _LoginState extends State<Login> {
             BuildForgetText(),
             BuildLoginButton(loginData: loginData),
             // BuildNewRegister(),
-            BuildRegisterButton(),
+            BuildRegisterButton(loginData: loginData),
           ],
         ),
       ),

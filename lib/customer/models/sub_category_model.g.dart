@@ -12,6 +12,7 @@ SubCategoryModel _$SubCategoryModelFromJson(Map<String, dynamic> json) {
     img: json['img'] as String,
     name: json['name'] as String,
     color: json['color'] as String,
+    selected: json['selected'] as bool? ?? false,
   );
 }
 
@@ -21,4 +22,5 @@ Map<String, dynamic> _$SubCategoryModelToJson(SubCategoryModel instance) =>
       'img': instance.img,
       'name': instance.name,
       'color': instance.color,
+      'selected': instance.selected,
     };
