@@ -40,7 +40,7 @@ class BuildRegisterForm extends StatelessWidget {
               type: TextInputType.url,
               action: TextInputAction.next,
               borderColor: MyColors.grey,
-              validate: (value) => value!.validateEmpty(context),
+              validate: (value) => value!.noValidate(),
             ),
             LabelTextField(
               label: "رابط الانستجرام (اختياري)",
@@ -49,7 +49,7 @@ class BuildRegisterForm extends StatelessWidget {
               type: TextInputType.url,
               action: TextInputAction.next,
               borderColor: MyColors.grey,
-              validate: (value) => value!.validateEmpty(context),
+              validate: (value) => value!.noValidate(),
             ),
             LabelTextField(
               label: "رابط الفيسبوك  (اختياري)",
@@ -58,16 +58,7 @@ class BuildRegisterForm extends StatelessWidget {
               type: TextInputType.url,
               action: TextInputAction.next,
               borderColor: MyColors.grey,
-              validate: (value) => value!.validateEmpty(context),
-            ),
-            LabelTextField(
-              label: "رابط الانستجرام  (اختياري)",
-              margin: EdgeInsets.only(top: 15),
-              controller: registerData.insta,
-              type: TextInputType.url,
-              action: TextInputAction.next,
-              borderColor: MyColors.grey,
-              validate: (value) => value!.validateEmpty(context),
+              validate: (value) => value!.noValidate(),
             ),
             LabelTextField(
               label: "رابط تويتر  (اختياري)",
@@ -76,7 +67,7 @@ class BuildRegisterForm extends StatelessWidget {
               type: TextInputType.url,
               action: TextInputAction.next,
               borderColor: MyColors.grey,
-              validate: (value) => value!.validateEmpty(context),
+              validate: (value) => value!.noValidate(),
             ),
             LabelTextField(
               label: "رابط التليجرام  (اختياري)",
@@ -85,37 +76,75 @@ class BuildRegisterForm extends StatelessWidget {
               type: TextInputType.url,
               action: TextInputAction.next,
               borderColor: MyColors.grey,
-              validate: (value) => value!.validateEmpty(context),
+              validate: (value) => value!.noValidate(),
             ),
-            InkWellTextField(
-              label: "صورة خلفية",
-              margin: EdgeInsets.only(top: 15),
-              controller: registerData.cover,
-              type: TextInputType.text,
-              borderColor: MyColors.grey,
-              icon: Icon(Icons.camera_alt,size: 20,),
-              validate: (value) => value!.validateEmpty(context),
-              onTab: (){},
+            BlocConsumer<GenericBloc<File?>, GenericState<File?>>(
+              bloc: registerData.coverCubit,
+              listener: (context, state) {
+                if (state.data != null) {
+                  registerData.cover.text = state.data!
+                      .path
+                      .split("/")
+                      .last;
+                }
+              },
+              builder: (context, state) {
+                return InkWellTextField(
+                  label: "صورة خلفية",
+                  margin: EdgeInsets.only(top: 15),
+                  controller: registerData.cover,
+                  type: TextInputType.text,
+                  borderColor: MyColors.grey,
+                  icon: Icon(Icons.camera_alt, size: 20,),
+                  validate: (value) => value!.validateEmpty(context),
+                  onTab: () => registerData.setCoverImage(),
+                );
+              },
             ),
-            InkWellTextField(
-              label: "صورة رئسية للمحل او القاعة",
-              margin: EdgeInsets.only(top: 15),
-              controller: registerData.cover,
-              type: TextInputType.text,
-              borderColor: MyColors.grey,
-              icon: Icon(Icons.camera_alt,size: 20,),
-              validate: (value) => value!.validateEmpty(context),
-              onTab: (){},
+
+            BlocConsumer<GenericBloc<File?>, GenericState<File?>>(
+              bloc: registerData.mainCubit,
+              listener: (context, state) {
+                if (state.data != null) {
+                  registerData.mainImage.text = state.data!
+                      .path
+                      .split("/")
+                      .last;
+                }
+              },
+              builder: (context, state) {
+                return InkWellTextField(
+                  label: "صورة رئسية للمحل او القاعة",
+                  margin: EdgeInsets.only(top: 15),
+                  controller: registerData.mainImage,
+                  type: TextInputType.text,
+                  borderColor: MyColors.grey,
+                  icon: Icon(Icons.camera_alt, size: 20,),
+                  validate: (value) => value!.validateEmpty(context),
+                  onTab: () => registerData.setMainImage(),
+                );
+              },
             ),
-            InkWellTextField(
-              label: "العنوان",
-              margin: EdgeInsets.only(top: 15),
-              controller: registerData.location,
-              type: TextInputType.text,
-              borderColor: MyColors.grey,
-              icon: Icon(Icons.location_on,size: 20,),
-              validate: (value) => value!.validateEmpty(context),
-              onTab: (){},
+
+            BlocConsumer<LocationCubit,LocationState>(
+              bloc: registerData.locCubit,
+              listener: (context,state){
+                registerData.location.text=state.model.address;
+                registerData.lat=state.model.lat;
+                registerData.lng=state.model.lng;
+              },
+              builder: (context,state){
+                return InkWellTextField(
+                  label: "العنوان",
+                  margin: EdgeInsets.only(top: 15),
+                  controller: registerData.location,
+                  type: TextInputType.text,
+                  borderColor: MyColors.grey,
+                  icon: Icon(Icons.location_on,size: 20,),
+                  validate: (value) => value!.validateEmpty(context),
+                  onTab: (){},
+                );
+              },
             ),
           ],
         ),

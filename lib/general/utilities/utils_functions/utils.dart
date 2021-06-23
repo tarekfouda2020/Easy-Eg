@@ -292,6 +292,15 @@ class Utils {
     }
   }
 
+  static Future<String> getAddress(LatLng latLng,BuildContext context) async {
+    final coordinates = new Coordinates(latLng.latitude, latLng.longitude);
+    List<Address> addresses  = await Geocoder.local
+        .findAddressesFromCoordinates(coordinates);
+    var first = addresses.first;
+    print("${first.featureName} : ${first.addressLine}");
+    return first.addressLine;
+  }
+
   static String convertDigitsToLatin(String s) {
     var sb = new StringBuffer();
     for (int i = 0; i < s.length; i++) {
