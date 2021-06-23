@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:base_flutter/customer/models/product_model.dart';
 import 'package:base_flutter/customer/models/sub_category_model.dart';
-import 'package:base_flutter/customer/resources/CustomerRepository.dart';
+import 'package:base_flutter/customer/resources/CustomerRepoImports.dart';
 import 'package:base_flutter/customer/widgets/BuildNoItemFound.dart';
 import 'package:base_flutter/customer/widgets/BuildProductItem.dart';
 import 'package:base_flutter/customer/widgets/LinearContainer.dart';

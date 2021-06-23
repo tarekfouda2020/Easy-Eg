@@ -1,14 +1,5 @@
-import 'package:base_flutter/customer/models/DropDownModel.dart';
-import 'package:base_flutter/customer/models/CategoryModel.dart';
-import 'package:base_flutter/customer/models/Dtos/AddCompetitionModel.dart';
-import 'package:base_flutter/customer/models/Dtos/AddReservationModel.dart';
-import 'package:base_flutter/customer/models/offer_model.dart';
-import 'package:base_flutter/customer/models/order_model.dart';
-import 'package:base_flutter/customer/models/product_model.dart';
-import 'package:base_flutter/general/blocks/lang_cubit/lang_cubit.dart';
-import 'package:base_flutter/general/utilities/dio_helper/DioImports.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+part of 'CustomerRepoImports.dart';
+
 
 class CustomerHttpMethods {
   final BuildContext context;

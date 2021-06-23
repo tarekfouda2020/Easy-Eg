@@ -1,16 +1,5 @@
-import 'package:base_flutter/customer/models/DropDownModel.dart';
-import 'package:base_flutter/customer/models/CategoryModel.dart';
-import 'package:base_flutter/customer/models/Dtos/AddCompetitionModel.dart';
-import 'package:base_flutter/customer/models/Dtos/AddReservationModel.dart';
-import 'package:base_flutter/customer/models/Dtos/CustomerRegisterModel.dart';
-import 'package:base_flutter/customer/models/Dtos/UpdateCustomerModel.dart';
-import 'package:base_flutter/customer/models/offer_model.dart';
-import 'package:base_flutter/customer/models/order_model.dart';
-import 'package:base_flutter/customer/models/product_model.dart';
-import 'package:base_flutter/customer/models/question_model.dart';
-import 'package:base_flutter/customer/resources/CustomerAuthMethods.dart';
-import 'package:flutter/material.dart';
-import 'CustomerHttpMethods.dart';
+part of 'CustomerRepoImports.dart';
+
 
 class CustomerRepository{
 
@@ -69,6 +58,9 @@ class CustomerRepository{
 
   Future<List<QuestionModel>> getRepeatedQuestions(bool refresh)=>
       _customerAuthMethods.getRepeatedQuestions(refresh);
+
+  Future<List<SocialModel>> getSocialLinks(bool refresh)=>
+      _customerAuthMethods.getSocialLinks(refresh);
 
   Future<List<OfferModel>> getOffers(bool refresh)=>
       _customerHttpMethods.getOffers(refresh);

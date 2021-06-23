@@ -1,6 +1,9 @@
 part of 'ContactUsWidgetsImports.dart';
 
 class BuildSocialItems extends StatelessWidget {
+  final List<SocialModel> socials;
+
+  const BuildSocialItems({required this.socials});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -8,14 +11,9 @@ class BuildSocialItems extends StatelessWidget {
       child: Wrap(
         runSpacing: 10,
         spacing: 15,
-        children: [
-          BuildSocialItem(url: '',image: Res.facebook,),
-          BuildSocialItem(url: '',image: Res.telegram,),
-          BuildSocialItem(url: '',image: Res.twitter,),
-          BuildSocialItem(url: '',image: Res.youtube,),
-          BuildSocialItem(url: '',image: Res.instagram,),
-
-        ],
+        children: List.generate(socials.length, (index) {
+          return BuildSocialItem(url: socials[index].url,image: socials[index].img);
+        }),
       ),
     );
   }

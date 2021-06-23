@@ -9,13 +9,12 @@ class BuildSocialItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: ()=> Utils.launchURL(url: url),
-      child: Container(
+      child: CachedImage(
         width: 30,
         height: 30,
-        decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage(image),fit: BoxFit.fill),
-          shape: BoxShape.circle
-        ),
+        url: image,
+        boxShape: BoxShape.circle,
+        haveRadius: false,
       ),
     );
   }
