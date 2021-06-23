@@ -316,7 +316,7 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (data) {
           final args = data.argsAs<ProviderOrderDetailsRouteArgs>();
           return _i36.ProviderOrderDetails(
-              color: args.color, type: args.type, model: args.model);
+              color: args.color, id: args.id, model: args.model);
         }),
     AcceptOrderSuccessRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
         routeData: routeData,
@@ -808,23 +808,23 @@ class ProviderOrderDetailsRoute
     extends _i1.PageRouteInfo<ProviderOrderDetailsRouteArgs> {
   ProviderOrderDetailsRoute(
       {required _i40.Color color,
-      required int type,
+      required int id,
       _i46.ProviderOrderModel? model})
       : super(name,
             path: '/provider-order-details',
             args: ProviderOrderDetailsRouteArgs(
-                color: color, type: type, model: model));
+                color: color, id: id, model: model));
 
   static const String name = 'ProviderOrderDetailsRoute';
 }
 
 class ProviderOrderDetailsRouteArgs {
   const ProviderOrderDetailsRouteArgs(
-      {required this.color, required this.type, this.model});
+      {required this.color, required this.id, this.model});
 
   final _i40.Color color;
 
-  final int type;
+  final int id;
 
   final _i46.ProviderOrderModel? model;
 }

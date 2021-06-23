@@ -34,6 +34,20 @@ class ProviderHttpMethods{
     }
   }
 
+  Future<ProviderOrderModel?> getOrderDetails(int id, bool refresh) async {
+    Map<String, dynamic> body = {
+      "lang": context.read<LangCubit>().state.locale.languageCode,
+      "orderId":"$id"
+    };
+    var _data = await DioHelper(context: context, forceRefresh: refresh)
+        .get(url: "/api/v1/OrderInfo", body: body);
+    if (_data != null) {
+      return  ProviderOrderModel.fromJson(_data["data"]);
+    } else {
+      return null;
+    }
+  }
+
 
 
 }

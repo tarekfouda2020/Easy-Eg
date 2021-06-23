@@ -19,6 +19,9 @@ class ProviderRepository{
   Future<List<ProviderOrderModel>> getCurrentOrders(bool refresh)=>
       _httpMethods.getCurrentOrders(refresh);
 
+  Future<ProviderOrderModel?> getOrderDetails(int id, bool refresh)=>
+      _httpMethods.getOrderDetails(id, refresh);
+
   Future<bool> logout() => _authMethods.logout();
 
 

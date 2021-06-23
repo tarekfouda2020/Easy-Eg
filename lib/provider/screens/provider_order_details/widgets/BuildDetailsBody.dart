@@ -2,8 +2,9 @@ part of 'OrderDetailsWidgetImports.dart';
 
 class BuildDetailsBody extends StatelessWidget {
   final Color color;
+  final ProviderOrderModel model;
 
-  const BuildDetailsBody({required this.color});
+  const BuildDetailsBody({required this.color, required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +16,14 @@ class BuildDetailsBody extends StatelessWidget {
           BuildDetailsItem(
             color: color,
             title: "تاريخ الحجز",
-            value: "24/03/2022",
+            value: model.date,
           ),
           SizedBox(height: 20),
           BuildDetailsItem(
             color: color,
             title: "رقم الجوال",
-            value: "01551575332",
+            value: model.phone,
+            onTap: ()=> Utils.callPhone(phone: model.phone),
           ),
         ],
       ),

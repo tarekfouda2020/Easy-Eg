@@ -5,13 +5,15 @@ class BuildOrdersView extends StatelessWidget {
   final Color color;
   final HomeMainData homeMainData;
 
-  const BuildOrdersView({required this.orders, required this.color,required this.homeMainData});
+  const BuildOrdersView(
+      {required this.orders, required this.color, required this.homeMainData});
+
   @override
   Widget build(BuildContext context) {
-    if (orders.length>0) {
+    if (orders.length > 0) {
       return CupertinoScrollbar(
         child: RefreshIndicator(
-          onRefresh: ()=>homeMainData.fetchNewOrders(context),
+          onRefresh: () => homeMainData.fetchNewOrders(context),
           child: ListView.separated(
             padding: EdgeInsets.symmetric(horizontal: 15),
             itemCount: orders.length,
@@ -19,7 +21,6 @@ class BuildOrdersView extends StatelessWidget {
               return BuildOrderCard(
                 model: orders[index],
                 color: color,
-                onTap: ()=>AutoRouter.of(context).push(ProviderOrderDetailsRoute(color: MyColors.providerPrimary,type: 1)),
               );
             },
             separatorBuilder: (BuildContext context, int index) {
@@ -29,9 +30,9 @@ class BuildOrdersView extends StatelessWidget {
         ),
       );
     }
-   return Center(
-     child: MyText(title: "لايوجد لديك طلبات جديدة", color: MyColors.black, size: 12),
-   );
+    return Center(
+      child: MyText(
+          title: "لايوجد لديك طلبات جديدة", color: MyColors.black, size: 12),
+    );
   }
 }
-

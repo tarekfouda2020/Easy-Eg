@@ -4,8 +4,9 @@ class BuildDetailsItem extends StatelessWidget {
   final Color color;
   final String title;
   final String value;
+  final Function()? onTap;
 
-  const BuildDetailsItem({required this.color, required this.title, required this.value});
+  const BuildDetailsItem({required this.color, required this.title, required this.value, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +23,14 @@ class BuildDetailsItem extends StatelessWidget {
               thickness: 3,
             ),
           ),
-          MyText(
-            title: value,
-            color: MyColors.black,
-            size: 11,
-            fontWeight: FontWeight.w500,
+          InkWell(
+            onTap: onTap,
+            child: MyText(
+              title: value,
+              color: MyColors.black,
+              size: 11,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ],
       ),
