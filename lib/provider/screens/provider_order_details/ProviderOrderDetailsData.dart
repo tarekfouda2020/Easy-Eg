@@ -9,4 +9,27 @@ class ProviderOrderDetailsData{
       detailsCubit.onUpdateData(data);
     }
   }
+
+  setAcceptOrder(BuildContext context,int id,Color color)async{
+    var result = await ProviderRepository(context).acceptOrder(id);
+    if (result) {
+      AutoRouter.of(context).push(AcceptOrderSuccessRoute(color: color));
+    }
+  }
+
+  setRefuseOrder(BuildContext context,int id)async{
+    var result = await ProviderRepository(context).refuseOrder(id);
+    if (result) {
+      AutoRouter.of(context).pop();
+    }
+  }
+
+  setFinishOrder(BuildContext context,int id)async{
+    var result = await ProviderRepository(context).finishOrder(id);
+    if (result) {
+      AutoRouter.of(context).pop();
+    }
+  }
+
+
 }

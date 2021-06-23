@@ -1,6 +1,5 @@
 part of 'ProviderOrderDetailsImports.dart';
 
-
 class ProviderOrderDetails extends StatefulWidget {
   final Color color;
   final int id;
@@ -14,7 +13,6 @@ class ProviderOrderDetails extends StatefulWidget {
 }
 
 class _ProviderOrderDetailsState extends State<ProviderOrderDetails> {
-
   ProviderOrderDetailsData detailsData = new ProviderOrderDetailsData();
 
   @override
@@ -32,16 +30,19 @@ class _ProviderOrderDetailsState extends State<ProviderOrderDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        child: DefaultAppBar(title: "تفاصيل الطلب", color: widget.color,),
+        child: DefaultAppBar(
+          title: "تفاصيل الطلب",
+          color: widget.color,
+        ),
         preferredSize: Size.fromHeight(60),
       ),
-
       body: LinearContainer(
         color: widget.color,
-        child: BlocBuilder<GenericBloc<ProviderOrderModel?>, GenericState<ProviderOrderModel?>>(
+        child: BlocBuilder<GenericBloc<ProviderOrderModel?>,
+            GenericState<ProviderOrderModel?>>(
           bloc: detailsData.detailsCubit,
           builder: (context, state) {
-            if (state.data==null|| state is GenericInitialState) {
+            if (state.data == null || state is GenericInitialState) {
               return LoadingDialog.showLoadingView(color: widget.color);
             }
             return Column(
@@ -52,22 +53,30 @@ class _ProviderOrderDetailsState extends State<ProviderOrderDetails> {
                       AbsorbPointer(
                         child: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 15),
-                          child: BuildOrderCard(color: widget.color, model: state.data!,),
+                          child: BuildOrderCard(
+                            color: widget.color,
+                            model: state.data!,
+                          ),
                         ),
                       ),
                       BuildDetailsHeader(),
-                      BuildDetailsBody(color: widget.color,model: state.data!,)
+                      BuildDetailsBody(
+                        color: widget.color,
+                        model: state.data!,
+                      )
                     ],
                   ),
                 ),
-                BuildOrderActions(color: widget.color, type: state.data!.stutesId,),
+                BuildOrderActions(
+                  color: widget.color,
+                  model: state.data!,
+                  detailsData: detailsData,
+                ),
               ],
             );
           },
         ),
       ),
-
     );
   }
 }
-

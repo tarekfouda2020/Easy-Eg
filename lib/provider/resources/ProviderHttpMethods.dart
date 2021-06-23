@@ -48,6 +48,33 @@ class ProviderHttpMethods{
     }
   }
 
+  Future<bool> acceptOrder(int id) async {
+    Map<String, dynamic> body = {
+      "lang": context.read<LangCubit>().state.locale.languageCode,
+      "orderId":"$id"
+    };
+    var _data = await DioHelper(context: context).post(url: "/api/v1/AcceptOrder", body: body);
+    return (_data != null) ;
+  }
+
+  Future<bool> refuseOrder(int id) async {
+    Map<String, dynamic> body = {
+      "lang": context.read<LangCubit>().state.locale.languageCode,
+      "orderId":"$id"
+    };
+    var _data = await DioHelper(context: context).post(url: "/api/v1/RefuseOrder", body: body);
+    return (_data != null) ;
+  }
+
+  Future<bool> finishOrder(int id) async {
+    Map<String, dynamic> body = {
+      "lang": context.read<LangCubit>().state.locale.languageCode,
+      "orderId":"$id"
+    };
+    var _data = await DioHelper(context: context).post(url: "/api/v1/EndedOrder", body: body);
+    return (_data != null) ;
+  }
+
 
 
 }

@@ -2,15 +2,16 @@ part of 'OrderDetailsWidgetImports.dart';
 
 class BuildOrderActions extends StatelessWidget {
   final Color color;
-  final int type;
+  final ProviderOrderModel model;
+  final ProviderOrderDetailsData detailsData;
 
-  const BuildOrderActions({required this.color,required this.type});
+  const BuildOrderActions({required this.color,required this.model, required this.detailsData});
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(bottom: 20),
       child: Visibility(
-        visible: type==1,
+        visible: model.stutesId==1,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -18,13 +19,13 @@ class BuildOrderActions extends StatelessWidget {
               title: "قبول",
               color: color,
               width: MediaQuery.of(context).size.width*.4,
-              onTap: () => AutoRouter.of(context).push(AcceptOrderSuccessRoute(color: color)),
+              onTap: () => detailsData.setAcceptOrder(context, model.id,color),
             ),
             DefaultButton(
               title: "رفض",
               color: MyColors.red,
               width: MediaQuery.of(context).size.width*.4,
-              onTap: () {},
+              onTap: () => detailsData.setRefuseOrder(context, model.id),
             ),
           ],
         ),
@@ -36,11 +37,14 @@ class BuildOrderActions extends StatelessWidget {
               margin: EdgeInsets.symmetric(horizontal: 20),
               onTap: (){},
             ),
-            DefaultButton(
-              title: "انهاء الطلب",
-              color: color,
-              margin: EdgeInsets.all(20),
-              onTap: () {},
+            Visibility(
+              visible: model.stutesId==2,
+              child: DefaultButton(
+                title: "انهاء الطلب",
+                color: color,
+                margin: EdgeInsets.all(20),
+                onTap: () => detailsData.setFinishOrder(context, model.id),
+              ),
             ),
 
           ],
