@@ -9,6 +9,7 @@ class BuildLocationForm extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 20),
       child: Form(
+        key: finishRegisterData.formKey,
         child: Column(
           children: [
             DropdownTextField<DropDownModel>(

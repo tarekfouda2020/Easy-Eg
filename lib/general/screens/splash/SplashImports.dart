@@ -8,5 +8,6 @@ import 'package:base_flutter/general/widgets/MyText.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:base_flutter/res.dart';
+import 'package:location/location.dart';
 
 part 'Splash.dart';

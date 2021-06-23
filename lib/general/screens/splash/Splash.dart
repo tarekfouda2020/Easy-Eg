@@ -10,6 +10,9 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
+
+  final location = new Location();
+
   @override
   void initState() {
     _checkingData();
@@ -18,6 +21,7 @@ class _SplashState extends State<Splash> {
 
   _checkingData() async {
     GlobalNotification.instance.setupNotification(widget.navigatorKey);
+    await Utils.askForPermission(location);
     Utils.manipulateSplashData(context);
   }
 

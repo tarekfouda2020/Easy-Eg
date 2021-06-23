@@ -266,30 +266,53 @@ class Utils {
     return true;
   }
 
-  static Future<LocationData> getCurrentLocation()async{
+  static Future<LocationData?> getCurrentLocation() async {
     final location = new Location();
-    bool permission =await askForPermission(location);
-    LocationData? current;
-    if(permission){
+    bool permission = await askForPermission(location);
+    late LocationData current;
+    if (permission) {
       current = await location.getLocation();
     }
-     return current??LocationData.fromMap({"latitude":0,"longitude":0});
-
+    return current;
   }
 
-  static void navigateToMapWithDirection({required String lat,required String lng,required String title})async{
+  static void navigateToMapWithDirection({required String lat,required String lng, required BuildContext context}) async {
     final availableMaps = await MapLauncher.installedMaps;
-    LocationData loc = await getCurrentLocation();
-    if (availableMaps.length>0) {
+    LocationData? loc = await getCurrentLocation();
+    if (availableMaps.length > 0&&loc!=null) {
       await availableMaps.first.showDirections(
-        destinationTitle: title,
+        destinationTitle: "destination",
         origin: Coords(loc.latitude!, loc.longitude!),
         destination: Coords(double.parse(lat), double.parse(lng)),
       );
+    } else {
+      LoadingDialog.showSimpleToast("قم بتحميل خريطة جوجل"); //"قم بتحميل خريطة جوجل");
     }
-    else{
-      LoadingDialog.showSimpleToast("قم بتحميل خريطة جوجل");
+  }
+
+  static void navigateToLocationAddress(BuildContext context,LocationCubit locCubit) async {
+    FocusScope.of(context).requestFocus(FocusNode());
+    LoadingDialog.showLoadingDialog();
+    // var current = await Utils.getCurrentLocation();
+    var current ;
+    LocationModel locationModel = locCubit.state.model;
+    if (current != null) {
+      locationModel = LocationModel("${current.latitude}", "${current.longitude}", "");
     }
+    double lat = double.parse(locationModel.lat);
+    double lng = double.parse(locationModel.lng);
+    String address = await getAddress(LatLng(lat,lng),context);
+    locationModel.address=address;
+    locCubit.onLocationUpdated(locationModel);
+    EasyLoading.dismiss();
+    Navigator.of(context).push(
+      CupertinoPageRoute(
+        builder: (cxt) => BlocProvider.value(
+          value: locCubit,
+          child: LocationAddress(),
+        ),
+      ),
+    );
   }
 
   static Future<String> getAddress(LatLng latLng,BuildContext context) async {

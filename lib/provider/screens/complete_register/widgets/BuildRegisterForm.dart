@@ -34,15 +34,6 @@ class BuildRegisterForm extends StatelessWidget {
               validate: (value) => value!.validateEmpty(context),
             ),
             LabelTextField(
-              label: "رابط الفيسبوك",
-              margin: EdgeInsets.only(top: 15),
-              controller: registerData.face,
-              type: TextInputType.url,
-              action: TextInputAction.next,
-              borderColor: MyColors.grey,
-              validate: (value) => value!.noValidate(),
-            ),
-            LabelTextField(
               label: "رابط الانستجرام (اختياري)",
               margin: EdgeInsets.only(top: 15),
               controller: registerData.insta,
@@ -142,7 +133,7 @@ class BuildRegisterForm extends StatelessWidget {
                   borderColor: MyColors.grey,
                   icon: Icon(Icons.location_on,size: 20,),
                   validate: (value) => value!.validateEmpty(context),
-                  onTab: (){},
+                  onTab: ()=>Utils.navigateToLocationAddress(context,registerData.locCubit),
                 );
               },
             ),
