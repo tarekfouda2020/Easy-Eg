@@ -68,4 +68,7 @@ class CustomerRepository{
   Future<DropDownModel?> getCompetitions(bool refresh)=>
       _customerHttpMethods.getCompetitions(refresh);
 
+  Future<bool> contactUs(String name, String mail, String msg)=>
+      _customerAuthMethods.contactUs(name, mail, msg);
+
 }

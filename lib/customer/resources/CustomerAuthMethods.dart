@@ -42,6 +42,22 @@ class CustomerAuthMethods {
     return false;
   }
 
+
+  Future<bool> contactUs(String name, String mail, String msg) async {
+    Map<String, dynamic> body = {
+      "lang": context.read<LangCubit>().state.locale.languageCode,
+      "userName":name,
+      "email":mail,
+      "msg":msg,
+    };
+    var _data = await DioHelper(context: context).post(
+      url: "/api/v1/Addcomplaints",
+      body: body,
+      showLoader: false,
+    );
+    return (_data != null);
+  }
+
   Future<bool> changePassword(String oldPass,String newPass) async {
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,

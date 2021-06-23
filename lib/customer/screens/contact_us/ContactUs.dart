@@ -37,7 +37,10 @@ class _ContactUsState extends State<ContactUs> {
               child: ListView(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 children: [
-                  BuildContactForm(contactUsData: contactUsData),
+                  BuildContactForm(
+                    contactUsData: contactUsData,
+                    color: widget.color,
+                  ),
                 ],
               ),
             ),
