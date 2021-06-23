@@ -71,4 +71,7 @@ class CustomerRepository{
   Future<bool> contactUs(String name, String mail, String msg)=>
       _customerAuthMethods.contactUs(name, mail, msg);
 
+  Future<bool> changeLanguage(String lang)=>
+      _customerAuthMethods.changeLanguage(lang);
+
 }

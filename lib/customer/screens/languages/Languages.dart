@@ -47,10 +47,10 @@ class _LanguagesState extends State<Languages> {
                     width: 25,
                     height: 25,
                   ),
-                  trailing: Radio(
+                  trailing: Radio<String>(
                     value: "ar",
                     groupValue: state.data,
-                    onChanged: (value) => languagesData.setLanguage(context, value),
+                    onChanged: (value) => languagesData.setLanguage(context, value!),
                   ),
                 ),
                 Divider(color: MyColors.greyWhite),
@@ -65,10 +65,10 @@ class _LanguagesState extends State<Languages> {
                     width: 25,
                     height: 25,
                   ),
-                  trailing: Radio(
+                  trailing: Radio<String>(
                     value: "en",
                     groupValue: state.data,
-                    onChanged: (value) => languagesData.setLanguage(context, value),
+                    onChanged: (value) => languagesData.setLanguage(context, value!),
                   ),
                 ),
               ],

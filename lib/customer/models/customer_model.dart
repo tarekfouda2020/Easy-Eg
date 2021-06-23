@@ -13,7 +13,7 @@ class CustomerModel {
   @JsonKey(name: 'phone')
   final  String phone;
   @JsonKey(name: 'lang')
-  final  String lang;
+  String lang;
   @JsonKey(name: 'closeNotify')
   final  bool closeNotify;
   @JsonKey(name: 'imgProfile')

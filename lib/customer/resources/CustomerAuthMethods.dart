@@ -58,6 +58,17 @@ class CustomerAuthMethods {
     return (_data != null);
   }
 
+  Future<bool> changeLanguage(String lang) async {
+    Map<String, dynamic> body = {
+      "lang": lang,
+    };
+    var _data = await DioHelper(context: context).post(
+      url: "/api/v1/ChangeLanguage",
+      body: body,
+    );
+    return (_data != null);
+  }
+
   Future<bool> changePassword(String oldPass,String newPass) async {
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,
