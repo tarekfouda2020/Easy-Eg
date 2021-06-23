@@ -5,6 +5,7 @@ import 'package:base_flutter/general/constants/MyColors.dart';
 import 'package:base_flutter/general/utilities/validator/Validator.dart';
 import 'package:base_flutter/general/widgets/LoadingButton.dart';
 import 'package:base_flutter/general/widgets/MyText.dart';
+import 'package:base_flutter/provider/models/Dtos/ProviderRegisterModel.dart';
 import 'package:base_flutter/provider/screens/finish_register/FinishRegisterImports.dart';
 import 'package:flutter/material.dart';
 

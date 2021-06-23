@@ -108,6 +108,7 @@ flutter:
     - assets/images/ksa.png
     - assets/images/logo.png
     - assets/images/logoWhite.png
+    - assets/images/marker.png
     - assets/images/nodata.png
     - assets/images/phone.png
     - assets/images/placeholder.png

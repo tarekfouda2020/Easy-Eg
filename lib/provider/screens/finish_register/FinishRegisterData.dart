@@ -33,8 +33,17 @@ class FinishRegisterData{
     regionModel = model;
   }
 
-  setRegisterProvider(BuildContext context)async{
-
+  setRegisterProvider(BuildContext context,ProviderRegisterModel model)async{
+    if (formKey.currentState!.validate()) {
+      btnKey.currentState!.animateForward();
+      model.countryId=countryModel!.id.toString();
+      model.governorateId=governModel!.id.toString();
+      model.regoinId=regionModel!.id.toString();
+      model.cityId=countryModel!.id.toString();
+      print("=======================>${model.toJson()}");
+      await ProviderRepository(context).registerUser(model);
+      btnKey.currentState!.animateReverse();
+    }
   }
 
 }
