@@ -60,8 +60,10 @@ class GeneralHttpMethods {
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,
     };
+    var type = context.read<UserCubit>().state.model.type;
+    String url = type=="user"?"/api/v1/AboutUs":"/api/v1/AboutUsForDelegt";
     var _data =
-    await DioHelper(context: context,forceRefresh: refresh).get(url: "/api/v1/AboutUs", body:body);
+    await DioHelper(context: context,forceRefresh: refresh).get(url: url, body:body);
     if (_data != null) {
       return _data["data"]["aboutUs"];
     } else {
@@ -73,8 +75,10 @@ class GeneralHttpMethods {
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,
     };
+    var type = context.read<UserCubit>().state.model.type;
+    String url = type=="user"?"/api/v1/Condtions":"/api/v1/CondtionsForDelegt";
     var _data =
-    await DioHelper(context: context,forceRefresh: refresh).get(url: "/api/v1/Condtions", body:body);
+    await DioHelper(context: context,forceRefresh: refresh).get(url: url, body:body);
     if (_data != null) {
       return _data["data"]["condtions"];
     } else {
@@ -136,8 +140,10 @@ class GeneralHttpMethods {
       "email": "$mail",
       "comment": "$message",
     };
+    var type = context.read<UserCubit>().state.model.type;
+    String url = type=="user"?"/api/v1/ContactUs":"/api/v1/AddcomplaintsforDeleget";
     var _data =
-    await DioHelper(context: context).post(url : "/api/v1/ContactUs", body:body, showLoader: false);
+    await DioHelper(context: context).post(url : url, body:body, showLoader: false);
     if (_data != null) {
       return true;
     } else {

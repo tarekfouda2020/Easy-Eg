@@ -40,7 +40,7 @@ class Settings extends StatelessWidget {
               BuildPageItem(
                 name: "عن التطبيق",
                 color: currentColor,
-                onTap: (){},
+                onTap: ()=> AutoRouter.of(context).push(AboutRoute(color: currentColor)),
               ),
               BuildPageItem(
                 name: "اتصل بنا",

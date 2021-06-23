@@ -50,8 +50,10 @@ class CustomerAuthMethods {
       "email":mail,
       "msg":msg,
     };
+    var type = context.read<UserCubit>().state.model.type;
+    String url = type=="user"?"/api/v1/Addcomplaints":"/api/v1/AddcomplaintsforDeleget";
     var _data = await DioHelper(context: context).post(
-      url: "/api/v1/Addcomplaints",
+      url: url,
       body: body,
       showLoader: false,
     );

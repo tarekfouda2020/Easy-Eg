@@ -37,15 +37,15 @@ class BuildOrderActions extends StatelessWidget {
               margin: EdgeInsets.symmetric(horizontal: 20),
               onTap: (){},
             ),
-            Visibility(
-              visible: model.stutesId==2,
-              child: DefaultButton(
-                title: "انهاء الطلب",
-                color: color,
-                margin: EdgeInsets.all(20),
-                onTap: () => detailsData.setFinishOrder(context, model.id),
-              ),
-            ),
+            // Visibility(
+            //   visible: model.stutesId==2,
+            //   child: DefaultButton(
+            //     title: "انهاء الطلب",
+            //     color: color,
+            //     margin: EdgeInsets.all(20),
+            //     onTap: () => detailsData.setFinishOrder(context, model.id),
+            //   ),
+            // ),
 
           ],
         ),

@@ -19,6 +19,9 @@ class ProviderRepository{
   Future<List<ProviderOrderModel>> getCurrentOrders(bool refresh)=>
       _httpMethods.getCurrentOrders(refresh);
 
+  Future<List<ProviderOrderModel>> fetchFinishedOrders(bool refresh)=>
+      _httpMethods.fetchFinishedOrders(refresh);
+
   Future<ProviderOrderModel?> getOrderDetails(int id, bool refresh)=>
       _httpMethods.getOrderDetails(id, refresh);
 

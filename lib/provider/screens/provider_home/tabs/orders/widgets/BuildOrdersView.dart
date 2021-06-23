@@ -21,6 +21,7 @@ class BuildOrdersView extends StatelessWidget {
               return BuildOrderCard(
                 model: orders[index],
                 color: color,
+                onClose: (value)=> ordersData.fetchCurrentOrders(context),
               );
             },
             separatorBuilder: (BuildContext context, int index) {

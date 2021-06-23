@@ -12,8 +12,9 @@ import 'package:flutter/material.dart';
 class BuildOrderCard extends StatelessWidget {
   final Color color;
   final ProviderOrderModel model;
+  final Function(String?)? onClose;
 
-  const BuildOrderCard({required this.color, required this.model});
+  const BuildOrderCard({required this.color, required this.model, this.onClose});
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +24,8 @@ class BuildOrderCard extends StatelessWidget {
       closedColor: Colors.transparent,
       transitionDuration: Duration(milliseconds: 800),
       transitionType: ContainerTransitionType.fadeThrough,
+      onClosed: onClose,
+      tappable: true,
       openBuilder: (context, action) => ProviderOrderDetails(color:color, id: model.id,model: model,),
       closedBuilder: (context, action) {
         return Container(
