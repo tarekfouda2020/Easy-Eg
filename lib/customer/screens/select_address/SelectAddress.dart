@@ -9,6 +9,12 @@ class _SelectAddressState extends State<SelectAddress> {
   SelectAddressData selectAddressData = new SelectAddressData();
 
   @override
+  void initState() {
+    GlobalNotification.instance.setupNotification(context);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return AuthScaffold(
       child: Column(

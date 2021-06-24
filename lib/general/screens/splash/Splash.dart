@@ -20,7 +20,6 @@ class _SplashState extends State<Splash> {
   }
 
   _checkingData() async {
-    GlobalNotification.instance.setupNotification(widget.navigatorKey);
     await Utils.askForPermission(location);
     Utils.manipulateSplashData(context);
   }

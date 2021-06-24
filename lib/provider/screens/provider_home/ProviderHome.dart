@@ -11,6 +11,7 @@ class _ProviderHomeState extends State<ProviderHome> with TickerProviderStateMix
 
    @override
    void initState() {
+     GlobalNotification.instance.setupNotification(context);
      homeData.initBottomNavigation(this, MyColors.providerPrimary, context);
      homeData.animateTabsPages(4, context, MyColors.providerPrimary);
      super.initState();

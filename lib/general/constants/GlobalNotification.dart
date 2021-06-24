@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 import 'package:auto_route/auto_route.dart';
 import 'package:base_flutter/general/utilities/routers/RouterImports.gr.dart';
 import 'package:base_flutter/general/utilities/utils_functions/UtilsImports.dart';
@@ -13,15 +14,15 @@ class GlobalNotification {
   StreamController.broadcast();
 
   late FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin;
-  static GlobalKey<NavigatorState> navigatorKey=new GlobalKey<NavigatorState>();
+  static late BuildContext context;
   static GlobalNotification instance = new GlobalNotification._();
 
   GlobalNotification._();
 
   GlobalNotification();
 
-  setupNotification(GlobalKey<NavigatorState> navKey)async{
-    navigatorKey = navKey;
+  setupNotification(BuildContext cxt)async{
+    context = cxt;
     _flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
     var android = new AndroidInitializationSettings("@mipmap/launcher_icon");
     var ios = new IOSInitializationSettings();
@@ -44,9 +45,9 @@ class GlobalNotification {
         print("_____________________notification:${message.notification?.title}");
         _showLocalNotification(message);
         _onMessageStreamController.add(message.data);
-        if (int.parse(message.data["type"]) == -1) {
+        if (int.parse(message.data["type"]??"0") == -1) {
           Utils.clearSavedData();
-          navigatorKey.currentContext!.router.push(LoginRoute());
+          AutoRouter.of(context).push(LoginRoute());
         }
       });
       FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
@@ -68,7 +69,7 @@ class GlobalNotification {
   }
 
   _showLocalNotification(RemoteMessage? message) async {
-    if (message == null) return;
+    if (message == null||Platform.isIOS) return;
     var android = AndroidNotificationDetails(
       "${DateTime.now()}",
       "${message.notification?.title}",
