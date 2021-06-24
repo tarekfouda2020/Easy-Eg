@@ -10,7 +10,7 @@ class ProviderAuthMethods{
   Future<bool> registerUser(ProviderRegisterModel model) async {
     model.lang = context.read<LangCubit>().state.locale.languageCode;
     model.deviceId = await messaging.getToken();
-    var _data = await DioHelper(context: context).post(
+    var _data = await DioHelper(context: context).uploadFile(
       url: "/api/v1/RegisterDeleget",
       body: model.toJson(),
       showLoader: false,
@@ -25,7 +25,7 @@ class ProviderAuthMethods{
   Future<bool> updateProfile(ProviderRegisterModel model) async {
     model.lang = context.read<LangCubit>().state.locale.languageCode;
     model.deviceId = await messaging.getToken();
-    var _data = await DioHelper(context: context).post(
+    var _data = await DioHelper(context: context).uploadFile(
       url: "/api/v1/UpdateAsyncDataDelegt",
       body: model.toJson(),
       showLoader: false,

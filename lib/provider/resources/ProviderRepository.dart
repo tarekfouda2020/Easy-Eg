@@ -44,6 +44,8 @@ class ProviderRepository{
 
   Future<List<NotifyModel>> getNotifications(bool refresh)=> _httpMethods.getNotifications(refresh);
 
+  Future<bool> removeImg(int id)=>_httpMethods.removeImg(id);
+
   Future<bool> logout() => _authMethods.logout();
 
 

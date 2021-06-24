@@ -134,6 +134,15 @@ class ProviderHttpMethods{
     return (_data != null) ;
   }
 
+  Future<bool> removeImg(int id) async {
+    Map<String, dynamic> body = {
+      "lang": context.read<LangCubit>().state.locale.languageCode,
+      "id": "$id"
+    };
+    var _data = await DioHelper(context: context).post(url: "/api/v1/DeleteImgById", body: body);
+    return (_data != null) ;
+  }
+
   Future<List<ProviderOfferModel>> getOffers(bool refresh) async {
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,

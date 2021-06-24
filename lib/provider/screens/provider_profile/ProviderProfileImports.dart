@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:base_flutter/customer/models/CategoryModel.dart';
+import 'package:base_flutter/customer/models/image_model.dart';
 import 'package:base_flutter/customer/models/sub_category_model.dart';
 import 'package:base_flutter/customer/widgets/LinearContainer.dart';
 import 'package:base_flutter/general/blocks/cats_cubit/cats_cubit.dart';

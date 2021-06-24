@@ -104,7 +104,7 @@ class BuildEditForm extends StatelessWidget {
                           colorFilter: ColorFilter.mode(Colors.black26, BlendMode.darken),
                           alignment: Alignment.topLeft,
                           child: InkWell(
-                            onTap: (){},
+                            onTap: ()=> profileData.setRemoveExistImage(e,context),
                             child: Padding(
                               padding: const EdgeInsets.all(5.0),
                               child: Icon(Icons.close,size: 25,color: MyColors.white,),

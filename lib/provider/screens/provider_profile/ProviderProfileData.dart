@@ -108,6 +108,15 @@ class ProviderProfileData {
     imagesCubit.onUpdateData(imagesCubit.state.data);
   }
 
+  setRemoveExistImage(ImageModel model,BuildContext context)async {
+    await ProviderRepository(context).removeImg(model.id);
+    imagesCubit.state.data.existImages.remove(model);
+    imagesCubit.onUpdateData(imagesCubit.state.data);
+    var user = context.read<UserCubit>();
+    user.state.model.providerModel!.imgList.remove(model);
+    user.onUpdateUserData(user.state.model);
+  }
+
   onCategorySelected(BuildContext context, CategoryModel model) {
     catCubit.onUpdateData(model.id);
     subCatsCubit.onUpdateData(model.subCategory);

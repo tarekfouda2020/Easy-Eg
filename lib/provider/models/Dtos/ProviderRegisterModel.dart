@@ -69,6 +69,7 @@ class ProviderRegisterModel{
     "userName":userName,
     "phone":phone,
     "email":email,
+    "ImgProfiles":images,
     "password":password,
     "deviceId":deviceId,
     "deviceType":deviceType,
@@ -95,7 +96,6 @@ class ProviderRegisterModel{
     "logoImg":logoImg,
     "mainImg":mainImg,
     "coverImg":coverImg,
-    "ImgProfiles":images
   };
 
 }
