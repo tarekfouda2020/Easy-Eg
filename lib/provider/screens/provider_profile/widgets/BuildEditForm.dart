@@ -8,6 +8,7 @@ class BuildEditForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Form(
+        key: profileData.formKey,
         child: Column(
           children: [
             LabelTextField(

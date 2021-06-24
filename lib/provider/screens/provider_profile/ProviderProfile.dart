@@ -37,7 +37,7 @@ class _ProviderProfileState extends State<ProviderProfile>{
            children: [
              BuildProfileImage(profileData: profileData,),
              BuildEditForm(profileData: profileData),
-             BuildProfileButtons(color: widget.color)
+             BuildProfileButtons(color: widget.color,profileData: profileData,)
            ],
          ),
        ),

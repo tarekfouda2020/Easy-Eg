@@ -2,17 +2,18 @@ part of 'ProfileWidgetImports.dart';
 
 class BuildProfileButtons extends StatelessWidget {
   final Color color;
-
-  const BuildProfileButtons({required this.color});
+  final ProviderProfileData profileData;
+  const BuildProfileButtons({required this.color, required this.profileData});
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
-          DefaultButton(
+          LoadingButton(
             title: "تاكيد",
-            onTap: (){},
+            btnKey: profileData.btnKey,
+            onTap: ()=> profileData.setUpdateProvider(context),
             color: color,
             margin: EdgeInsets.symmetric(vertical: 20),
           ),

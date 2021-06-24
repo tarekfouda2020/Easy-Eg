@@ -1,9 +1,9 @@
 part of 'ProviderProfileImports.dart';
 
-class ProviderProfileData{
-
+class ProviderProfileData {
   final GlobalKey<FormState> formKey = new GlobalKey();
-  final GlobalKey<CustomButtonState> btnKey = new GlobalKey<CustomButtonState>();
+  final GlobalKey<CustomButtonState> btnKey =
+      new GlobalKey<CustomButtonState>();
 
   final TextEditingController name = new TextEditingController();
   final TextEditingController phone = new TextEditingController();
@@ -23,7 +23,8 @@ class ProviderProfileData{
   final TextEditingController cover = new TextEditingController();
   final TextEditingController mainImage = new TextEditingController();
 
-  final GenericBloc<WorkImagesModel> imagesCubit = new GenericBloc(WorkImagesModel());
+  final GenericBloc<WorkImagesModel> imagesCubit =
+      new GenericBloc(WorkImagesModel());
   final GenericBloc<File?> logoCubit = new GenericBloc(null);
   final GenericBloc<File?> profileImageCubit = new GenericBloc(null);
   final GenericBloc<int> catCubit = new GenericBloc(0);
@@ -36,13 +37,13 @@ class ProviderProfileData{
   String? lat;
   String? lng;
 
-  initProfileData(BuildContext context){
+  initProfileData(BuildContext context) {
     var user = context.read<UserCubit>().state.model.providerModel;
-    name.text=user!.userName;
-    phone.text=user.phone;
-    mail.text=user.email;
-    desc.text=user.info;
-    logo.text=user.logoImg.split("/").last;
+    name.text = user!.userName;
+    phone.text = user.phone;
+    mail.text = user.email;
+    desc.text = user.info;
+    logo.text = user.logoImg.split("/").last;
     video.text = user.linkVideo;
     // imagesCubit.state.data.existImages=user.images;
     nameAr.text = user.name;
@@ -56,64 +57,110 @@ class ProviderProfileData{
     lng = user.lng;
     cover.text = user.coverImg.split("/").last;
     mainImage.text = user.mainImg.split("/").last;
-
   }
 
-  fetchSelectedCats(BuildContext context,{bool refresh = true})async{
+  fetchSelectedCats(BuildContext context, {bool refresh = true}) async {
     var data = await ProviderRepository(context).getCategories(refresh);
     context.read<CatsCubit>().onUpdateCats(data);
     catCubit.onUpdateData(data.where((element) => element.selected).first.id);
-    subCatsCubit.onUpdateData(data.where((element) => element.selected).first.subCategory);
+    subCatsCubit.onUpdateData(
+        data.where((element) => element.selected).first.subCategory);
   }
 
-  setProfileImage()async{
+  setProfileImage() async {
     var image = await Utils.getImage();
-    if (image!=null) {
+    if (image != null) {
       profileImageCubit.onUpdateData(image);
     }
   }
 
-  setLogoImage()async{
+  setLogoImage() async {
     var image = await Utils.getImage();
-    if (image!=null) {
+    if (image != null) {
       logoCubit.onUpdateData(image);
     }
   }
 
-  setImages()async{
+  setImages() async {
     var lstImages = await Utils.getImages();
-    if (lstImages.length>0) {
-      imagesCubit.state.data.addedImages=lstImages;
+    if (lstImages.length > 0) {
+      imagesCubit.state.data.addedImages = lstImages;
       imagesCubit.onUpdateData(imagesCubit.state.data);
     }
   }
 
-  setCoverImage()async{
+  setCoverImage() async {
     var image = await Utils.getImage();
-    if (image!=null) {
+    if (image != null) {
       coverCubit.onUpdateData(image);
     }
   }
-  setMainImage()async{
+
+  setMainImage() async {
     var image = await Utils.getImage();
-    if (image!=null) {
+    if (image != null) {
       mainCubit.onUpdateData(image);
     }
   }
 
-  setRemoveAddImage(File file){
+  setRemoveAddImage(File file) {
     imagesCubit.state.data.addedImages.remove(file);
     imagesCubit.onUpdateData(imagesCubit.state.data);
   }
 
-  onCategorySelected(BuildContext context, CategoryModel model){
+  onCategorySelected(BuildContext context, CategoryModel model) {
     catCubit.onUpdateData(model.id);
     subCatsCubit.onUpdateData(model.subCategory);
   }
 
-  setSelectSubCat(int index){
-    subCatsCubit.state.data[index].selected=!subCatsCubit.state.data[index].selected;
+  setSelectSubCat(int index) {
+    subCatsCubit.state.data[index].selected =
+        !subCatsCubit.state.data[index].selected;
     subCatsCubit.onUpdateData(subCatsCubit.state.data);
   }
 
+  setUpdateProvider(BuildContext context) async {
+    if (formKey.currentState!.validate()) {
+      var subCats = subCatsCubit.state.data
+          .where((element) => element.selected)
+          .map((e) => e.id.toString())
+          .toList();
+      if (subCats.length == 0) {
+        LoadingDialog.showSimpleToast("من فضلك حدد الخدمات التي تقدمها");
+        return;
+      }
+      // if (imagesCubit.state.data.addedImages.length == 0 &&
+      //     imagesCubit.state.data.existImages.length == 0) {
+      //   LoadingDialog.showSimpleToast("من فضلك حدد صور الاعمال");
+      //   return;
+      // }
+      btnKey.currentState!.animateForward();
+      ProviderRegisterModel model = new ProviderRegisterModel(
+        userName: name.text,
+        phone: phone.text,
+        info: desc.text,
+        linkVideo: video.text,
+        projectName: "Easy",
+        deviceType: Platform.isIOS ? "ios" : "android",
+        email: mail.text,
+        logoImg: logoCubit.state.data,
+        images: imagesCubit.state.data.addedImages,
+        idsSubCat: json.encode(subCats),
+        nameAr: nameAr.text,
+        nameEn: nameEn.text,
+        facebook: face.text,
+        instagram: insta.text,
+        telegram: telegram.text,
+        twitter: twitter.text,
+        whatsApp: "https://wa.me/${phone.text.replaceFirst("0", "")}?text=مرحبا",
+        coverImg: coverCubit.state.data,
+        mainImg: mainCubit.state.data,
+        location: location.text,
+        lat: lat,
+        lng: lng,
+      );
+      await ProviderRepository(context).registerUser(model);
+      btnKey.currentState!.animateReverse();
+    }
+  }
 }

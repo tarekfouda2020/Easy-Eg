@@ -22,6 +22,24 @@ class ProviderAuthMethods{
     return false;
   }
 
+  Future<bool> updateProfile(ProviderRegisterModel model) async {
+    model.lang = context.read<LangCubit>().state.locale.languageCode;
+    model.deviceId = await messaging.getToken();
+    var _data = await DioHelper(context: context).post(
+      url: "/api/v1/UpdateAsyncDataDelegt",
+      body: model.toJson(),
+      showLoader: false,
+    );
+    if (_data != null) {
+      var user = context.read<UserCubit>();
+      user.state.model.providerModel=ProviderModel.fromJson(_data["data"]);
+      user.onUpdateUserData(user.state.model);
+      Utils.saveUserData(user.state.model);
+      return true;
+    }
+    return false;
+  }
+
   Future<bool> logout() async {
     String? deviceId = await messaging.getToken();
     Map<String, dynamic> body = {
