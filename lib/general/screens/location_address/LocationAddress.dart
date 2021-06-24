@@ -106,7 +106,7 @@ class _LocationAddress extends State<LocationAddress> with LocationAddressData {
                 borderRadius: BorderRadius.circular(30)),
             alignment: Alignment.center,
             child: MyText(
-              title: "حفظ الموقع",
+              title: tr(context,"saveLocation"),
               size: 12,
               color: MyColors.white,
             ),

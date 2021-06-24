@@ -16,13 +16,13 @@ class BuildContactView extends StatelessWidget {
         children: [
           BuildContactItem(
             color: color,
-            title: "رقم جوال",
+            title: tr(context,"phone"),
             image: Res.phone,
             onTap: () => Utils.callPhone(phone: model.phone),
           ),
           BuildContactItem(
             color: color,
-            title: "اجراء محادثة",
+            title: tr(context,"chat"),
             image: Res.chat,
             onTap: () => AutoRouter.of(context).popAndPush(
               ChatsRoute(

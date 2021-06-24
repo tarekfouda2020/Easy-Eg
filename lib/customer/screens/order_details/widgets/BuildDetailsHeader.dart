@@ -12,7 +12,7 @@ class BuildDetailsHeader extends StatelessWidget {
       child: Row(
         children: [
           MyText(
-            title: "معلومات الحجز",
+            title:tr(context,"reserveData"),
             color: MyColors.black,
             size: 12,
           ),

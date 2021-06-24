@@ -25,7 +25,7 @@ class _ReservationSuccessState extends State<ReservationSuccess> {
             BuildSuccessText(),
             BuildContactView(color: widget.color,model: widget.model,orderId: widget.orderId,),
             DefaultButton(
-              title: "الرجوع للرئيسية",
+              title: tr(context,"BackToMain"),
               color: widget.color,
               textColor: MyColors.white,
               borderColor: MyColors.white,

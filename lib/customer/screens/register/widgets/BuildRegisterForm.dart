@@ -15,7 +15,7 @@ class BuildRegisterForm extends StatelessWidget {
         child: Column(
           children: [
             LabelTextField(
-              label: "الاسم",
+              label: tr(context,"name"),
               margin: EdgeInsets.only(top: 15),
               controller: registerData.name,
               type: TextInputType.name,
@@ -24,7 +24,7 @@ class BuildRegisterForm extends StatelessWidget {
               validate: (value) => value!.validateEmpty(context),
             ),
             LabelTextField(
-              label: "رقم الجوال",
+              label: tr(context,"phone"),
               margin: EdgeInsets.only(top: 15),
               controller: registerData.phone,
               type: TextInputType.phone,
@@ -33,7 +33,7 @@ class BuildRegisterForm extends StatelessWidget {
               validate: (value) => value!.validatePhone(context),
             ),
             LabelTextField(
-              label: "البريد الالكتروني",
+              label: tr(context,"email"),
               margin: EdgeInsets.only(top: 15),
               controller: registerData.mail,
               type: TextInputType.emailAddress,
@@ -42,7 +42,7 @@ class BuildRegisterForm extends StatelessWidget {
               validate: (value) => value!.validateEmail(context),
             ),
             LabelTextField(
-              label: "كلمة المرور",
+              label: tr(context,"password"),
               margin: EdgeInsets.only(top: 15),
               controller: registerData.pass,
               type: TextInputType.text,
@@ -52,7 +52,7 @@ class BuildRegisterForm extends StatelessWidget {
               validate: (value) => value!.validatePassword(context),
             ),
             LabelTextField(
-              label: "تاكيد كلمة المرور",
+              label: tr(context,"confirmPass"),
               margin: EdgeInsets.only(top: 15),
               controller: registerData.confirm,
               type: TextInputType.text,

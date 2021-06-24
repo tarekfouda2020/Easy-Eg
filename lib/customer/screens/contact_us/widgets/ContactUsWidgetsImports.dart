@@ -4,6 +4,7 @@ import 'package:base_flutter/general/constants/Inputs/LabelTextField.dart';
 import 'package:base_flutter/general/constants/Inputs/RichTextFiled.dart';
 import 'package:base_flutter/general/constants/ModaLs/LoadingDialog.dart';
 import 'package:base_flutter/general/constants/MyColors.dart';
+import 'package:base_flutter/general/utilities/localization/LocalizationMethods.dart';
 import 'package:base_flutter/general/utilities/utils_functions/UtilsImports.dart';
 import 'package:base_flutter/general/utilities/validator/Validator.dart';
 import 'package:base_flutter/general/widgets/CachedImage.dart';

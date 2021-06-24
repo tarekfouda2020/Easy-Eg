@@ -9,12 +9,12 @@ class BuildUserText extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           MyText(
-            title: "مرحبا بك",
+            title: tr(context,"welcome"),
             size: 16,
             color: MyColors.black,
           ),
           MyText(
-            title: "حدد نوع الحساب الخاص بك ",
+            title: tr(context,"chooseAccount"),
             size: 12,
             color: MyColors.blackOpacity,
             fontWeight: FontWeight.w500,

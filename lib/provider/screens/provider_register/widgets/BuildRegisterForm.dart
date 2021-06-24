@@ -16,7 +16,7 @@ class BuildRegisterForm extends StatelessWidget {
         child: Column(
           children: [
             LabelTextField(
-              label: "الاسم",
+              label: tr(context,"name"),
               margin: EdgeInsets.only(top: 15),
               controller: registerData.name,
               type: TextInputType.name,
@@ -25,7 +25,7 @@ class BuildRegisterForm extends StatelessWidget {
               validate: (value) => value!.validateEmpty(context),
             ),
             LabelTextField(
-              label: "رقم الجوال",
+              label:tr(context,"phone"),
               margin: EdgeInsets.only(top: 15),
               controller: registerData.phone,
               type: TextInputType.phone,
@@ -34,7 +34,7 @@ class BuildRegisterForm extends StatelessWidget {
               validate: (value) => value!.validatePhone(context),
             ),
             LabelTextField(
-              label: "البريد الالكتروني",
+              label: tr(context,"email"),
               margin: EdgeInsets.only(top: 15),
               controller: registerData.mail,
               type: TextInputType.emailAddress,
@@ -55,7 +55,7 @@ class BuildRegisterForm extends StatelessWidget {
               },
               builder: (context, state) {
                 return InkWellTextField(
-                  label: "لوجو المحل",
+                  label: tr(context,"marketLogo"),
                   margin: EdgeInsets.only(top: 15),
                   controller: registerData.logo,
                   type: TextInputType.text,
@@ -67,7 +67,7 @@ class BuildRegisterForm extends StatelessWidget {
               },
             ),
             RichTextFiled(
-              label: "الوصف",
+              label: tr(context,'desc'),
               margin: EdgeInsets.only(top: 15),
               controller: registerData.desc,
               type: TextInputType.text,
@@ -84,7 +84,7 @@ class BuildRegisterForm extends StatelessWidget {
               },
               builder: (context, state) {
                 return InkWellTextField(
-                  label: "صور الاعمال",
+                  label: tr(context,"worksImages"),
                   margin: EdgeInsets.only(top: 15),
                   controller: registerData.images,
                   type: TextInputType.text,
@@ -96,7 +96,7 @@ class BuildRegisterForm extends StatelessWidget {
               },
             ),
             LabelTextField(
-              label: "رابط الفديو",
+              label: tr(context,"videoLink"),
               margin: EdgeInsets.only(top: 15),
               controller: registerData.video,
               type: TextInputType.url,
@@ -105,7 +105,7 @@ class BuildRegisterForm extends StatelessWidget {
               validate: (value) => value!.validateEmpty(context),
             ),
             LabelTextField(
-              label: "كلمة المرور",
+              label: tr(context,"password"),
               margin: EdgeInsets.only(top: 15),
               controller: registerData.pass,
               type: TextInputType.text,
@@ -115,7 +115,7 @@ class BuildRegisterForm extends StatelessWidget {
               validate: (value) => value!.validatePassword(context),
             ),
             LabelTextField(
-              label: "تاكيد كلمة المرور",
+              label:tr(context,"confirmPass"),
               margin: EdgeInsets.only(top: 15),
               controller: registerData.confirm,
               type: TextInputType.text,

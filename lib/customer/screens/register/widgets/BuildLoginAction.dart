@@ -8,11 +8,11 @@ class BuildLoginAction extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          MyText(title: "لدي حساب بالفعل ؟ ", color: MyColors.white, size: 12,),
+          MyText(title: tr(context,"haveAccount"), color: MyColors.white, size: 12,),
           SizedBox(width: 5),
           InkWell(
             onTap: ()=>AutoRouter.of(context).pop(),
-            child: MyText(title: "تسجيل دخول", color: MyColors.white, size: 12,),
+            child: MyText(title: tr(context,"login"), color: MyColors.white, size: 12,),
           ),
         ],
       ),

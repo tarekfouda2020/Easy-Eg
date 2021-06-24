@@ -7,7 +7,7 @@ class BuildText extends StatelessWidget {
       margin: EdgeInsets.only(top: 40),
       padding: EdgeInsets.symmetric(horizontal: 15),
       child: MyText(
-        title: "من فضلك قم باستكمال البيانات",
+        title: tr(context,"plzCompleteData"),
         size: 16,
         color: MyColors.primary,
       ),

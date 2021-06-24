@@ -12,7 +12,7 @@ class Orders extends StatelessWidget {
         appBar: PreferredSize(
           child: Column(
             children: [
-              DefaultAppBar(title: "الطلبات",color: currentColor,back: false,),
+              DefaultAppBar(title: tr(context,"orders"),color: currentColor,back: false,),
               BuildTabBarView(color: currentColor)
             ],
           ),

@@ -18,7 +18,7 @@ class _AddReservationState extends State<AddReservation> {
     return Scaffold(
       appBar: PreferredSize(
         child: DefaultAppBar(
-          title: "بيانات الحجز",
+          title: tr(context,"reserveData"),
           color: widget.color,
         ),
         preferredSize: Size.fromHeight(60),
@@ -31,7 +31,7 @@ class _AddReservationState extends State<AddReservation> {
             BuildFormView(addReservationData: addReservationData),
             LoadingButton(
               btnKey: addReservationData.btnKey,
-              title: "ارسال",
+              title: tr(context,"send"),
               color: widget.color,
               onTap: () => addReservationData.setAddReservation(context,widget.model,widget.color),
             )

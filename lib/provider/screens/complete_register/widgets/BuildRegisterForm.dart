@@ -16,7 +16,7 @@ class BuildRegisterForm extends StatelessWidget {
         child: Column(
           children: [
             LabelTextField(
-              label: "اسم المحل او القاعة بالعربي",
+              label:tr(context,"placeOrHallInAr"),
               margin: EdgeInsets.only(top: 15),
               controller: registerData.nameAr,
               type: TextInputType.name,
@@ -25,7 +25,7 @@ class BuildRegisterForm extends StatelessWidget {
               validate: (value) => value!.validateEmpty(context),
             ),
             LabelTextField(
-              label: "اسم المحل او القاعة بالانجليزي",
+              label: tr(context,"placeOrHallInEn"),
               margin: EdgeInsets.only(top: 15),
               controller: registerData.nameEn,
               type: TextInputType.name,
@@ -34,7 +34,7 @@ class BuildRegisterForm extends StatelessWidget {
               validate: (value) => value!.validateEmpty(context),
             ),
             LabelTextField(
-              label: "رابط الانستجرام (اختياري)",
+              label:tr(context,"instagramLinkOptional"),
               margin: EdgeInsets.only(top: 15),
               controller: registerData.insta,
               type: TextInputType.url,
@@ -43,7 +43,7 @@ class BuildRegisterForm extends StatelessWidget {
               validate: (value) => value!.noValidate(),
             ),
             LabelTextField(
-              label: "رابط الفيسبوك  (اختياري)",
+              label: tr(context,"faceLinkOptional"),
               margin: EdgeInsets.only(top: 15),
               controller: registerData.face,
               type: TextInputType.url,
@@ -52,7 +52,7 @@ class BuildRegisterForm extends StatelessWidget {
               validate: (value) => value!.noValidate(),
             ),
             LabelTextField(
-              label: "رابط تويتر  (اختياري)",
+              label: tr(context,"twitterLinkOptional"),
               margin: EdgeInsets.only(top: 15),
               controller: registerData.twitter,
               type: TextInputType.url,
@@ -61,7 +61,7 @@ class BuildRegisterForm extends StatelessWidget {
               validate: (value) => value!.noValidate(),
             ),
             LabelTextField(
-              label: "رابط التليجرام  (اختياري)",
+              label: tr(context,"telegramLinkOptional"),
               margin: EdgeInsets.only(top: 15),
               controller: registerData.telegram,
               type: TextInputType.url,
@@ -81,7 +81,7 @@ class BuildRegisterForm extends StatelessWidget {
               },
               builder: (context, state) {
                 return InkWellTextField(
-                  label: "صورة خلفية",
+                  label:tr(context,"background"),
                   margin: EdgeInsets.only(top: 15),
                   controller: registerData.cover,
                   type: TextInputType.text,
@@ -92,7 +92,6 @@ class BuildRegisterForm extends StatelessWidget {
                 );
               },
             ),
-
             BlocConsumer<GenericBloc<File?>, GenericState<File?>>(
               bloc: registerData.mainCubit,
               listener: (context, state) {
@@ -105,7 +104,7 @@ class BuildRegisterForm extends StatelessWidget {
               },
               builder: (context, state) {
                 return InkWellTextField(
-                  label: "صورة رئسية للمحل او القاعة",
+                  label: tr(context,"mainImageForPlaceAndHall"),
                   margin: EdgeInsets.only(top: 15),
                   controller: registerData.mainImage,
                   type: TextInputType.text,
@@ -126,7 +125,7 @@ class BuildRegisterForm extends StatelessWidget {
               },
               builder: (context,state){
                 return InkWellTextField(
-                  label: "العنوان",
+                  label: tr(context,"location"),
                   margin: EdgeInsets.only(top: 15),
                   controller: registerData.location,
                   type: TextInputType.text,

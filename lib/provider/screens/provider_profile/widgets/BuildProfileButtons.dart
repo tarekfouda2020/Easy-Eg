@@ -11,14 +11,14 @@ class BuildProfileButtons extends StatelessWidget {
       child: Column(
         children: [
           LoadingButton(
-            title: "تاكيد",
+            title: tr(context,'confirm'),
             btnKey: profileData.btnKey,
             onTap: ()=> profileData.setUpdateProvider(context),
             color: color,
             margin: EdgeInsets.symmetric(vertical: 20),
           ),
           DefaultButton(
-            title: "تغيير كلمة المرور",
+            title: tr(context,"confirmPass"),
             onTap: ()=> AutoRouter.of(context).push(ChangePasswordRoute(color: color)),
             color: Colors.transparent,
             borderColor: MyColors.black,

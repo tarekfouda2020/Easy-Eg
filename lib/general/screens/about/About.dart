@@ -22,7 +22,7 @@ class _AboutState extends State<About> with AboutData {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: DefaultAppBar(title: 'عن التطبيق',color: widget.color,),
+      appBar: DefaultAppBar(title:tr(context, "aboutApp"),color: widget.color,),
       body: BlocBuilder<GenericBloc<String>,GenericState<String>>(
         bloc: aboutCubit,
         builder: (_,state){

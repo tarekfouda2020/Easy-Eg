@@ -12,7 +12,7 @@ class BuildEditForm extends StatelessWidget {
         child: Column(
           children: [
             LabelTextField(
-              label: "الاسم",
+              label: tr(context,"name"),
               margin: EdgeInsets.only(top: 15),
               controller: profileData.name,
               type: TextInputType.name,
@@ -21,7 +21,7 @@ class BuildEditForm extends StatelessWidget {
               validate: (value) => value!.validateEmpty(context),
             ),
             LabelTextField(
-              label: "رقم الجوال",
+              label: tr(context,"phone"),
               margin: EdgeInsets.only(top: 15),
               controller: profileData.phone,
               type: TextInputType.phone,
@@ -30,7 +30,7 @@ class BuildEditForm extends StatelessWidget {
               validate: (value) => value!.validatePhone(context),
             ),
             LabelTextField(
-              label: "البريد الالكتروني",
+              label: tr(context,"email"),
               margin: EdgeInsets.only(top: 15),
               controller: profileData.mail,
               type: TextInputType.emailAddress,
@@ -51,7 +51,7 @@ class BuildEditForm extends StatelessWidget {
               },
               builder: (context, state) {
                 return InkWellTextField(
-                  label: "لوجو المحل",
+                  label: tr(context,"marketLogo"),
                   margin: EdgeInsets.only(top: 15),
                   controller: profileData.logo,
                   type: TextInputType.text,
@@ -63,7 +63,7 @@ class BuildEditForm extends StatelessWidget {
               },
             ),
             RichTextFiled(
-              label: "الوصف",
+              label: tr(context,"desc"),
               margin: EdgeInsets.only(top: 15),
               controller: profileData.desc,
               type: TextInputType.text,
@@ -73,7 +73,7 @@ class BuildEditForm extends StatelessWidget {
             ),
 
             InkWellTextField(
-              label: "صور الاعمال",
+              label:tr(context,"worksImages"),
               margin: EdgeInsets.only(top: 15),
               controller: profileData.images,
               type: TextInputType.text,
@@ -141,7 +141,7 @@ class BuildEditForm extends StatelessWidget {
             ),
 
             LabelTextField(
-              label: "رابط الفديو",
+              label: tr(context,'videoLink'),
               margin: EdgeInsets.only(top: 15),
               controller: profileData.video,
               type: TextInputType.url,
@@ -151,7 +151,7 @@ class BuildEditForm extends StatelessWidget {
             ),
 
             LabelTextField(
-              label: "اسم المحل او القاعة بالعربي",
+              label:tr(context,"placeOrHallInAr"),
               margin: EdgeInsets.only(top: 15),
               controller: profileData.nameAr,
               type: TextInputType.name,
@@ -160,7 +160,7 @@ class BuildEditForm extends StatelessWidget {
               validate: (value) => value!.validateEmpty(context),
             ),
             LabelTextField(
-              label: "اسم المحل او القاعة بالانجليزي",
+              label:tr(context,"placeOrHallInEn"),
               margin: EdgeInsets.only(top: 15),
               controller: profileData.nameEn,
               type: TextInputType.name,
@@ -169,7 +169,7 @@ class BuildEditForm extends StatelessWidget {
               validate: (value) => value!.validateEmpty(context),
             ),
             LabelTextField(
-              label: "رابط الانستجرام (اختياري)",
+              label: tr(context,"instagramLinkOptional"),
               margin: EdgeInsets.only(top: 15),
               controller: profileData.insta,
               type: TextInputType.url,
@@ -178,7 +178,7 @@ class BuildEditForm extends StatelessWidget {
               validate: (value) => value!.noValidate(),
             ),
             LabelTextField(
-              label: "رابط الفيسبوك  (اختياري)",
+              label: tr(context,"faceLinkOptional"),
               margin: EdgeInsets.only(top: 15),
               controller: profileData.face,
               type: TextInputType.url,
@@ -187,7 +187,7 @@ class BuildEditForm extends StatelessWidget {
               validate: (value) => value!.noValidate(),
             ),
             LabelTextField(
-              label: "رابط تويتر  (اختياري)",
+              label: tr(context,"twitterLinkOptional"),
               margin: EdgeInsets.only(top: 15),
               controller: profileData.twitter,
               type: TextInputType.url,
@@ -196,7 +196,7 @@ class BuildEditForm extends StatelessWidget {
               validate: (value) => value!.noValidate(),
             ),
             LabelTextField(
-              label: "رابط التليجرام  (اختياري)",
+              label:tr(context,"telegramLinkOptional"),
               margin: EdgeInsets.only(top: 15),
               controller: profileData.telegram,
               type: TextInputType.url,
@@ -216,7 +216,7 @@ class BuildEditForm extends StatelessWidget {
               },
               builder: (context, state) {
                 return InkWellTextField(
-                  label: "صورة خلفية",
+                  label: tr(context,"background"),
                   margin: EdgeInsets.only(top: 15),
                   controller: profileData.cover,
                   type: TextInputType.text,
@@ -240,7 +240,7 @@ class BuildEditForm extends StatelessWidget {
               },
               builder: (context, state) {
                 return InkWellTextField(
-                  label: "صورة رئسية للمحل او القاعة",
+                  label: tr(context,"mainImageForPlaceAndHall"),
                   margin: EdgeInsets.only(top: 15),
                   controller: profileData.mainImage,
                   type: TextInputType.text,
@@ -261,7 +261,7 @@ class BuildEditForm extends StatelessWidget {
               },
               builder: (context,state){
                 return InkWellTextField(
-                  label: "العنوان",
+                  label: tr(context,"location"),
                   margin: EdgeInsets.only(top: 15),
                   controller: profileData.location,
                   type: TextInputType.text,

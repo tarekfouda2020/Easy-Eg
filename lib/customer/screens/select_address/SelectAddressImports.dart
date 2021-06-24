@@ -3,6 +3,7 @@ import 'package:base_flutter/customer/models/DropDownModel.dart';
 import 'package:base_flutter/general/constants/GlobalNotification.dart';
 import 'package:base_flutter/general/constants/Inputs/custom_dropDown/CustomDropDown.dart';
 import 'package:base_flutter/general/constants/MyColors.dart';
+import 'package:base_flutter/general/utilities/localization/LocalizationMethods.dart';
 import 'package:base_flutter/general/utilities/routers/RouterImports.gr.dart';
 import 'package:base_flutter/general/widgets/AuthScaffold.dart';
 import 'package:base_flutter/general/widgets/DefaultButton.dart';

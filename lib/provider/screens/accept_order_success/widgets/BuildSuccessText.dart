@@ -8,14 +8,14 @@ class BuildSuccessText extends StatelessWidget {
       child: Column(
         children: [
           MyText(
-            title: "تم قبول الطلب بنجاح",
+            title: tr(context,"orderAccepted"),
             color: MyColors.white,
             size: 14,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 20),
             child: MyText(
-              title: "سيتم اشعار المستخدم لمتابعة الطلب",
+              title: tr(context,"clientWillBeNotifiedToWatchOrder"),
               color: MyColors.white,
               size: 14,
               fontWeight: FontWeight.w600,

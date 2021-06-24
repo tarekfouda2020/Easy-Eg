@@ -30,8 +30,8 @@ class BuildTabBarView extends StatelessWidget {
                 unselectedLabelColor: MyColors.black,
                 indicatorColor: color,
                 tabs: [
-                  Tab(text: "الحالية"),
-                  Tab(text: "المنتهية"),
+                  Tab(text: tr(context,"current")),
+                  Tab(text: tr(context,"finished")),
                 ],
               ),
             ),

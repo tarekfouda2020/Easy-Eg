@@ -26,7 +26,7 @@ class BuildSearchBar extends StatelessWidget {
                 children: [
                   Flexible(
                     child: IconTextFiled(
-                      label: "كلمة البحث",
+                      label: tr(context,"search"),
                       action: TextInputAction.search,
                       prefixIcon: Icon(Icons.search,size: 20,),
                       borderColor: MyColors.grey,

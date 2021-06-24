@@ -24,7 +24,7 @@ class _HomeMainState extends State<HomeMain>{
      return Scaffold(
        appBar: PreferredSize(
          child: DefaultAppBar(
-           title: "الرئيسية",
+           title: tr(context,"main"),
            color: currentColor,
            back: false,
          ),

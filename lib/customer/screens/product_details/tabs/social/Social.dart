@@ -17,7 +17,7 @@ class Social extends StatelessWidget {
               padding: EdgeInsets.zero,
               children: [
                 MyText(
-                  title: "وسائل التواصل الاجتماعي",
+                  title: tr(context,"socialMedia"),
                   color: MyColors.black,
                   size: 14,
                   fontWeight: FontWeight.w700,

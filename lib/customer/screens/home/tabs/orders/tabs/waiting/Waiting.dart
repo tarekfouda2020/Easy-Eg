@@ -43,7 +43,7 @@ class _WaitingState extends State<Waiting>{
                );
              } else{
                return Center(
-                 child: MyText(title: "لا يوجد طلبات حالية", color: MyColors.black, size: 12),
+                 child: MyText(title: tr(context,"noCurrentOrders"), color: MyColors.black, size: 12),
                );
              }
            } else{

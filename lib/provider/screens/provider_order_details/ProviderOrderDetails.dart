@@ -31,7 +31,7 @@ class _ProviderOrderDetailsState extends State<ProviderOrderDetails> {
     return Scaffold(
       appBar: PreferredSize(
         child: DefaultAppBar(
-          title: "تفاصيل الطلب",
+          title: tr(context,"orderDetails"),
           color: widget.color,
         ),
         preferredSize: Size.fromHeight(60),

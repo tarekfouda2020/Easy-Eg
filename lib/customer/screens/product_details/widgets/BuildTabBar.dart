@@ -29,13 +29,13 @@ class BuildTabBar extends PreferredSize {
                 borderRadius: BorderRadius.circular(5)),
             tabs: [
               Tab(
-                text: "معلومات",
+                text: tr(context,"info"),
               ),
               Tab(
-                text: "التواصل",
+                text: tr(context,"contact"),
               ),
               Tab(
-                text: "الصور",
+                text: tr(context,"images"),
               ),
             ],
           ),

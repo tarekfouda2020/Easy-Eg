@@ -14,7 +14,7 @@ class BuildFormView extends StatelessWidget {
         child: Column(
           children: [
             LabelTextField(
-              label: "الاسم",
+              label: tr(context,"name"),
               margin: EdgeInsets.only(top: 15),
               controller: competitionsData.name,
               validate: (value) => value!.validateEmpty(context),
@@ -23,7 +23,7 @@ class BuildFormView extends StatelessWidget {
               action: TextInputAction.next,
             ),
             LabelTextField(
-              label: "رقم الجوال",
+              label: tr(context,"phone"),
               margin: EdgeInsets.only(top: 15),
               controller: competitionsData.phone,
               validate: (value) => value!.validatePhone(context),
@@ -32,7 +32,7 @@ class BuildFormView extends StatelessWidget {
               action: TextInputAction.next,
             ),
             LabelTextField(
-              label: "العنوان",
+              label: tr(context,"location"),
               margin: EdgeInsets.only(top: 15),
               controller: competitionsData.address,
               validate: (value) => value!.validateEmpty(context),
@@ -46,7 +46,7 @@ class BuildFormView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   MyText(
-                    title: "متابعة لصفحة الفيس بوك",
+                    title: tr(context,"location"),
                     color: MyColors.blackOpacity,
                     size: 10,
                     fontWeight: FontWeight.w600,
@@ -59,7 +59,7 @@ class BuildFormView extends StatelessWidget {
                         children: [
                           Expanded(
                             child: ListTile(
-                              title: MyText(title: "لا",
+                              title: MyText(title: tr(context,"no"),
                                 color: MyColors.blackOpacity,
                                 size: 10,
                                 fontWeight: FontWeight.w600,),
@@ -73,7 +73,7 @@ class BuildFormView extends StatelessWidget {
                           ),
                           Expanded(
                             child: ListTile(
-                              title: MyText(title: "نعم",
+                              title: MyText(title: tr(context,"yes"),
                                 color: MyColors.blackOpacity,
                                 size: 10,
                                 fontWeight: FontWeight.w600,),
@@ -98,7 +98,7 @@ class BuildFormView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   MyText(
-                    title: "متابعة لصفحة اليوتيوب",
+                    title: tr(context,"followOnYoutube"),
                     color: MyColors.blackOpacity,
                     size: 10,
                     fontWeight: FontWeight.w600,
@@ -111,7 +111,7 @@ class BuildFormView extends StatelessWidget {
                         children: [
                           Expanded(
                             child: ListTile(
-                              title: MyText(title: "لا",
+                              title: MyText(title: tr(context,"no"),
                                 color: MyColors.blackOpacity,
                                 size: 10,
                                 fontWeight: FontWeight.w600,),
@@ -124,7 +124,7 @@ class BuildFormView extends StatelessWidget {
                           ),
                           Expanded(
                             child: ListTile(
-                              title: MyText(title: "نعم",
+                              title: MyText(title: tr(context,"yes"),
                                 color: MyColors.blackOpacity,
                                 size: 10,
                                 fontWeight: FontWeight.w600,),

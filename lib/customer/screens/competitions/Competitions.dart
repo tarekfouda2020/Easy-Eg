@@ -24,7 +24,7 @@ class _CompetitionsState extends State<Competitions> {
     return Scaffold(
       appBar: PreferredSize(
         child: DefaultAppBar(
-          title: "المسابقات",
+          title: tr(context,"competitions"),
           color: widget.color,
         ),
         preferredSize: Size.fromHeight(60),
@@ -54,7 +54,7 @@ class _CompetitionsState extends State<Competitions> {
               }
               return Center(
                 child: MyText(
-                  title: "لا يوجد مسابقات حالية",
+                  title: tr(context,"noCompetitionsNow"),
                   color: MyColors.black,
                   size: 12,
                 ),

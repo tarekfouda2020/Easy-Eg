@@ -6,6 +6,7 @@ import 'package:base_flutter/customer/widgets/BuildNoItemFound.dart';
 import 'package:base_flutter/customer/widgets/BuildProductItem.dart';
 import 'package:base_flutter/customer/widgets/LinearContainer.dart';
 import 'package:base_flutter/general/blocks/auth_cubit/auth_cubit.dart';
+import 'package:base_flutter/general/utilities/localization/LocalizationMethods.dart';
 import 'package:base_flutter/general/utilities/routers/RouterImports.gr.dart';
 import 'package:base_flutter/general/widgets/DefaultAppBar.dart';
 import 'package:flutter/material.dart';

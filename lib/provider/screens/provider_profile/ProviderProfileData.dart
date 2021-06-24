@@ -135,7 +135,7 @@ class ProviderProfileData {
           .map((e) => e.id.toString())
           .toList();
       if (subCats.length == 0) {
-        LoadingDialog.showSimpleToast("من فضلك حدد الخدمات التي تقدمها");
+        LoadingDialog.showSimpleToast(tr(context,"PlzSelectYourServices"));
         return;
       }
       btnKey.currentState!.animateForward();

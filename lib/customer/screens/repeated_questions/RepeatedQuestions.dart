@@ -24,7 +24,7 @@ class _RepeatedQuestionsState extends State<RepeatedQuestions> {
     return Scaffold(
       appBar: PreferredSize(
         child: DefaultAppBar(
-          title: "الاسئلة المتكررة",
+          title: tr(context,"repeatedQuestions"),
           color: widget.color,
         ),
         preferredSize: Size.fromHeight(60),

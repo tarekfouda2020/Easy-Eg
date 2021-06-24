@@ -25,7 +25,7 @@ class BuildFormInputs extends StatelessWidget {
               margin: const EdgeInsets.symmetric( vertical: 10),
             ),
             LabelTextField(
-              label: tr(context,"newPass"),
+              label: tr(context,"newPassword"),
               controller: resetPasswordData.newPassword,
               action: TextInputAction.next,
               type: TextInputType.text,
@@ -35,7 +35,7 @@ class BuildFormInputs extends StatelessWidget {
               margin: const EdgeInsets.symmetric( vertical: 10),
             ),
             LabelTextField(
-              label: tr(context,"confirmPassword"),
+              label: tr(context,"confirmNewPassword"),
               controller: resetPasswordData.confirmNewPassword,
               action: TextInputAction.done,
               type: TextInputType.text,

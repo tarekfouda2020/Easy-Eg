@@ -15,13 +15,13 @@ class BuildDetailsBody extends StatelessWidget {
         children: [
           BuildDetailsItem(
             color: color,
-            title: "تاريخ الحجز",
+            title: tr(context,"reserveDate"),
             value: model.date,
           ),
           SizedBox(height: 20),
           BuildDetailsItem(
             color: color,
-            title: "رقم الجوال",
+            title: tr(context,"phone"),
             value: model.phone,
             onTap: ()=> Utils.callPhone(phone: model.phone),
           ),

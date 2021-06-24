@@ -36,7 +36,7 @@ class BuildOrderDetailsCard extends StatelessWidget {
           Column(
             children: [
               MyText(
-                  title: "رقم الطلب", color: color.withOpacity(.7), size: 10),
+                  title: tr(context,"orderNum"), color: color.withOpacity(.7), size: 10),
               MyText(title: "${"model.id"}", color: color.withOpacity(.7), size: 10),
             ],
           )

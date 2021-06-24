@@ -9,7 +9,7 @@ class BuildReservationButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultButton(
-      title: "حجز القاعة",
+      title: tr(context,"hallReservation"),
       margin: EdgeInsets.only(bottom: 30),
       color: color,
       onTap: () => detailsData.navigateToReservation(context, color,model),

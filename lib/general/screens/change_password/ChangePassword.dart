@@ -14,7 +14,7 @@ class _ChangePasswordState extends State<ChangePassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: DefaultAppBar(title: 'تغيير كلمة المرور',color: widget.color,) ,
+      appBar: DefaultAppBar(title:tr(context,"changePassword"),color: widget.color,) ,
       body: LinearContainer(
         color: widget.color,
         child: Column(

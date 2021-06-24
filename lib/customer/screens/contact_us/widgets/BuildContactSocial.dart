@@ -18,7 +18,7 @@ class BuildContactSocial extends StatelessWidget {
       child: Column(
         children: [
           MyText(
-              title: "او عبر التواصل الاجتماعي",
+              title: tr(context,"viaSocialMedia"),
               color: MyColors.blackOpacity,
               size: 10),
           BlocBuilder<GenericBloc<List<SocialModel>>, GenericState<List<SocialModel>>>(

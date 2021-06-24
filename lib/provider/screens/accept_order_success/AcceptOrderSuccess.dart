@@ -27,7 +27,7 @@ class _AcceptOrderSuccessState extends State<AcceptOrderSuccess>{
           ),
 
           DefaultButton(
-            title: "الرجوع للرئيسية",
+            title: tr(context,"BackToMain"),
             color: widget.color,
             textColor: MyColors.white,
             borderColor: MyColors.white,

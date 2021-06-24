@@ -21,7 +21,7 @@ class _TermsState extends State<Terms> with TermsData {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: DefaultAppBar(title: 'الشروط والاحكام',color: widget.color,),
+      appBar: DefaultAppBar(title: tr(context,"termsAndConditions"),color: widget.color,),
       body: BlocBuilder<GenericBloc<String>,GenericState<String>>(
         bloc: termsCubit,
         builder: (_,state){

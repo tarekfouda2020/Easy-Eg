@@ -21,7 +21,7 @@ class _NotificationsState extends State<Notifications> {
     return Scaffold(
       appBar: PreferredSize(
         child: DefaultAppBar(
-          title: "الاشعارات",
+          title: tr(context,"notifications"),
           color: currentColor,
           back: false,
         ),
@@ -54,7 +54,7 @@ class _NotificationsState extends State<Notifications> {
                 );
               }
               return Center(
-                child: MyText(title: "لا يوجد لديك اشعارات", color: MyColors.black, size: 12),
+                child: MyText(title: tr(context,"noNotifications"), color: MyColors.black, size: 12),
               );
             }
             return LoadingDialog.showLoadingView(color: currentColor);

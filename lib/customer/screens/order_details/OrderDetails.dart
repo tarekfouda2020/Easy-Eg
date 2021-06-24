@@ -32,7 +32,7 @@ class _OrderDetailsState extends State<OrderDetails> {
     return Scaffold(
       appBar: PreferredSize(
         child: DefaultAppBar(
-          title: "تفاصيل الطلب", back: true, color: widget.color,),
+          title: tr(context,"orderDetails"), back: true, color: widget.color,),
         preferredSize: Size.fromHeight(60),
       ),
 

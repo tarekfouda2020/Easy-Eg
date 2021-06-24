@@ -9,7 +9,7 @@ class BuildFinishRegisterButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return LoadingButton(
       btnKey: registerData.btnKey,
-      title: "تسجيل",
+      title: tr(context,"register"),
       onTap: ()=>registerData.setRegisterProvider(context,model),
       color: MyColors.primary,
       textColor: MyColors.white,

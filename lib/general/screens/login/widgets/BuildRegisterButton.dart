@@ -11,7 +11,7 @@ class BuildRegisterButton extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          MyText(title: "ليس لديك حساب ؟ ", color: MyColors.white, size: 12),
+          MyText(title: tr(context,"don'tHaveAccount"), color: MyColors.white, size: 12),
           SizedBox(width: 5),
           InkWell(
             onTap: ()=>loginData.navigateUserRegister(context),

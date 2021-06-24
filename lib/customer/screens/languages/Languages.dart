@@ -24,7 +24,7 @@ class _LanguagesState extends State<Languages> {
     return Scaffold(
       appBar: PreferredSize(
         child: DefaultAppBar(
-          title: "اللغة",
+          title: tr(context,"lang"),
           color: widget.color,
         ),
         preferredSize: Size.fromHeight(60),
@@ -38,7 +38,7 @@ class _LanguagesState extends State<Languages> {
               children: [
                 ListTile(
                   title: MyText(
-                    title: "العربية",
+                    title: tr(context,"ar"),
                     color: MyColors.black,
                     size: 12,
                   ),
@@ -56,7 +56,7 @@ class _LanguagesState extends State<Languages> {
                 Divider(color: MyColors.greyWhite),
                 ListTile(
                   title: MyText(
-                    title: "English",
+                    title: tr(context,"en"),
                     color: MyColors.black,
                     size: 12,
                   ),

@@ -38,7 +38,7 @@ class BuildInfoDetails extends StatelessWidget {
         ),
         SizedBox(height: 5),
         MyText(
-          title: "الوصف",
+          title: tr(context,"desc"),
           color: MyColors.black,
           size: 12,
           fontWeight: FontWeight.w700,

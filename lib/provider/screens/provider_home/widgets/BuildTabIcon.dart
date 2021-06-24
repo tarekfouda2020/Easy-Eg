@@ -21,7 +21,7 @@ class BuildTabIcon extends StatelessWidget {
             color: color,
           ),
           MyText(
-            title: homeData.tabs[index].title,
+            title: tr(context,homeData.tabs[index].title),
             size: 10,
             color: color,
           )

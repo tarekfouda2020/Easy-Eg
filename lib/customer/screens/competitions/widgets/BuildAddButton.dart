@@ -9,7 +9,7 @@ class BuildAddButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return LoadingButton(
       btnKey: competitionsData.btnKey,
-      title: "ارسال",
+      title: tr(context,"send"),
       color: color,
       onTap: ()=>competitionsData.setSendSubscribe(context),
       margin: EdgeInsets.symmetric(horizontal: 20,vertical: 30),

@@ -29,7 +29,7 @@ class _SelectAddressState extends State<SelectAddress> {
             ),
           ),
           DefaultButton(
-            title: "تآكيد",
+            title: tr(context,"confirm"),
             color: MyColors.white,
             borderColor: MyColors.white,
             textColor: MyColors.primary,

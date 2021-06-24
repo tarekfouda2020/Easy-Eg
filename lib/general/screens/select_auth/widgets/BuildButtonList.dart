@@ -8,17 +8,17 @@ class BuildButtonList extends StatelessWidget {
       child: Column(
         children: [
           DefaultButton(
-            title: "تسجيل الدخول",
+            title: tr(context,"login"),
             onTap: () => AutoRouter.of(context).push(LoginRoute()),
             margin: const EdgeInsets.symmetric(vertical: 15),
           ),
           DefaultButton(
-            title: "مستخدم جديد",
+            title: tr(context,"newRegister"),
             onTap: () => AutoRouter.of(context).push(RegisterRoute()),
             margin: EdgeInsets.zero,
           ),
           DefaultButton(
-            title: "المساعدة",
+            title: tr(context,"getHelp"),
             onTap: (){},
             margin: const EdgeInsets.symmetric(vertical: 15),
           ),

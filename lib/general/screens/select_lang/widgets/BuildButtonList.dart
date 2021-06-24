@@ -10,14 +10,14 @@ class BuildButtonList extends StatelessWidget {
     return Column(
       children: [
         DefaultButton(
-          title: tr(context,"langAr"),
+          title: tr(context,"langArabic"),
           onTap: ()=> selectLangData.setUserLang(context, "ar"),
           margin: const EdgeInsets.symmetric(vertical: 15),
           color: MyColors.primary,
           textColor: MyColors.white,
         ),
         DefaultButton(
-          title: tr(context,"langEn"),
+          title: tr(context,"langEnglish"),
           onTap: ()=> selectLangData.setUserLang(context, "en"),
           margin: const EdgeInsets.symmetric(horizontal: 0),
           color: MyColors.white,

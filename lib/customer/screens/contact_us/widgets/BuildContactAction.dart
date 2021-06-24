@@ -9,7 +9,7 @@ class BuildContactAction extends StatelessWidget {
   Widget build(BuildContext context) {
     return LoadingButton(
       btnKey: contactUsData.btnKey,
-      title: "ارسال",
+      title:tr(context,"send"),
       color: color,
       margin: EdgeInsets.symmetric(vertical: 20),
       onTap: ()=> contactUsData.setContactUs(context),

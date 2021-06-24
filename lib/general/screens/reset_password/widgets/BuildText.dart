@@ -15,7 +15,7 @@ class BuildText extends StatelessWidget {
             color: MyColors.primary,
           ),
           MyText(
-            title: tr(context,"insertNewPss"),
+            title: tr(context,"insertNewPassword"),
             size: 13,
             color: MyColors.black.withOpacity(.6),
           ),

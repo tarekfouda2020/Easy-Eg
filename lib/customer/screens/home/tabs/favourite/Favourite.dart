@@ -21,7 +21,7 @@ class _FavouriteState extends State<Favourite> {
     return Scaffold(
       appBar: PreferredSize(
         child: DefaultAppBar(
-          title: "المفضلة",
+          title: tr(context,"fav"),
           color: currentColor,
           back: false,
         ),
@@ -55,7 +55,7 @@ class _FavouriteState extends State<Favourite> {
                 );
               } else{
                 return Center(
-                  child: MyText(title: "لا يوجد بيانات", color: MyColors.black, size: 12),
+                  child: MyText(title:tr(context,"noData"), color: MyColors.black, size: 12),
                 );
               }
             }else{

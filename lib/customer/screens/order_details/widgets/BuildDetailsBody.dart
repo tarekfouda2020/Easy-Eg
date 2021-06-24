@@ -16,22 +16,22 @@ class BuildDetailsBody extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               BuildDetailsItem(
-                  color: color, title: "اسم المستفيد", value: "طارق فودة"),
+                  color: color, title: tr(context,"clientName"), value: "طارق فودة"),
               BuildDetailsItem(
-                  color: color, title: "رقم الجوال", value: "01551575332"),
+                  color: color, title:tr(context,"phone"), value: "01551575332"),
             ],
           ),
           SizedBox(height: 30),
           BuildDetailsItem(
             color: color,
-            title: "تاريخ الحجز",
+            title: tr(context,"reserveDate"),
             value: "24/03/2022",
           ),
           Container(
             margin: EdgeInsets.only(top: 100, bottom: 20),
             alignment: Alignment.center,
             child: MyText(
-              title: "في انتظار تآكيد الحجز",
+              title:tr(context,"waitReserveConfirm"),
               color: MyColors.black,
               size: 14,
               decoration: TextDecoration.underline,

@@ -45,7 +45,7 @@ class _CurrentState extends State<Current> {
               );
             } else{
               return Center(
-                child: MyText(title: "لا يوجد طلبات جديدة", color: MyColors.black, size: 12),
+                child: MyText(title:tr(context,"noNewOrders"), color: MyColors.black, size: 12),
               );
             }
           } else{

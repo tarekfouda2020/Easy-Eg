@@ -25,7 +25,7 @@ class _OffersState extends State<Offers> {
     return Scaffold(
       appBar: PreferredSize(
         child: DefaultAppBar(
-          title: "العروض",
+          title: tr(context,"offers"),
           color: widget.color,
         ),
         preferredSize: Size.fromHeight(60),
@@ -41,7 +41,7 @@ class _OffersState extends State<Offers> {
                 return BuildOfferList(color: widget.color,offers: state.data,);
               } else{
                 return Center(
-                  child: MyText(title: "لايوجد عروض حاليا", color: MyColors.black, size: 12),
+                  child: MyText(title: tr(context,"noOffers"), color: MyColors.black, size: 12),
                 );
               }
             }

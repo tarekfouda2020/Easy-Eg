@@ -7,14 +7,14 @@ class BuildSuccessText extends StatelessWidget {
       child: Column(
         children: [
           MyText(
-            title: "تم ارسال طلبك بنجاح",
+            title: tr(context,"sentSuccessfully"),
             color: MyColors.white,
             size: 14,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 20),
             child: MyText(
-              title: "سيتم الرد عليكم من قبل مقدم الخدمة قريبا",
+              title: tr(context,"providerWillReplySoon"),
               color: MyColors.white,
               size: 14,
               fontWeight: FontWeight.w600,
@@ -22,7 +22,7 @@ class BuildSuccessText extends StatelessWidget {
             ),
           ),
           MyText(
-            title: "ورقم الطلب الخاص بك 1234",
+            title: tr(context,"YourOrderNum1234"),
             color: MyColors.white,
             size: 12,
             fontWeight: FontWeight.w600,

@@ -21,7 +21,7 @@ class AddReservationData {
         }
         dateCubit.onUpdateData(null);
       },
-      title: "تاريخ الحجز",
+      title: tr(context,"reserveDate"),
     );
   }
 

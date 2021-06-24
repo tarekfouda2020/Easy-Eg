@@ -49,7 +49,7 @@ class ProviderRegisterData{
       var subCats = subCatsCubit.state.data.where((element) => element.selected).
         map((e) => e.id.toString()).toList();
       if (subCats.length==0) {
-        LoadingDialog.showSimpleToast("من فضلك حدد الخدمات التي تقدمها");
+        LoadingDialog.showSimpleToast(tr(context,"PlzSelectYourServices"));
         return;
       }  
       ProviderRegisterModel model = new ProviderRegisterModel(

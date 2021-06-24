@@ -52,8 +52,8 @@ class _ProductsState extends State<Products> {
             builderDelegate: PagedChildBuilderDelegate<ProductModel>(
                 noItemsFoundIndicatorBuilder: (context) =>
                     BuildNoItemFound(
-                      title: "لا يوجد مقدمين خدمة",
-                      message: "سيتم اضافة مقدمين خدمة قريبا",
+                      title: tr(context,"noProviders"),
+                      message: tr(context,"providersWillAddedSoon"),
                     ),
                 itemBuilder: (context, item, index) {
                   return BuildProductItem(

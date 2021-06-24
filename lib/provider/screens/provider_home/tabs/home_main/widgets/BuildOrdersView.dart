@@ -33,7 +33,7 @@ class BuildOrdersView extends StatelessWidget {
     }
     return Center(
       child: MyText(
-          title: "لايوجد لديك طلبات جديدة", color: MyColors.black, size: 12),
+          title: tr(context,"noNewOrders"), color: MyColors.black, size: 12),
     );
   }
 }

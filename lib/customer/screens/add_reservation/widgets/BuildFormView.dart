@@ -16,7 +16,7 @@ class BuildFormView extends StatelessWidget {
           child: Column(
             children: [
               LabelTextField(
-                label: "اسم المستفيد",
+                label: tr(context,"clientName"),
                 margin: EdgeInsets.only(top: 15),
                 controller: addReservationData.name,
                 type: TextInputType.name,
@@ -25,7 +25,7 @@ class BuildFormView extends StatelessWidget {
                 validate: (value) => value!.validateEmpty(context),
               ),
               LabelTextField(
-                label: "رقم الجوال",
+                label: tr(context,"phone"),
                 margin: EdgeInsets.only(top: 15),
                 controller: addReservationData.phone,
                 type: TextInputType.phone,
@@ -44,7 +44,7 @@ class BuildFormView extends StatelessWidget {
                 },
                 builder: (_, state) {
                   return InkWellTextField(
-                    label: "تاريخ الحجز",
+                    label: tr(context,"reserveDate"),
                     margin: EdgeInsets.only(top: 15),
                     controller: addReservationData.date,
                     type: TextInputType.text,

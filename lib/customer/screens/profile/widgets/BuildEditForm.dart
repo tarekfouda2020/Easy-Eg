@@ -12,7 +12,7 @@ class BuildEditForm extends StatelessWidget {
         child: Column(
           children: [
             LabelTextField(
-              label: "الاسم",
+              label: tr(context,"name"),
               margin: EdgeInsets.only(top: 15),
               controller: profileData.name,
               type: TextInputType.name,
@@ -21,7 +21,7 @@ class BuildEditForm extends StatelessWidget {
               validate: (value) => value!.validateEmpty(context),
             ),
             LabelTextField(
-              label: "رقم الجوال",
+              label: tr(context,"phone"),
               margin: EdgeInsets.only(top: 15),
               controller: profileData.phone,
               type: TextInputType.phone,
@@ -30,7 +30,7 @@ class BuildEditForm extends StatelessWidget {
               validate: (value) => value!.validatePhone(context),
             ),
             LabelTextField(
-              label: "البريد الالكتروني",
+              label: tr(context,"email"),
               margin: EdgeInsets.only(top: 15),
               controller: profileData.mail,
               type: TextInputType.emailAddress,

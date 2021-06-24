@@ -28,7 +28,7 @@ class BuildButtonList extends StatelessWidget {
             InkWell(
               onTap: () => activeAccountData.onResendCode(context, userId),
               child: MyText(
-                  title:tr(context,"sendCode"),
+                  title:tr(context,"reSendCode"),
                   size: 13,
                   color: MyColors.primary,
                   decoration: TextDecoration.underline),

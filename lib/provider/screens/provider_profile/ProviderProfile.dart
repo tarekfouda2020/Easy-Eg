@@ -26,7 +26,7 @@ class _ProviderProfileState extends State<ProviderProfile>{
    Widget build(BuildContext context) {
      return Scaffold(
        appBar: PreferredSize(
-         child: DefaultAppBar(title: "الملف الشخصي",color: widget.color,),
+         child: DefaultAppBar(title:tr(context,"profile"),color: widget.color,),
          preferredSize: Size.fromHeight(60),
        ),
 

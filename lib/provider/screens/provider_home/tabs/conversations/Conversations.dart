@@ -24,7 +24,7 @@ class _ConversationsState extends State<Conversations> {
     return Scaffold(
       appBar: PreferredSize(
         child: DefaultAppBar(
-          title: "المحادثات",
+          title: tr(context,"conversations"),
           color: widget.color,
           back: false,
         ),
@@ -57,7 +57,7 @@ class _ConversationsState extends State<Conversations> {
               } else {
                 return Center(
                   child: MyText(
-                    title: "لا يوجد محادثات",
+                    title: tr(context,"noConversations"),
                     color: MyColors.black,
                     size: 15,
                   ),

@@ -23,7 +23,7 @@ class _ProfileState extends State<Profile>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        child: DefaultAppBar(title: "الملف الشخصي",color: widget.color,),
+        child: DefaultAppBar(title: tr(context,"profile"),color: widget.color,),
         preferredSize: Size.fromHeight(60),
       ),
 

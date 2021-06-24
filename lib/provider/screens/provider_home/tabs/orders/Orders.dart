@@ -24,7 +24,7 @@ class _OrdersState extends State<Orders>{
        child: Scaffold(
          backgroundColor: Colors.white,
          appBar: PreferredSize(
-           child: DefaultAppBar(title: "الطلبات",color: currentColor,back: false,),
+           child: DefaultAppBar(title: tr(context,"orders"),color: currentColor,back: false,),
            preferredSize: Size.fromHeight(60),
          ),
          body: LinearContainer(

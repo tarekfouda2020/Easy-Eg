@@ -23,10 +23,10 @@ class ProviderHomeData{
   ];
 
   List<BottomTabModel> tabs = [
-    BottomTabModel(iconData: Icons.favorite_border, title: "المحادثات",color: Color(0xffd2866e)),
-    BottomTabModel(iconData: Icons.shopping_bag, title: "الطلبات",color: Color(0xffd2866e)),
-    BottomTabModel(iconData: Icons.notifications, title: "الاشعارات",color: Color(0xffd2866e)),
-    BottomTabModel(iconData: Icons.settings, title: "المزيد",color: Color(0xffd2866e)),
+    BottomTabModel(iconData: Icons.favorite_border, title: "conversations",color: Color(0xffd2866e)),
+    BottomTabModel(iconData: Icons.shopping_bag, title: "orders",color: Color(0xffd2866e)),
+    BottomTabModel(iconData: Icons.notifications, title: "notifications",color: Color(0xffd2866e)),
+    BottomTabModel(iconData: Icons.settings, title: "more",color: Color(0xffd2866e)),
   ];
 
   void initBottomNavigation(TickerProvider ticker,Color color,BuildContext context) {

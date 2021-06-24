@@ -21,8 +21,8 @@ class BuildChatMessages extends StatelessWidget {
         builderDelegate: PagedChildBuilderDelegate<MessageModel>(
           noItemsFoundIndicatorBuilder: (context) =>
               BuildNoItemFound(
-                title: "لا يوجد رسايل",
-                message: "ارسل رسالتك الاولي",
+                title: tr(context,"noMessages"),
+                message: tr(context,"sendFirstMsg"),
               ),
           itemBuilder: (context, item, index) {
             if (id == item.senderId) {

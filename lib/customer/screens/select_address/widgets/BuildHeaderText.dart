@@ -6,7 +6,7 @@ class BuildHeaderText extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 30,vertical: 30),
       child: MyText(
-        title: "قم بتحديد عنوانك للاستمرار والحصول علي بيانات افضل",
+        title: tr(context,"selectLocationForContinueAndBetterData"),
         color: MyColors.blackOpacity,
         size: 12,
         alien: TextAlign.center,

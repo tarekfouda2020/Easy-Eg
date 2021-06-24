@@ -24,7 +24,7 @@ class _ProviderOffersState extends State<ProviderOffers> {
     return Scaffold(
       appBar: PreferredSize(
         child: DefaultAppBar(
-          title: "العروض",
+          title: tr(context,"offers"),
           color: widget.color,
         ),
         preferredSize: Size.fromHeight(60),
@@ -45,7 +45,7 @@ class _ProviderOffersState extends State<ProviderOffers> {
               } else {
                 return Center(
                   child: MyText(
-                      title: "لايوجد عروض حاليا",
+                      title: tr(context,"noOffers"),
                       color: MyColors.black,
                       size: 12),
                 );

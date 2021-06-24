@@ -18,13 +18,13 @@ class BuildOrderActions extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             DefaultButton(
-              title: "قبول",
+              title: tr(context,"accept"),
               color: color,
               width: MediaQuery.of(context).size.width * .4,
               onTap: () => detailsData.setAcceptOrder(context, model.id, color),
             ),
             DefaultButton(
-              title: "رفض",
+              title: tr(context,"refuse"),
               color: MyColors.red,
               width: MediaQuery.of(context).size.width * .4,
               onTap: () => detailsData.setRefuseOrder(context, model.id),
@@ -34,7 +34,7 @@ class BuildOrderActions extends StatelessWidget {
         replacement: Column(
           children: [
             DefaultButton(
-              title: "اجراء محادثة",
+              title: tr(context,"chat"),
               color: color,
               margin: EdgeInsets.symmetric(horizontal: 20),
               onTap: () => AutoRouter.of(context).push(ChatsRoute(

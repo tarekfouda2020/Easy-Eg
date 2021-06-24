@@ -7,7 +7,7 @@ class Settings extends StatelessWidget {
     var currentColor = context.watch<TabsColorCubit>().state.color;
     return Scaffold(
       appBar: PreferredSize(
-        child: DefaultAppBar(title: "المزيد",color: currentColor,back: false,),
+        child: DefaultAppBar(title: tr(context,"more"),color: currentColor,back: false,),
         preferredSize: Size.fromHeight(60),
       ),
       body: LinearContainer(
@@ -18,54 +18,54 @@ class Settings extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 15),
             children: [
               BuildPageItem(
-                name: "العروض",
+                name: tr(context,"offers"),
                 color: currentColor,
                 onTap: ()=> AutoRouter.of(context).push(ProviderOffersRoute(color: currentColor)),
               ),
               BuildPageItem(
-                name: "الملف الشخصي",
+                name: tr(context,"profile"),
                 color: currentColor,
                 onTap: ()=> AutoRouter.of(context).push(ProviderProfileRoute(color: currentColor)),
               ),
               BuildPageItem(
-                name: "اسئلة متكررة",
+                name: tr(context,"repeatedQuestions"),
                 color: currentColor,
                 onTap: ()=> AutoRouter.of(context).push(RepeatedQuestionsRoute(color: currentColor)),
               ),
               BuildPageItem(
-                name: "الشروض والاحكام",
+                name: tr(context,'termsAndConditions'),
                 color: currentColor,
                 onTap: ()=> AutoRouter.of(context).push(TermsRoute(color: currentColor)),
               ),
               BuildPageItem(
-                name: "عن التطبيق",
+                name: tr(context,"aboutApp"),
                 color: currentColor,
                 onTap: ()=> AutoRouter.of(context).push(AboutRoute(color: currentColor)),
               ),
               BuildPageItem(
-                name: "اتصل بنا",
+                name: tr(context,"contactUs"),
                 color: currentColor,
                 onTap: ()=> AutoRouter.of(context).push(ContactUsRoute(color: currentColor)),
               ),
               BuildPageItem(
-                name: "مشاركة التطبيق",
+                name:tr(context,"shareApp"),
                 color: currentColor,
                 onTap: (){},
               ),
               BuildPageItem(
-                name: "اللغة",
+                name: tr(context,"lang"),
                 color: currentColor,
                 onTap: ()=> AutoRouter.of(context).push(LanguagesRoute(color: currentColor)),
               ),
               Visibility(
                 visible: context.read<AuthCubit>().state.authorized,
                 child: BuildPageItem(
-                  name: "تسجيل خروج",
+                  name: tr(context,"logOut"),
                   color: currentColor,
                   onTap: ()=> ProviderRepository(context).logout(),
                 ),
                 replacement: BuildPageItem(
-                  name: "تسجيل دخول",
+                  name: tr(context,"login"),
                   color: currentColor,
                   onTap: ()=> AutoRouter.of(context).push(SelectAuthRoute()),
                 ),

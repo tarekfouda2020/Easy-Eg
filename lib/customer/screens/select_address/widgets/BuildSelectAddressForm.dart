@@ -12,7 +12,7 @@ class BuildSelectAddressForm extends StatelessWidget {
         child: Column(
           children: [
             DropdownTextField<DropDownModel>(
-              label: "الدولة",
+              label: tr(context,"country"),
               dropKey: selectAddressData.country,
               margin: EdgeInsets.symmetric(horizontal: 15,vertical: 5),
               showSelectedItem: false,
@@ -22,7 +22,7 @@ class BuildSelectAddressForm extends StatelessWidget {
               finData: (filter) async => await CustomerRepository(context).getCountries(false),
             ),
             DropdownTextField<DropDownModel>(
-              label: "المحافظة",
+              label: tr(context,"government"),
               dropKey: selectAddressData.govern,
               margin: EdgeInsets.symmetric(horizontal: 15,vertical: 5),
               showSelectedItem: false,
@@ -32,7 +32,7 @@ class BuildSelectAddressForm extends StatelessWidget {
               finData: (filter) async => await CustomerRepository(context).getGovernments(selectAddressData.countryModel?.id,false),
             ),
             DropdownTextField<DropDownModel>(
-              label: "المدينة",
+              label: tr(context,"city"),
               dropKey: selectAddressData.city,
               margin: EdgeInsets.symmetric(horizontal: 15,vertical: 5),
               showSelectedItem: false,
@@ -42,7 +42,7 @@ class BuildSelectAddressForm extends StatelessWidget {
               finData: (filter) async => await CustomerRepository(context).getCities(selectAddressData.governModel?.id,false),
             ),
             DropdownTextField<DropDownModel>(
-              label: "المنطقة",
+              label:tr(context,"region"),
               dropKey: selectAddressData.region,
               margin: EdgeInsets.symmetric(horizontal: 15,vertical: 5),
               showSelectedItem: false,
