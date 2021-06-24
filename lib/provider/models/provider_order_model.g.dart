@@ -9,6 +9,7 @@ part of 'provider_order_model.dart';
 ProviderOrderModel _$ProviderOrderModelFromJson(Map<String, dynamic> json) {
   return ProviderOrderModel(
     id: json['id'] as int,
+    userId: json['userId'] as String,
     userName: json['userName'] as String,
     userImg: json['userImg'] as String,
     phone: json['phone'] as String,
@@ -24,6 +25,7 @@ Map<String, dynamic> _$ProviderOrderModelToJson(ProviderOrderModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'userName': instance.userName,
+      'userId': instance.userId,
       'userImg': instance.userImg,
       'phone': instance.phone,
       'beneficiaryName': instance.beneficiaryName,

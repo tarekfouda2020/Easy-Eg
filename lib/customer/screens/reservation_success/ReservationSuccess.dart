@@ -3,8 +3,9 @@ part of 'ReservationSuccessImports.dart';
 class ReservationSuccess extends StatefulWidget {
   final Color color;
   final ProductModel model;
+  final int orderId;
 
-  const ReservationSuccess({required this.color, required this.model});
+  const ReservationSuccess({required this.color, required this.model, required this.orderId});
 
   @override
   _ReservationSuccessState createState() => _ReservationSuccessState();
@@ -22,7 +23,7 @@ class _ReservationSuccessState extends State<ReservationSuccess> {
           children: [
             BuildCheckView(),
             BuildSuccessText(),
-            BuildContactView(color: widget.color,model: widget.model),
+            BuildContactView(color: widget.color,model: widget.model,orderId: widget.orderId,),
             DefaultButton(
               title: "الرجوع للرئيسية",
               color: widget.color,

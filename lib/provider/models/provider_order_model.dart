@@ -8,6 +8,8 @@ class ProviderOrderModel {
   final  int id;
   @JsonKey(name: 'userName')
   final  String userName;
+  @JsonKey(name: 'userId')
+  final  String userId;
   @JsonKey(name: 'userImg')
   final  String userImg;
   @JsonKey(name: 'phone')
@@ -23,7 +25,7 @@ class ProviderOrderModel {
   @JsonKey(name: 'stutesId')
   final  int stutesId;
 
-  ProviderOrderModel({required this.id, required this.userName, required this.userImg, required this.phone, required this.beneficiaryName, required this.date, required this.providerImg, required this.stutes, required this.stutesId});
+  ProviderOrderModel({required this.id,required this.userId, required this.userName, required this.userImg, required this.phone, required this.beneficiaryName, required this.date, required this.providerImg, required this.stutes, required this.stutesId});
 
   factory ProviderOrderModel.fromJson(Map<String, dynamic> json) => _$ProviderOrderModelFromJson(json);
 

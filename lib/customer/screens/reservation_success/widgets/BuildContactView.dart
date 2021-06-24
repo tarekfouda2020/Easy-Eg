@@ -3,8 +3,9 @@ part of 'ReservSuccessWidgetImports.dart';
 class BuildContactView extends StatelessWidget {
   final Color color;
   final ProductModel model;
+  final int orderId;
 
-  const BuildContactView({required this.color, required this.model});
+  const BuildContactView({required this.color, required this.model, required this.orderId});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class BuildContactView extends StatelessWidget {
             color: color,
             title: "اجراء محادثة",
             image: Res.chat,
-            onTap: (){},
+            onTap: ()=> AutoRouter.of(context).popAndPush(ChatsRoute(orderId: orderId,receiverId: model.idProvider,receiverName: model.name)),
           ),
         ],
       ),

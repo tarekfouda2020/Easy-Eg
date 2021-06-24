@@ -13,8 +13,8 @@ class AddReservationData {
   setReservationDate(BuildContext context) {
     AdaptivePicker.datePicker(
       context: context,
-      onConfirm: (selectedDate){
-        if (selectedDate !=null) {
+      onConfirm: (selectedDate) {
+        if (selectedDate != null) {
           String dateStr = DateFormat("dd-MM-yyyy").format(selectedDate);
           dateCubit.onUpdateData(dateStr);
           return;
@@ -25,21 +25,24 @@ class AddReservationData {
     );
   }
 
-  setAddReservation(BuildContext context,ProductModel productModel,Color color)async{
+  setAddReservation(
+      BuildContext context, ProductModel productModel, Color color) async {
     if (formKey.currentState!.validate()) {
       btnKey.currentState!.animateForward();
       AddReservationModel model = new AddReservationModel(
-        phone: phone.text,
-        name: name.text,
-        date: dateCubit.state.data,
-        providerId: productModel.idProvider
-      );
+          phone: phone.text,
+          name: name.text,
+          date: dateCubit.state.data,
+          providerId: productModel.idProvider);
       var result = await CustomerRepository(context).addOrder(model);
-      if (result) {
-        AutoRouter.of(context).push(ReservationSuccessRoute(color: color,model: productModel));
+      if (result != 0) {
+        AutoRouter.of(context).push(ReservationSuccessRoute(
+          color: color,
+          model: productModel,
+          orderId: result,
+        ));
       }
       btnKey.currentState!.animateReverse();
     }
   }
-
 }

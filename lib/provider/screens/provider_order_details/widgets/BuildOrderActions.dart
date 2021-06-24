@@ -35,7 +35,7 @@ class BuildOrderActions extends StatelessWidget {
               title: "اجراء محادثة",
               color: color,
               margin: EdgeInsets.symmetric(horizontal: 20),
-              onTap: (){},
+              onTap: ()=> AutoRouter.of(context).popAndPush(ChatsRoute(orderId: model.id,receiverId: model.userId,receiverName: model.userName)),
             ),
             // Visibility(
             //   visible: model.stutesId==2,

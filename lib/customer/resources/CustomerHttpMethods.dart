@@ -108,14 +108,18 @@ class CustomerHttpMethods {
     return (_data != null);
   }
 
-  Future<bool> addOrder(AddReservationModel model) async {
+  Future<int> addOrder(AddReservationModel model) async {
     model.lang = context.read<LangCubit>().state.locale.languageCode;
     var _data = await DioHelper(context: context).post(
       url: "/api/v1/AddOrder",
       body: model.toJson(),
       showLoader: false,
     );
-    return (_data != null);
+    if (_data != null) {
+      return _data["orderId"];
+    } else {
+      return 0;
+    }
   }
 
   Future<bool> addCompetition(AddCompetitionModel model) async {
@@ -224,6 +228,21 @@ class CustomerHttpMethods {
     if (_data != null) {
       return List<MessageModel>.from(
           _data["data"].map((e) => MessageModel.fromJson(e)));
+    } else {
+      return [];
+    }
+  }
+
+  Future<List<ConversationModel>> getConversations(bool refresh) async {
+    var lang = context.read<LangCubit>().state.locale.languageCode;
+    Map<String, dynamic> body = {
+      "lang": lang,
+    };
+    var _data = await DioHelper(context: context)
+        .get(url: "/api/v1/ListChatUsers", body: body);
+    if (_data != null) {
+      return List<ConversationModel>.from(
+          _data["data"].map((e) => ConversationModel.fromJson(e)));
     } else {
       return [];
     }

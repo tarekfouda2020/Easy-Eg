@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:base_flutter/customer/models/ConversationModel.dart';
 import 'package:base_flutter/customer/models/DropDownModel.dart';
 import 'package:base_flutter/customer/models/CategoryModel.dart';
 import 'package:base_flutter/customer/models/Dtos/AddCompetitionModel.dart';

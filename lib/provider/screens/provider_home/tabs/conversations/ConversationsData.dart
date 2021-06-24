@@ -1,4 +1,4 @@
-part of 'ConversationsImports.dart';
+part of 'ConversationsWidgetsImports.dart';
 
 class ConversationsData{
 

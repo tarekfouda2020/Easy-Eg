@@ -236,7 +236,8 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<ReservationSuccessRouteArgs>();
-          return _i23.ReservationSuccess(color: args.color, model: args.model);
+          return _i23.ReservationSuccess(
+              color: args.color, model: args.model, orderId: args.orderId);
         }),
     ProductsRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
         routeData: routeData,
@@ -641,20 +642,26 @@ class AddReservationRouteArgs {
 class ReservationSuccessRoute
     extends _i1.PageRouteInfo<ReservationSuccessRouteArgs> {
   ReservationSuccessRoute(
-      {required _i41.Color color, required _i44.ProductModel model})
+      {required _i41.Color color,
+      required _i44.ProductModel model,
+      required int orderId})
       : super(name,
             path: '/reservation-success',
-            args: ReservationSuccessRouteArgs(color: color, model: model));
+            args: ReservationSuccessRouteArgs(
+                color: color, model: model, orderId: orderId));
 
   static const String name = 'ReservationSuccessRoute';
 }
 
 class ReservationSuccessRouteArgs {
-  const ReservationSuccessRouteArgs({required this.color, required this.model});
+  const ReservationSuccessRouteArgs(
+      {required this.color, required this.model, required this.orderId});
 
   final _i41.Color color;
 
   final _i44.ProductModel model;
+
+  final int orderId;
 }
 
 class ProductsRoute extends _i1.PageRouteInfo<ProductsRouteArgs> {

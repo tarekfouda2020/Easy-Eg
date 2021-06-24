@@ -34,7 +34,7 @@ class CustomerRepository{
 
   Future<bool> registerUser(CustomerRegisterModel model)=> _customerAuthMethods.registerUser(model);
 
-  Future<bool> addOrder(AddReservationModel model)=> _customerHttpMethods.addOrder(model);
+  Future<int> addOrder(AddReservationModel model)=> _customerHttpMethods.addOrder(model);
 
   Future<bool> addCompetition(AddCompetitionModel model)=> _customerHttpMethods.addCompetition(model);
 
@@ -76,6 +76,9 @@ class CustomerRepository{
 
   Future<List<MessageModel>> getChatMessages(int orderId, int pageNumber) =>
       _customerHttpMethods.getChatMessages(orderId, pageNumber);
+
+  Future<List<ConversationModel>> getConversations(bool refresh) =>
+      _customerHttpMethods.getConversations(refresh);
 
   Future<bool> logout() => _customerAuthMethods.logout();
 

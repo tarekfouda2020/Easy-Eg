@@ -1,10 +1,15 @@
 
+import 'package:base_flutter/customer/models/ConversationModel.dart';
 import 'package:base_flutter/general/constants/MyColors.dart';
 import 'package:base_flutter/general/widgets/CachedImage.dart';
 import 'package:base_flutter/general/widgets/MyText.dart';
 import 'package:flutter/material.dart';
 
 class BuildConversationItem extends StatelessWidget {
+  final ConversationModel model;
+
+  const BuildConversationItem({required this.model});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -13,8 +18,7 @@ class BuildConversationItem extends StatelessWidget {
       child: Row(
         children: [
           CachedImage(
-            url:
-                "https://images.unsplash.com/photo-1535378917042-10a22c95931a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80",
+            url: model.userImg,
             width: 60,
             height: 60,
             borderColor: MyColors.greyWhite,
@@ -30,12 +34,12 @@ class BuildConversationItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     MyText(
-                      title: "طارق فودة",
+                      title:  model.userName,
                       color: MyColors.black,
                       size: 12,
                     ),
                     MyText(
-                      title: "12/12/2021",
+                      title: model.date,
                       color: Colors.blueAccent,
                       size: 8,
                     ),
@@ -43,7 +47,7 @@ class BuildConversationItem extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 MyText(
-                  title: "هذا النص يمكن استبدالة بنص " ,
+                  title: model.lastMsg ,
                   color: MyColors.black,
                   size: 8,
                   overflow: TextOverflow.ellipsis,

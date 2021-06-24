@@ -15,7 +15,7 @@ class ProviderHomeData{
   late CurvedAnimation curve;
 
   List<Widget> tabsView=[
-    Conversations(),
+    Conversations(color: Color(0xffd2866e)),
     Orders(),
     Notifications(),
     Settings(),
