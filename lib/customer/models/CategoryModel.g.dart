@@ -12,6 +12,7 @@ CategoryModel _$CategoryModelFromJson(Map<String, dynamic> json) {
     img: json['img'] as String,
     name: json['name'] as String,
     color: json['color'] as String,
+    selected: json['selected'] as bool? ?? false,
     subCategory: (json['subCategory'] as List<dynamic>)
         .map((e) => SubCategoryModel.fromJson(e as Map<String, dynamic>))
         .toList(),
@@ -25,4 +26,5 @@ Map<String, dynamic> _$CategoryModelToJson(CategoryModel instance) =>
       'name': instance.name,
       'color': instance.color,
       'subCategory': instance.subCategory,
+      'selected': instance.selected,
     };

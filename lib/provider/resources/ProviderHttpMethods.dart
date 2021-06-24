@@ -5,6 +5,20 @@ class ProviderHttpMethods{
 
   ProviderHttpMethods(this.context);
 
+  Future<List<CategoryModel>> getCategories(bool refresh) async {
+    Map<String, dynamic> body = {
+      "lang": context.read<LangCubit>().state.locale.languageCode,
+    };
+    var _data = await DioHelper(context: context, forceRefresh: refresh)
+        .get(url: "/api/v1/GetCategoriesOfUser", body: body);
+    if (_data != null) {
+      return List<CategoryModel>.from(
+          _data["data"].map((e) => CategoryModel.fromJson(e)));
+    } else {
+      return [];
+    }
+  }
+
 
   Future<List<ProviderOrderModel>> getNewOrders(bool refresh) async {
     Map<String, dynamic> body = {

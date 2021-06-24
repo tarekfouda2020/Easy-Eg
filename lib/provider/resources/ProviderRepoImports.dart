@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:base_flutter/customer/models/CategoryModel.dart';
 import 'package:base_flutter/general/blocks/lang_cubit/lang_cubit.dart';
 import 'package:base_flutter/general/constants/GlobalState.dart';
 import 'package:base_flutter/general/utilities/dio_helper/DioImports.dart';

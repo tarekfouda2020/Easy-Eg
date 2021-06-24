@@ -14,8 +14,10 @@ class CategoryModel {
   final  String color;
   @JsonKey(name: 'subCategory')
   final  List<SubCategoryModel> subCategory;
+  @JsonKey(name: 'selected',defaultValue: false)
+  bool selected;
 
-  CategoryModel({required this.id, required this.img, required this.name, required this.color, required this.subCategory});
+  CategoryModel({required this.id, required this.img, required this.name, required this.color, required this.selected, required this.subCategory});
 
   factory CategoryModel.fromJson(Map<String, dynamic> json) => _$CategoryModelFromJson(json);
 

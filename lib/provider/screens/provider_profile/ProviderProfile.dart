@@ -11,9 +11,18 @@ class ProviderProfile extends StatefulWidget {
 
 class _ProviderProfileState extends State<ProviderProfile>{
 
-   ProviderProfileData profileData = new ProviderProfileData();
+  final ProviderProfileData profileData = new ProviderProfileData();
 
-   @override
+
+  @override
+  void initState() {
+    profileData.initProfileData(context);
+    profileData.fetchSelectedCats(context,refresh: false);
+    profileData.fetchSelectedCats(context);
+    super.initState();
+  }
+
+  @override
    Widget build(BuildContext context) {
      return Scaffold(
        appBar: PreferredSize(

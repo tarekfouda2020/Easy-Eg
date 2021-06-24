@@ -26,6 +26,7 @@ class ProviderRegisterData{
       logoCubit.onUpdateData(image);
     }
   }
+
   setImages()async{
     var image = await Utils.getImages();
     if (image.length>0) {

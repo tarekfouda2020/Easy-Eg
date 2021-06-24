@@ -29,52 +29,116 @@ class BuildEditForm extends StatelessWidget {
               validate: (value) => value!.validatePhone(context),
             ),
             LabelTextField(
-              label: "رابط الفيسبوك",
+              label: "البريد الالكتروني",
               margin: EdgeInsets.only(top: 15),
-              controller: profileData.face,
-              type: TextInputType.url,
+              controller: profileData.mail,
+              type: TextInputType.emailAddress,
               action: TextInputAction.next,
               borderColor: MyColors.grey,
-              validate: (value) => value!.validateEmpty(context),
+              validate: (value) => value!.validateEmail(context),
             ),
-            LabelTextField(
-              label: "رابط الانستجرام",
-              margin: EdgeInsets.only(top: 15),
-              controller: profileData.insta,
-              type: TextInputType.url,
-              action: TextInputAction.next,
-              borderColor: MyColors.grey,
-              validate: (value) => value!.validateEmpty(context),
-            ),
-            InkWellTextField(
-              label: "لوجو المحل",
-              margin: EdgeInsets.only(top: 15),
-              controller: profileData.logo,
-              type: TextInputType.text,
-              borderColor: MyColors.grey,
-              icon: Icon(Icons.camera_alt,size: 20,),
-              validate: (value) => value!.validateEmpty(context),
-              onTab: (){},
+            BuildCategoriesView(profileData: profileData),
+            BlocConsumer<GenericBloc<File?>, GenericState<File?>>(
+              bloc: profileData.logoCubit,
+              listener: (context, state) {
+                if (state.data != null) {
+                  profileData.logo.text = state.data!
+                      .path
+                      .split("/")
+                      .last;
+                }
+              },
+              builder: (context, state) {
+                return InkWellTextField(
+                  label: "لوجو المحل",
+                  margin: EdgeInsets.only(top: 15),
+                  controller: profileData.logo,
+                  type: TextInputType.text,
+                  borderColor: MyColors.grey,
+                  icon: Icon(Icons.camera_alt, size: 20,),
+                  validate: (value) => value!.validateEmpty(context),
+                  onTab: () => profileData.setLogoImage(),
+                );
+              },
             ),
             RichTextFiled(
               label: "الوصف",
               margin: EdgeInsets.only(top: 15),
-              controller: profileData.images,
+              controller: profileData.desc,
               type: TextInputType.text,
               borderColor: MyColors.grey,
               max: 5,
               validate: (value) => value!.validateEmpty(context),
             ),
+
             InkWellTextField(
               label: "صور الاعمال",
               margin: EdgeInsets.only(top: 15),
               controller: profileData.images,
               type: TextInputType.text,
               borderColor: MyColors.grey,
-              icon: Icon(Icons.camera_alt,size: 20,),
-              validate: (value) => value!.validateEmpty(context),
-              onTab: (){},
+              icon: Icon(Icons.camera_alt, size: 20,),
+              validate: (value) => value!.noValidate(),
+              onTab: () => profileData.setImages(),
             ),
+
+            BlocBuilder<GenericBloc<WorkImagesModel>, GenericState<WorkImagesModel>>(
+              bloc: profileData.imagesCubit,
+              builder: (context, state) {
+                return Container(
+                  margin: EdgeInsets.all(10),
+                  width: MediaQuery.of(context).size.width,
+                  child: Wrap(
+                    spacing: 10,
+                    runSpacing: 15,
+                    alignment: WrapAlignment.start,
+                    children: [
+                      ...state.data.existImages.map((e){
+                        return CachedImage(
+                          url: e,
+                          height: 80,
+                          width: 80,
+                          fit: BoxFit.fill,
+                          borderRadius: BorderRadius.circular(6),
+                          colorFilter: ColorFilter.mode(Colors.black26, BlendMode.darken),
+                          alignment: Alignment.topLeft,
+                          child: InkWell(
+                            onTap: (){},
+                            child: Padding(
+                              padding: const EdgeInsets.all(5.0),
+                              child: Icon(Icons.close,size: 25,color: MyColors.white,),
+                            ),
+                          ),
+                        );
+                      }),
+                      ...state.data.addedImages.map((e){
+                        return Container(
+                          height: 80,
+                          width: 80,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(6),
+                              image: DecorationImage(
+                              image: FileImage(e),
+                              fit: BoxFit.fill,
+                                colorFilter: ColorFilter.mode(Colors.black26, BlendMode.darken),
+                            ),
+                          ),
+                          alignment: Alignment.topLeft,
+                          child: InkWell(
+                            onTap: ()=>profileData.setRemoveAddImage(e),
+                            child: Padding(
+                              padding: const EdgeInsets.all(5.0),
+                              child: Icon(Icons.close,size: 25,color: MyColors.white,),
+                            ),
+                          ),
+                        );
+                      }),
+                    ],
+                  ),
+                );
+              },
+            ),
+
             LabelTextField(
               label: "رابط الفديو",
               margin: EdgeInsets.only(top: 15),
@@ -84,6 +148,7 @@ class BuildEditForm extends StatelessWidget {
               borderColor: MyColors.grey,
               validate: (value) => value!.validateEmpty(context),
             ),
+
           ],
         ),
       ),

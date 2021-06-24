@@ -38,6 +38,8 @@ class ProviderRepository{
 
   Future<bool> addOffer(File image)=> _httpMethods.addOffer(image);
 
+  Future<List<CategoryModel>> getCategories(bool refresh)=> _httpMethods.getCategories(refresh);
+
   Future<bool> logout() => _authMethods.logout();
 
 

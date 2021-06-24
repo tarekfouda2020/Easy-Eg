@@ -7,6 +7,7 @@ class BuildProfileImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var user = context.watch<UserCubit>().state.model.providerModel;
     return Container(
       margin: EdgeInsets.symmetric(vertical: 20),
       width: 120,
@@ -15,7 +16,7 @@ class BuildProfileImage extends StatelessWidget {
         alignment: Alignment.center,
         children: [
           BlocBuilder<GenericBloc<File?>, GenericState<File?>>(
-            bloc: profileData.imageCubit,
+            bloc: profileData.profileImageCubit,
             builder: (context, state) {
               if (state.data != null) {
                 return Container(
@@ -31,8 +32,7 @@ class BuildProfileImage extends StatelessWidget {
                 );
               }
               return CachedImage(
-                url:
-                    "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1595&q=80",
+                url: user!.imgProfile,
                 width: 100,
                 height: 100,
                 borderRadius: BorderRadius.circular(15),
