@@ -42,6 +42,8 @@ class ProviderRepository{
 
   Future<List<CategoryModel>> getCategories(bool refresh)=> _httpMethods.getCategories(refresh);
 
+  Future<List<NotifyModel>> getNotifications(bool refresh)=> _httpMethods.getNotifications(refresh);
+
   Future<bool> logout() => _authMethods.logout();
 
 

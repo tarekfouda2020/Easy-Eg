@@ -1,6 +1,9 @@
 part of 'NotificationWidgetImports.dart';
 
 class BuildNotifyItem extends StatelessWidget {
+  final NotifyModel model;
+
+  const BuildNotifyItem({required this.model});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,9 +25,9 @@ class BuildNotifyItem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                MyText(title: "هذا النص  "*6, color: MyColors.black, size: 9,fontWeight: FontWeight.w500,),
+                MyText(title: model.text, color: MyColors.black, size: 9,fontWeight: FontWeight.w500,),
                 SizedBox(height: 2,),
-                MyText(title: "22/3/2022", color: MyColors.blackOpacity, size: 8),
+                MyText(title: model.date, color: MyColors.blackOpacity, size: 8),
               ],
             ),
           ),

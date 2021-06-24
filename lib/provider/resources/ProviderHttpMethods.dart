@@ -75,6 +75,19 @@ class ProviderHttpMethods{
       return null;
     }
   }
+  Future<List<NotifyModel>> getNotifications(bool refresh) async {
+    Map<String, dynamic> body = {
+      "lang": context.read<LangCubit>().state.locale.languageCode,
+    };
+    var _data = await DioHelper(context: context, forceRefresh: refresh)
+        .get(url: "/api/v1/ListOfNotify", body: body);
+    if (_data != null) {
+      return List<NotifyModel>.from(
+          _data["notify"].map((e) => NotifyModel.fromJson(e)));
+    } else {
+      return [];
+    }
+  }
 
   Future<bool> acceptOrder(int id) async {
     Map<String, dynamic> body = {
