@@ -13,6 +13,7 @@ class _OrdersState extends State<Orders>{
    void initState() {
      ordersData.fetchCurrentOrders(context,refresh: false);
      ordersData.fetchCurrentOrders(context);
+     ordersData.streamListener(context, mounted);
      super.initState();
    }
    @override

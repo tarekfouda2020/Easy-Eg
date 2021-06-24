@@ -16,6 +16,7 @@ class _WaitingState extends State<Waiting>{
    void initState() {
      waitingData.getOrders(context,refresh: false);
      waitingData.getOrders(context);
+     waitingData.streamListener(context, mounted);
      super.initState();
    }
 

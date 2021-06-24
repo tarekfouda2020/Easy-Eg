@@ -18,6 +18,7 @@ class _CurrentState extends State<Current> {
   void initState() {
     currentData.getOrders(context,refresh: false);
     currentData.getOrders(context);
+    currentData.streamListener(context, mounted);
     super.initState();
   }
 

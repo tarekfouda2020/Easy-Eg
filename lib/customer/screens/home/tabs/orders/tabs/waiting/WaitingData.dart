@@ -7,4 +7,15 @@ class WaitingData{
     var data = await CustomerRepository(context).getNewOrders(refresh);
     ordersCubit.onUpdateData(data);
   }
+
+  final GlobalNotification globalNotification = new GlobalNotification();
+
+  void streamListener(BuildContext context, mounted) {
+    if (!mounted) {
+      globalNotification.notificationSubject.stream.listen((data) {
+        getOrders(context);
+      });
+    }
+  }
+
 }

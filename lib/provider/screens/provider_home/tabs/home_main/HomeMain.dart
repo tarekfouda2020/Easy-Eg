@@ -7,13 +7,14 @@ class HomeMain extends StatefulWidget {
 
 class _HomeMainState extends State<HomeMain>{
 
-   HomeMainData homeMainData = new HomeMainData();
+  final HomeMainData homeMainData = new HomeMainData();
 
 
    @override
   void initState() {
      homeMainData.fetchNewOrders(context,refresh: false);
      homeMainData.fetchNewOrders(context);
+     homeMainData.streamListener(context, mounted);
      super.initState();
   }
 

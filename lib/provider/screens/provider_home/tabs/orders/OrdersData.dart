@@ -12,4 +12,15 @@ class OrdersData{
     var data = await ProviderRepository(context).fetchFinishedOrders(refresh);
     ordersCubit.onUpdateData(data);
   }
+
+  final GlobalNotification globalNotification = new GlobalNotification();
+
+  void streamListener(BuildContext context, mounted) {
+    if (!mounted) {
+      globalNotification.notificationSubject.stream.listen((data) {
+        fetchCurrentOrders(context);
+      });
+    }
+  }
+
 }
