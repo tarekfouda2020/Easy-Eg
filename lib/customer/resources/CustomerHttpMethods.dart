@@ -211,5 +211,22 @@ class CustomerHttpMethods {
     }
   }
 
+  Future<List<MessageModel>> getChatMessages(
+      int orderId, int pageNumber) async {
+    var lang = context.read<LangCubit>().state.locale.languageCode;
+    Map<String, dynamic> body = {
+      "lang": lang,
+      "orderId": orderId,
+      "pageNumber": pageNumber
+    };
+    var _data = await DioHelper(context: context)
+        .get(url: "/api/v1/ListMessagesUser", body: body);
+    if (_data != null) {
+      return List<MessageModel>.from(
+          _data["data"].map((e) => MessageModel.fromJson(e)));
+    } else {
+      return [];
+    }
+  }
 
 }

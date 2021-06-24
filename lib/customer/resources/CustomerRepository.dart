@@ -74,6 +74,9 @@ class CustomerRepository{
   Future<bool> changeLanguage(String lang)=>
       _customerAuthMethods.changeLanguage(lang);
 
+  Future<List<MessageModel>> getChatMessages(int orderId, int pageNumber) =>
+      _customerHttpMethods.getChatMessages(orderId, pageNumber);
+
   Future<bool> logout() => _customerAuthMethods.logout();
 
 }
