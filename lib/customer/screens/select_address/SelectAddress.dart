@@ -1,6 +1,9 @@
 part of 'SelectAddressImports.dart';
 
 class SelectAddress extends StatefulWidget {
+  final bool showBack;
+
+  const SelectAddress({this.showBack = true});
   @override
   _SelectAddressState createState() => _SelectAddressState();
 }
@@ -16,28 +19,31 @@ class _SelectAddressState extends State<SelectAddress> {
 
   @override
   Widget build(BuildContext context) {
-    return AuthScaffold(
-      child: Column(
-        children: [
-          Flexible(
-            child: ListView(
-              children: [
-                HeaderLogo(),
-                BuildHeaderText(),
-                BuildSelectAddressForm(selectAddressData: selectAddressData),
-              ],
+    return WillPopScope(
+      child: AuthScaffold(
+        child: Column(
+          children: [
+            Flexible(
+              child: ListView(
+                children: [
+                  HeaderLogo(haveBack: widget.showBack,),
+                  BuildHeaderText(),
+                  BuildSelectAddressForm(selectAddressData: selectAddressData),
+                ],
+              ),
             ),
-          ),
-          DefaultButton(
-            title: "تآكيد",
-            color: MyColors.white,
-            borderColor: MyColors.white,
-            textColor: MyColors.primary,
-            margin: EdgeInsets.symmetric(horizontal: 20,vertical: 25),
-            onTap: ()=> AutoRouter.of(context).push(SelectDeptRoute(regionId: selectAddressData.regionModel?.id??0)),
-          ),
-        ],
+            DefaultButton(
+              title: "تآكيد",
+              color: MyColors.white,
+              borderColor: MyColors.white,
+              textColor: MyColors.primary,
+              margin: EdgeInsets.symmetric(horizontal: 20,vertical: 25),
+              onTap: ()=> AutoRouter.of(context).push(SelectDeptRoute(regionId: selectAddressData.regionModel?.id??0)),
+            ),
+          ],
+        ),
       ),
+      onWillPop: () async => selectAddressData.onBackPressed(widget.showBack),
     );
   }
 }

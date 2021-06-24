@@ -31,4 +31,11 @@ class SelectAddressData{
     regionModel = model;
   }
 
+  Future<bool> onBackPressed(bool showBack) async {
+    if (!showBack) {
+      SystemNavigator.pop();
+    }
+    return true;
+  }
+
 }
