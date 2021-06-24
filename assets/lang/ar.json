@@ -116,10 +116,14 @@
   "marketLogo": "لوجو المحل",
   "worksImages": "صور الاعمال",
   "videoLink": "رابط الفيديو",
-  "PlzSelectYourServices": "من فضلك حدد الخدمات التي تقدمها"
+  "PlzSelectYourServices": "من فضلك حدد الخدمات التي تقدمها",
   "selected": "تم تحديد",
-  "image": "صورة"
-
+  "image": "صورة",
+  "fillField": "من فضلك ادخل هذا الحقل",
+  "passValidation": "ادخل علي الاقل ٦ حروف او ارقام",
+  "mailValidation": "ادخل البريد الالكتروني صحيحا",
+  "phoneValidation": "ادخل رقم الجوال صحيحا",
+  "confirmValidation": "ادخل تاكيد رمز المرور متطابقا"
 }
 
 
