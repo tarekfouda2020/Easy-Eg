@@ -96,7 +96,7 @@ class BuildEditForm extends StatelessWidget {
                     children: [
                       ...state.data.existImages.map((e){
                         return CachedImage(
-                          url: e,
+                          url: e.img,
                           height: 80,
                           width: 80,
                           fit: BoxFit.fill,

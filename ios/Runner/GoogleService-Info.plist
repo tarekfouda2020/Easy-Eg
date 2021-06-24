@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>590499560296-pibdmgg1fl7ju6jhmbb9ktkc132ktpd8.apps.googleusercontent.com</string>
+	<string>183366283744-72d807gvg637rma5drc2gc0n2ajiclto.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.590499560296-pibdmgg1fl7ju6jhmbb9ktkc132ktpd8</string>
+	<string>com.googleusercontent.apps.183366283744-72d807gvg637rma5drc2gc0n2ajiclto</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCRubCfZ8_L0-Xz-FneRr0vmI0MMilHJy8</string>
+	<string>AIzaSyCYTIw17aOiKbvJc94bCGNUvYwaBXSajDM</string>
 	<key>GCM_SENDER_ID</key>
-	<string>590499560296</string>
+	<string>183366283744</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>sa.aait.aspbranch.easy</string>
 	<key>PROJECT_ID</key>
-	<string>flutter-base-a428c</string>
+	<string>easy-596b8</string>
 	<key>STORAGE_BUCKET</key>
-	<string>flutter-base-a428c.appspot.com</string>
+	<string>easy-596b8.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:590499560296:ios:11b7aa2fc74544b23674dd</string>
+	<string>1:183366283744:ios:cb2b437e5220f7c4717b85</string>
 </dict>
 </plist>

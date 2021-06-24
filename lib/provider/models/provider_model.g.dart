@@ -16,7 +16,11 @@ ProviderModel _$ProviderModelFromJson(Map<String, dynamic> json) {
     closeNotify: json['closeNotify'] as bool,
     imgProfile: json['imgProfile'] as String,
     typeUser: json['typeUser'] as int,
-    name: json['name'] as String,
+    nameAr: json['nameAr'] as String,
+    nameEn: json['nameEn'] as String,
+    imgList: (json['imgList'] as List<dynamic>)
+        .map((e) => ImageModel.fromJson(e as Map<String, dynamic>))
+        .toList(),
     logoImg: json['logoImg'] as String,
     mainImg: json['mainImg'] as String,
     coverImg: json['coverImg'] as String,
@@ -52,7 +56,8 @@ Map<String, dynamic> _$ProviderModelToJson(ProviderModel instance) =>
       'closeNotify': instance.closeNotify,
       'imgProfile': instance.imgProfile,
       'typeUser': instance.typeUser,
-      'name': instance.name,
+      'nameAr': instance.nameAr,
+      'nameEn': instance.nameEn,
       'logoImg': instance.logoImg,
       'mainImg': instance.mainImg,
       'coverImg': instance.coverImg,
@@ -75,4 +80,5 @@ Map<String, dynamic> _$ProviderModelToJson(ProviderModel instance) =>
       'governorateId': instance.governorateId,
       'regoinName': instance.regoinName,
       'regoinId': instance.regoinId,
+      'imgList': instance.imgList,
     };

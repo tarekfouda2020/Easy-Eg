@@ -11,7 +11,7 @@ class BuildNotifyItem extends StatelessWidget {
       child: Row(
         children: [
           CachedImage(
-            url: "https://images.unsplash.com/photo-1521417531039-75e91486cc40?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1615&q=80",
+            url: model.img,
             width: 60,
             height: 60,
             boxShape: BoxShape.circle,

@@ -45,9 +45,9 @@ class ProviderProfileData {
     desc.text = user.info;
     logo.text = user.logoImg.split("/").last;
     video.text = user.linkVideo;
-    // imagesCubit.state.data.existImages=user.images;
-    nameAr.text = user.name;
-    nameEn.text = user.name;
+    imagesCubit.state.data.existImages=user.imgList;
+    nameAr.text = user.nameAr;
+    nameEn.text = user.nameEn;
     face.text = user.facebook;
     twitter.text = user.twitter;
     telegram.text = user.telegram;
@@ -129,11 +129,6 @@ class ProviderProfileData {
         LoadingDialog.showSimpleToast("من فضلك حدد الخدمات التي تقدمها");
         return;
       }
-      // if (imagesCubit.state.data.addedImages.length == 0 &&
-      //     imagesCubit.state.data.existImages.length == 0) {
-      //   LoadingDialog.showSimpleToast("من فضلك حدد صور الاعمال");
-      //   return;
-      // }
       btnKey.currentState!.animateForward();
       ProviderRegisterModel model = new ProviderRegisterModel(
         userName: name.text,
@@ -159,7 +154,7 @@ class ProviderProfileData {
         lat: lat,
         lng: lng,
       );
-      await ProviderRepository(context).registerUser(model);
+      await ProviderRepository(context).updateProfile(model);
       btnKey.currentState!.animateReverse();
     }
   }
