@@ -79,7 +79,7 @@ class BuildRegisterForm extends StatelessWidget {
               bloc: registerData.imagesCubit,
               listener: (context, state) {
                 if (state.data.length>0) {
-                  registerData.images.text="تم تحديد ${state.data.length} صورة";
+                  registerData.images.text="${tr(context,"selected")} ${state.data.length} ${tr(context,"image")}";
                 }
               },
               builder: (context, state) {
