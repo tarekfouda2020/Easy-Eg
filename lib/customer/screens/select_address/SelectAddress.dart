@@ -19,27 +19,6 @@ class _SelectAddressState extends State<SelectAddress> {
 
   @override
   Widget build(BuildContext context) {
-    return AuthScaffold(
-      child: Column(
-        children: [
-          Flexible(
-            child: ListView(
-              children: [
-                HeaderLogo(),
-                BuildHeaderText(),
-                BuildSelectAddressForm(selectAddressData: selectAddressData),
-              ],
-            ),
-          ),
-          DefaultButton(
-            title: tr(context,"confirm"),
-            color: MyColors.white,
-            borderColor: MyColors.white,
-            textColor: MyColors.primary,
-            margin: EdgeInsets.symmetric(horizontal: 20,vertical: 25),
-            onTap: ()=> AutoRouter.of(context).push(SelectDeptRoute(regionId: selectAddressData.regionModel?.id??0)),
-          ),
-        ],
     return WillPopScope(
       child: AuthScaffold(
         child: Column(
@@ -54,7 +33,7 @@ class _SelectAddressState extends State<SelectAddress> {
               ),
             ),
             DefaultButton(
-              title: "تآكيد",
+            title: tr(context,"confirm"),
               color: MyColors.white,
               borderColor: MyColors.white,
               textColor: MyColors.primary,
