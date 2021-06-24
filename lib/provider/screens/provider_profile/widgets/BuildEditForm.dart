@@ -149,6 +149,129 @@ class BuildEditForm extends StatelessWidget {
               validate: (value) => value!.validateEmpty(context),
             ),
 
+            LabelTextField(
+              label: "اسم المحل او القاعة بالعربي",
+              margin: EdgeInsets.only(top: 15),
+              controller: profileData.nameAr,
+              type: TextInputType.name,
+              action: TextInputAction.next,
+              borderColor: MyColors.grey,
+              validate: (value) => value!.validateEmpty(context),
+            ),
+            LabelTextField(
+              label: "اسم المحل او القاعة بالانجليزي",
+              margin: EdgeInsets.only(top: 15),
+              controller: profileData.nameEn,
+              type: TextInputType.name,
+              action: TextInputAction.next,
+              borderColor: MyColors.grey,
+              validate: (value) => value!.validateEmpty(context),
+            ),
+            LabelTextField(
+              label: "رابط الانستجرام (اختياري)",
+              margin: EdgeInsets.only(top: 15),
+              controller: profileData.insta,
+              type: TextInputType.url,
+              action: TextInputAction.next,
+              borderColor: MyColors.grey,
+              validate: (value) => value!.noValidate(),
+            ),
+            LabelTextField(
+              label: "رابط الفيسبوك  (اختياري)",
+              margin: EdgeInsets.only(top: 15),
+              controller: profileData.face,
+              type: TextInputType.url,
+              action: TextInputAction.next,
+              borderColor: MyColors.grey,
+              validate: (value) => value!.noValidate(),
+            ),
+            LabelTextField(
+              label: "رابط تويتر  (اختياري)",
+              margin: EdgeInsets.only(top: 15),
+              controller: profileData.twitter,
+              type: TextInputType.url,
+              action: TextInputAction.next,
+              borderColor: MyColors.grey,
+              validate: (value) => value!.noValidate(),
+            ),
+            LabelTextField(
+              label: "رابط التليجرام  (اختياري)",
+              margin: EdgeInsets.only(top: 15),
+              controller: profileData.telegram,
+              type: TextInputType.url,
+              action: TextInputAction.next,
+              borderColor: MyColors.grey,
+              validate: (value) => value!.noValidate(),
+            ),
+            BlocConsumer<GenericBloc<File?>, GenericState<File?>>(
+              bloc: profileData.coverCubit,
+              listener: (context, state) {
+                if (state.data != null) {
+                  profileData.cover.text = state.data!
+                      .path
+                      .split("/")
+                      .last;
+                }
+              },
+              builder: (context, state) {
+                return InkWellTextField(
+                  label: "صورة خلفية",
+                  margin: EdgeInsets.only(top: 15),
+                  controller: profileData.cover,
+                  type: TextInputType.text,
+                  borderColor: MyColors.grey,
+                  icon: Icon(Icons.camera_alt, size: 20,),
+                  validate: (value) => value!.validateEmpty(context),
+                  onTab: () => profileData.setCoverImage(),
+                );
+              },
+            ),
+
+            BlocConsumer<GenericBloc<File?>, GenericState<File?>>(
+              bloc: profileData.mainCubit,
+              listener: (context, state) {
+                if (state.data != null) {
+                  profileData.mainImage.text = state.data!
+                      .path
+                      .split("/")
+                      .last;
+                }
+              },
+              builder: (context, state) {
+                return InkWellTextField(
+                  label: "صورة رئسية للمحل او القاعة",
+                  margin: EdgeInsets.only(top: 15),
+                  controller: profileData.mainImage,
+                  type: TextInputType.text,
+                  borderColor: MyColors.grey,
+                  icon: Icon(Icons.camera_alt, size: 20,),
+                  validate: (value) => value!.validateEmpty(context),
+                  onTab: () => profileData.setMainImage(),
+                );
+              },
+            ),
+
+            BlocConsumer<LocationCubit,LocationState>(
+              bloc: profileData.locCubit,
+              listener: (context,state){
+                profileData.location.text=state.model.address;
+                profileData.lat=state.model.lat;
+                profileData.lng=state.model.lng;
+              },
+              builder: (context,state){
+                return InkWellTextField(
+                  label: "العنوان",
+                  margin: EdgeInsets.only(top: 15),
+                  controller: profileData.location,
+                  type: TextInputType.text,
+                  borderColor: MyColors.grey,
+                  icon: Icon(Icons.location_on,size: 20,),
+                  validate: (value) => value!.validateEmpty(context),
+                  onTab: ()=>Utils.navigateToLocationAddress(context,profileData.locCubit),
+                );
+              },
+            ),
+
           ],
         ),
       ),
