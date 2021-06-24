@@ -3,9 +3,10 @@ part of 'ChatWidgetImports.dart';
 class BuildChatMessages extends StatelessWidget {
   final ChatsData chatsData;
   final String receiverName;
+  final Color color;
 
   const BuildChatMessages(
-      {required this.chatsData, required this.receiverName});
+      {required this.chatsData, required this.receiverName, required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -14,17 +15,18 @@ class BuildChatMessages extends StatelessWidget {
         :user.providerModel!.id;
     return Flexible(
       child: PagedListView(
-        physics: AlwaysScrollableScrollPhysics(
-          parent: BouncingScrollPhysics(),
-        ),
         reverse: true,
         padding: const EdgeInsets.symmetric(vertical: 10),
         pagingController: chatsData.pagingController,
         builderDelegate: PagedChildBuilderDelegate<MessageModel>(
-          // noItemsFoundIndicatorBuilder: (context) => BuildNoItemFound(),
+          noItemsFoundIndicatorBuilder: (context) =>
+              BuildNoItemFound(
+                title: "لا يوجد رسايل",
+                message: "ارسل رسالتك الاولي",
+              ),
           itemBuilder: (context, item, index) {
             if (id == item.senderId) {
-              return BuildRightMsg(model: item, user: user);
+              return BuildRightMsg(model: item, user: user,color: color,);
             } else {
               return BuildLeftMsg(
                 model: item,

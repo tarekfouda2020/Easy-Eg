@@ -3,8 +3,9 @@ part of 'ChatWidgetImports.dart';
 class BuildRightMsg extends StatelessWidget {
   final MessageModel model;
   final UserModel user;
+  final Color color;
 
-  const BuildRightMsg({required this.model, required this.user});
+  const BuildRightMsg({required this.model, required this.user,required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,7 @@ class BuildRightMsg extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 5, vertical: 4),
               decoration: BoxDecoration(
-                color: MyColors.greyWhite.withOpacity(.8),
+                color: color,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(8),
                   bottomRight: Radius.circular(8),
@@ -44,14 +45,14 @@ class BuildRightMsg extends StatelessWidget {
               child: MyText(
                 title: model.message??"",
                 size: 9,
-                color: MyColors.white,
+                color: MyColors.black,
               ),
             ),
           ),
           MyText(
             title: model.date??"",
             size: 8,
-            color: MyColors.white.withOpacity(.6),
+            color: MyColors.blackOpacity,
           ),
         ],
       ),

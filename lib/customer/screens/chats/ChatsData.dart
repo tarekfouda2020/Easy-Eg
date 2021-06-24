@@ -33,7 +33,7 @@ class ChatsData {
 
   void setConnectServer(String userId) async {
     hubConnection = HubConnectionBuilder()
-        .withUrl("https://batool.ip4s.com/chatHub")
+        .withUrl("https://hujuzat.ip4s.com/chatHub")
         .build();
     await hubConnection.start();
     hubConnection.onclose((error) => print("error when connect => $error"));

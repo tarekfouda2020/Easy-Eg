@@ -15,7 +15,7 @@ class AddReservationData {
       context: context,
       onConfirm: (selectedDate) {
         if (selectedDate != null) {
-          String dateStr = DateFormat("dd-MM-yyyy").format(selectedDate);
+          String dateStr = DateFormat("dd/MM/yyyy").format(selectedDate);
           dateCubit.onUpdateData(dateStr);
           return;
         }

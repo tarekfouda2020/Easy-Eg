@@ -9,11 +9,12 @@ class ConversationsData{
     conversationCubit.onUpdateData(data);
   }
 
-  navigateToChat(BuildContext context, ConversationModel model) async {
+  navigateToChat(BuildContext context, ConversationModel model,Color color) async {
     await AutoRouter.of(context).push(ChatsRoute(
       receiverId: model.userId,
       receiverName: model.userName,
       orderId: model.orderNumber,
+      color: color,
     ));
 
     fetchData(context);

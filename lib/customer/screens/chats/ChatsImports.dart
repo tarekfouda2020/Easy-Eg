@@ -1,4 +1,5 @@
 import 'package:base_flutter/customer/models/MessageModel.dart';
+import 'package:base_flutter/customer/widgets/LinearContainer.dart';
 import 'package:base_flutter/general/blocks/user_cubit/user_cubit.dart';
 import 'package:base_flutter/general/constants/MyColors.dart';
 import 'package:base_flutter/general/models/UserModel.dart';

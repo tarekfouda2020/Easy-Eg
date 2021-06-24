@@ -294,6 +294,7 @@ class AppRouter extends _i1.RootStackRouter {
           return _i32.Chats(
               receiverId: args.receiverId,
               receiverName: args.receiverName,
+              color: args.color,
               orderId: args.orderId);
         }),
     ProviderRegisterRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
@@ -783,12 +784,14 @@ class ChatsRoute extends _i1.PageRouteInfo<ChatsRouteArgs> {
   ChatsRoute(
       {required String receiverId,
       required String receiverName,
+      required _i41.Color color,
       required int orderId})
       : super(name,
             path: '/Chats',
             args: ChatsRouteArgs(
                 receiverId: receiverId,
                 receiverName: receiverName,
+                color: color,
                 orderId: orderId));
 
   static const String name = 'ChatsRoute';
@@ -798,11 +801,14 @@ class ChatsRouteArgs {
   const ChatsRouteArgs(
       {required this.receiverId,
       required this.receiverName,
+      required this.color,
       required this.orderId});
 
   final String receiverId;
 
   final String receiverName;
+
+  final _i41.Color color;
 
   final int orderId;
 }

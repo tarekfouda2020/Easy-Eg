@@ -9,7 +9,7 @@ import 'CustomInputTextStyle.dart';
 
 class ChatTextField extends StatelessWidget {
   final TextEditingController controller;
-  final String label;
+  final String hint;
   final EdgeInsets? margin;
   final TextInputType? type;
   final Widget? icon;
@@ -20,7 +20,7 @@ class ChatTextField extends StatelessWidget {
   final Function()? submit;
 
   ChatTextField({
-    required this.label,
+    required this.hint,
     required this.controller,
     this.margin,
     this.type,
@@ -37,37 +37,29 @@ class ChatTextField extends StatelessWidget {
     var lang = context.watch<LangCubit>().state.locale.languageCode;
     return Container(
       margin: margin ?? EdgeInsets.all(0),
-      child: ConstrainedBox(
-        constraints: BoxConstraints(
-            minHeight: 50,
-            maxHeight: 50,
-            minWidth: double.infinity,
-            maxWidth: double.infinity),
-        child: Row(
-          children: [
-            Flexible(
-              child: TextFormField(
-                controller: controller,
-                keyboardType: TextInputType.multiline,
-                enabled: true,
-                obscureText: isPassword,
-                textInputAction: TextInputAction.newline,
-                maxLines: 10,
-                minLines: 8,
-                style: CustomInputTextStyle(lang: lang),
-                decoration: CustomInputDecoration(lang: lang, label: label),
-              ),
+      child: Row(
+        children: [
+          Flexible(
+            child: TextFormField(
+              controller: controller,
+              keyboardType: TextInputType.multiline,
+              enabled: true,
+              obscureText: isPassword,
+              textInputAction: TextInputAction.newline,
+              maxLines: null,
+              style: CustomInputTextStyle(lang: lang),
+              decoration: CustomInputDecoration(lang: lang, hint: hint),
             ),
-            IconButton(
-              onPressed: submit,
-              icon: Icon(
-                Icons.send,
-                size: 20,
-                color: MyColors.black,
-              ),
+          ),
+          IconButton(
+            onPressed: submit,
+            icon: Icon(
+              Icons.send,
+              size: 20,
+              color: MyColors.black,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

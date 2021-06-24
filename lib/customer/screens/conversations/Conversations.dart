@@ -42,7 +42,7 @@ class _ConversationsState extends State<Conversations> {
                     padding: EdgeInsets.only(top: 20),
                     itemCount: state.data.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return BuildConversationItem(model: state.data[index],);
+                      return BuildConversationItem(model: state.data[index],color: widget.color,);
                     },
                     separatorBuilder: (BuildContext context, int index) {
                       return Divider(color: MyColors.greyWhite);

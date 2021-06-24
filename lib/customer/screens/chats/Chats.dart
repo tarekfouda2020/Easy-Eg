@@ -4,10 +4,12 @@ class Chats extends StatefulWidget {
   final String receiverId;
   final int orderId;
   final String receiverName;
+  final Color color;
 
   const Chats(
       {required this.receiverId,
       required this.receiverName,
+      required this.color,
       required this.orderId});
 
   @override
@@ -39,23 +41,29 @@ class _ChatsState extends State<Chats> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: DefaultAppBar(
-        title: tr(context,"chatDetails"),
+        title:widget.receiverName,
+        color: widget.color,
       ),
-      backgroundColor: MyColors.secondary,
-      body: GestureDetector(
-        onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
-        child: Column(
-          children: [
-            BuildChatMessages(
-              receiverName: widget.receiverName,
-              chatsData: chatsData,
-            ),
-            BuildChatInput(
-              chatsData: chatsData,
-              receiverId: widget.receiverId,
-              orderId: widget.orderId,
-            ),
-          ],
+      backgroundColor: Colors.white,
+      body: LinearContainer(
+        color: widget.color,
+        child: GestureDetector(
+          onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
+          child: Column(
+            children: [
+              BuildChatMessages(
+                receiverName: widget.receiverName,
+                chatsData: chatsData,
+                color: widget.color,
+              ),
+              BuildChatInput(
+                chatsData: chatsData,
+                receiverId: widget.receiverId,
+                orderId: widget.orderId,
+                color: widget.color,
+              ),
+            ],
+          ),
         ),
       ),
     );

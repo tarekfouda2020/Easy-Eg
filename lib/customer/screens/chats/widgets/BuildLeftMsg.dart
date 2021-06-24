@@ -30,7 +30,7 @@ class BuildLeftMsg extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 5, vertical: 4),
               decoration: BoxDecoration(
-                color: MyColors.white,
+                color: MyColors.grey,
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(8),
                   bottomRight: Radius.circular(8),
@@ -40,14 +40,14 @@ class BuildLeftMsg extends StatelessWidget {
               child: MyText(
                 title: model.message??"",
                 size: 9,
-                color: MyColors.blackOpacity,
+                color: MyColors.black,
               ),
             ),
           ),
           MyText(
             title: model.date??"",
             size: 8,
-            color: MyColors.white.withOpacity(.6),
+            color: MyColors.blackOpacity,
           ),
         ],
       ),

@@ -46,6 +46,7 @@ class _ConversationsState extends State<Conversations> {
                     itemBuilder: (BuildContext context, int index) {
                       return BuildConversationItem(
                         model: state.data[index],
+                        color: widget.color,
                       );
                     },
                     separatorBuilder: (BuildContext context, int index) {
