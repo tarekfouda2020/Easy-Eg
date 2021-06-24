@@ -17,9 +17,9 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
-        android:name=".Application"
+        android:name="io.flutter.app.FlutterApplication"
         android:icon="@mipmap/launcher_icon"
-        android:label="base_flutter">
+        android:label="Easy">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDV1H2CcIYVHXtndUp8w_tu79A5OgLoAFU" />

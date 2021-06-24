@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:base_flutter/general/blocks/lang_cubit/lang_cubit.dart';
 import 'package:base_flutter/general/blocks/user_cubit/user_cubit.dart';
-import 'package:base_flutter/general/models/UserModel.dart';
 import 'package:base_flutter/general/utilities/dio_helper/DioImports.dart';
 import 'package:base_flutter/general/utilities/utils_functions/UtilsImports.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -44,6 +43,17 @@ class GeneralHttpMethods {
         .post(url: "/api/v1/ConfirmCodeRegister", body: body, showLoader: false);
     if (_data != null) {
       return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future<bool> checkActive(String phone) async {
+    String lang = context.read<LangCubit>().state.locale.languageCode;
+    Map<String, dynamic> body = {"lang": lang, "phone": phone};
+    var _data = await DioHelper(context: context).get(url: "/api/v1/checkUser", body: body);
+    if (_data != null) {
+      return _data["active"];
     } else {
       return false;
     }
@@ -148,25 +158,6 @@ class GeneralHttpMethods {
       return true;
     } else {
       return false;
-    }
-  }
-
-  Future<UserModel?> checkActive(String phone) async {
-    Map<String, dynamic> body = {
-      "phone": "$phone",
-    };
-    var _data = await DioHelper(context: context).get(url: "/api/v1/CheckActive", body:body);
-    print("data is $_data");
-    if (_data != null) {
-      final userCubit = context.read<UserCubit>().state.model;
-      UserModel user = UserModel.fromJson(_data["data"]);
-      int type = _data["userData"]["type"];
-      user.type = type == 1 ? "user" : "company";
-      user.token = userCubit.token;
-      user.lang = userCubit.lang;
-      return user;
-    } else {
-      return null;
     }
   }
 }

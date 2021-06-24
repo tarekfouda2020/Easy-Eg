@@ -2,32 +2,39 @@ part of 'UtilsImports.dart';
 
 class Utils {
 
-
-  static Future<void> manipulateSplashData( BuildContext context) async {
+  static Future<void> manipulateSplashData(BuildContext context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    var data = await CustomerRepository(context).getCategories(0,false);
-    context.read<CatsCubit>().onUpdateCats(data);
+    CustomerRepository(context).getCategories(0, false).then((data) {
+      context.read<CatsCubit>().onUpdateCats(data);
+    });
     var strUser = prefs.get("user");
     if (strUser != null) {
       UserModel data = UserModel.fromJson(json.decode("$strUser"));
+      String phone = data.type=="user"?data.customerModel!.phone:data.providerModel!.phone;
+      var result = await GeneralRepository(context).checkActive(phone);
+      if (!result) {
+        prefs.clear();
+        changeLanguage("ar", context);
+        AutoRouter.of(context).push(SelectUserRoute());
+      }
       GlobalState.instance.set("token", data.token);
-      changeLanguage(data.lang??"ar",context);
-      setSplashCurrentUserData(data,context);
+      changeLanguage(data.lang ?? "ar", context);
+      setSplashCurrentUserData(data, context);
     } else {
-      changeLanguage("ar",context);
+      changeLanguage("ar", context);
       AutoRouter.of(context).push(SelectUserRoute());
     }
-
   }
 
-  static Future<void> manipulateLoginData(Map<String,dynamic> data,BuildContext context)async{
+  static Future<void> manipulateLoginData(
+      Map<String, dynamic> data, BuildContext context) async {
     if (data["status"]) {
       UserModel user = UserModel();
       int type = data["data"]["typeUser"];
-      if (type==1) {
-        user.customerModel=CustomerModel.fromJson(data["data"]);
-      }else{
-        user.providerModel=ProviderModel.fromJson(data["data"]);
+      if (type == 1) {
+        user.customerModel = CustomerModel.fromJson(data["data"]);
+      } else {
+        user.providerModel = ProviderModel.fromJson(data["data"]);
       }
       user.type = type == 1 ? "user" : "provider";
       user.token = data["token"];
@@ -35,59 +42,60 @@ class Utils {
       GlobalState.instance.set("token", user.token);
       await Utils.saveUserData(user);
       Utils.setCurrentUserData(user, context);
-    } else{
-      AutoRouter.of(context).push(ActiveAccountRoute(userId: data["data"]["id"]));
+    } else {
+      AutoRouter.of(context)
+          .push(ActiveAccountRoute(userId: data["data"]["id"]));
     }
   }
 
-  static void  setCurrentUserData(UserModel model,BuildContext context)async{
+  static void setCurrentUserData(UserModel model, BuildContext context) async {
     context.read<UserCubit>().onUpdateUserData(model);
     context.read<AuthCubit>().onUpdateAuth(true);
-    if (context.read<UserCubit>().state.model.type=="user") {
+    if (context.read<UserCubit>().state.model.type == "user") {
       AutoRouter.of(context).popUntilRouteWithName(HomeRoute.name);
-    } else{
+    } else {
       AutoRouter.of(context).push(ProviderHomeRoute());
     }
   }
 
-  static void  setSplashCurrentUserData(UserModel model,BuildContext context)async{
+  static void setSplashCurrentUserData(
+      UserModel model, BuildContext context) async {
     context.read<UserCubit>().onUpdateUserData(model);
     context.read<AuthCubit>().onUpdateAuth(true);
-    if (context.read<UserCubit>().state.model.type=="user") {
-      AutoRouter.of(context).push(SelectAddressRoute());
-    } else{
+    if (context.read<UserCubit>().state.model.type == "user") {
+      AutoRouter.of(context).push(SelectAddressRoute(showBack: false));
+    } else {
       AutoRouter.of(context).push(ProviderHomeRoute());
     }
   }
 
-  static Future<void> saveUserData(UserModel model)async{
+  static Future<void> saveUserData(UserModel model) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString("user", json.encode(model.toJson()));
   }
 
-  static void changeLanguage(String lang,BuildContext context){
+  static void changeLanguage(String lang, BuildContext context) {
     context.read<LangCubit>().onUpdateLanguage(lang);
   }
 
-  static UserModel getSavedUser({required BuildContext context}){
+  static UserModel getSavedUser({required BuildContext context}) {
     return context.read<UserCubit>().state.model;
   }
 
-  static Future<String?> getDeviceId()async{
+  static Future<String?> getDeviceId() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getString("deviceId");
   }
 
-  static Future<void> setDeviceId(String token)async{
+  static Future<void> setDeviceId(String token) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString("deviceId",token);
+    prefs.setString("deviceId", token);
   }
 
-  static void clearSavedData()async{
+  static void clearSavedData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.clear();
   }
-
 
   // static CustomerModel getCustomerData({@required BuildContext context}){
   //   var provider = Provider.of<UserStore>(context,listen: false);
@@ -134,7 +142,6 @@ class Utils {
   //   var provider = context.watch<UserCubit>().state.model;
   //   return provider.id;
   // }
-
 
   // static void setSelectUser({@required int type, @required BuildContext context}) async {
   //   setCurrentUserType(context: context,type: type);
@@ -196,18 +203,16 @@ class Utils {
 
   static void shareApp(url) {
     LoadingDialog.showLoadingDialog();
-    Share.share(url).whenComplete((){
+    Share.share(url).whenComplete(() {
       EasyLoading.dismiss();
     });
   }
 
   static Future<File?> getImage() async {
-    FilePickerResult? result = await FilePicker.platform.pickFiles(
-        allowMultiple: false,
-        type: FileType.image
-    );
+    FilePickerResult? result = await FilePicker.platform
+        .pickFiles(allowMultiple: false, type: FileType.image);
 
-    if(result != null) {
+    if (result != null) {
       List<File> files = result.paths.map((path) => File("$path")).toList();
       return files.first;
     } else {
@@ -215,13 +220,11 @@ class Utils {
     }
   }
 
-  static Future<List<File>> getImages()async{
-    FilePickerResult? result = await FilePicker.platform.pickFiles(
-        allowMultiple: true,
-        type: FileType.image
-    );
+  static Future<List<File>> getImages() async {
+    FilePickerResult? result = await FilePicker.platform
+        .pickFiles(allowMultiple: true, type: FileType.image);
 
-    if(result != null) {
+    if (result != null) {
       List<File> files = result.paths.map((path) => File("$path")).toList();
       return files;
     } else {
@@ -230,12 +233,10 @@ class Utils {
   }
 
   static Future<File?> getVideo() async {
-    FilePickerResult? result = await FilePicker.platform.pickFiles(
-        allowMultiple: false,
-        type: FileType.video
-    );
+    FilePickerResult? result = await FilePicker.platform
+        .pickFiles(allowMultiple: false, type: FileType.video);
 
-    if(result != null) {
+    if (result != null) {
       List<File> files = result.paths.map((path) => File("$path")).toList();
       return files.first;
     } else {
@@ -243,18 +244,19 @@ class Utils {
     }
   }
 
-  static void copToClipboard({required String text,required GlobalKey<ScaffoldState> scaffold}){
-    if(text.trim().isEmpty){
+  static void copToClipboard(
+      {required String text, required GlobalKey<ScaffoldState> scaffold}) {
+    if (text.trim().isEmpty) {
       LoadingDialog.showToastNotification("لا يوجد بيانات للنسخ");
       return;
-    }else{
+    } else {
       Clipboard.setData(ClipboardData(text: "$text")).then((value) {
         LoadingDialog.showToastNotification("تم النسخ بنجاح");
       });
     }
   }
 
-  static Future<bool> askForPermission(Location location)async{
+  static Future<bool> askForPermission(Location location) async {
     var permission = await location.hasPermission();
     if (permission == PermissionStatus.deniedForever) {
       return false;
@@ -278,33 +280,39 @@ class Utils {
     return current;
   }
 
-  static void navigateToMapWithDirection({required String lat,required String lng, required BuildContext context}) async {
+  static void navigateToMapWithDirection(
+      {required String lat,
+      required String lng,
+      required BuildContext context}) async {
     final availableMaps = await MapLauncher.installedMaps;
     LocationData? loc = await getCurrentLocation();
-    if (availableMaps.length > 0&&loc!=null) {
+    if (availableMaps.length > 0 && loc != null) {
       await availableMaps.first.showDirections(
         destinationTitle: "destination",
         origin: Coords(loc.latitude!, loc.longitude!),
         destination: Coords(double.parse(lat), double.parse(lng)),
       );
     } else {
-      LoadingDialog.showSimpleToast("قم بتحميل خريطة جوجل"); //"قم بتحميل خريطة جوجل");
+      LoadingDialog.showSimpleToast(
+          "قم بتحميل خريطة جوجل"); //"قم بتحميل خريطة جوجل");
     }
   }
 
-  static void navigateToLocationAddress(BuildContext context,LocationCubit locCubit) async {
+  static void navigateToLocationAddress(
+      BuildContext context, LocationCubit locCubit) async {
     FocusScope.of(context).requestFocus(FocusNode());
     LoadingDialog.showLoadingDialog();
     // var current = await Utils.getCurrentLocation();
-    var current ;
+    var current;
     LocationModel locationModel = locCubit.state.model;
     if (current != null) {
-      locationModel = LocationModel("${current.latitude}", "${current.longitude}", "");
+      locationModel =
+          LocationModel("${current.latitude}", "${current.longitude}", "");
     }
     double lat = double.parse(locationModel.lat);
     double lng = double.parse(locationModel.lng);
-    String address = await getAddress(LatLng(lat,lng),context);
-    locationModel.address=address;
+    String address = await getAddress(LatLng(lat, lng), context);
+    locationModel.address = address;
     locCubit.onLocationUpdated(locationModel);
     EasyLoading.dismiss();
     Navigator.of(context).push(
@@ -317,10 +325,10 @@ class Utils {
     );
   }
 
-  static Future<String> getAddress(LatLng latLng,BuildContext context) async {
+  static Future<String> getAddress(LatLng latLng, BuildContext context) async {
     final coordinates = new Coordinates(latLng.latitude, latLng.longitude);
-    List<Address> addresses  = await Geocoder.local
-        .findAddressesFromCoordinates(coordinates);
+    List<Address> addresses =
+        await Geocoder.local.findAddressesFromCoordinates(coordinates);
     var first = addresses.first;
     print("${first.featureName} : ${first.addressLine}");
     return first.addressLine;
@@ -330,7 +338,7 @@ class Utils {
     var sb = new StringBuffer();
     for (int i = 0; i < s.length; i++) {
       switch (s[i]) {
-      //Arabic digits
+        //Arabic digits
         case '\u0660':
           sb.write('0');
           break;
@@ -368,5 +376,4 @@ class Utils {
     }
     return sb.toString();
   }
-
 }

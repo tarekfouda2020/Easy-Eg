@@ -36,6 +36,6 @@ class GeneralRepository {
   Future<bool> sendMessage({ String? name, String? mail, String? message}) =>
       _generalHttpMethods.sendMessage(name, mail, message);
 
-  Future<UserModel?> checkActive(String phone) =>
+  Future<bool> checkActive(String phone) =>
       _generalHttpMethods.checkActive(phone);
 }

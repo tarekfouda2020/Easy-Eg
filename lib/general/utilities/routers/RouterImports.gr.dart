@@ -183,8 +183,10 @@ class AppRouter extends _i1.RootStackRouter {
         }),
     SelectAddressRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
         routeData: routeData,
-        builder: (_) {
-          return _i17.SelectAddress();
+        builder: (data) {
+          final args = data.argsAs<SelectAddressRouteArgs>(
+              orElse: () => const SelectAddressRouteArgs());
+          return _i17.SelectAddress(showBack: args.showBack);
         }),
     SelectDeptRoute.name: (routeData) => _i1.CustomPage<dynamic>(
         routeData: routeData,
@@ -539,10 +541,19 @@ class RegisterRoute extends _i1.PageRouteInfo {
   static const String name = 'RegisterRoute';
 }
 
-class SelectAddressRoute extends _i1.PageRouteInfo {
-  const SelectAddressRoute() : super(name, path: '/select-address');
+class SelectAddressRoute extends _i1.PageRouteInfo<SelectAddressRouteArgs> {
+  SelectAddressRoute({bool showBack = true})
+      : super(name,
+            path: '/select-address',
+            args: SelectAddressRouteArgs(showBack: showBack));
 
   static const String name = 'SelectAddressRoute';
+}
+
+class SelectAddressRouteArgs {
+  const SelectAddressRouteArgs({this.showBack = true});
+
+  final bool showBack;
 }
 
 class SelectDeptRoute extends _i1.PageRouteInfo<SelectDeptRouteArgs> {

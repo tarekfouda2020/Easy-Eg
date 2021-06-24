@@ -22,7 +22,7 @@ class GlobalNotification {
   GlobalNotification();
 
   setupNotification(BuildContext cxt)async{
-    context = cxt;
+    // context = cxt;
     _flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
     var android = new AndroidInitializationSettings("@mipmap/launcher_icon");
     var ios = new IOSInitializationSettings();
@@ -32,14 +32,14 @@ class GlobalNotification {
       onSelectNotification: flutterNotificationClick,
     );
     FirebaseMessaging messaging = FirebaseMessaging.instance;
-    NotificationSettings settings = await messaging.requestPermission(provisional: true);
+    NotificationSettings settings = await messaging.requestPermission(provisional: true,sound: true,alert: true);
     print('User granted permission: ${settings.authorizationStatus}');
     if(settings.authorizationStatus==AuthorizationStatus.authorized){
       messaging.getToken().then((token) {
         print(token);
       });
       messaging.setForegroundNotificationPresentationOptions(alert: true,badge: true,sound: true);
-      // messaging.getInitialMessage().then((message) => _showLocalNotification(message));
+      messaging.getInitialMessage().then((message) => _showLocalNotification(message));
       FirebaseMessaging.onMessage.listen((RemoteMessage message) {
         print("_____________________Message data:${message.data}");
         print("_____________________notification:${message.notification?.title}");
