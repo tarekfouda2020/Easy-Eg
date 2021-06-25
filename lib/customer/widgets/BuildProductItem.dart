@@ -19,7 +19,7 @@ class BuildProductItem extends StatelessWidget {
     return InkWell(
       onTap: ()=>AutoRouter.of(context).push(ProductDetailsRoute(color: color,model: model)),
       child: Container(
-        margin: EdgeInsets.only(bottom: 20),
+        margin: EdgeInsets.only(top: 20),
         child: Column(
           children: [
             Container(

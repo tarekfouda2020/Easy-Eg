@@ -22,7 +22,7 @@ class GlobalNotification {
   GlobalNotification();
 
   setupNotification(BuildContext cxt)async{
-    // context = cxt;
+    context = cxt;
     _flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
     var android = new AndroidInitializationSettings("@mipmap/launcher_icon");
     var ios = new IOSInitializationSettings();
