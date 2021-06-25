@@ -10,9 +10,9 @@ class NotifyModel {
   final  String text;
   @JsonKey(name: 'date')
   final  String date;
-  @JsonKey(name: 'type')
-  final  String img;
   @JsonKey(name: 'img')
+  final  String img;
+  @JsonKey(name: 'type')
   final  int type;
 
   NotifyModel({required this.id, required this.text, required this.date, required this.type, required this.img});

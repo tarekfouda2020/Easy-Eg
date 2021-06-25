@@ -58,8 +58,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               color: MyColors.white,
             ),
           ),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
           bottomNavigationBar: BlocBuilder<GenericBloc<int>, GenericState<int>>(
             bloc: homeData.homeTabCubit,
             builder: (context, state) {

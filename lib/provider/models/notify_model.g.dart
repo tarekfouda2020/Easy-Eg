@@ -11,8 +11,8 @@ NotifyModel _$NotifyModelFromJson(Map<String, dynamic> json) {
     id: json['id'] as int,
     text: json['text'] as String,
     date: json['date'] as String,
-    type: json['img'] as int,
-    img: json['type'] as String,
+    type: json['type'] as int,
+    img: json['img'] as String,
   );
 }
 
@@ -21,6 +21,6 @@ Map<String, dynamic> _$NotifyModelToJson(NotifyModel instance) =>
       'id': instance.id,
       'text': instance.text,
       'date': instance.date,
-      'type': instance.img,
-      'img': instance.type,
+      'img': instance.img,
+      'type': instance.type,
     };
