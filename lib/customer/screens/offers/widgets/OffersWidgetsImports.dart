@@ -4,4 +4,4 @@ import 'package:base_flutter/general/utilities/routers/RouterImports.gr.dart';
 import 'package:base_flutter/general/widgets/CachedImage.dart';
 import 'package:flutter/material.dart';
 
-part 'BuildOfferList.dart';
+part 'BuildOfferItem.dart';

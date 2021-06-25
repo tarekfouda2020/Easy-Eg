@@ -12,8 +12,6 @@ class _HomeMainState extends State<HomeMain>{
 
    @override
   void initState() {
-     homeMainData.fetchNewOrders(context,refresh: false);
-     homeMainData.fetchNewOrders(context);
      homeMainData.streamListener(context, mounted);
      super.initState();
   }
@@ -33,17 +31,21 @@ class _HomeMainState extends State<HomeMain>{
        body: LinearContainer(
          padding: EdgeInsets.only(bottom: 100),
          color: currentColor,
-         child: BlocBuilder<GenericBloc<List<ProviderOrderModel>>, GenericState<List<ProviderOrderModel>>>(
-           bloc: homeMainData.ordersCubit,
-           builder: (context, state) {
-             if (state is GenericUpdateState) {
-               return BuildOrdersView(
-                 homeMainData: homeMainData,
-                 color: currentColor,
-                 orders: state.data,
-               );
-             }
-             return LoadingDialog.showLoadingView(color: currentColor);
+         child: GenericListView<ProviderOrderModel>(
+           type: ListViewType.separated,
+           padding: EdgeInsets.symmetric(horizontal: 15),
+           onRefresh: homeMainData.fetchNewOrders,
+           emptyStr: tr(context,"noNewOrders"),
+           cubit: homeMainData.ordersCubit,
+           refreshBg: currentColor.withOpacity(.5),
+           loadingColor: currentColor,
+           params: [context],
+           itemBuilder: (context,index,item){
+             return BuildOrderCard(
+               model: item,
+               color: currentColor,
+               onClose: (value)=>homeMainData.fetchNewOrders(context),
+             );
            },
          ),
        ),

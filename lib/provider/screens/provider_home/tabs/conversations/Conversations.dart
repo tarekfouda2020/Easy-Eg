@@ -13,13 +13,6 @@ class _ConversationsState extends State<Conversations> {
   final ConversationsData conversationsData = new ConversationsData();
 
   @override
-  void initState() {
-    conversationsData.fetchData(context, refresh: false);
-    conversationsData.fetchData(context);
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
@@ -32,40 +25,17 @@ class _ConversationsState extends State<Conversations> {
       ),
       body: LinearContainer(
         color: widget.color,
-        child: BlocBuilder<GenericBloc<List<ConversationModel>>,
-            GenericState<List<ConversationModel>>>(
-          bloc: conversationsData.conversationCubit,
-          builder: (context, state) {
-            if (state is GenericUpdateState) {
-              if (state.data.length > 0) {
-                return RefreshIndicator(
-                  onRefresh: () => conversationsData.fetchData(context),
-                  child: ListView.separated(
-                    padding: EdgeInsets.only(top: 20),
-                    itemCount: state.data.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return BuildConversationItem(
-                        model: state.data[index],
-                        color: widget.color,
-                      );
-                    },
-                    separatorBuilder: (BuildContext context, int index) {
-                      return Divider(color: MyColors.greyWhite);
-                    },
-                  ),
-                );
-              } else {
-                return Center(
-                  child: MyText(
-                    title: tr(context,"noConversations"),
-                    color: MyColors.black,
-                    size: 15,
-                  ),
-                );
-              }
-            } else {
-              return LoadingDialog.showLoadingView(color: widget.color);
-            }
+        child: GenericListView<ConversationModel>(
+          type: ListViewType.separated,
+          padding: EdgeInsets.only(top: 20),
+          onRefresh: conversationsData.fetchData,
+          emptyStr: tr(context,"noConversations"),
+          cubit: conversationsData.conversationCubit,
+          refreshBg: widget.color.withOpacity(.5),
+          loadingColor: widget.color,
+          params: [context],
+          itemBuilder: (context,index,item){
+            return BuildConversationItem(model: item,color: widget.color,);
           },
         ),
       ),

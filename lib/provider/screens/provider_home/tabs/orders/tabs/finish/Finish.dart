@@ -12,29 +12,25 @@ class Finish extends StatefulWidget {
 
 class _FinishState extends State<Finish>{
 
-  @override
-  void initState() {
-    widget.ordersData.fetchFinishedOrders(context,refresh: false);
-    widget.ordersData.fetchFinishedOrders(context);
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoScrollbar(
-      child: BlocBuilder<GenericBloc<List<ProviderOrderModel>>, GenericState<List<ProviderOrderModel>>>(
-        bloc: widget.ordersData.ordersCubit,
-        builder: (context, state) {
-          if (state is GenericUpdateState) {
-            return BuildOrdersView(
-              ordersData: widget.ordersData,
-              color: widget.color,
-              orders: state.data,
-            );
-          }
-          return LoadingDialog.showLoadingView(color: widget.color);
-        },
-      ),
+    return GenericListView<ProviderOrderModel>(
+      type: ListViewType.separated,
+      padding: EdgeInsets.symmetric(horizontal: 15),
+      onRefresh: widget.ordersData.fetchCurrentOrders,
+      emptyStr: tr(context,"noCurrentOrders"),
+      cubit: widget.ordersData.ordersCubit,
+      refreshBg: widget.color.withOpacity(.5),
+      loadingColor: widget.color,
+      params: [context],
+      itemBuilder: (context,index,item){
+        return BuildOrderCard(
+          model: item,
+          color: widget.color,
+          onClose: (value)=> widget.ordersData.fetchCurrentOrders(context),
+        );
+      },
     );
   }
 }

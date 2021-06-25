@@ -13,52 +13,43 @@ class _ProviderOffersState extends State<ProviderOffers> {
   ProviderOffersData offersData = new ProviderOffersData();
 
   @override
-  void initState() {
-    offersData.fetchData(context, refresh: false);
-    offersData.fetchData(context);
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
         child: DefaultAppBar(
-          title: tr(context,"offers"),
+          title: tr(context, "offers"),
           color: widget.color,
         ),
         preferredSize: Size.fromHeight(60),
       ),
       body: LinearContainer(
         color: widget.color,
-        child: BlocBuilder<GenericBloc<List<ProviderOfferModel>>,
-            GenericState<List<ProviderOfferModel>>>(
-          bloc: offersData.offersCubit,
-          builder: (context, state) {
-            if (state is GenericUpdateState) {
-              if (state.data.length > 0) {
-                return BuildOfferList(
-                  color: widget.color,
-                  offers: state.data,
-                  offersData: offersData,
-                );
-              } else {
-                return Center(
-                  child: MyText(
-                      title: tr(context,"noOffers"),
-                      color: MyColors.black,
-                      size: 12),
-                );
-              }
-            }
-            return LoadingDialog.showLoadingView(color: widget.color);
+        child: GenericListView<ProviderOfferModel>(
+          type: ListViewType.api,
+          padding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+          onRefresh: offersData.fetchData,
+          emptyStr: tr(context, "noOffers"),
+          cubit: offersData.offersCubit,
+          refreshBg: widget.color.withOpacity(.5),
+          loadingColor: widget.color,
+          params: [context],
+          itemBuilder: (context, index, item) {
+            return BuildOfferItem(
+              model: item,
+              color: widget.color,
+              offersData: offersData,
+            );
           },
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: ()=> offersData.getOfferImage(context),
+        onPressed: () => offersData.getOfferImage(context),
         backgroundColor: widget.color,
-        child: Icon(Icons.add,size: 30,color: MyColors.white,),
+        child: Icon(
+          Icons.add,
+          size: 30,
+          color: MyColors.white,
+        ),
       ),
     );
   }

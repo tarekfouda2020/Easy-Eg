@@ -30,6 +30,7 @@ class _NotificationsState extends State<Notifications>{
           emptyStr: tr(context,"noNotifications"),
           cubit: notificationsData.notifiesCubit,
           refreshBg: currentColor.withOpacity(.5),
+          loadingColor: currentColor,
           params: [context],
           itemBuilder: (context,index,item){
             return BuildNotifyItem(model: item);

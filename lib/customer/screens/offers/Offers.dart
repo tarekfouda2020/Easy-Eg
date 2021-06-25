@@ -1,6 +1,5 @@
 part of 'OffersImports.dart';
 
-
 class Offers extends StatefulWidget {
   final Color color;
 
@@ -14,13 +13,6 @@ class _OffersState extends State<Offers> {
   OffersData offersData = new OffersData();
 
   @override
-  void initState() {
-    offersData.fetchData(context, refresh: false);
-    offersData.fetchData(context);
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
@@ -32,20 +24,17 @@ class _OffersState extends State<Offers> {
       ),
       body: LinearContainer(
         color: widget.color,
-        child: BlocBuilder<GenericBloc<List<OfferModel>>,
-            GenericState<List<OfferModel>>>(
-          bloc: offersData.offersCubit,
-          builder: (context, state) {
-            if (state is GenericUpdateState) {
-              if (state.data.length>0) {
-                return BuildOfferList(color: widget.color,offers: state.data,);
-              } else{
-                return Center(
-                  child: MyText(title: tr(context,"noOffers"), color: MyColors.black, size: 12),
-                );
-              }
-            }
-            return LoadingDialog.showLoadingView(color: widget.color);
+        child: GenericListView<OfferModel>(
+          type: ListViewType.api,
+          padding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+          onRefresh: offersData.fetchData,
+          emptyStr: tr(context,"noOffers"),
+          cubit: offersData.offersCubit,
+          refreshBg: widget.color.withOpacity(.5),
+          loadingColor: widget.color,
+          params: [context],
+          itemBuilder: (context,index,item){
+            return BuildOfferItem(color: widget.color,model: item);
           },
         ),
       ),

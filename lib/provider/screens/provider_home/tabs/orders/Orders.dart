@@ -11,8 +11,6 @@ class _OrdersState extends State<Orders>{
 
    @override
    void initState() {
-     ordersData.fetchCurrentOrders(context,refresh: false);
-     ordersData.fetchCurrentOrders(context);
      ordersData.streamListener(context, mounted);
      super.initState();
    }
@@ -30,17 +28,21 @@ class _OrdersState extends State<Orders>{
          body: LinearContainer(
            padding: EdgeInsets.only(bottom: 100),
            color: currentColor,
-           child: BlocBuilder<GenericBloc<List<ProviderOrderModel>>, GenericState<List<ProviderOrderModel>>>(
-             bloc: ordersData.ordersCubit,
-             builder: (context, state) {
-               if (state is GenericUpdateState) {
-                 return BuildOrdersView(
-                   ordersData: ordersData,
-                   color: currentColor,
-                   orders: state.data,
-                 );
-               }
-               return LoadingDialog.showLoadingView(color: currentColor);
+           child: GenericListView<ProviderOrderModel>(
+             type: ListViewType.separated,
+             padding: EdgeInsets.symmetric(horizontal: 15),
+             onRefresh: ordersData.fetchCurrentOrders,
+             emptyStr: tr(context,"noCurrentOrders"),
+             cubit: ordersData.ordersCubit,
+             refreshBg: currentColor.withOpacity(.5),
+             loadingColor: currentColor,
+             params: [context],
+             itemBuilder: (context,index,item){
+               return BuildOrderCard(
+                 model: item,
+                 color: currentColor,
+                 onClose: (value)=> ordersData.fetchCurrentOrders(context),
+               );
              },
            ),
          ),

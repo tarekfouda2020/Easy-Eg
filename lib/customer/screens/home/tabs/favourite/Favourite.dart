@@ -25,12 +25,13 @@ class _FavouriteState extends State<Favourite> {
         padding: EdgeInsets.only(bottom: 120),
         color: currentColor,
         child: GenericListView<ProductModel>(
-          type: ListViewType.separated,
+          type: ListViewType.api,
           padding: EdgeInsets.symmetric(horizontal: 15),
           onRefresh: favouriteData.fetchData,
           emptyStr: tr(context,"noData"),
           cubit: favouriteData.favListCubit,
           refreshBg: currentColor.withOpacity(.5),
+          loadingColor: currentColor,
           params: [context],
           itemBuilder: (context,index,item){
             return BuildProductItem(
@@ -44,31 +45,6 @@ class _FavouriteState extends State<Favourite> {
             );
           },
         ),
-        // child: BlocBuilder<GenericBloc<List<ProductModel>>,
-        //     GenericState<List<ProductModel>>>(
-        //   bloc: favouriteData.favListCubit,
-        //   builder: (context, state) {
-        //     if (state is GenericUpdateState) {
-        //       if (state.data.length>0) {
-        //         return CupertinoScrollbar(
-        //           child: ListView.builder(
-        //             padding: EdgeInsets.symmetric(horizontal: 15),
-        //             itemCount: state.data.length,
-        //             itemBuilder: (BuildContext context, int index) {
-
-        //             },
-        //           ),
-        //         );
-        //       } else{
-        //         return Center(
-        //           child: MyText(title:tr(context,"noData"), color: MyColors.black, size: 12),
-        //         );
-        //       }
-        //     }else{
-        //       return LoadingDialog.showLoadingView(color: currentColor);
-        //     }
-        //   },
-        // ),
       ),
     );
   }
