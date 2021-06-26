@@ -23,6 +23,7 @@ class GeneralHttpMethods {
       "password": "$pass",
       "lang": "$_lang",
       "deviceId": "$_token",
+      "projectName": "Easy",
       "deviceType": Platform.isIOS ? "ios" : "android",
     };
     var _data = await DioHelper(context: context).post(url: "/api/v1/login",body: body,showLoader: false);
