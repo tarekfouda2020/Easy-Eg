@@ -2,16 +2,16 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:auto_route/auto_route.dart';
+import 'package:base_flutter/general/constants/MyColors.dart';
 import 'package:base_flutter/general/utilities/routers/RouterImports.gr.dart';
 import 'package:base_flutter/general/utilities/utils_functions/UtilsImports.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-
 class GlobalNotification {
   static StreamController<Map<String, dynamic>> _onMessageStreamController =
-  StreamController.broadcast();
+      StreamController.broadcast();
 
   late FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin;
   static late BuildContext context;
@@ -21,7 +21,7 @@ class GlobalNotification {
 
   GlobalNotification();
 
-  setupNotification(BuildContext cxt)async{
+  setupNotification(BuildContext cxt) async {
     context = cxt;
     _flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
     var android = new AndroidInitializationSettings("@mipmap/launcher_icon");
@@ -32,20 +32,25 @@ class GlobalNotification {
       onSelectNotification: flutterNotificationClick,
     );
     FirebaseMessaging messaging = FirebaseMessaging.instance;
-    NotificationSettings settings = await messaging.requestPermission(provisional: true,sound: true,alert: true);
+    NotificationSettings settings = await messaging.requestPermission(
+        provisional: true, sound: true, alert: true);
     print('User granted permission: ${settings.authorizationStatus}');
-    if(settings.authorizationStatus==AuthorizationStatus.authorized){
+    if (settings.authorizationStatus == AuthorizationStatus.authorized) {
       messaging.getToken().then((token) {
         print(token);
       });
-      messaging.setForegroundNotificationPresentationOptions(alert: true,badge: true,sound: true);
-      messaging.getInitialMessage().then((message) => _showLocalNotification(message));
+      messaging.setForegroundNotificationPresentationOptions(
+          alert: true, badge: true, sound: true);
+      messaging
+          .getInitialMessage()
+          .then((message) => _showLocalNotification(message));
       FirebaseMessaging.onMessage.listen((RemoteMessage message) {
         print("_____________________Message data:${message.data}");
-        print("_____________________notification:${message.notification?.body}");
+        print(
+            "_____________________notification:${message.notification?.body}");
         _showLocalNotification(message);
         _onMessageStreamController.add(message.data);
-        if (int.parse(message.data["type"]??"0") == -1) {
+        if (int.parse(message.data["type"] ?? "0") == -1) {
           Utils.clearSavedData();
           AutoRouter.of(context).push(LoginRoute());
         }
@@ -54,12 +59,13 @@ class GlobalNotification {
         print('A new onMessageOpenedApp event was published!');
         flutterNotificationClick(json.encode(message.data));
       });
-      FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+      FirebaseMessaging.onBackgroundMessage(
+          _firebaseMessagingBackgroundHandler);
     }
-
   }
 
-  static Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  static Future<void> _firebaseMessagingBackgroundHandler(
+      RemoteMessage message) async {
     print("Handling a background message: ${message.messageId}");
     flutterNotificationClick(json.encode(message.data));
   }
@@ -69,7 +75,7 @@ class GlobalNotification {
   }
 
   _showLocalNotification(RemoteMessage? message) async {
-    if (message == null||Platform.isIOS) return;
+    if (message == null || Platform.isIOS) return;
     var android = AndroidNotificationDetails(
       "${DateTime.now()}",
       "${message.notification?.title}",
@@ -82,7 +88,10 @@ class GlobalNotification {
     var ios = IOSNotificationDetails();
     var _platform = NotificationDetails(android: android, iOS: ios);
     _flutterLocalNotificationsPlugin.show(
-        DateTime.now().microsecond, "${message.notification?.title}", "${message.notification?.body}", _platform,
+        DateTime.now().microsecond,
+        "${message.notification?.title}",
+        "${message.notification?.body}",
+        _platform,
         payload: json.encode(message.data));
   }
 
@@ -90,7 +99,15 @@ class GlobalNotification {
     print("tttttttttt $payload");
     var _data = json.decode("$payload");
 
-    int _type = int.parse(_data["type"] ?? "4");
-  }
+    int type = int.parse(_data["type"] ?? "1");
+    int orderId = int.parse(_data["orderId"] ?? "1");
 
+    if (type == 10) {
+      AutoRouter.of(context).push(ChatsRoute(
+          receiverId: _data["receiverId"],
+          receiverName: _data["receiverName"],
+          orderId: orderId,
+          color: MyColors.primary));
+    }
+  }
 }
