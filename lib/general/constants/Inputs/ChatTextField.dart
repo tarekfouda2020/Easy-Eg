@@ -56,7 +56,7 @@ class ChatTextField extends StatelessWidget {
             icon: Icon(
               Icons.send,
               size: 20,
-              color: MyColors.black,
+              color: MyColors.white,
             ),
           ),
         ],

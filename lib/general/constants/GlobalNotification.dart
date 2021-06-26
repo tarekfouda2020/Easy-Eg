@@ -42,7 +42,7 @@ class GlobalNotification {
       messaging.getInitialMessage().then((message) => _showLocalNotification(message));
       FirebaseMessaging.onMessage.listen((RemoteMessage message) {
         print("_____________________Message data:${message.data}");
-        print("_____________________notification:${message.notification?.title}");
+        print("_____________________notification:${message.notification?.body}");
         _showLocalNotification(message);
         _onMessageStreamController.add(message.data);
         if (int.parse(message.data["type"]??"0") == -1) {

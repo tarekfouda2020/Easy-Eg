@@ -11,11 +11,12 @@ class AddReservationData {
   final GenericBloc<String?> dateCubit = new GenericBloc(null);
 
   setReservationDate(BuildContext context) {
+    FocusScope.of(context).requestFocus(FocusNode());
     AdaptivePicker.datePicker(
       context: context,
       onConfirm: (selectedDate) {
         if (selectedDate != null) {
-          String dateStr = DateFormat("dd/MM/yyyy").format(selectedDate);
+          String dateStr = DateFormat("MM/dd/yyyy").format(selectedDate);
           dateCubit.onUpdateData(dateStr);
           return;
         }
