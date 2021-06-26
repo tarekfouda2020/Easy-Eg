@@ -53,7 +53,7 @@ dependencies:
   google_fonts: ^2.1.0
   flutter_swiper: ^1.1.6
   modal_bottom_sheet: ^2.0.0
-  file_picker: ^3.0.3
+  file_picker: ^3.0.2+2
   share: ^2.0.4
   flutter_rounded_date_picker: ^2.0.2
   material_design_icons_flutter: ^4.0.5955
