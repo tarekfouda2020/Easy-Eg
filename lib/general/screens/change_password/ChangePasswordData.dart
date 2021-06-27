@@ -12,7 +12,7 @@ class ChangePasswordData {
   void setChangePassword(BuildContext context)async{
     if(formKey.currentState!.validate()){
       btnKey.currentState!.animateForward();
-      var result = await CustomerRepository(context).changePassword(newPassword.text,oldPassword.text);
+      var result = await CustomerRepository(context).changePassword(oldPassword.text, newPassword.text);
       btnKey.currentState!.animateReverse();
       if(result){
         AutoRouter.of(context).pop();

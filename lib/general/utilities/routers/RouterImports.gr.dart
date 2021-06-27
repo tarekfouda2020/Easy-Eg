@@ -219,7 +219,7 @@ class AppRouter extends _i1.RootStackRouter {
           return _i20.OrderDetails(
               color: args.color, id: args.id, model: args.model);
         }),
-    ProductDetailsRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
+    ProductDetailsRoute.name: (routeData) => _i1.AdaptivePage<bool>(
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<ProductDetailsRouteArgs>();
@@ -301,7 +301,7 @@ class AppRouter extends _i1.RootStackRouter {
               color: args.color,
               orderId: args.orderId);
         }),
-    FilterRoute.name: (routeData) => _i1.CustomPage<dynamic>(
+    FilterRoute.name: (routeData) => _i1.CustomPage<int>(
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<FilterRouteArgs>();

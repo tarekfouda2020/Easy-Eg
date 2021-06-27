@@ -39,5 +39,10 @@ class _AcceptOrderSuccessState extends State<AcceptOrderSuccess>{
 
     );
   }
+
+  Future<bool> onBackPressed() async {
+    AutoRouter.of(context).popUntilRouteWithName(ProviderHomeRoute.name);
+    return true;
+  }
 }
 

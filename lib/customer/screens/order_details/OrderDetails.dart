@@ -46,10 +46,10 @@ class _OrderDetailsState extends State<OrderDetails> {
                 children: [
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 15),
-                    child: BuildOrderDetailsCard(color: widget.color,),
+                    child: BuildOrderDetailsCard(color: widget.color,model: state.data!,),
                   ),
                   BuildDetailsHeader(),
-                  BuildDetailsBody(color: widget.color,)
+                  BuildDetailsBody(color: widget.color,model: state.data!,)
                 ],
               );
             } else{

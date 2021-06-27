@@ -17,23 +17,30 @@ class BuildInfoDetails extends StatelessWidget {
           size: 14,
           fontWeight: FontWeight.w600,
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8),
-          child: Row(
-            children: [
-              Icon(
-                Icons.pin_drop,
-                color: color,
-                size: 20,
-              ),
-              SizedBox(width: 5),
-              MyText(
-                title: model.location,
-                color: color.withOpacity(.8),
-                size: 10,
-                fontWeight: FontWeight.w600,
-              ),
-            ],
+        InkWell(
+          onTap: ()=>Utils.navigateToMapWithDirection(lat: model.lat, lng: model.lng, context: context),
+          child: Container(
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            width: MediaQuery.of(context).size.width,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Icon(
+                  Icons.pin_drop,
+                  color: color,
+                  size: 20,
+                ),
+                SizedBox(width: 5),
+                Expanded(
+                  child: MyText(
+                    title: model.location,
+                    color: color.withOpacity(.8),
+                    size: 11,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         SizedBox(height: 5),

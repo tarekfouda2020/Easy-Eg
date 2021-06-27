@@ -2,8 +2,9 @@ part of 'OrderDetailsWidgetImports.dart';
 
 class BuildOrderDetailsCard extends StatelessWidget {
   final Color color;
+  final OrderModel model;
 
-  const BuildOrderDetailsCard({required this.color});
+  const BuildOrderDetailsCard({required this.color, required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class BuildOrderDetailsCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           CachedImage(
-            url: "model.logoImg",
+            url: model.logoImg,
             width: 60,
             height: 60,
           ),
@@ -24,10 +25,10 @@ class BuildOrderDetailsCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                MyText(title: "model.name", color: MyColors.black, size: 10),
+                MyText(title: model.name, color: MyColors.black, size: 10),
                 SizedBox(height: 5),
                 MyText(
-                    title: "model.providerLocation",
+                    title: model.providerLocation,
                     color: color.withOpacity(.7),
                     size: 10),
               ],
@@ -37,7 +38,7 @@ class BuildOrderDetailsCard extends StatelessWidget {
             children: [
               MyText(
                   title: tr(context,"orderNum"), color: color.withOpacity(.7), size: 10),
-              MyText(title: "${"model.id"}", color: color.withOpacity(.7), size: 10),
+              MyText(title: "${model.id}", color: color.withOpacity(.7), size: 10),
             ],
           )
         ],

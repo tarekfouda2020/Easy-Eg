@@ -16,4 +16,9 @@ class FavouriteData{
     }
   }
 
+  navigateToDetails(BuildContext context,Color color,ProductModel model)async{
+    await AutoRouter.of(context).push<bool?>(ProductDetailsRoute(color: color,model: model));
+    fetchData(context);
+  }
+
 }

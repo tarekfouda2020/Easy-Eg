@@ -71,6 +71,9 @@ class ChatsData {
 
   void sendChatMessage(String receiverID, int orderId, BuildContext context) async {
     FocusScope.of(context).requestFocus(FocusNode());
+    if (msgInput.text.trim().isEmpty) {
+      return;
+    }
     MessageModel msg = MessageModel(
       date: DateFormat("hh:mm a").format(DateTime.now()),
       message: msgInput.text,

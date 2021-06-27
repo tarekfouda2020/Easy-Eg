@@ -27,7 +27,7 @@ class CustomerRepository{
   Future<List<CategoryModel>> getCategories(int regionId,bool refresh)=>
       _customerHttpMethods.getCategories(regionId, refresh);
 
-  Future<List<ProductModel>> getProducts(int subCatId,int page, String text,bool refresh)=>
+  Future<List<ProductModel>> getProducts(int subCatId,int page, String? text,bool refresh)=>
       _customerHttpMethods.getProducts(subCatId, page, text, refresh);
 
   Future<bool> setAddToFavourite(String id)=> _customerHttpMethods.setAddToFavourite(id);

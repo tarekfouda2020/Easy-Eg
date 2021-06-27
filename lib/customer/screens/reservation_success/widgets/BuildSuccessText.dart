@@ -1,6 +1,9 @@
 part of 'ReservSuccessWidgetImports.dart';
 
 class BuildSuccessText extends StatelessWidget {
+  final int orderId;
+
+  const BuildSuccessText({required this.orderId});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,7 +25,7 @@ class BuildSuccessText extends StatelessWidget {
             ),
           ),
           MyText(
-            title: tr(context,"YourOrderNum1234"),
+            title: "${tr(context,"YourOrderNum")} ${orderId}",
             color: MyColors.white,
             size: 12,
             fontWeight: FontWeight.w600,

@@ -18,7 +18,7 @@ class CustomerAuthMethods {
     );
     if (_data != null) {
       AutoRouter.of(context)
-          .push(ActiveAccountRoute(userId: _data["data"]["id"]));
+          .popAndPush(ActiveAccountRoute(userId: _data["data"]["id"]));
       return true;
     }
     return false;

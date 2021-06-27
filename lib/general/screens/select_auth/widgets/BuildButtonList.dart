@@ -17,11 +17,11 @@ class BuildButtonList extends StatelessWidget {
             onTap: () => AutoRouter.of(context).push(RegisterRoute()),
             margin: EdgeInsets.zero,
           ),
-          DefaultButton(
-            title: tr(context,"getHelp"),
-            onTap: (){},
-            margin: const EdgeInsets.symmetric(vertical: 15),
-          ),
+          // DefaultButton(
+          //   title: tr(context,"getHelp"),
+          //   onTap: (){},
+          //   margin: const EdgeInsets.symmetric(vertical: 15),
+          // ),
         ],
       ),
     );

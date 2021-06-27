@@ -47,7 +47,7 @@ part of 'RouterImports.dart';
       durationInMilliseconds: 1000,
     ),
     AdaptiveRoute(page: OrderDetails),
-    AdaptiveRoute(page: ProductDetails),
+    AdaptiveRoute<bool>(page: ProductDetails),
     CustomRoute(
       page: AddReservation,
       transitionsBuilder: TransitionsBuilders.slideBottom,
@@ -64,7 +64,7 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: Conversations),
     AdaptiveRoute(page: Competitions),
     AdaptiveRoute(page: Chats),
-    CustomRoute(
+    CustomRoute<int>(
       page: Filter,
       transitionsBuilder: TransitionsBuilders.slideBottom,
       durationInMilliseconds: 600,

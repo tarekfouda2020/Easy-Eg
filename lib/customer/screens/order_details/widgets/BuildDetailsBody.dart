@@ -2,8 +2,9 @@ part of 'OrderDetailsWidgetImports.dart';
 
 class BuildDetailsBody extends StatelessWidget {
   final Color color;
+  final OrderModel model;
 
-  const BuildDetailsBody({required this.color});
+  const BuildDetailsBody({required this.color, required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +17,16 @@ class BuildDetailsBody extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               BuildDetailsItem(
-                  color: color, title: tr(context,"clientName"), value: "طارق فودة"),
+                  color: color, title: tr(context,"clientName"), value: model.name),
               BuildDetailsItem(
-                  color: color, title:tr(context,"phone"), value: "01551575332"),
+                  color: color, title:tr(context,"phone"), value: model.phone),
             ],
           ),
           SizedBox(height: 30),
           BuildDetailsItem(
             color: color,
             title: tr(context,"reserveDate"),
-            value: "24/03/2022",
+            value: model.date,
           ),
           Container(
             margin: EdgeInsets.only(top: 100, bottom: 20),

@@ -59,9 +59,7 @@ class FilterData{
 
   setFilterSearch(BuildContext context){
     if (formKey.currentState!.validate()) {
-      ProductsData.catId = subModel?.id;
-      ProductsData.pagingController.refresh();
-      AutoRouter.of(context).pop();
+      AutoRouter.of(context).pop(subModel?.id);
     }
   }
 

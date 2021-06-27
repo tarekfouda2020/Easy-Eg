@@ -11,7 +11,6 @@ class BuildSocialItems extends StatelessWidget {
       margin: EdgeInsets.only(top: 20),
       child: Wrap(
         runSpacing: 10,
-        spacing: 15,
         children: [
           BuildSocialItem(url: '${model.facebook}',image: Res.facebook,),
           BuildSocialItem(url: '${model.telegram}',image: Res.telegram,),

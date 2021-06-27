@@ -12,12 +12,13 @@ class BuildProductItem extends StatelessWidget {
   final Color color;
   final ProductModel model;
   final Function()? onFavTap;
-  const BuildProductItem({required this.color,required this.model, this.onFavTap});
+  final Function() onTap;
+  const BuildProductItem({required this.color,required this.model, this.onFavTap, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: ()=>AutoRouter.of(context).push(ProductDetailsRoute(color: color,model: model)),
+      onTap: onTap,
       child: Container(
         margin: EdgeInsets.only(top: 20),
         child: Column(

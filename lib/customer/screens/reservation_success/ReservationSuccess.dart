@@ -23,7 +23,7 @@ class _ReservationSuccessState extends State<ReservationSuccess> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               BuildCheckView(),
-              BuildSuccessText(),
+              BuildSuccessText(orderId: widget.orderId),
               BuildContactView(color: widget.color,model: widget.model,orderId: widget.orderId,),
               DefaultButton(
                 title: tr(context,"BackToMain"),

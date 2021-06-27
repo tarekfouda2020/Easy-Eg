@@ -20,12 +20,14 @@ class GeneralHttpMethods {
   Future<bool> userLogin(String phone, String pass) async {
     String? _token = await messaging.getToken();
     String _lang = context.read<LangCubit>().state.locale.languageCode;
+    String userType = context.read<UserCubit>().state.model.type!;
     Map<String, dynamic> body = {
       "phone": "$phone",
       "password": "$pass",
       "lang": "$_lang",
       "deviceId": "$_token",
       "projectName": "Easy",
+      "userType": userType=="user"?1:2,
       "deviceType": Platform.isIOS ? "ios" : "android",
     };
     var _data = await DioHelper(context: context).post(url: "/api/v1/login",body: body,showLoader: false);

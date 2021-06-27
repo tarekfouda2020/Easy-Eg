@@ -37,6 +37,7 @@ class _FavouriteState extends State<Favourite> {
             return BuildProductItem(
               color: currentColor,
               model: item,
+              onTap: ()=>favouriteData.navigateToDetails(context,currentColor,item),
               onFavTap: () => favouriteData.removeItemFromFav(
                 context,
                 item.idProvider,

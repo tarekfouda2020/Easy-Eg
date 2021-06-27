@@ -16,9 +16,9 @@ class _ProductsState extends State<Products> {
 
   @override
   void initState() {
-    ProductsData.catId=widget.model.id;
+    productsData.catId=widget.model.id;
     productsData.fetchPage(1, context, refresh: false);
-    ProductsData.pagingController.addPageRequestListener((pageKey) {
+    productsData.pagingController.addPageRequestListener((pageKey) {
       productsData.fetchPage(pageKey, context);
     });
     super.initState();
@@ -51,7 +51,7 @@ class _ProductsState extends State<Products> {
           color: widget.color,
           child: PagedListView<int, ProductModel>(
             padding: EdgeInsets.symmetric(horizontal: 15),
-            pagingController: ProductsData.pagingController,
+            pagingController: productsData.pagingController,
             builderDelegate: PagedChildBuilderDelegate<ProductModel>(
                 noItemsFoundIndicatorBuilder: (context) =>
                     BuildNoItemFound(
@@ -63,6 +63,7 @@ class _ProductsState extends State<Products> {
                     color: widget.color,
                     model: item,
                     onFavTap: ()=> productsData.setAddToFavourite(context, item, index),
+                    onTap: ()=>productsData.navigateToDetails(context,widget.color,item),
                   );
                 }),
           ),

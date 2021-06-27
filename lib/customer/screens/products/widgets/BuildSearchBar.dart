@@ -33,12 +33,12 @@ class BuildSearchBar extends StatelessWidget {
                       prefixIcon: Icon(Icons.search,size: 20,),
                       borderColor: MyColors.grey,
                       validate: (value)=> value!.noValidate(),
-                      submit: (value)=> ProductsData.pagingController.refresh(),
+                      submit: (value)=> productsData.pagingController.refresh(),
                     ),
                   ),
                   SizedBox(width: 10),
                   InkWell(
-                    onTap: ()=> AutoRouter.of(context).push(FilterRoute(color: color)),
+                    onTap: ()=> productsData.navigateToFilter(context,color),
                     child: Container(
                       height: 55,
                       width: 50,

@@ -293,8 +293,7 @@ class Utils {
         destination: Coords(double.parse(lat), double.parse(lng)),
       );
     } else {
-      LoadingDialog.showSimpleToast(
-          "قم بتحميل خريطة جوجل"); //"قم بتحميل خريطة جوجل");
+      LoadingDialog.showSimpleToast("قم بتحميل خريطة جوجل");
     }
   }
 

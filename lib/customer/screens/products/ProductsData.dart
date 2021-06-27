@@ -1,15 +1,16 @@
 part of 'ProductsImports.dart';
 
 class ProductsData {
-  static final PagingController<int, ProductModel> pagingController =
+  final PagingController<int, ProductModel> pagingController =
       PagingController(firstPageKey: 1);
   final TextEditingController search = new TextEditingController();
   final int pageSize = 10;
-  static int? catId;
+  int? catId;
 
   Future<void> fetchPage(int pageKey, BuildContext context, {bool refresh = true}) async {
+    String? text = search.text.trim().isEmpty?null:search.text.trim();
     List<ProductModel> _products = await CustomerRepository(context)
-        .getProducts(catId??0, pageKey, search.text, refresh);
+        .getProducts(catId??0, pageKey, text, refresh);
     if (pageKey == 1) {
       pagingController.itemList = [];
     }
@@ -37,4 +38,18 @@ class ProductsData {
 
     AutoRouter.of(context).push(SelectAuthRoute());
   }
+
+  navigateToDetails(BuildContext context,Color color,ProductModel model)async{
+    await AutoRouter.of(context).push<bool?>(ProductDetailsRoute(color: color,model: model));
+    pagingController.refresh();
+  }
+
+  navigateToFilter(BuildContext context,Color color)async{
+   var result = await AutoRouter.of(context).push<int?>(FilterRoute(color: color));
+   if (result!=null) {
+     catId = result;
+     pagingController.refresh();
+   }
+  }
+
 }
