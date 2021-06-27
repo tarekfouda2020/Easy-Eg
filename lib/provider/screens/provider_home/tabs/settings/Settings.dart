@@ -2,6 +2,8 @@ part of 'SettingsImports.dart';
 
 
 class Settings extends StatelessWidget {
+  final android = "https://play.google.com/store/apps/details?id=sa.aait.aspbranch.easy";
+  final ios = "https://play.google.com/store/apps/details?id=sa.aait.aspbranch.easy";
   @override
   Widget build(BuildContext context) {
     var currentColor = context.watch<TabsColorCubit>().state.color;
@@ -50,7 +52,7 @@ class Settings extends StatelessWidget {
               BuildPageItem(
                 name:tr(context,"shareApp"),
                 color: currentColor,
-                onTap: (){},
+                onTap: ()=> Utils.shareApp(Platform.isIOS?ios:android),
               ),
               BuildPageItem(
                 name: tr(context,"lang"),

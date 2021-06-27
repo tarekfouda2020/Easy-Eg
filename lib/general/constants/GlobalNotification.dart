@@ -101,8 +101,14 @@ class GlobalNotification {
 
     int type = int.parse(_data["type"] ?? "1");
     int orderId = int.parse(_data["orderId"] ?? "1");
+    int userType = int.parse(_data["userType"]??"0");
 
-    if (type == 10) {
+
+    if ((type >= 1||type < 4)&&userType==1) {
+      AutoRouter.of(context).push(OrderDetailsRoute(color: MyColors.primary, id: orderId));
+    }else if ((type >= 1||type < 4)&&userType==2) {
+      AutoRouter.of(context).push(ProviderOrderDetailsRoute(color: MyColors.primary, id: orderId));
+    }else if (type == 10) {
       AutoRouter.of(context).push(ChatsRoute(
           receiverId: _data["receiverId"],
           receiverName: _data["receiverName"],

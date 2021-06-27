@@ -30,6 +30,7 @@ class ProviderRegisterModel{
   File? logoImg;
   File? mainImg;
   File? coverImg;
+  File? imgProfile;
   List<File>? images;
 
   ProviderRegisterModel(
@@ -62,6 +63,7 @@ class ProviderRegisterModel{
       this.logoImg,
       this.mainImg,
       this.images,
+        this.imgProfile,
       this.coverImg});
 
 
@@ -96,6 +98,7 @@ class ProviderRegisterModel{
     "logoImg":logoImg,
     "mainImg":mainImg,
     "coverImg":coverImg,
+    "imgProfile":imgProfile,
   };
 
 }

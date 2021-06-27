@@ -14,4 +14,9 @@ class SelectUserData {
     }
   }
 
+  Future<bool> onBackPressed() async {
+    SystemNavigator.pop();
+    return true;
+  }
+
 }

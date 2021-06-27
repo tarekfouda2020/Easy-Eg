@@ -17,7 +17,7 @@ class BuildChangeForm extends StatelessWidget {
             margin: const EdgeInsets.symmetric(vertical: 5),
             type: TextInputType.name,
             borderColor: MyColors.grey,
-            validate: (value) => value!.validateEmpty(context),
+            validate: (value) => value!.validatePassword(context),
             isPassword: true,
             action: TextInputAction.next,
           ),

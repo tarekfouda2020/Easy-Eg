@@ -1,7 +1,9 @@
 import 'dart:io';
+import 'package:auto_route/auto_route.dart';
 import 'package:base_flutter/general/blocks/lang_cubit/lang_cubit.dart';
 import 'package:base_flutter/general/blocks/user_cubit/user_cubit.dart';
 import 'package:base_flutter/general/utilities/dio_helper/DioImports.dart';
+import 'package:base_flutter/general/utilities/routers/RouterImports.gr.dart';
 import 'package:base_flutter/general/utilities/utils_functions/UtilsImports.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -118,8 +120,7 @@ class GeneralHttpMethods {
     var _data = await DioHelper(context: context)
         .post(url : "/api/v1/ForgetPassword", body:body , showLoader: false);
     if (_data != null) {
-      // ExtendedNavigator.of(context).push(Routes.resetPassword,
-      //     arguments: ResetPasswordArguments(userId: _data["code"]["user_id"]));
+      AutoRouter.of(context).push(ResetPasswordRoute(userId: _data["code"]["user_id"]));
       return true;
     } else {
       return false;

@@ -162,6 +162,7 @@ class ProviderProfileData {
         location: location.text,
         lat: lat,
         lng: lng,
+        imgProfile: profileImageCubit.state.data
       );
       await ProviderRepository(context).updateProfile(model);
       btnKey.currentState!.animateReverse();

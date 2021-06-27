@@ -10,15 +10,18 @@ class _SelectUserState extends State<SelectUser> {
 
   @override
   Widget build(BuildContext context) {
-    return AuthScaffold(
-      child: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        children: [
-          HeaderLogo(haveBack: false,),
-          BuildUserText(),
-          BuildButtonList(selectUserData: selectUserData),
-        ],
+    return WillPopScope(
+      child: AuthScaffold(
+        child: ListView(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          children: [
+            HeaderLogo(haveBack: false,),
+            BuildUserText(),
+            BuildButtonList(selectUserData: selectUserData),
+          ],
+        ),
       ),
+      onWillPop: selectUserData.onBackPressed,
     );
   }
 }

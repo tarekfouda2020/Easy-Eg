@@ -18,7 +18,7 @@ class ResetPasswordData {
       bool result = await GeneralRepository(context).resetUserPassword(userId, code.text, newPassword.text);
       btnKey.currentState!.animateReverse();
       if (result) {
-        // ExtendedNavigator.of(context).popUntilPath(Routes.login);
+        AutoRouter.of(context).popUntilRouteWithName(LoginRoute.name);
       }
     }
   }

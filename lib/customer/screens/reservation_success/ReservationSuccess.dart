@@ -14,26 +14,36 @@ class ReservationSuccess extends StatefulWidget {
 class _ReservationSuccessState extends State<ReservationSuccess> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: widget.color,
-      body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            BuildCheckView(),
-            BuildSuccessText(),
-            BuildContactView(color: widget.color,model: widget.model,orderId: widget.orderId,),
-            DefaultButton(
-              title: tr(context,"BackToMain"),
-              color: widget.color,
-              textColor: MyColors.white,
-              borderColor: MyColors.white,
-              onTap: ()=> AutoRouter.of(context).popUntilRouteWithName(HomeRoute.name),
-            ),
-          ],
+    return WillPopScope(
+      child: Scaffold(
+        backgroundColor: widget.color,
+        body: Container(
+          padding: EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              BuildCheckView(),
+              BuildSuccessText(),
+              BuildContactView(color: widget.color,model: widget.model,orderId: widget.orderId,),
+              DefaultButton(
+                title: tr(context,"BackToMain"),
+                color: widget.color,
+                textColor: MyColors.white,
+                borderColor: MyColors.white,
+                onTap: ()=> AutoRouter.of(context).popUntilRouteWithName(HomeRoute.name),
+              ),
+            ],
+          ),
         ),
       ),
+      onWillPop: onBackPressed,
     );
   }
+
+
+  Future<bool> onBackPressed() async {
+    AutoRouter.of(context).popUntilRouteWithName(HomeRoute.name);
+    return true;
+  }
+
 }
