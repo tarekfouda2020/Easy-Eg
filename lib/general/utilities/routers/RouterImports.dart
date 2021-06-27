@@ -4,6 +4,7 @@ import 'package:base_flutter/customer/screens/chats/ChatsImports.dart';
 import 'package:base_flutter/customer/screens/competitions/CompetitionsImports.dart';
 import 'package:base_flutter/customer/screens/contact_us/ContactUsImports.dart';
 import 'package:base_flutter/customer/screens/conversations/ConversationsImports.dart';
+import 'package:base_flutter/customer/screens/filter/FilterImports.dart';
 import 'package:base_flutter/customer/screens/home/HomeImports.dart';
 import 'package:base_flutter/customer/screens/languages/LanguagesImports.dart';
 import 'package:base_flutter/customer/screens/offers/OffersImports.dart';

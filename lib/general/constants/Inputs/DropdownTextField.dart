@@ -23,11 +23,19 @@ class DropdownTextField<DataType> extends StatefulWidget {
   final EdgeInsets? downIconPadding;
   final bool useName;
   final Color? iconsColor;
+  final Color? fillColor;
+  final Color? borderColor;
+  final Color? textColor;
+  final Color? hintColor;
 
   DropdownTextField(
       {this.label,
         this.hint,
         this.iconsColor,
+        this.fillColor,
+        this.borderColor,
+        this.hintColor,
+        this.textColor,
         this.margin,
         this.validate,
         this.downIconPadding,
@@ -69,7 +77,7 @@ class _DropdownTextFieldState<DataType> extends State<DropdownTextField> {
         showSelectedItem: widget.showSelectedItem,
         clearButton: Icon(Icons.clear,size: 25,color: widget.iconsColor??MyColors.black,),
         dropDownButton: Icon(Icons.arrow_drop_down,size: 30,color: widget.iconsColor??MyColors.black,),
-        style: CustomInputTextStyle(lang: lang,color: MyColors.white),
+        style: CustomInputTextStyle(lang: lang,color: widget.textColor?? MyColors.white),
         itemStyle: CustomInputTextStyle(lang: lang,color: MyColors.black),
         searchBoxDecoration: CustomInputDecoration(
             lang: lang,
@@ -105,10 +113,10 @@ class _DropdownTextFieldState<DataType> extends State<DropdownTextField> {
         dropdownSearchDecoration: CustomInputDecoration(
             lang: lang,
             hint: widget.hint,
-            hintColor: MyColors.white,
-            enableColor: MyColors.primary,
+            hintColor: widget.hintColor?? MyColors.white,
+            enableColor: widget.borderColor?? MyColors.primary,
             focusColor: MyColors.primary,
-            fillColor: MyColors.primary,
+            fillColor: widget.fillColor?? MyColors.primary,
             borderRaduis: 5,
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12)
         ),

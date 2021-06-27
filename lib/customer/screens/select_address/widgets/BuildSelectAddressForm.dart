@@ -11,16 +11,16 @@ class BuildSelectAddressForm extends StatelessWidget {
       child: Form(
         child: Column(
           children: [
-            DropdownTextField<DropDownModel>(
-              label: tr(context,"country"),
-              dropKey: selectAddressData.country,
-              margin: EdgeInsets.symmetric(horizontal: 15,vertical: 5),
-              showSelectedItem: false,
-              iconsColor: MyColors.white,
-              validate: (DropDownModel value) => value.validateDropDown(context),
-              onChange: (DropDownModel model)=> selectAddressData.onCountryChange(model),
-              finData: (filter) async => await CustomerRepository(context).getCountries(false),
-            ),
+            // DropdownTextField<DropDownModel>(
+            //   label: tr(context,"country"),
+            //   dropKey: selectAddressData.country,
+            //   margin: EdgeInsets.symmetric(horizontal: 15,vertical: 5),
+            //   showSelectedItem: false,
+            //   iconsColor: MyColors.white,
+            //   validate: (DropDownModel value) => value.validateDropDown(context),
+            //   onChange: (DropDownModel model)=> selectAddressData.onCountryChange(model),
+            //   finData: (filter) async => await CustomerRepository(context).getCountries(false),
+            // ),
             DropdownTextField<DropDownModel>(
               label: tr(context,"government"),
               dropKey: selectAddressData.govern,

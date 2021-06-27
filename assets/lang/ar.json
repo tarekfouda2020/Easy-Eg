@@ -123,7 +123,9 @@
   "passValidation": "ادخل علي الاقل ٦ حروف او ارقام",
   "mailValidation": "ادخل البريد الالكتروني صحيحا",
   "phoneValidation": "ادخل رقم الجوال صحيحا",
-  "confirmValidation": "ادخل تاكيد رمز المرور متطابقا"
+  "confirmValidation": "ادخل تاكيد رمز المرور متطابقا",
+  "category": "القسم",
+  "subCategory": "القسم الفرعي"
 }
 
 

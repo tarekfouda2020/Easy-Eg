@@ -82,11 +82,12 @@ class CustomerHttpMethods {
   }
 
   Future<List<ProductModel>> getProducts(
-      int subCatId, int page, bool refresh) async {
+      int subCatId, int page, String text, bool refresh) async {
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,
       "idCat": "$subCatId",
       "currentPage": "$page",
+      "text": "$text",
     };
     var _data = await DioHelper(context: context, forceRefresh: refresh)
         .get(url: "/api/v1/ListProviders", body: body);

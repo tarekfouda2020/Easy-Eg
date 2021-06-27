@@ -11,13 +11,15 @@ class Products extends StatefulWidget {
 }
 
 class _ProductsState extends State<Products> {
-  ProductsData productsData = new ProductsData();
+
+  final ProductsData productsData = new ProductsData();
 
   @override
   void initState() {
-    productsData.fetchPage(1, context, widget.model.id, refresh: false);
+    ProductsData.catId=widget.model.id;
+    productsData.fetchPage(1, context, refresh: false);
     ProductsData.pagingController.addPageRequestListener((pageKey) {
-      productsData.fetchPage(pageKey, context, widget.model.id);
+      productsData.fetchPage(pageKey, context);
     });
     super.initState();
   }
@@ -36,6 +38,7 @@ class _ProductsState extends State<Products> {
               ),
               BuildSearchBar(
                 color: widget.color,
+                productsData: productsData,
               )
             ],
           ),

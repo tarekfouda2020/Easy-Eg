@@ -12,6 +12,11 @@ class SelectAddressData{
    DropDownModel? cityModel;
    DropDownModel? regionModel;
 
+  fetchCountries(BuildContext context)async{
+    var data = await CustomerRepository(context).getCountries(false);
+    countryModel = data.first;
+  }
+
   onCountryChange(DropDownModel model){
     countryModel = model;
     govern.currentState!.changeSelectedItem(null);

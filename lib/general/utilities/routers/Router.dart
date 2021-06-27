@@ -22,8 +22,8 @@ part of 'RouterImports.dart';
     CustomRoute(
       page: ChangePassword,
       transitionsBuilder: TransitionsBuilders.slideBottom,
-      durationInMilliseconds: 800,
-      reverseDurationInMilliseconds: 800,
+      durationInMilliseconds: 600,
+      reverseDurationInMilliseconds: 600,
     ),
     AdaptiveRoute(page: ImageZoom),
     CustomRoute(page: SelectAuth,
@@ -51,8 +51,8 @@ part of 'RouterImports.dart';
     CustomRoute(
       page: AddReservation,
       transitionsBuilder: TransitionsBuilders.slideBottom,
-      durationInMilliseconds: 800,
-      reverseDurationInMilliseconds: 800,
+      durationInMilliseconds: 600,
+      reverseDurationInMilliseconds: 600,
     ),
     AdaptiveRoute(page: ReservationSuccess),
     AdaptiveRoute(page: Products),
@@ -64,6 +64,12 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: Conversations),
     AdaptiveRoute(page: Competitions),
     AdaptiveRoute(page: Chats),
+    CustomRoute(
+      page: Filter,
+      transitionsBuilder: TransitionsBuilders.slideBottom,
+      durationInMilliseconds: 600,
+      reverseDurationInMilliseconds: 600,
+    ),
 
 
     //provider pages

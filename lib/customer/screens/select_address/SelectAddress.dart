@@ -11,9 +11,12 @@ class SelectAddress extends StatefulWidget {
 class _SelectAddressState extends State<SelectAddress> {
   SelectAddressData selectAddressData = new SelectAddressData();
 
+
   @override
   void initState() {
     GlobalNotification.instance.setupNotification(context);
+    selectAddressData.fetchCountries(context);
+
     super.initState();
   }
 
