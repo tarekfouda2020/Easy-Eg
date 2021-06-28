@@ -113,7 +113,8 @@ class GlobalNotification {
           receiverId: _data["receiverId"],
           receiverName: _data["receiverName"],
           orderId: orderId,
-          color: MyColors.primary));
+          color: MyColors.primary),
+      );
     }
   }
 }
