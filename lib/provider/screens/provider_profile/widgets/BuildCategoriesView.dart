@@ -22,18 +22,23 @@ class BuildCategoriesView extends StatelessWidget {
                 children: List.generate(cats.length, (index) {
                   return Container(
                     width: MediaQuery.of(context).size.width * .45,
-                    child: ListTile(
-                      title: MyText(
-                        title: cats[index].name,
-                        color: Colors.black54,
-                        size: 10,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      leading: Radio<int>(
-                        value: cats[index].id,
-                        groupValue: state.data,
-                        onChanged: (value) => profileData.onCategorySelected(context, cats[index]),
-                      ),
+                    height: 60,
+                    margin: const EdgeInsets.only(bottom: 15),
+                    child: Row(
+                      children: [
+                        Radio<int>(
+                          value: cats[index].id,
+                          groupValue: state.data,
+                          onChanged: (value) => profileData.onCategorySelected(context, cats[index]),
+                        ),
+                        Expanded(
+                          child: MyText(
+                            title: cats[index].name,
+                            color: Colors.black,
+                            size: 10,
+                          ),
+                        ),
+                      ],
                     ),
                   );
                 }),
@@ -49,8 +54,9 @@ class BuildCategoriesView extends StatelessWidget {
                 alignment: WrapAlignment.start,
                 children: List.generate(state.data.length, (index) {
                   return Container(
-                    width: MediaQuery.of(context).size.width * .25,
+                    width: MediaQuery.of(context).size.width * .4,
                     child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
                           width: 20,
@@ -61,11 +67,13 @@ class BuildCategoriesView extends StatelessWidget {
                           ),
                         ),
                         SizedBox(width: 10),
-                        MyText(
-                          title: state.data[index].name,
-                          color: Colors.black54,
-                          size: 8,
-                          fontWeight: FontWeight.w600,
+                        Expanded(
+                          child: MyText(
+                            title: state.data[index].name,
+                            color: Colors.black54,
+                            size: 8,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ],
                     ),

@@ -17,13 +17,12 @@ class HomeMain extends StatelessWidget {
         preferredSize: Size.fromHeight(60),
       ),
       body: LinearContainer(
-        padding: EdgeInsets.only(bottom: 100),
         color: currentColor,
         child: Visibility(
           visible: category.subCategory.length>0,
           child: CupertinoScrollbar(
             child: ListView.builder(
-              padding: EdgeInsets.symmetric(horizontal: 15),
+              padding: EdgeInsets.only(bottom: 100,right: 15,left: 15),
               itemCount: category.subCategory.length,
               itemBuilder: (BuildContext context, int index) {
                 return BuildCategoryItem(

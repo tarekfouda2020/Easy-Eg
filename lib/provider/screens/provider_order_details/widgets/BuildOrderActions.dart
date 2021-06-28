@@ -42,7 +42,8 @@ class BuildOrderActions extends StatelessWidget {
                 receiverId: model.userId,
                 receiverName: model.userName,
                 color: color,
-              )),
+              ),
+              ),
             ),
             // Visibility(
             //   visible: model.stutesId==2,

@@ -34,7 +34,6 @@ class GlobalNotification {
     FirebaseMessaging messaging = FirebaseMessaging.instance;
     NotificationSettings settings = await messaging.requestPermission(
         provisional: true, sound: true, alert: true);
-    print('User granted permission: ${settings.authorizationStatus}');
     if (settings.authorizationStatus == AuthorizationStatus.authorized) {
       messaging.getToken().then((token) {
         print(token);
@@ -96,13 +95,12 @@ class GlobalNotification {
   }
 
   static Future flutterNotificationClick(String? payload) async {
-    print("tttttttttt $payload");
     var _data = json.decode("$payload");
+    print("tttttttttt $_data");
 
     int type = int.parse(_data["type"] ?? "1");
-    int orderId = int.parse(_data["orderId"] ?? "1");
     int userType = int.parse(_data["userType"]??"0");
-
+    int orderId = int.parse(_data["orderId"] ?? "0");
 
     if ((type >= 1||type < 4)&&userType==1) {
       AutoRouter.of(context).push(OrderDetailsRoute(color: MyColors.primary, id: orderId));

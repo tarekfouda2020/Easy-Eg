@@ -47,7 +47,7 @@ class _ProviderHomeState extends State<ProviderHome> with TickerProviderStateMix
              onPressed: () =>
                  homeData.animateTabsPages(4, context, MyColors.providerPrimary),
              backgroundColor: currentColor,
-             elevation: 0,
+             elevation: 4,
              child: Icon(
                Icons.home_outlined,
                size: 30,

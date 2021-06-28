@@ -16,6 +16,7 @@ class ProviderAuthMethods{
       showLoader: false,
     );
     if (_data != null) {
+      AutoRouter.of(context).popUntilRouteWithName(LoginRoute.name);
       AutoRouter.of(context).push(ActiveAccountRoute(userId: _data["data"]["id"]));
       return true;
     }

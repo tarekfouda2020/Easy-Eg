@@ -23,7 +23,7 @@ class ProviderHomeData{
   ];
 
   List<BottomTabModel> tabs = [
-    BottomTabModel(iconData: Icons.favorite_border, title: "conversations",color: Color(0xffd2866e)),
+    BottomTabModel(iconData: Icons.message, title: "conversations",color: Color(0xffd2866e)),
     BottomTabModel(iconData: Icons.shopping_bag, title: "orders",color: Color(0xffd2866e)),
     BottomTabModel(iconData: Icons.notifications, title: "notifications",color: Color(0xffd2866e)),
     BottomTabModel(iconData: Icons.settings, title: "more",color: Color(0xffd2866e)),

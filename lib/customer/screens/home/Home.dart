@@ -51,7 +51,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             onPressed: () =>
                 homeData.animateTabsPages(4, context, widget.color),
             backgroundColor: currentColor,
-            elevation: 0,
+            elevation: 4,
             child: Icon(
               Icons.home_outlined,
               size: 30,

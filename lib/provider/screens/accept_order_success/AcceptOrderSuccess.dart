@@ -13,30 +13,33 @@ class _AcceptOrderSuccessState extends State<AcceptOrderSuccess>{
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: widget.color,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              BuildCheckView(),
-              BuildSuccessText(),
-            ],
-          ),
+    return WillPopScope(
+      child: Scaffold(
+        backgroundColor: widget.color,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                BuildCheckView(),
+                BuildSuccessText(),
+              ],
+            ),
 
-          DefaultButton(
-            title: tr(context,"BackToMain"),
-            color: widget.color,
-            textColor: MyColors.white,
-            borderColor: MyColors.white,
-            margin: EdgeInsets.symmetric(vertical: 30,horizontal: 20),
-            onTap: ()=> AutoRouter.of(context).popUntilRouteWithName(ProviderHomeRoute.name),
-          ),
-        ],
+            DefaultButton(
+              title: tr(context,"BackToMain"),
+              color: widget.color,
+              textColor: MyColors.white,
+              borderColor: MyColors.white,
+              margin: EdgeInsets.symmetric(vertical: 30,horizontal: 20),
+              onTap: ()=> AutoRouter.of(context).popUntilRouteWithName(ProviderHomeRoute.name),
+            ),
+          ],
+        ),
+
       ),
-
+      onWillPop: onBackPressed,
     );
   }
 

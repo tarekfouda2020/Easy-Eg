@@ -9,6 +9,7 @@ part of 'order_model.dart';
 OrderModel _$OrderModelFromJson(Map<String, dynamic> json) {
   return OrderModel(
     id: json['id'] as int,
+    providerId: json['providerId'] as String,
     name: json['name'] as String,
     logoImg: json['logoImg'] as String,
     phone: json['phone'] as String,
@@ -31,6 +32,7 @@ Map<String, dynamic> _$OrderModelToJson(OrderModel instance) =>
       'date': instance.date,
       'providerLocation': instance.providerLocation,
       'providerPhone': instance.providerPhone,
+      'providerId': instance.providerId,
       'stutes': instance.stutes,
       'stutesId': instance.stutesId,
     };
