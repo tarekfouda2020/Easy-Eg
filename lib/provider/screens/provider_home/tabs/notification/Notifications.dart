@@ -42,7 +42,7 @@ class _NotificationsState extends State<Notifications> {
                       padding: EdgeInsets.symmetric(horizontal: 15),
                       itemCount: state.data.length,
                       itemBuilder: (BuildContext context, int index) {
-                        return BuildNotifyItem(model: state.data[index],);
+                        return BuildNotifyItem(model: state.data[index], notificationsData: notificationsData,);
                       },
                       separatorBuilder: (_, index) {
                         return Divider(

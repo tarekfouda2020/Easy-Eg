@@ -78,10 +78,10 @@ class _DropdownTextFieldState<DataType> extends State<DropdownTextField> {
         clearButton: Icon(Icons.clear,size: 25,color: widget.iconsColor??MyColors.black,),
         dropDownButton: Icon(Icons.arrow_drop_down,size: 30,color: widget.iconsColor??MyColors.black,),
         style: CustomInputTextStyle(lang: lang,color: widget.textColor?? MyColors.white),
-        itemStyle: CustomInputTextStyle(lang: lang,color: MyColors.black),
+        // itemStyle: CustomInputTextStyle(lang: lang,color: MyColors.black),
         searchBoxDecoration: CustomInputDecoration(
             lang: lang,
-            hint: "search",
+            hint: "البحث",
             enableColor: Colors.black,
             focusColor: MyColors.primary,
             borderRaduis: 5,
@@ -91,10 +91,6 @@ class _DropdownTextFieldState<DataType> extends State<DropdownTextField> {
           height: 50,
           decoration: BoxDecoration(
             color: MyColors.primary,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20),
-              topRight: Radius.circular(20),
-            ),
           ),
           child: Center(
             child: MyText(
@@ -118,7 +114,7 @@ class _DropdownTextFieldState<DataType> extends State<DropdownTextField> {
             focusColor: MyColors.primary,
             fillColor: widget.fillColor?? MyColors.primary,
             borderRaduis: 5,
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12)
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5)
         ),
       ),
     );

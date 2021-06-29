@@ -39,6 +39,7 @@ class SelectAddressData{
   Future<bool> onBackPressed(bool showBack,BuildContext context) async {
     if (!showBack||context.read<AuthCubit>().state.authorized) {
       SystemNavigator.pop();
+      return false;
     }
     return true;
   }

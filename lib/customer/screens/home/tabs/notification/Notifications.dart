@@ -5,8 +5,7 @@ class Notifications extends StatefulWidget {
   _NotificationsState createState() => _NotificationsState();
 }
 
-class _NotificationsState extends State<Notifications>{
-
+class _NotificationsState extends State<Notifications> {
   final NotificationsData notificationsData = new NotificationsData();
 
   @override
@@ -15,7 +14,7 @@ class _NotificationsState extends State<Notifications>{
     return Scaffold(
       appBar: PreferredSize(
         child: DefaultAppBar(
-          title: tr(context,"notifications"),
+          title: tr(context, "notifications"),
           color: currentColor,
           back: false,
         ),
@@ -27,19 +26,19 @@ class _NotificationsState extends State<Notifications>{
         child: GenericListView<NotifyModel>(
           type: ListViewType.separated,
           onRefresh: notificationsData.fetchData,
-          emptyStr: tr(context,"noNotifications"),
+          emptyStr: tr(context, "noNotifications"),
           cubit: notificationsData.notifiesCubit,
           refreshBg: currentColor.withOpacity(.5),
           loadingColor: currentColor,
           params: [context],
-          itemBuilder: (context,index,item){
-            return BuildNotifyItem(model: item);
+          itemBuilder: (context, index, item) {
+            return BuildNotifyItem(
+              model: item,
+              notificationsData: notificationsData,
+            );
           },
         ),
       ),
     );
   }
-
 }
-
-

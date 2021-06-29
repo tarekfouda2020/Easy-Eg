@@ -8,6 +8,7 @@ part of 'notify_model.dart';
 
 NotifyModel _$NotifyModelFromJson(Map<String, dynamic> json) {
   return NotifyModel(
+    orderId: json['orderId'] as int,
     id: json['id'] as int,
     text: json['text'] as String,
     date: json['date'] as String,
@@ -23,4 +24,5 @@ Map<String, dynamic> _$NotifyModelToJson(NotifyModel instance) =>
       'date': instance.date,
       'img': instance.img,
       'type': instance.type,
+      'orderId': instance.orderId,
     };

@@ -14,8 +14,10 @@ class NotifyModel {
   final  String img;
   @JsonKey(name: 'type')
   final  int type;
+  @JsonKey(name: 'orderId')
+  final  int orderId;
 
-  NotifyModel({required this.id, required this.text, required this.date, required this.type, required this.img});
+  NotifyModel({required this.orderId, required this.id, required this.text, required this.date, required this.type, required this.img});
 
   factory NotifyModel.fromJson(Map<String, dynamic> json) => _$NotifyModelFromJson(json);
 

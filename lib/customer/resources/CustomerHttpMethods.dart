@@ -210,7 +210,7 @@ class CustomerHttpMethods {
     var _data = await DioHelper(context: context, forceRefresh: refresh)
         .get(url: "/api/v1/GetCompetitions", body: body);
     if (_data != null) {
-      return DropDownModel.fromJson(_data["data"]);
+      return _data["data"]==null?null: DropDownModel.fromJson(_data["data"]);
     } else {
       return null;
     }

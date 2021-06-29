@@ -61,6 +61,7 @@ class BuildProductItem extends StatelessWidget {
                     child: CachedImage(
                       url: model.logoImg,
                       borderColor: MyColors.header,
+                      bgColor: color.withOpacity(.5),
                       borderRadius: BorderRadius.circular(6),
                     ),
                   ),
@@ -69,6 +70,7 @@ class BuildProductItem extends StatelessWidget {
                     child: CachedImage(
                       url: model.mainImg,
                       borderColor: MyColors.header,
+                      bgColor: color.withOpacity(.5),
                       borderRadius: BorderRadius.circular(6),
                     ),
                   ),
