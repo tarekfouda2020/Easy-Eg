@@ -10,7 +10,8 @@ class LanguagesData{
     if (context.read<AuthCubit>().state.authorized) {
       await saveUserLanguage(context,lang);
     }
-    Utils.changeLanguage(lang.toString(), context);
+    await Utils.changeLanguage(lang.toString(), context);
+    Phoenix.rebirth(context);
   }
 
   Future<void> saveUserLanguage(BuildContext context,String lang)async{

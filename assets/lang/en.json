@@ -123,7 +123,10 @@
   "passValidation": "Enter at least 6 letters or numbers",
   "mailValidation": "Enter the email correctly",
   "phoneValidation": "Enter the mobile number correctly",
-  "confirmValidation": "Enter the passcode confirmation identical"
+  "confirmValidation": "Enter the passcode confirmation identical",
+  "loginToContinue": "Login to continue",
+  "enter": "login",
+  "back": "back"
 }
 
 

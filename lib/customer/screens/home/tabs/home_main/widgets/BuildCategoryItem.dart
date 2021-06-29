@@ -24,7 +24,7 @@ class BuildCategoryItem extends StatelessWidget {
                   color: color,
                   borderRadius: BorderRadius.circular(10)
                 ),
-                child: MyText(title: model.name, color: MyColors.white, size: 12),
+                child: MyText(title: model.name, color: MyColors.white, size: 12,alien: TextAlign.center,),
               ),
             ),
             SizedBox(width: 15,),

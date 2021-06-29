@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:base_flutter/general/utilities/localization/LocalizationMethods.dart';
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +46,7 @@ class LoadingDialog {
     return showCupertinoDialog(
       context: context,
       builder: (BuildContext context) {
-        return _alertDialog(title, confirm, context, "تأكيد");
+        return _alertDialog(title, confirm, context, tr(context, "confirm"));
       },
     );
   }
@@ -55,10 +56,10 @@ class LoadingDialog {
       context: context,
       builder: (BuildContext context) {
         return _alertDialog(
-            "قم بتسجيل الدخول للمتابعة",
+            tr(context, "loginToContinue"),
             () => context.router.push(SelectAuthRoute()),
             context,
-            "دخول");
+            tr(context, "enter"));
       },
     );
   }
@@ -75,7 +76,7 @@ class LoadingDialog {
       actions: [
         CupertinoDialogAction(
           child: MyText(
-            title: "رجوع",
+            title: tr(context, "back"),
             size: 12,
             color: MyColors.blackOpacity,
           ),

@@ -8,20 +8,21 @@ class Utils {
       context.read<CatsCubit>().onUpdateCats(data);
     });
     var strUser = prefs.get("user");
+    String lang = prefs.getString("lang")??"ar";
     if (strUser != null) {
       UserModel data = UserModel.fromJson(json.decode("$strUser"));
       String phone = data.type=="user"?data.customerModel!.phone:data.providerModel!.phone;
       var result = await GeneralRepository(context).checkActive(phone);
       if (!result) {
         prefs.clear();
-        changeLanguage("ar", context);
+        changeLanguage(lang, context);
         AutoRouter.of(context).push(SelectUserRoute());
       }
       GlobalState.instance.set("token", data.token);
-      changeLanguage(data.lang ?? "ar", context);
+      changeLanguage(data.lang ?? lang, context);
       setSplashCurrentUserData(data, context);
     } else {
-      changeLanguage("ar", context);
+      changeLanguage(lang, context);
       AutoRouter.of(context).push(SelectUserRoute());
     }
   }
@@ -74,7 +75,9 @@ class Utils {
     prefs.setString("user", json.encode(model.toJson()));
   }
 
-  static void changeLanguage(String lang, BuildContext context) {
+  static Future<void> changeLanguage(String lang, BuildContext context)async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString("lang", lang);
     context.read<LangCubit>().onUpdateLanguage(lang);
   }
 

@@ -125,7 +125,10 @@
   "phoneValidation": "ادخل رقم الجوال صحيحا",
   "confirmValidation": "ادخل تاكيد رمز المرور متطابقا",
   "category": "القسم",
-  "subCategory": "القسم الفرعي"
+  "subCategory": "القسم الفرعي",
+  "loginToContinue": "قم بتسجيل الدخول للمتابعة",
+  "enter": "دخول",
+  "back": "رجوع"
 }
 
 
