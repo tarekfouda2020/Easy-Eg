@@ -38,7 +38,10 @@ class BuildCategoryItem extends StatelessWidget {
                     color: color,
                     borderRadius: BorderRadius.circular(10)
                 ),
-                child: Image.asset(Res.cat),
+                child: CachedImage(
+                  url: model.img,
+                  bgColor: color.withOpacity(.5),
+                ),
               ),
             ),
           ],
