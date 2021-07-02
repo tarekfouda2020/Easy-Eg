@@ -10,8 +10,8 @@ class BuildSocialItem extends StatelessWidget {
     return InkWell(
       onTap: ()=> Utils.launchURL(url: url),
       child: CachedImage(
-        width: 30,
-        height: 30,
+        width: 40,
+        height: 40,
         url: image,
         boxShape: BoxShape.circle,
         haveRadius: false,

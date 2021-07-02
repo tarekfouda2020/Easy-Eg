@@ -1,5 +1,6 @@
 import 'package:base_flutter/customer/models/DropDownModel.dart';
 import 'package:base_flutter/customer/models/Dtos/AddCompetitionModel.dart';
+import 'package:base_flutter/customer/models/social_model.dart';
 import 'package:base_flutter/customer/resources/CustomerRepoImports.dart';
 import 'package:base_flutter/customer/widgets/LinearContainer.dart';
 import 'package:base_flutter/general/blocks/generic_cubit/generic_cubit.dart';

@@ -16,6 +16,8 @@ class _CompetitionsState extends State<Competitions> {
   void initState() {
     competitionsData.fetchData(context, refresh: false);
     competitionsData.fetchData(context);
+    competitionsData.fetchSocialData(context, refresh: false);
+    competitionsData.fetchSocialData(context);
     super.initState();
   }
 
@@ -24,7 +26,7 @@ class _CompetitionsState extends State<Competitions> {
     return Scaffold(
       appBar: PreferredSize(
         child: DefaultAppBar(
-          title: tr(context,"competitions"),
+          title: tr(context, "competitions"),
           color: widget.color,
         ),
         preferredSize: Size.fromHeight(60),
@@ -44,7 +46,10 @@ class _CompetitionsState extends State<Competitions> {
                       desc: state.data!.name,
                     ),
                     BuildFormView(competitionsData: competitionsData),
-                    SizedBox(height: 50),
+                    BuildContactSocial(
+                      contactUsData: competitionsData,
+                      color: widget.color,
+                    ),
                     BuildAddButton(
                       competitionsData: competitionsData,
                       color: widget.color,
@@ -54,7 +59,7 @@ class _CompetitionsState extends State<Competitions> {
               }
               return Center(
                 child: MyText(
-                  title: tr(context,"noCompetitionsNow"),
+                  title: tr(context, "noCompetitionsNow"),
                   color: MyColors.black,
                   size: 12,
                 ),

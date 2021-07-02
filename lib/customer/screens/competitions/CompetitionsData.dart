@@ -12,10 +12,17 @@ class CompetitionsData{
   final GenericBloc<DropDownModel?> comCubit = new GenericBloc(null);
   final GenericBloc<bool> faceCubit =new GenericBloc(false);
   final GenericBloc<bool> youtubeCubit =new GenericBloc(false);
+  final GenericBloc<List<SocialModel>> socialCubit =new GenericBloc([]);
+
 
   fetchData(BuildContext context,{bool refresh = true})async{
     var data = await CustomerRepository(context).getCompetitions(refresh);
     comCubit.onUpdateData(data);
+  }
+
+  fetchSocialData(BuildContext context, {bool refresh = true})async{
+    var data = await CustomerRepository(context).getSocialLinks(refresh);
+    socialCubit.onUpdateData(data);
   }
 
   setSendSubscribe(BuildContext context)async{
