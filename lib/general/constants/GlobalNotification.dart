@@ -106,6 +106,8 @@ class GlobalNotification {
       AutoRouter.of(context).push(OrderDetailsRoute(color: MyColors.primary, id: orderId));
     }else if ((type >= 1||type < 4)&&userType==2) {
       AutoRouter.of(context).push(ProviderOrderDetailsRoute(color: MyColors.primary, id: orderId));
+    }else if (type == 6) {
+      AutoRouter.of(context).push(CompetitionsRoute(color: MyColors.primary));
     }else if (type == 10) {
       AutoRouter.of(context).push(ChatsRoute(
           receiverId: _data["receiverId"],
