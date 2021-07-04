@@ -65,8 +65,11 @@ class CustomerRepository{
   Future<List<OfferModel>> getOffers(bool refresh)=>
       _customerHttpMethods.getOffers(refresh);
 
-  Future<DropDownModel?> getCompetitions(bool refresh)=>
-      _customerHttpMethods.getCompetitions(refresh);
+  Future<DropDownModel?> getCompetitions(int id, bool refresh)=>
+      _customerHttpMethods.getCompetitions(id, refresh);
+
+  Future<List<CompetitionModel>> getHistoryCompetitions(bool refresh)=>
+      _customerHttpMethods.getHistoryCompetitions(refresh);
 
   Future<bool> contactUs(String name, String mail, String msg)=>
       _customerAuthMethods.contactUs(name, mail, msg);

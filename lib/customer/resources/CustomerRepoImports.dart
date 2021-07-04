@@ -7,6 +7,7 @@ import 'package:base_flutter/customer/models/Dtos/AddReservationModel.dart';
 import 'package:base_flutter/customer/models/Dtos/CustomerRegisterModel.dart';
 import 'package:base_flutter/customer/models/Dtos/UpdateCustomerModel.dart';
 import 'package:base_flutter/customer/models/MessageModel.dart';
+import 'package:base_flutter/customer/models/competition_model.dart';
 import 'package:base_flutter/customer/models/customer_model.dart';
 import 'package:base_flutter/customer/models/offer_model.dart';
 import 'package:base_flutter/customer/models/order_model.dart';

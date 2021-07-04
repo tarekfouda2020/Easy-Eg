@@ -203,9 +203,10 @@ class CustomerHttpMethods {
     }
   }
 
-  Future<DropDownModel?> getCompetitions(bool refresh) async {
+  Future<DropDownModel?> getCompetitions(int id, bool refresh) async {
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,
+      "GovernorateId":"$id"
     };
     var _data = await DioHelper(context: context, forceRefresh: refresh)
         .get(url: "/api/v1/GetCompetitions", body: body);
@@ -213,6 +214,20 @@ class CustomerHttpMethods {
       return _data["data"]==null?null: DropDownModel.fromJson(_data["data"]);
     } else {
       return null;
+    }
+  }
+
+  Future<List<CompetitionModel>> getHistoryCompetitions(bool refresh) async {
+    Map<String, dynamic> body = {
+      "lang": context.read<LangCubit>().state.locale.languageCode,
+    };
+    var _data = await DioHelper(context: context, forceRefresh: refresh)
+        .get(url: "/api/v1/ListHistoryCompetitions", body: body);
+    if (_data != null) {
+      return List<CompetitionModel>.from(
+          _data["data"].map((e) => CompetitionModel.fromJson(e)));
+    } else {
+      return [];
     }
   }
 

@@ -55,7 +55,7 @@ class BuildAppBar extends StatelessWidget {
           },
         ),
       ],
-      flexibleSpace: BuildSwiperView(image: model.coverImg),
+      flexibleSpace: BuildSwiperView(image: model.coverImg,color: color,),
       expandedHeight: 300,
       automaticallyImplyLeading: false,
     );

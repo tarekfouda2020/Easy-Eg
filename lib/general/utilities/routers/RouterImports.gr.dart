@@ -5,15 +5,17 @@
 // **************************************************************************
 
 import 'package:auto_route/auto_route.dart' as _i1;
-import 'package:base_flutter/customer/models/CategoryModel.dart' as _i43;
-import 'package:base_flutter/customer/models/order_model.dart' as _i44;
-import 'package:base_flutter/customer/models/product_model.dart' as _i45;
-import 'package:base_flutter/customer/models/sub_category_model.dart' as _i46;
+import 'package:base_flutter/customer/models/CategoryModel.dart' as _i44;
+import 'package:base_flutter/customer/models/order_model.dart' as _i45;
+import 'package:base_flutter/customer/models/product_model.dart' as _i46;
+import 'package:base_flutter/customer/models/sub_category_model.dart' as _i47;
 import 'package:base_flutter/customer/screens/add_reservation/AddReservationImports.dart'
     as _i22;
 import 'package:base_flutter/customer/screens/chats/ChatsImports.dart' as _i32;
 import 'package:base_flutter/customer/screens/competitions/CompetitionsImports.dart'
     as _i31;
+import 'package:base_flutter/customer/screens/competitions_history/CompetitionsHistoryImports.dart'
+    as _i42;
 import 'package:base_flutter/customer/screens/contact_us/ContactUsImports.dart'
     as _i28;
 import 'package:base_flutter/customer/screens/conversations/ConversationsImports.dart'
@@ -65,8 +67,8 @@ import 'package:base_flutter/general/screens/select_user/SelectUserImports.dart'
 import 'package:base_flutter/general/screens/splash/SplashImports.dart' as _i3;
 import 'package:base_flutter/general/screens/terms/TermsImports.dart' as _i9;
 import 'package:base_flutter/provider/models/Dtos/ProviderRegisterModel.dart'
-    as _i47;
-import 'package:base_flutter/provider/models/provider_order_model.dart' as _i48;
+    as _i48;
+import 'package:base_flutter/provider/models/provider_order_model.dart' as _i49;
 import 'package:base_flutter/provider/screens/accept_order_success/AcceptOrderSuccessImports.dart'
     as _i39;
 import 'package:base_flutter/provider/screens/complete_register/CompleteRegisterImports.dart'
@@ -83,7 +85,7 @@ import 'package:base_flutter/provider/screens/provider_profile/ProviderProfileIm
     as _i41;
 import 'package:base_flutter/provider/screens/provider_register/ProviderRegisterImports.dart'
     as _i34;
-import 'package:flutter/cupertino.dart' as _i42;
+import 'package:flutter/cupertino.dart' as _i43;
 import 'package:flutter/material.dart' as _i2;
 
 class AppRouter extends _i1.RootStackRouter {
@@ -362,6 +364,12 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (data) {
           final args = data.argsAs<ProviderProfileRouteArgs>();
           return _i41.ProviderProfile(color: args.color);
+        }),
+    CompetitionsHistoryRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<CompetitionsHistoryRouteArgs>();
+          return _i42.CompetitionsHistory(color: args.color);
         })
   };
 
@@ -410,12 +418,14 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(AcceptOrderSuccessRoute.name,
             path: '/accept-order-success'),
         _i1.RouteConfig(ProviderOffersRoute.name, path: '/provider-offers'),
-        _i1.RouteConfig(ProviderProfileRoute.name, path: '/provider-profile')
+        _i1.RouteConfig(ProviderProfileRoute.name, path: '/provider-profile'),
+        _i1.RouteConfig(CompetitionsHistoryRoute.name,
+            path: '/competitions-history')
       ];
 }
 
 class SplashRoute extends _i1.PageRouteInfo<SplashRouteArgs> {
-  SplashRoute({required _i42.GlobalKey<_i42.NavigatorState> navigatorKey})
+  SplashRoute({required _i43.GlobalKey<_i43.NavigatorState> navigatorKey})
       : super(name,
             path: '/', args: SplashRouteArgs(navigatorKey: navigatorKey));
 
@@ -425,7 +435,7 @@ class SplashRoute extends _i1.PageRouteInfo<SplashRouteArgs> {
 class SplashRouteArgs {
   const SplashRouteArgs({required this.navigatorKey});
 
-  final _i42.GlobalKey<_i42.NavigatorState> navigatorKey;
+  final _i43.GlobalKey<_i43.NavigatorState> navigatorKey;
 }
 
 class LoginRoute extends _i1.PageRouteInfo {
@@ -477,7 +487,7 @@ class SelectLangRoute extends _i1.PageRouteInfo {
 }
 
 class TermsRoute extends _i1.PageRouteInfo<TermsRouteArgs> {
-  TermsRoute({required _i42.Color color})
+  TermsRoute({required _i43.Color color})
       : super(name, path: '/Terms', args: TermsRouteArgs(color: color));
 
   static const String name = 'TermsRoute';
@@ -486,11 +496,11 @@ class TermsRoute extends _i1.PageRouteInfo<TermsRouteArgs> {
 class TermsRouteArgs {
   const TermsRouteArgs({required this.color});
 
-  final _i42.Color color;
+  final _i43.Color color;
 }
 
 class AboutRoute extends _i1.PageRouteInfo<AboutRouteArgs> {
-  AboutRoute({required _i42.Color color})
+  AboutRoute({required _i43.Color color})
       : super(name, path: '/About', args: AboutRouteArgs(color: color));
 
   static const String name = 'AboutRoute';
@@ -499,7 +509,7 @@ class AboutRoute extends _i1.PageRouteInfo<AboutRouteArgs> {
 class AboutRouteArgs {
   const AboutRouteArgs({required this.color});
 
-  final _i42.Color color;
+  final _i43.Color color;
 }
 
 class SelectUserRoute extends _i1.PageRouteInfo {
@@ -515,7 +525,7 @@ class ConfirmPasswordRoute extends _i1.PageRouteInfo {
 }
 
 class ChangePasswordRoute extends _i1.PageRouteInfo<ChangePasswordRouteArgs> {
-  ChangePasswordRoute({required _i42.Color color})
+  ChangePasswordRoute({required _i43.Color color})
       : super(name,
             path: '/change-password',
             args: ChangePasswordRouteArgs(color: color));
@@ -526,7 +536,7 @@ class ChangePasswordRoute extends _i1.PageRouteInfo<ChangePasswordRouteArgs> {
 class ChangePasswordRouteArgs {
   const ChangePasswordRouteArgs({required this.color});
 
-  final _i42.Color color;
+  final _i43.Color color;
 }
 
 class ImageZoomRoute extends _i1.PageRouteInfo<ImageZoomRouteArgs> {
@@ -587,9 +597,9 @@ class SelectDeptRouteArgs {
 
 class HomeRoute extends _i1.PageRouteInfo<HomeRouteArgs> {
   HomeRoute(
-      {required _i42.Color color,
+      {required _i43.Color color,
       int tab = 4,
-      required _i43.CategoryModel category})
+      required _i44.CategoryModel category})
       : super(name,
             path: '/Home',
             args: HomeRouteArgs(color: color, tab: tab, category: category));
@@ -601,16 +611,16 @@ class HomeRouteArgs {
   const HomeRouteArgs(
       {required this.color, this.tab = 4, required this.category});
 
-  final _i42.Color color;
+  final _i43.Color color;
 
   final int tab;
 
-  final _i43.CategoryModel category;
+  final _i44.CategoryModel category;
 }
 
 class OrderDetailsRoute extends _i1.PageRouteInfo<OrderDetailsRouteArgs> {
   OrderDetailsRoute(
-      {required _i42.Color color, required int id, _i44.OrderModel? model})
+      {required _i43.Color color, required int id, _i45.OrderModel? model})
       : super(name,
             path: '/order-details',
             args: OrderDetailsRouteArgs(color: color, id: id, model: model));
@@ -622,16 +632,16 @@ class OrderDetailsRouteArgs {
   const OrderDetailsRouteArgs(
       {required this.color, required this.id, this.model});
 
-  final _i42.Color color;
+  final _i43.Color color;
 
   final int id;
 
-  final _i44.OrderModel? model;
+  final _i45.OrderModel? model;
 }
 
 class ProductDetailsRoute extends _i1.PageRouteInfo<ProductDetailsRouteArgs> {
   ProductDetailsRoute(
-      {required _i42.Color color, required _i45.ProductModel model})
+      {required _i43.Color color, required _i46.ProductModel model})
       : super(name,
             path: '/product-details',
             args: ProductDetailsRouteArgs(color: color, model: model));
@@ -642,14 +652,14 @@ class ProductDetailsRoute extends _i1.PageRouteInfo<ProductDetailsRouteArgs> {
 class ProductDetailsRouteArgs {
   const ProductDetailsRouteArgs({required this.color, required this.model});
 
-  final _i42.Color color;
+  final _i43.Color color;
 
-  final _i45.ProductModel model;
+  final _i46.ProductModel model;
 }
 
 class AddReservationRoute extends _i1.PageRouteInfo<AddReservationRouteArgs> {
   AddReservationRoute(
-      {required _i42.Color color, required _i45.ProductModel model})
+      {required _i43.Color color, required _i46.ProductModel model})
       : super(name,
             path: '/add-reservation',
             args: AddReservationRouteArgs(color: color, model: model));
@@ -660,16 +670,16 @@ class AddReservationRoute extends _i1.PageRouteInfo<AddReservationRouteArgs> {
 class AddReservationRouteArgs {
   const AddReservationRouteArgs({required this.color, required this.model});
 
-  final _i42.Color color;
+  final _i43.Color color;
 
-  final _i45.ProductModel model;
+  final _i46.ProductModel model;
 }
 
 class ReservationSuccessRoute
     extends _i1.PageRouteInfo<ReservationSuccessRouteArgs> {
   ReservationSuccessRoute(
-      {required _i42.Color color,
-      required _i45.ProductModel model,
+      {required _i43.Color color,
+      required _i46.ProductModel model,
       required int orderId})
       : super(name,
             path: '/reservation-success',
@@ -683,16 +693,16 @@ class ReservationSuccessRouteArgs {
   const ReservationSuccessRouteArgs(
       {required this.color, required this.model, required this.orderId});
 
-  final _i42.Color color;
+  final _i43.Color color;
 
-  final _i45.ProductModel model;
+  final _i46.ProductModel model;
 
   final int orderId;
 }
 
 class ProductsRoute extends _i1.PageRouteInfo<ProductsRouteArgs> {
   ProductsRoute(
-      {required _i42.Color color, required _i46.SubCategoryModel model})
+      {required _i43.Color color, required _i47.SubCategoryModel model})
       : super(name,
             path: '/Products',
             args: ProductsRouteArgs(color: color, model: model));
@@ -703,13 +713,13 @@ class ProductsRoute extends _i1.PageRouteInfo<ProductsRouteArgs> {
 class ProductsRouteArgs {
   const ProductsRouteArgs({required this.color, required this.model});
 
-  final _i42.Color color;
+  final _i43.Color color;
 
-  final _i46.SubCategoryModel model;
+  final _i47.SubCategoryModel model;
 }
 
 class OffersRoute extends _i1.PageRouteInfo<OffersRouteArgs> {
-  OffersRoute({required _i42.Color color})
+  OffersRoute({required _i43.Color color})
       : super(name, path: '/Offers', args: OffersRouteArgs(color: color));
 
   static const String name = 'OffersRoute';
@@ -718,11 +728,11 @@ class OffersRoute extends _i1.PageRouteInfo<OffersRouteArgs> {
 class OffersRouteArgs {
   const OffersRouteArgs({required this.color});
 
-  final _i42.Color color;
+  final _i43.Color color;
 }
 
 class ProfileRoute extends _i1.PageRouteInfo<ProfileRouteArgs> {
-  ProfileRoute({required _i42.Color color})
+  ProfileRoute({required _i43.Color color})
       : super(name, path: '/Profile', args: ProfileRouteArgs(color: color));
 
   static const String name = 'ProfileRoute';
@@ -731,12 +741,12 @@ class ProfileRoute extends _i1.PageRouteInfo<ProfileRouteArgs> {
 class ProfileRouteArgs {
   const ProfileRouteArgs({required this.color});
 
-  final _i42.Color color;
+  final _i43.Color color;
 }
 
 class RepeatedQuestionsRoute
     extends _i1.PageRouteInfo<RepeatedQuestionsRouteArgs> {
-  RepeatedQuestionsRoute({required _i42.Color color})
+  RepeatedQuestionsRoute({required _i43.Color color})
       : super(name,
             path: '/repeated-questions',
             args: RepeatedQuestionsRouteArgs(color: color));
@@ -747,11 +757,11 @@ class RepeatedQuestionsRoute
 class RepeatedQuestionsRouteArgs {
   const RepeatedQuestionsRouteArgs({required this.color});
 
-  final _i42.Color color;
+  final _i43.Color color;
 }
 
 class ContactUsRoute extends _i1.PageRouteInfo<ContactUsRouteArgs> {
-  ContactUsRoute({required _i42.Color color})
+  ContactUsRoute({required _i43.Color color})
       : super(name,
             path: '/contact-us', args: ContactUsRouteArgs(color: color));
 
@@ -761,11 +771,11 @@ class ContactUsRoute extends _i1.PageRouteInfo<ContactUsRouteArgs> {
 class ContactUsRouteArgs {
   const ContactUsRouteArgs({required this.color});
 
-  final _i42.Color color;
+  final _i43.Color color;
 }
 
 class LanguagesRoute extends _i1.PageRouteInfo<LanguagesRouteArgs> {
-  LanguagesRoute({required _i42.Color color})
+  LanguagesRoute({required _i43.Color color})
       : super(name, path: '/Languages', args: LanguagesRouteArgs(color: color));
 
   static const String name = 'LanguagesRoute';
@@ -774,11 +784,11 @@ class LanguagesRoute extends _i1.PageRouteInfo<LanguagesRouteArgs> {
 class LanguagesRouteArgs {
   const LanguagesRouteArgs({required this.color});
 
-  final _i42.Color color;
+  final _i43.Color color;
 }
 
 class ConversationsRoute extends _i1.PageRouteInfo<ConversationsRouteArgs> {
-  ConversationsRoute({required _i42.Color color})
+  ConversationsRoute({required _i43.Color color})
       : super(name,
             path: '/Conversations', args: ConversationsRouteArgs(color: color));
 
@@ -788,11 +798,11 @@ class ConversationsRoute extends _i1.PageRouteInfo<ConversationsRouteArgs> {
 class ConversationsRouteArgs {
   const ConversationsRouteArgs({required this.color});
 
-  final _i42.Color color;
+  final _i43.Color color;
 }
 
 class CompetitionsRoute extends _i1.PageRouteInfo<CompetitionsRouteArgs> {
-  CompetitionsRoute({required _i42.Color color})
+  CompetitionsRoute({required _i43.Color color})
       : super(name,
             path: '/Competitions', args: CompetitionsRouteArgs(color: color));
 
@@ -802,14 +812,14 @@ class CompetitionsRoute extends _i1.PageRouteInfo<CompetitionsRouteArgs> {
 class CompetitionsRouteArgs {
   const CompetitionsRouteArgs({required this.color});
 
-  final _i42.Color color;
+  final _i43.Color color;
 }
 
 class ChatsRoute extends _i1.PageRouteInfo<ChatsRouteArgs> {
   ChatsRoute(
       {required String receiverId,
       required String receiverName,
-      required _i42.Color color,
+      required _i43.Color color,
       required int orderId})
       : super(name,
             path: '/Chats',
@@ -833,13 +843,13 @@ class ChatsRouteArgs {
 
   final String receiverName;
 
-  final _i42.Color color;
+  final _i43.Color color;
 
   final int orderId;
 }
 
 class FilterRoute extends _i1.PageRouteInfo<FilterRouteArgs> {
-  FilterRoute({required _i42.Color color})
+  FilterRoute({required _i43.Color color})
       : super(name, path: '/Filter', args: FilterRouteArgs(color: color));
 
   static const String name = 'FilterRoute';
@@ -848,7 +858,7 @@ class FilterRoute extends _i1.PageRouteInfo<FilterRouteArgs> {
 class FilterRouteArgs {
   const FilterRouteArgs({required this.color});
 
-  final _i42.Color color;
+  final _i43.Color color;
 }
 
 class ProviderRegisterRoute extends _i1.PageRouteInfo {
@@ -859,7 +869,7 @@ class ProviderRegisterRoute extends _i1.PageRouteInfo {
 
 class CompleteRegisterRoute
     extends _i1.PageRouteInfo<CompleteRegisterRouteArgs> {
-  CompleteRegisterRoute({required _i47.ProviderRegisterModel model})
+  CompleteRegisterRoute({required _i48.ProviderRegisterModel model})
       : super(name,
             path: '/complete-register',
             args: CompleteRegisterRouteArgs(model: model));
@@ -870,11 +880,11 @@ class CompleteRegisterRoute
 class CompleteRegisterRouteArgs {
   const CompleteRegisterRouteArgs({required this.model});
 
-  final _i47.ProviderRegisterModel model;
+  final _i48.ProviderRegisterModel model;
 }
 
 class FinishRegisterRoute extends _i1.PageRouteInfo<FinishRegisterRouteArgs> {
-  FinishRegisterRoute({required _i47.ProviderRegisterModel model})
+  FinishRegisterRoute({required _i48.ProviderRegisterModel model})
       : super(name,
             path: '/finish-register',
             args: FinishRegisterRouteArgs(model: model));
@@ -885,7 +895,7 @@ class FinishRegisterRoute extends _i1.PageRouteInfo<FinishRegisterRouteArgs> {
 class FinishRegisterRouteArgs {
   const FinishRegisterRouteArgs({required this.model});
 
-  final _i47.ProviderRegisterModel model;
+  final _i48.ProviderRegisterModel model;
 }
 
 class ProviderHomeRoute extends _i1.PageRouteInfo {
@@ -897,9 +907,9 @@ class ProviderHomeRoute extends _i1.PageRouteInfo {
 class ProviderOrderDetailsRoute
     extends _i1.PageRouteInfo<ProviderOrderDetailsRouteArgs> {
   ProviderOrderDetailsRoute(
-      {required _i42.Color color,
+      {required _i43.Color color,
       required int id,
-      _i48.ProviderOrderModel? model})
+      _i49.ProviderOrderModel? model})
       : super(name,
             path: '/provider-order-details',
             args: ProviderOrderDetailsRouteArgs(
@@ -912,16 +922,16 @@ class ProviderOrderDetailsRouteArgs {
   const ProviderOrderDetailsRouteArgs(
       {required this.color, required this.id, this.model});
 
-  final _i42.Color color;
+  final _i43.Color color;
 
   final int id;
 
-  final _i48.ProviderOrderModel? model;
+  final _i49.ProviderOrderModel? model;
 }
 
 class AcceptOrderSuccessRoute
     extends _i1.PageRouteInfo<AcceptOrderSuccessRouteArgs> {
-  AcceptOrderSuccessRoute({required _i42.Color color})
+  AcceptOrderSuccessRoute({required _i43.Color color})
       : super(name,
             path: '/accept-order-success',
             args: AcceptOrderSuccessRouteArgs(color: color));
@@ -932,11 +942,11 @@ class AcceptOrderSuccessRoute
 class AcceptOrderSuccessRouteArgs {
   const AcceptOrderSuccessRouteArgs({required this.color});
 
-  final _i42.Color color;
+  final _i43.Color color;
 }
 
 class ProviderOffersRoute extends _i1.PageRouteInfo<ProviderOffersRouteArgs> {
-  ProviderOffersRoute({required _i42.Color color})
+  ProviderOffersRoute({required _i43.Color color})
       : super(name,
             path: '/provider-offers',
             args: ProviderOffersRouteArgs(color: color));
@@ -947,11 +957,11 @@ class ProviderOffersRoute extends _i1.PageRouteInfo<ProviderOffersRouteArgs> {
 class ProviderOffersRouteArgs {
   const ProviderOffersRouteArgs({required this.color});
 
-  final _i42.Color color;
+  final _i43.Color color;
 }
 
 class ProviderProfileRoute extends _i1.PageRouteInfo<ProviderProfileRouteArgs> {
-  ProviderProfileRoute({required _i42.Color color})
+  ProviderProfileRoute({required _i43.Color color})
       : super(name,
             path: '/provider-profile',
             args: ProviderProfileRouteArgs(color: color));
@@ -962,5 +972,21 @@ class ProviderProfileRoute extends _i1.PageRouteInfo<ProviderProfileRouteArgs> {
 class ProviderProfileRouteArgs {
   const ProviderProfileRouteArgs({required this.color});
 
-  final _i42.Color color;
+  final _i43.Color color;
+}
+
+class CompetitionsHistoryRoute
+    extends _i1.PageRouteInfo<CompetitionsHistoryRouteArgs> {
+  CompetitionsHistoryRoute({required _i43.Color color})
+      : super(name,
+            path: '/competitions-history',
+            args: CompetitionsHistoryRouteArgs(color: color));
+
+  static const String name = 'CompetitionsHistoryRoute';
+}
+
+class CompetitionsHistoryRouteArgs {
+  const CompetitionsHistoryRouteArgs({required this.color});
+
+  final _i43.Color color;
 }
