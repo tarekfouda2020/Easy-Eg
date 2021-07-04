@@ -18,7 +18,7 @@ class BuildOfferItem extends StatelessWidget {
           alignment: Alignment.center,
           bgColor: color.withOpacity(.5),
           colorFilter: ColorFilter.mode(Colors.black26, BlendMode.darken),
-          child: Icon(Icons.play_circle_fill_rounded,size: 50,),
+          child: Icon(Icons.play_circle_fill_rounded,size: 50,color: color,),
         ),
       ),
     );
