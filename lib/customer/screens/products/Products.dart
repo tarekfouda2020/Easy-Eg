@@ -11,12 +11,11 @@ class Products extends StatefulWidget {
 }
 
 class _ProductsState extends State<Products> {
-
   final ProductsData productsData = new ProductsData();
 
   @override
   void initState() {
-    productsData.catId=widget.model.id;
+    productsData.catId = widget.model.id;
     productsData.fetchPage(1, context, refresh: false);
     productsData.pagingController.addPageRequestListener((pageKey) {
       productsData.fetchPage(pageKey, context);
@@ -53,20 +52,35 @@ class _ProductsState extends State<Products> {
             padding: EdgeInsets.symmetric(horizontal: 15),
             pagingController: productsData.pagingController,
             builderDelegate: PagedChildBuilderDelegate<ProductModel>(
-                noItemsFoundIndicatorBuilder: (context) =>
-                    BuildNoItemFound(
-                      title: tr(context,"noProviders"),
-                      message: tr(context,"providersWillAddedSoon"),
+                noItemsFoundIndicatorBuilder: (context) => BuildNoItemFound(
+                      title: tr(context, "noProviders"),
+                      message: tr(context, "providersWillAddedSoon"),
                     ),
                 itemBuilder: (context, item, index) {
                   return BuildProductItem(
                     color: widget.color,
                     model: item,
-                    onFavTap: ()=> productsData.setAddToFavourite(context, item, index),
-                    onTap: ()=>productsData.navigateToDetails(context,widget.color,item),
+                    onFavTap: () =>
+                        productsData.setAddToFavourite(context, item, index),
+                    onTap: () => productsData.navigateToDetails(
+                        context, widget.color, item),
                   );
                 }),
           ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: widget.color,
+        onPressed: () => AutoRouter.of(context).push(
+          MapScreenRoute(
+            catId: widget.model.id,
+            color: widget.color,
+          ),
+        ),
+        child: Icon(
+          Icons.location_searching,
+          size: 25,
+          color: Colors.white,
         ),
       ),
     );

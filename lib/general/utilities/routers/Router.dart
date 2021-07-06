@@ -63,6 +63,7 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: Languages),
     AdaptiveRoute(page: Conversations),
     AdaptiveRoute(page: Competitions),
+    AdaptiveRoute(page: MapScreen),
     AdaptiveRoute(page: Chats),
     CustomRoute<int>(
       page: Filter,

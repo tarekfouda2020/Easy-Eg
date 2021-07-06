@@ -39,7 +39,7 @@ class BuildRegisterForm extends StatelessWidget {
               type: TextInputType.emailAddress,
               action: TextInputAction.next,
               borderColor: MyColors.grey,
-              validate: (value) => value!.validateEmail(context),
+              validate: (value) => value!.validateEmailORNull(context),
             ),
             LabelTextField(
               label: tr(context,"password"),

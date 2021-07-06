@@ -8,6 +8,7 @@ import 'package:base_flutter/customer/screens/conversations/ConversationsImports
 import 'package:base_flutter/customer/screens/filter/FilterImports.dart';
 import 'package:base_flutter/customer/screens/home/HomeImports.dart';
 import 'package:base_flutter/customer/screens/languages/LanguagesImports.dart';
+import 'package:base_flutter/customer/screens/map_screen/MapScreenImports.dart';
 import 'package:base_flutter/customer/screens/offers/OffersImports.dart';
 import 'package:base_flutter/customer/screens/order_details/OrderDetailsImports.dart';
 import 'package:base_flutter/customer/screens/product_details/ProductDetailsImports.dart';

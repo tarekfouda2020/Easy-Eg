@@ -30,6 +30,9 @@ class CustomerRepository{
   Future<List<ProductModel>> getProducts(int subCatId,int page, String? text,bool refresh)=>
       _customerHttpMethods.getProducts(subCatId, page, text, refresh);
 
+  Future<List<ProductModel>> getMapProducts(int subCatId,bool refresh)=>
+      _customerHttpMethods.getMapProducts(subCatId,refresh);
+
   Future<bool> setAddToFavourite(String id)=> _customerHttpMethods.setAddToFavourite(id);
 
   Future<bool> registerUser(CustomerRegisterModel model)=> _customerAuthMethods.registerUser(model);

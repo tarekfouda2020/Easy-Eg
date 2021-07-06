@@ -99,6 +99,21 @@ class CustomerHttpMethods {
     }
   }
 
+  Future<List<ProductModel>> getMapProducts(int subCatId,bool refresh) async {
+    Map<String, dynamic> body = {
+      "lang": context.read<LangCubit>().state.locale.languageCode,
+      "catId": "$subCatId",
+    };
+    var _data = await DioHelper(context: context, forceRefresh: refresh)
+        .get(url: "/api/v1/ShowProvidersInMap", body: body);
+    if (_data != null) {
+      return List<ProductModel>.from(
+          _data["data"].map((e) => ProductModel.fromJson(e)));
+    } else {
+      return [];
+    }
+  }
+
   Future<bool> setAddToFavourite(String id) async {
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,
