@@ -13,8 +13,7 @@ class MapScreenData {
   }
 
   getCurrentLocation(BuildContext context) async {
-    // var loc = await Utils.getCurrentLocation();
-    var loc;
+    var loc = await Utils.getCurrentLocation();
     lat = loc?.latitude ?? 24.76006327315991;
     lng = loc?.longitude ?? 46.67399099468996;
     zoom = 10;
