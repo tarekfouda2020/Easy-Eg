@@ -10,7 +10,14 @@ class ThirdScreen extends StatefulWidget {
 
 class _ThirdScreenState extends State<ThirdScreen>{
 
-  final ThirdScreenData thirdScreenData = new ThirdScreenData();
+  late ThirdScreenData thirdScreenData;
+
+
+  @override
+  void initState() {
+    thirdScreenData = widget.registerData.thirdScreenData;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

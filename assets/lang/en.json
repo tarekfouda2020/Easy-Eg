@@ -126,7 +126,9 @@
   "confirmValidation": "Enter the passcode confirmation identical",
   "loginToContinue": "Login to continue",
   "enter": "login",
-  "back": "back"
+  "back": "back",
+  "optional": "optional"
+
 }
 
 

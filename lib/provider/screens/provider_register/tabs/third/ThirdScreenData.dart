@@ -78,7 +78,6 @@ class ThirdScreenData{
       model.cityId=cityModel?.id.toString();
       model.idsSubCat= json.encode(subCats);
 
-      print("=======================>${model.toJson()}");
       await ProviderRepository(context).registerUser(model);
       btnKey.currentState!.animateReverse();
     }

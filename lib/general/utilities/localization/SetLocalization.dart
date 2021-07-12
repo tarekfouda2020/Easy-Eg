@@ -24,7 +24,7 @@ class SetLocalization {
   }
 
   String getTranslateValue(String key) {
-    return _localizedValues[key]??"";
+    return _localizedValues[key]??key;
   }
 }
 

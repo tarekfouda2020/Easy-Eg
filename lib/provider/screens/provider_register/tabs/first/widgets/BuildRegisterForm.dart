@@ -33,7 +33,7 @@ class BuildRegisterForm extends StatelessWidget {
               validate: (value) => value!.validatePhone(context),
             ),
             LabelTextField(
-              label: tr(context,"email"),
+              label: tr(context,"email")+"  (${tr(context,"optional")})",
               margin: EdgeInsets.only(top: 15),
               controller: registerData.firstScreenData.mail,
               type: TextInputType.emailAddress,
