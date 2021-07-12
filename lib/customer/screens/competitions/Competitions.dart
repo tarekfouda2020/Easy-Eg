@@ -57,6 +57,7 @@ class _CompetitionsState extends State<Competitions> {
               textColor: Colors.black,
               hintColor: Colors.black,
               borderColor: widget.color,
+              popUpColor: widget.color,
               validate: (DropDownModel value) => value.validateDropDown(context),
               onChange: (DropDownModel model)=> competitionsData.onGovernChange(model,context),
               finData: (filter) async => await CustomerRepository(context).getGovernments(1,false),
@@ -74,7 +75,7 @@ class _CompetitionsState extends State<Competitions> {
                             color: widget.color,
                             desc: state.data!.name,
                           ),
-                          BuildFormView(competitionsData: competitionsData),
+                          BuildFormView(competitionsData: competitionsData,color: widget.color,),
                           BuildContactSocial(
                             contactUsData: competitionsData,
                             color: widget.color,

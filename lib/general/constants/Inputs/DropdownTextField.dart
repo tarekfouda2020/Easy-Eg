@@ -27,11 +27,13 @@ class DropdownTextField<DataType> extends StatefulWidget {
   final Color? borderColor;
   final Color? textColor;
   final Color? hintColor;
+  final Color? popUpColor;
 
   DropdownTextField(
       {this.label,
         this.hint,
         this.iconsColor,
+        this.popUpColor,
         this.fillColor,
         this.borderColor,
         this.hintColor,
@@ -90,7 +92,7 @@ class _DropdownTextFieldState<DataType> extends State<DropdownTextField> {
         popupTitle: Container(
           height: 50,
           decoration: BoxDecoration(
-            color: MyColors.primary,
+            color: widget.popUpColor??MyColors.primary,
           ),
           child: Center(
             child: MyText(

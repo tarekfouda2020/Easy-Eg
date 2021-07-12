@@ -2,8 +2,9 @@ part of 'CompetitionsWidgetsImports.dart';
 
 class BuildFormView extends StatelessWidget {
   final CompetitionsData competitionsData;
+  final Color color;
 
-  const BuildFormView({required this.competitionsData});
+  const BuildFormView({required this.competitionsData, required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +66,8 @@ class BuildFormView extends StatelessWidget {
                                 fontWeight: FontWeight.w600,),
                               leading: Radio<bool>(
                                 value: false,
+                                activeColor: color,
+                                fillColor: MaterialStateProperty.all(color),
                                 groupValue: state.data,
                                 onChanged: (value) =>
                                     competitionsData.faceCubit.onUpdateData(value!),
@@ -80,6 +83,8 @@ class BuildFormView extends StatelessWidget {
                               leading: Radio<bool>(
                                 value: true,
                                 groupValue: state.data,
+                                activeColor: color,
+                                fillColor: MaterialStateProperty.all(color),
                                 onChanged: (value) =>
                                     competitionsData.faceCubit.onUpdateData(value!),
                               ),
@@ -118,6 +123,8 @@ class BuildFormView extends StatelessWidget {
                               leading: Radio<bool>(
                                 value: false,
                                 groupValue: state.data,
+                                activeColor: color,
+                                fillColor: MaterialStateProperty.all(color),
                                 onChanged: (value) => competitionsData.youtubeCubit.onUpdateData(value!),
                               ),
                             ),
@@ -131,6 +138,8 @@ class BuildFormView extends StatelessWidget {
                               leading: Radio<bool>(
                                 value: true,
                                 groupValue: state.data,
+                                activeColor: color,
+                                fillColor: MaterialStateProperty.all(color),
                                 onChanged: (value) => competitionsData.youtubeCubit.onUpdateData(value!),
                               ),
                             ),
