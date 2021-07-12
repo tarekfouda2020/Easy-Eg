@@ -7,20 +7,19 @@ class ProviderRegister extends StatefulWidget {
 
 class _ProviderRegisterState extends State<ProviderRegister>{
 
-   ProviderRegisterData registerData = new ProviderRegisterData();
+  final ProviderRegisterData registerData = new ProviderRegisterData();
 
   @override
    Widget build(BuildContext context) {
      return AuthScaffold(
        child: LinearContainer(
          color: MyColors.primary,
-         child: ListView(
+         child: PageView(
+           controller: registerData.controller,
            children: [
-             HeaderLogo(),
-             BuildText(),
-             BuildRegisterForm(registerData: registerData),
-             BuildRegisterButton(registerData: registerData),
-             BuildLoginAction()
+             FirstScreen(registerData: registerData),
+             SecondScreen(registerData: registerData),
+             ThirdScreen(registerData: registerData)
            ],
          ),
        ),

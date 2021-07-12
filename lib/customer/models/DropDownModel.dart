@@ -10,7 +10,7 @@ class DropDownModel {
   int id;
 
 
-  DropDownModel(this.name, this.id);
+  DropDownModel({required this.name, required this.id});
 
   factory DropDownModel.fromJson(Map<String, dynamic> json) => _$DropDownModelFromJson(json);
 

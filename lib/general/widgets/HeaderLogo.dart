@@ -10,7 +10,7 @@ class HeaderLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: haveBack? 200 : 250,
+      height: haveBack? 200 : 200,
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [

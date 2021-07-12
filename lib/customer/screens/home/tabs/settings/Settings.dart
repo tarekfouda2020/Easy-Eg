@@ -27,7 +27,7 @@ class Settings extends StatelessWidget {
               BuildPageItem(
                 name:tr(context,"competitions"),
                 color: currentColor,
-                onTap: ()=> AutoRouter.of(context).push(CompetitionsRoute(color: currentColor)),
+                onTap: ()=> AutoRouter.of(context).push(CompetitionsRoute(color: Color(0xff81B0FE))),
               ),
               Offstage(
                 offstage: !context.read<AuthCubit>().state.authorized,

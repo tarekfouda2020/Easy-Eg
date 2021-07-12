@@ -1,8 +1,10 @@
-part of 'FinishRegisterImports.dart';
+part of 'ThirdScreenImports.dart';
 
-class FinishRegisterData{
+class ThirdScreenData{
   final GlobalKey<FormState> formKey = new GlobalKey();
   final GlobalKey<CustomButtonState> btnKey = new GlobalKey<CustomButtonState>();
+  final GenericBloc<List<CategoryModel>> catsCubit = new GenericBloc([]);
+
 
   final GlobalKey<DropdownSearchState<DropDownModel?>> country = new GlobalKey();
   final GlobalKey<DropdownSearchState<DropDownModel?>> govern = new GlobalKey();
@@ -32,8 +34,23 @@ class FinishRegisterData{
     cityModel = model;
     region.currentState!.changeSelectedItem(null);
   }
-  onRegionChange(DropDownModel model){
-    regionModel = model;
+  onRegionChange(DropDownModel? model,BuildContext context){
+    if (model!=null) {
+      regionModel = model;
+      fetchCategoriesData(context);
+    } else{
+      catsCubit.onUpdateData([]);
+    }
+
+  }
+
+  fetchCategoriesData(BuildContext context) async {
+    var data = await CustomerRepository(context)
+        .getCategories(regionModel?.id??0, cityModel?.id??0, governModel?.id??0, false);
+    catsCubit.onUpdateData(data);
+    if (data.length>0) {
+      onCategorySelected(context,data.first);
+    }
   }
 
   onCategorySelected(BuildContext context, CategoryModel model){
@@ -66,5 +83,4 @@ class FinishRegisterData{
       btnKey.currentState!.animateReverse();
     }
   }
-
 }

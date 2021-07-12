@@ -8,8 +8,8 @@ part of 'DropDownModel.dart';
 
 DropDownModel _$DropDownModelFromJson(Map<String, dynamic> json) {
   return DropDownModel(
-    json['name'] as String,
-    json['id'] as int,
+    name: json['name'] as String,
+    id: json['id'] as int,
   );
 }
 

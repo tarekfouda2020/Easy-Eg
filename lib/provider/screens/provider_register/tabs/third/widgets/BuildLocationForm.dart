@@ -1,7 +1,7 @@
 part of 'FinsihRegistWidgetImports.dart';
 
 class BuildLocationForm extends StatelessWidget {
-  final FinishRegisterData finishRegisterData;
+  final ThirdScreenData finishRegisterData;
 
   const BuildLocationForm({required this.finishRegisterData});
   @override
@@ -12,16 +12,16 @@ class BuildLocationForm extends StatelessWidget {
         key: finishRegisterData.formKey,
         child: Column(
           children: [
-            DropdownTextField<DropDownModel>(
-              label: tr(context,"country"),
-              dropKey: finishRegisterData.country,
-              margin: EdgeInsets.symmetric(horizontal: 15,vertical: 5),
-              showSelectedItem: false,
-              iconsColor: MyColors.white,
-              validate: (DropDownModel value) => value.validateDropDown(context),
-              onChange: (DropDownModel model)=> finishRegisterData.onCountryChange(model),
-              finData: (filter) async => await CustomerRepository(context).getCountries(false),
-            ),
+            // DropdownTextField<DropDownModel>(
+            //   label: tr(context,"country"),
+            //   dropKey: finishRegisterData.country,
+            //   margin: EdgeInsets.symmetric(horizontal: 15,vertical: 5),
+            //   showSelectedItem: false,
+            //   iconsColor: MyColors.white,
+            //   validate: (DropDownModel value) => value.validateDropDown(context),
+            //   onChange: (DropDownModel model)=> finishRegisterData.onCountryChange(model),
+            //   finData: (filter) async => await CustomerRepository(context).getCountries(false),
+            // ),
             DropdownTextField<DropDownModel>(
               label: tr(context,"government"),
               dropKey: finishRegisterData.govern,
@@ -49,7 +49,7 @@ class BuildLocationForm extends StatelessWidget {
               showSelectedItem: false,
               iconsColor: MyColors.white,
               validate: (DropDownModel value) => value.validateDropDown(context),
-              onChange: (DropDownModel model)=> finishRegisterData.onRegionChange(model),
+              onChange: (DropDownModel model)=> finishRegisterData.onRegionChange(model,context),
               finData: (filter) async => await CustomerRepository(context).getRegions(finishRegisterData.cityModel?.id,false),
             ),
             BuildCategoriesView(registerData: finishRegisterData),

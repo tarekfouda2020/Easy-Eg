@@ -1,7 +1,7 @@
-part of 'RegisterWidgetsImports.dart';
+part of 'FinsihRegistWidgetImports.dart';
 
 class BuildCategoriesView extends StatelessWidget {
-  final ProviderRegisterData registerData;
+  final FinishRegisterData registerData;
 
   const BuildCategoriesView({required this.registerData});
 
