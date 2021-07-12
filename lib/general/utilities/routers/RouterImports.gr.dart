@@ -198,7 +198,10 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<SelectDeptRouteArgs>();
-          return _i18.SelectDept(regionId: args.regionId);
+          return _i18.SelectDept(
+              regionId: args.regionId,
+              cityId: args.cityId,
+              governorateId: args.governorateId);
         },
         transitionsBuilder: _i1.TransitionsBuilders.fadeIn,
         durationInMilliseconds: 800,
@@ -590,18 +593,29 @@ class SelectAddressRouteArgs {
 }
 
 class SelectDeptRoute extends _i1.PageRouteInfo<SelectDeptRouteArgs> {
-  SelectDeptRoute({required int regionId})
+  SelectDeptRoute(
+      {required int regionId, required int cityId, required int governorateId})
       : super(name,
             path: '/select-dept',
-            args: SelectDeptRouteArgs(regionId: regionId));
+            args: SelectDeptRouteArgs(
+                regionId: regionId,
+                cityId: cityId,
+                governorateId: governorateId));
 
   static const String name = 'SelectDeptRoute';
 }
 
 class SelectDeptRouteArgs {
-  const SelectDeptRouteArgs({required this.regionId});
+  const SelectDeptRouteArgs(
+      {required this.regionId,
+      required this.cityId,
+      required this.governorateId});
 
   final int regionId;
+
+  final int cityId;
+
+  final int governorateId;
 }
 
 class HomeRoute extends _i1.PageRouteInfo<HomeRouteArgs> {

@@ -4,13 +4,13 @@ class SelectAddress extends StatefulWidget {
   final bool showBack;
 
   const SelectAddress({this.showBack = true});
+
   @override
   _SelectAddressState createState() => _SelectAddressState();
 }
 
 class _SelectAddressState extends State<SelectAddress> {
   SelectAddressData selectAddressData = new SelectAddressData();
-
 
   @override
   void initState() {
@@ -29,24 +29,31 @@ class _SelectAddressState extends State<SelectAddress> {
             Flexible(
               child: ListView(
                 children: [
-                  HeaderLogo(haveBack: widget.showBack,),
+                  HeaderLogo(haveBack: widget.showBack),
                   BuildHeaderText(),
                   BuildSelectAddressForm(selectAddressData: selectAddressData),
                 ],
               ),
             ),
             DefaultButton(
-            title: tr(context,"confirm"),
+              title: tr(context, "confirm"),
               color: MyColors.white,
               borderColor: MyColors.white,
               textColor: MyColors.primary,
-              margin: EdgeInsets.symmetric(horizontal: 20,vertical: 25),
-              onTap: ()=> AutoRouter.of(context).push(SelectDeptRoute(regionId: selectAddressData.regionModel?.id??0)),
+              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 25),
+              onTap: () => AutoRouter.of(context).push(
+                SelectDeptRoute(
+                  regionId: selectAddressData.regionModel?.id ?? 0,
+                  cityId: selectAddressData.cityModel?.id ?? 0,
+                  governorateId: selectAddressData.governModel?.id ?? 0,
+                ),
+              ),
             ),
           ],
         ),
       ),
-      onWillPop: () async => selectAddressData.onBackPressed(widget.showBack,context),
+      onWillPop: () async =>
+          selectAddressData.onBackPressed(widget.showBack, context),
     );
   }
 }

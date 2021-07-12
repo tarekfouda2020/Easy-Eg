@@ -4,7 +4,7 @@ class Utils {
 
   static Future<void> manipulateSplashData(BuildContext context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    CustomerRepository(context).getCategories(0, false).then((data) {
+    CustomerRepository(context).getCategories(0,0,0, false).then((data) {
       context.read<CatsCubit>().onUpdateCats(data);
     });
     var strUser = prefs.get("user");

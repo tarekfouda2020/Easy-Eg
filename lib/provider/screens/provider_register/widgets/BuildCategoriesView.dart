@@ -61,11 +61,13 @@ class BuildCategoriesView extends StatelessWidget {
                           ),
                         ),
                         SizedBox(width: 10),
-                        MyText(
-                          title: state.data[index].name,
-                          color: Colors.black54,
-                          size: 8,
-                          fontWeight: FontWeight.w600,
+                        Flexible(
+                          child: MyText(
+                            title: state.data[index].name,
+                            color: Colors.black54,
+                            size: 8,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ],
                     ),

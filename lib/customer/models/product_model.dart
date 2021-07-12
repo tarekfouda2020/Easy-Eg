@@ -27,7 +27,7 @@ class ProductModel {
   @JsonKey(name: 'info')
   final String info;
   @JsonKey(name: 'linkVideo')
-  final String linkVideo;
+  final String? linkVideo;
   @JsonKey(name: 'facebook')
   final String facebook;
   @JsonKey(name: 'twitter')

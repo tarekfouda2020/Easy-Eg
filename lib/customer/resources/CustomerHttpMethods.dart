@@ -1,6 +1,5 @@
 part of 'CustomerRepoImports.dart';
 
-
 class CustomerHttpMethods {
   final BuildContext context;
 
@@ -66,10 +65,13 @@ class CustomerHttpMethods {
     }
   }
 
-  Future<List<CategoryModel>> getCategories(int regionId, bool refresh) async {
+  Future<List<CategoryModel>> getCategories(
+      int regionId, int cityId, int governorateId, bool refresh) async {
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,
-      "idRegoin": "$regionId"
+      "idRegoin": "$regionId",
+      "cityId": "$cityId",
+      "GovernorateId": "$governorateId"
     };
     var _data = await DioHelper(context: context, forceRefresh: refresh)
         .get(url: "/api/v1/ListCategories", body: body);
@@ -99,7 +101,7 @@ class CustomerHttpMethods {
     }
   }
 
-  Future<List<ProductModel>> getMapProducts(int subCatId,bool refresh) async {
+  Future<List<ProductModel>> getMapProducts(int subCatId, bool refresh) async {
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,
       "catId": "$subCatId",
@@ -193,12 +195,12 @@ class CustomerHttpMethods {
   Future<OrderModel?> getOrderDetails(int id, bool refresh) async {
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,
-      "orderId":"$id"
+      "orderId": "$id"
     };
     var _data = await DioHelper(context: context, forceRefresh: refresh)
         .get(url: "/api/v1/GetOrderInfoUser", body: body);
     if (_data != null) {
-      return  OrderModel.fromJson(_data["data"]);
+      return OrderModel.fromJson(_data["data"]);
     } else {
       return null;
     }
@@ -221,12 +223,14 @@ class CustomerHttpMethods {
   Future<DropDownModel?> getCompetitions(int id, bool refresh) async {
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,
-      "GovernorateId":"$id"
+      "GovernorateId": "$id"
     };
     var _data = await DioHelper(context: context, forceRefresh: refresh)
         .get(url: "/api/v1/GetCompetitions", body: body);
     if (_data != null) {
-      return _data["data"]==null?null: DropDownModel.fromJson(_data["data"]);
+      return _data["data"] == null
+          ? null
+          : DropDownModel.fromJson(_data["data"]);
     } else {
       return null;
     }
@@ -278,5 +282,4 @@ class CustomerHttpMethods {
       return [];
     }
   }
-
 }
