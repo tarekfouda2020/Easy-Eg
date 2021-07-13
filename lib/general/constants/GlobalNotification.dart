@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
 import 'package:auto_route/auto_route.dart';
 import 'package:base_flutter/general/constants/MyColors.dart';
 import 'package:base_flutter/general/utilities/routers/RouterImports.gr.dart';
@@ -39,7 +38,7 @@ class GlobalNotification {
         print(token);
       });
       messaging.setForegroundNotificationPresentationOptions(
-          alert: true, badge: true, sound: true);
+          alert: false, badge: false, sound: false);
       messaging
           .getInitialMessage()
           .then((message) => _showLocalNotification(message));
@@ -74,7 +73,7 @@ class GlobalNotification {
   }
 
   _showLocalNotification(RemoteMessage? message) async {
-    if (message == null || Platform.isIOS) return;
+    if (message == null) return;
     var android = AndroidNotificationDetails(
       "${DateTime.now()}",
       "${message.notification?.title}",

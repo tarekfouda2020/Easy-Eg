@@ -11,22 +11,14 @@ class _ProviderRegisterState extends State<ProviderRegister>{
 
   @override
    Widget build(BuildContext context) {
-     return WillPopScope(
-       child: AuthScaffold(
-         child: LinearContainer(
-           color: MyColors.primary,
-           child: PageView(
-             controller: registerData.controller,
-             children: [
-               FirstScreen(registerData: registerData),
-               SecondScreen(registerData: registerData),
-               ThirdScreen(registerData: registerData)
-             ],
-           ),
-         ),
-
-       ),
-       onWillPop: ()async=> false,
+     return PageView(
+       controller: registerData.controller,
+       physics: NeverScrollableScrollPhysics(),
+       children: [
+         FirstScreen(registerData: registerData),
+         SecondScreen(registerData: registerData),
+         ThirdScreen(registerData: registerData)
+       ],
      );
    }
 
