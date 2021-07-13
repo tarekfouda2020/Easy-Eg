@@ -132,7 +132,7 @@ class BuildRegisterForm extends StatelessWidget {
                   type: TextInputType.text,
                   borderColor: MyColors.grey,
                   icon: Icon(Icons.location_on,size: 20,),
-                  validate: (value) => value!.noValidate(),
+                  validate: (value) => value!.validateEmpty(context),
                   onTab: ()=>Utils.navigateToLocationAddress(context,registerData.locCubit),
                 );
               },
