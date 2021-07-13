@@ -1,6 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:base_flutter/customer/models/BottomTabModel.dart';
 import 'package:base_flutter/customer/models/CategoryModel.dart';
+import 'package:base_flutter/customer/models/Dtos/HomeMainModel.dart';
 import 'package:base_flutter/general/blocks/auth_cubit/auth_cubit.dart';
 import 'package:base_flutter/general/blocks/generic_cubit/generic_cubit.dart';
 import 'package:base_flutter/general/constants/ModaLs/LoadingDialog.dart';

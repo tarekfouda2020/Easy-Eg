@@ -65,19 +65,36 @@ class CustomerHttpMethods {
     }
   }
 
-  Future<List<CategoryModel>> getCategories(
-      int regionId, int cityId, int governorateId, bool refresh) async {
+  Future<List<CategoryModel>> getCategories(HomeMainModel model, bool refresh) async {
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,
-      "idRegoin": "$regionId",
-      "cityId": "$cityId",
-      "GovernorateId": "$governorateId"
+      "idRegoin": "${model.regionId}",
+      "cityId": "${model.cityId}",
+      "GovernorateId": "${model.governorateId}"
     };
     var _data = await DioHelper(context: context, forceRefresh: refresh)
         .get(url: "/api/v1/ListCategories", body: body);
     if (_data != null) {
       return List<CategoryModel>.from(
           _data["data"].map((e) => CategoryModel.fromJson(e)));
+    } else {
+      return [];
+    }
+  }
+
+  Future<List<SubCategoryModel>> getSubCategories(HomeMainModel model, bool refresh) async {
+    Map<String, dynamic> body = {
+      "lang": context.read<LangCubit>().state.locale.languageCode,
+      "idRegoin": "${model.regionId}",
+      "cityId": "${model.cityId}",
+      "GovernorateId": "${model.governorateId}",
+      "catId": "${model.category?.id??0}"
+    };
+    var _data = await DioHelper(context: context, forceRefresh: refresh)
+        .get(url: "/api/v1/ListSubCategories", body: body);
+    if (_data != null) {
+      return List<SubCategoryModel>.from(
+          _data["data"].map((e) => SubCategoryModel.fromJson(e)));
     } else {
       return [];
     }

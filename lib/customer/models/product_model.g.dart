@@ -17,7 +17,7 @@ ProductModel _$ProductModelFromJson(Map<String, dynamic> json) {
     lng: json['lng'] as String,
     location: json['location'] as String,
     info: json['info'] as String,
-    linkVideo: json['linkVideo'] as String,
+    linkVideo: json['linkVideo'] as String?,
     facebook: json['facebook'] as String,
     twitter: json['twitter'] as String,
     telegram: json['telegram'] as String,

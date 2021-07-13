@@ -5,7 +5,7 @@
 // **************************************************************************
 
 import 'package:auto_route/auto_route.dart' as _i1;
-import 'package:base_flutter/customer/models/CategoryModel.dart' as _i45;
+import 'package:base_flutter/customer/models/Dtos/HomeMainModel.dart' as _i45;
 import 'package:base_flutter/customer/models/order_model.dart' as _i46;
 import 'package:base_flutter/customer/models/product_model.dart' as _i47;
 import 'package:base_flutter/customer/models/sub_category_model.dart' as _i48;
@@ -170,7 +170,7 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<ImageZoomRouteArgs>();
-          return _i14.ImageZoom(images: args.images);
+          return _i14.ImageZoom(images: args.images, index: args.index);
         }),
     SelectAuthRoute.name: (routeData) => _i1.CustomPage<dynamic>(
         routeData: routeData,
@@ -198,10 +198,7 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<SelectDeptRouteArgs>();
-          return _i18.SelectDept(
-              regionId: args.regionId,
-              cityId: args.cityId,
-              governorateId: args.governorateId);
+          return _i18.SelectDept(model: args.model);
         },
         transitionsBuilder: _i1.TransitionsBuilders.fadeIn,
         durationInMilliseconds: 800,
@@ -213,7 +210,9 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (data) {
           final args = data.argsAs<HomeRouteArgs>();
           return _i19.Home(
-              color: args.color, tab: args.tab, category: args.category);
+              color: args.color,
+              tab: args.tab,
+              homeMainModel: args.homeMainModel);
         },
         transitionsBuilder: _i1.TransitionsBuilders.fadeIn,
         durationInMilliseconds: 1000,
@@ -552,17 +551,20 @@ class ChangePasswordRouteArgs {
 }
 
 class ImageZoomRoute extends _i1.PageRouteInfo<ImageZoomRouteArgs> {
-  ImageZoomRoute({required List<dynamic> images})
+  ImageZoomRoute({required List<dynamic> images, required int index})
       : super(name,
-            path: '/image-zoom', args: ImageZoomRouteArgs(images: images));
+            path: '/image-zoom',
+            args: ImageZoomRouteArgs(images: images, index: index));
 
   static const String name = 'ImageZoomRoute';
 }
 
 class ImageZoomRouteArgs {
-  const ImageZoomRouteArgs({required this.images});
+  const ImageZoomRouteArgs({required this.images, required this.index});
 
   final List<dynamic> images;
+
+  final int index;
 }
 
 class SelectAuthRoute extends _i1.PageRouteInfo {
@@ -593,52 +595,41 @@ class SelectAddressRouteArgs {
 }
 
 class SelectDeptRoute extends _i1.PageRouteInfo<SelectDeptRouteArgs> {
-  SelectDeptRoute(
-      {required int regionId, required int cityId, required int governorateId})
+  SelectDeptRoute({required _i45.HomeMainModel model})
       : super(name,
-            path: '/select-dept',
-            args: SelectDeptRouteArgs(
-                regionId: regionId,
-                cityId: cityId,
-                governorateId: governorateId));
+            path: '/select-dept', args: SelectDeptRouteArgs(model: model));
 
   static const String name = 'SelectDeptRoute';
 }
 
 class SelectDeptRouteArgs {
-  const SelectDeptRouteArgs(
-      {required this.regionId,
-      required this.cityId,
-      required this.governorateId});
+  const SelectDeptRouteArgs({required this.model});
 
-  final int regionId;
-
-  final int cityId;
-
-  final int governorateId;
+  final _i45.HomeMainModel model;
 }
 
 class HomeRoute extends _i1.PageRouteInfo<HomeRouteArgs> {
   HomeRoute(
       {required _i44.Color color,
       int tab = 4,
-      required _i45.CategoryModel category})
+      required _i45.HomeMainModel homeMainModel})
       : super(name,
             path: '/Home',
-            args: HomeRouteArgs(color: color, tab: tab, category: category));
+            args: HomeRouteArgs(
+                color: color, tab: tab, homeMainModel: homeMainModel));
 
   static const String name = 'HomeRoute';
 }
 
 class HomeRouteArgs {
   const HomeRouteArgs(
-      {required this.color, this.tab = 4, required this.category});
+      {required this.color, this.tab = 4, required this.homeMainModel});
 
   final _i44.Color color;
 
   final int tab;
 
-  final _i45.CategoryModel category;
+  final _i45.HomeMainModel homeMainModel;
 }
 
 class OrderDetailsRoute extends _i1.PageRouteInfo<OrderDetailsRouteArgs> {

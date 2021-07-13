@@ -22,14 +22,14 @@ class HomeData {
     BottomTabModel(iconData: Icons.settings, title: "more",color: Color(0xff6970FF)),
   ];
 
-  void initBottomNavigation(TickerProvider ticker,Color color,BuildContext context,CategoryModel category) {
+  void initBottomNavigation(TickerProvider ticker,Color color,BuildContext context,HomeMainModel homeMainModel) {
     context.read<TabsColorCubit>().onUpdateColor(color);
     tabsView=[
       Favourite(),
       Orders(),
       Notifications(),
       Settings(),
-      HomeMain(category: category,),
+      HomeMain(model: homeMainModel,),
     ];
     tabController = new TabController(length: 5, vsync: ticker,initialIndex: 4);
     animationController = AnimationController(

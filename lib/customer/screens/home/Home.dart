@@ -3,9 +3,9 @@ part of 'HomeImports.dart';
 class Home extends StatefulWidget {
   final Color color;
   final int tab;
-  final CategoryModel category;
+  final HomeMainModel homeMainModel;
 
-  const Home({required this.color, this.tab = 4,required this.category});
+  const Home({required this.color, this.tab = 4,required this.homeMainModel});
 
   @override
   _HomeState createState() => _HomeState();
@@ -16,7 +16,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    homeData.initBottomNavigation(this, widget.color, context,widget.category);
+    homeData.initBottomNavigation(this, widget.color, context,widget.homeMainModel);
     homeData.animateTabsPages(4, context, widget.color);
     super.initState();
   }

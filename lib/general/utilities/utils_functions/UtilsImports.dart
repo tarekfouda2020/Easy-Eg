@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:base_flutter/customer/models/Dtos/HomeMainModel.dart';
 import 'package:base_flutter/customer/models/customer_model.dart';
 import 'package:base_flutter/customer/resources/CustomerRepoImports.dart';
 import 'package:base_flutter/general/blocks/auth_cubit/auth_cubit.dart';

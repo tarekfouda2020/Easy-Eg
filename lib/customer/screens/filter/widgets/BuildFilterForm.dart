@@ -84,12 +84,9 @@ class BuildFilterForm extends StatelessWidget {
                   value.validateDropDown(context),
               onChange: (CategoryModel model) =>
                   filterData.onCategoryChange(model),
+
               finData: (filter) async => await CustomerRepository(context)
-                  .getCategories(
-                      filterData.regionModel?.id ?? 0,
-                      filterData.cityModel?.id ?? 0,
-                      filterData.governModel?.id ?? 0,
-                      false),
+                  .getCategories(HomeMainModel(), false),
             ),
             DropdownTextField<SubCategoryModel>(
               label: tr(context, "subCategory"),

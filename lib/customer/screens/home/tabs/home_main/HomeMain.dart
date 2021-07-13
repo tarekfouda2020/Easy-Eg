@@ -1,9 +1,16 @@
 part of 'HomeMainImports.dart';
 
-class HomeMain extends StatelessWidget {
-  final CategoryModel category;
+class HomeMain extends StatefulWidget {
+  final HomeMainModel model;
 
-  const HomeMain({required this.category});
+  const HomeMain({required this.model});
+  @override
+  _HomeMainState createState() => _HomeMainState();
+}
+
+class _HomeMainState extends State<HomeMain>{
+
+  final HomeMainData homeMainData = new HomeMainData();
 
   @override
   Widget build(BuildContext context) {
@@ -11,30 +18,32 @@ class HomeMain extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
         child: DefaultAppBar(
-          title: category.name,
+          title: widget.model.category?.name??"",
           color: currentColor,
         ),
         preferredSize: Size.fromHeight(60),
       ),
       body: LinearContainer(
         color: currentColor,
-        child: Visibility(
-          visible: category.subCategory.length>0,
-          child: CupertinoScrollbar(
-            child: ListView.builder(
-              padding: EdgeInsets.only(bottom: 100,right: 15,left: 15),
-              itemCount: category.subCategory.length,
-              itemBuilder: (BuildContext context, int index) {
-                return BuildCategoryItem(
-                  color: currentColor,
-                  model: category.subCategory[index],
-                );
-              },
-            ),
-          ),
-          replacement: Center(child: MyText(title: "لا يوجد اقسام", color: MyColors.black, size: 12)),
+        child: GenericListView<SubCategoryModel>(
+          type: ListViewType.api,
+          padding: EdgeInsets.only(bottom: 100,right: 15,left: 15),
+          onRefresh: homeMainData.fetchData,
+          params: [context, widget.model],
+          loadingColor: currentColor,
+          cubit: homeMainData.subCatsCubit,
+          emptyStr: "لا يوجد اقسام",
+          itemBuilder: (context,index,item){
+            return BuildCategoryItem(
+              color: currentColor,
+              model: item,
+            );
+          },
         ),
       ),
     );
   }
+
 }
+
+

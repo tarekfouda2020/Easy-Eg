@@ -14,6 +14,8 @@ class ThirdScreenData{
   final GenericBloc<int> catCubit = new GenericBloc(0);
   final GenericBloc<List<SubCategoryModel>> subCatsCubit = new GenericBloc([]);
 
+  HomeMainModel homeMainModel=new HomeMainModel();
+
   DropDownModel countryModel=DropDownModel(id: 1 , name: "masr");
   DropDownModel? governModel;
   DropDownModel? cityModel;
@@ -25,18 +27,21 @@ class ThirdScreenData{
     city.currentState!.changeSelectedItem(null);
     region.currentState!.changeSelectedItem(null);
   }
-  onGovernChange(DropDownModel model){
+  onGovernChange(DropDownModel? model){
     governModel = model;
+    homeMainModel.governorateId=model?.id??0;
     city.currentState!.changeSelectedItem(null);
     region.currentState!.changeSelectedItem(null);
   }
-  onCityChange(DropDownModel model){
+  onCityChange(DropDownModel? model){
     cityModel = model;
+    homeMainModel.cityId=model?.id??0;
     region.currentState!.changeSelectedItem(null);
   }
   onRegionChange(DropDownModel? model,BuildContext context){
     if (model!=null) {
       regionModel = model;
+      homeMainModel.governorateId=model.id;
       fetchCategoriesData(context);
     } else{
       catsCubit.onUpdateData([]);
@@ -46,7 +51,7 @@ class ThirdScreenData{
 
   fetchCategoriesData(BuildContext context) async {
     var data = await CustomerRepository(context)
-        .getCategories(regionModel?.id??0, cityModel?.id??0, governModel?.id??0, false);
+        .getCategories(homeMainModel, false);
     catsCubit.onUpdateData(data);
     if (data.length>0) {
       onCategorySelected(context,data.first);

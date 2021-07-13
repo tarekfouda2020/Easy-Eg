@@ -1,14 +1,9 @@
 part of 'SelectDeptImports.dart';
 
 class SelectDept extends StatefulWidget {
-  final int regionId;
-  final int cityId;
-  final int governorateId;
+  final  HomeMainModel model;
 
-  const SelectDept(
-      {required this.regionId,
-      required this.cityId,
-      required this.governorateId});
+  const SelectDept({required this.model});
 
   @override
   _SelectDeptState createState() => _SelectDeptState();
@@ -19,20 +14,12 @@ class _SelectDeptState extends State<SelectDept> {
 
   @override
   void initState() {
-    print("========${widget.regionId}");
-    print("======+++++==${widget.cityId}");
-    print("=====####===${widget.governorateId}");
-
-    if (widget.regionId != 0) {
-      selectDeptData.fetchCategoriesData(
-          context, widget.regionId, widget.cityId, widget.governorateId,
-          refresh: false);
+    if (widget.model.regionId != 0) {
+      selectDeptData.fetchCategoriesData(context,widget.model,refresh: false);
     } else {
-      selectDeptData.catsCubit
-          .onUpdateData(context.read<CatsCubit>().state.cats);
+      selectDeptData.catsCubit.onUpdateData(context.read<CatsCubit>().state.cats);
     }
-    selectDeptData.fetchCategoriesData(
-        context, widget.regionId, widget.cityId, widget.governorateId);
+    selectDeptData.fetchCategoriesData(context, widget.model);
     super.initState();
   }
 
@@ -43,7 +30,7 @@ class _SelectDeptState extends State<SelectDept> {
         children: [
           HeaderLogo(),
           BuildUserText(),
-          BuildButtonList(selectDeptData: selectDeptData),
+          BuildButtonList(selectDeptData: selectDeptData,homeMainModel: widget.model,),
         ],
       ),
     );

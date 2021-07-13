@@ -23,10 +23,11 @@ class CustomerRepository {
   Future<List<DropDownModel>> getRegions(int? cityId, bool refresh) =>
       _customerHttpMethods.getRegions(cityId, refresh);
 
-  Future<List<CategoryModel>> getCategories(
-          int regionId, int cityId, int governorateId, bool refresh) =>
-      _customerHttpMethods.getCategories(
-          regionId, cityId, governorateId, refresh);
+  Future<List<CategoryModel>> getCategories(HomeMainModel model, bool refresh) =>
+      _customerHttpMethods.getCategories(model, refresh);
+
+  Future<List<SubCategoryModel>> getSubCategories(HomeMainModel model, bool refresh) =>
+      _customerHttpMethods.getSubCategories(model, refresh);
 
   Future<List<ProductModel>> getProducts(
           int subCatId, int page, String? text, bool refresh) =>

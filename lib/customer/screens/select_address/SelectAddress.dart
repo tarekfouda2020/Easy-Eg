@@ -42,11 +42,7 @@ class _SelectAddressState extends State<SelectAddress> {
               textColor: MyColors.primary,
               margin: EdgeInsets.symmetric(horizontal: 20, vertical: 25),
               onTap: () => AutoRouter.of(context).push(
-                SelectDeptRoute(
-                  regionId: selectAddressData.regionModel?.id ?? 0,
-                  cityId: selectAddressData.cityModel?.id ?? 0,
-                  governorateId: selectAddressData.governModel?.id ?? 0,
-                ),
+                SelectDeptRoute(model: selectAddressData.homeMainModel,),
               ),
             ),
           ],

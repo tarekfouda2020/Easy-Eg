@@ -4,8 +4,9 @@ import 'package:photo_view/photo_view.dart';
 
 class ImageZoom extends StatefulWidget {
   final List images;
+  final int index;
 
-  const ImageZoom({required this.images});
+  const ImageZoom({required this.images, required this.index});
   @override
   _ImageZoomState createState() => _ImageZoomState();
 }
@@ -19,8 +20,8 @@ class _ImageZoomState extends State<ImageZoom> {
 
   @override
   void initState() {
-    _controller=new PageController(initialPage: 0);
-    _current= widget.images.first;
+    _controller=new PageController(initialPage: widget.index);
+    _current= widget.images[widget.index];
     super.initState();
   }
 

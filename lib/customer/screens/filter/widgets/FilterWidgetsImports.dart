@@ -1,5 +1,6 @@
 import 'package:base_flutter/customer/models/CategoryModel.dart';
 import 'package:base_flutter/customer/models/DropDownModel.dart';
+import 'package:base_flutter/customer/models/Dtos/HomeMainModel.dart';
 import 'package:base_flutter/customer/models/sub_category_model.dart';
 import 'package:base_flutter/customer/resources/CustomerRepoImports.dart';
 import 'package:base_flutter/general/constants/Inputs/DropdownTextField.dart';
