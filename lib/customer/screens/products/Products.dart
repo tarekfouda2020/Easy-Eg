@@ -69,20 +69,20 @@ class _ProductsState extends State<Products> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: widget.color,
-        onPressed: () => AutoRouter.of(context).push(
-          MapScreenRoute(
-            catId: widget.model.id,
-            color: widget.color,
-          ),
-        ),
-        child: Icon(
-          Icons.location_searching,
-          size: 25,
-          color: Colors.white,
-        ),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   backgroundColor: widget.color,
+      //   onPressed: () => AutoRouter.of(context).push(
+      //     MapScreenRoute(
+      //       catId: widget.model.id,
+      //       color: widget.color,
+      //     ),
+      //   ),
+      //   child: Icon(
+      //     Icons.location_searching,
+      //     size: 25,
+      //     color: Colors.white,
+      //   ),
+      // ),
     );
   }
 }

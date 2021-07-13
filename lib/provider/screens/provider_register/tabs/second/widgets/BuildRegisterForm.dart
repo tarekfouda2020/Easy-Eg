@@ -9,6 +9,7 @@ class BuildRegisterForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 15),
       margin: EdgeInsets.only(bottom: 30),
@@ -117,26 +118,36 @@ class BuildRegisterForm extends StatelessWidget {
               },
             ),
 
-            BlocConsumer<LocationCubit,LocationState>(
-              bloc: registerData.locCubit,
-              listener: (context,state){
-                registerData.location.text=state.model.address;
-                registerData.lat=state.model.lat;
-                registerData.lng=state.model.lng;
-              },
-              builder: (context,state){
-                return InkWellTextField(
-                  label: tr(context,"location"),
-                  margin: EdgeInsets.only(top: 15),
-                  controller: registerData.location,
-                  type: TextInputType.text,
-                  borderColor: MyColors.grey,
-                  icon: Icon(Icons.location_on,size: 20,),
-                  validate: (value) => value!.validateEmpty(context),
-                  onTab: ()=>Utils.navigateToLocationAddress(context,registerData.locCubit),
-                );
-              },
+            IconTextFiled(
+              label: tr(context,"location"),
+              margin: EdgeInsets.only(top: 15),
+              controller: registerData.location,
+              type: TextInputType.text,
+              borderColor: MyColors.grey,
+              suffixIcon: Icon(Icons.location_on,size: 20,),
+              validate: (value) => value!.validateEmpty(context),
             ),
+
+            // BlocConsumer<LocationCubit,LocationState>(
+            //   bloc: registerData.locCubit,
+            //   listener: (context,state){
+            //     registerData.location.text=state.model.address;
+            //     registerData.lat=state.model.lat;
+            //     registerData.lng=state.model.lng;
+            //   },
+            //   builder: (context,state){
+            //     return InkWellTextField(
+            //       label: tr(context,"location"),
+            //       margin: EdgeInsets.only(top: 15),
+            //       controller: registerData.location,
+            //       type: TextInputType.text,
+            //       borderColor: MyColors.grey,
+            //       icon: Icon(Icons.location_on,size: 20,),
+            //       validate: (value) => value!.validateEmpty(context),
+            //       onTab: ()=>Utils.navigateToLocationAddress(context,registerData.locCubit),
+            //     );
+            //   },
+            // ),
           ],
         ),
       ),

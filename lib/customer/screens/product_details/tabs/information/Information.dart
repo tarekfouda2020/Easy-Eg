@@ -10,21 +10,30 @@ class Information extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+    return Column(
       children: [
-        BuildInfoDetails(
-          color: color,
-          model: model,
-        ),
-        Offstage(
-          offstage: model.linkVideo == "" || model.linkVideo == null,
-          child: BuildVideoView(
-            link: model.linkVideo??"",
+        Flexible(
+          child: ListView(
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            children: [
+              BuildInfoDetails(
+                color: color,
+                model: model,
+              ),
+              Offstage(
+                offstage: model.linkVideo == "" || model.linkVideo == null,
+                child: BuildVideoView(
+                  link: model.linkVideo ?? "",
+                ),
+              ),
+            ],
           ),
         ),
         BuildReservationButton(
-            color: color, detailsData: detailsData, model: model),
+          color: color,
+          detailsData: detailsData,
+          model: model,
+        ),
       ],
     );
   }

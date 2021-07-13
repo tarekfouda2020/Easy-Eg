@@ -252,26 +252,36 @@ class BuildEditForm extends StatelessWidget {
               },
             ),
 
-            BlocConsumer<LocationCubit,LocationState>(
-              bloc: profileData.locCubit,
-              listener: (context,state){
-                profileData.location.text=state.model.address;
-                profileData.lat=state.model.lat;
-                profileData.lng=state.model.lng;
-              },
-              builder: (context,state){
-                return InkWellTextField(
-                  label: tr(context,"location"),
-                  margin: EdgeInsets.only(top: 15),
-                  controller: profileData.location,
-                  type: TextInputType.text,
-                  borderColor: MyColors.grey,
-                  icon: Icon(Icons.location_on,size: 20,),
-                  validate: (value) => value!.validateEmpty(context),
-                  onTab: ()=>Utils.navigateToLocationAddress(context,profileData.locCubit),
-                );
-              },
+            IconTextFiled(
+              label: tr(context,"location"),
+              margin: EdgeInsets.only(top: 15),
+              controller: profileData.location,
+              type: TextInputType.text,
+              borderColor: MyColors.grey,
+              suffixIcon: Icon(Icons.location_on,size: 20,),
+              validate: (value) => value!.validateEmpty(context),
             ),
+
+            // BlocConsumer<LocationCubit,LocationState>(
+            //   bloc: profileData.locCubit,
+            //   listener: (context,state){
+            //     profileData.location.text=state.model.address;
+            //     profileData.lat=state.model.lat;
+            //     profileData.lng=state.model.lng;
+            //   },
+            //   builder: (context,state){
+            //     return InkWellTextField(
+            //       label: tr(context,"location"),
+            //       margin: EdgeInsets.only(top: 15),
+            //       controller: profileData.location,
+            //       type: TextInputType.text,
+            //       borderColor: MyColors.grey,
+            //       icon: Icon(Icons.location_on,size: 20,),
+            //       validate: (value) => value!.validateEmpty(context),
+            //       onTab: ()=>Utils.navigateToLocationAddress(context,profileData.locCubit),
+            //     );
+            //   },
+            // ),
 
           ],
         ),

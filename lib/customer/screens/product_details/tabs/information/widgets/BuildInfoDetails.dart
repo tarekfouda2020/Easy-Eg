@@ -18,7 +18,7 @@ class BuildInfoDetails extends StatelessWidget {
           fontWeight: FontWeight.w600,
         ),
         InkWell(
-          onTap: ()=>Utils.navigateToMapWithDirection(lat: model.lat, lng: model.lng, context: context),
+          onTap: ()=>Utils.launchURL(url: model.location),
           child: Container(
             padding: const EdgeInsets.symmetric(vertical: 8),
             width: MediaQuery.of(context).size.width,
@@ -33,7 +33,7 @@ class BuildInfoDetails extends StatelessWidget {
                 SizedBox(width: 5),
                 Expanded(
                   child: MyText(
-                    title: model.location,
+                    title: "الموقع علي الخريطة",
                     color: color.withOpacity(.8),
                     size: 11,
                     fontWeight: FontWeight.w600,
