@@ -7,10 +7,10 @@ class ProductsData {
   final int pageSize = 10;
   int? catId;
 
-  Future<void> fetchPage(int pageKey, BuildContext context, {bool refresh = true}) async {
+  Future<void> fetchPage(int pageKey, BuildContext context, HomeMainModel model, {bool refresh = true}) async {
     String? text = search.text.trim().isEmpty?null:search.text.trim();
     List<ProductModel> _products = await CustomerRepository(context)
-        .getProducts(catId??0, pageKey, text, refresh);
+        .getProducts(catId??0, pageKey, text, model, refresh);
     if (pageKey == 1) {
       pagingController.itemList = [];
     }

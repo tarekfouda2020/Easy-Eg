@@ -3,8 +3,9 @@ part of 'ProductsImports.dart';
 class Products extends StatefulWidget {
   final Color color;
   final SubCategoryModel model;
+  final HomeMainModel homeMainModel;
 
-  const Products({required this.color, required this.model});
+  const Products({required this.color, required this.model, required this.homeMainModel});
 
   @override
   _ProductsState createState() => _ProductsState();
@@ -16,9 +17,9 @@ class _ProductsState extends State<Products> {
   @override
   void initState() {
     productsData.catId = widget.model.id;
-    productsData.fetchPage(1, context, refresh: false);
+    productsData.fetchPage(1, context, widget.homeMainModel, refresh: false);
     productsData.pagingController.addPageRequestListener((pageKey) {
-      productsData.fetchPage(pageKey, context);
+      productsData.fetchPage(pageKey, context, widget.homeMainModel);
     });
     super.initState();
   }

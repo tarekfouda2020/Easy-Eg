@@ -38,7 +38,7 @@ class FinishRegisterData{
 
   onCategorySelected(BuildContext context, CategoryModel model){
     catCubit.onUpdateData(model.id);
-    subCatsCubit.onUpdateData(model.subCategory);
+    // subCatsCubit.onUpdateData(model.subCategory);
   }
 
   setSelectSubCat(int index){

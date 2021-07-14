@@ -37,6 +37,7 @@ class _HomeMainState extends State<HomeMain>{
             return BuildCategoryItem(
               color: currentColor,
               model: item,
+              homeMainModel: widget.model,
             );
           },
         ),

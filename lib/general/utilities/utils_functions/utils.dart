@@ -4,9 +4,8 @@ class Utils {
 
   static Future<void> manipulateSplashData(BuildContext context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    CustomerRepository(context).getCategories(HomeMainModel(), false).then((data) {
-      context.read<CatsCubit>().onUpdateCats(data);
-    });
+    var data = await CustomerRepository(context).getCategories(HomeMainModel(), false);
+    context.read<CatsCubit>().onUpdateCats(data);
     var strUser = prefs.get("user");
     String lang = prefs.getString("lang")??"ar";
     if (strUser != null) {

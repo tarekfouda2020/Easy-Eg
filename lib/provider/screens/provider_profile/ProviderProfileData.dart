@@ -63,8 +63,8 @@ class ProviderProfileData {
     var data = await ProviderRepository(context).getCategories(refresh);
     context.read<CatsCubit>().onUpdateCats(data);
     catCubit.onUpdateData(data.where((element) => element.selected).first.id);
-    subCatsCubit.onUpdateData(
-        data.where((element) => element.selected).first.subCategory);
+    // subCatsCubit.onUpdateData(
+    //     data.where((element) => element.selected).first.subCategory);
   }
 
   setProfileImage() async {
@@ -119,7 +119,7 @@ class ProviderProfileData {
 
   onCategorySelected(BuildContext context, CategoryModel model) {
     catCubit.onUpdateData(model.id);
-    subCatsCubit.onUpdateData(model.subCategory);
+    // subCatsCubit.onUpdateData(model.subCategory);
   }
 
   setSelectSubCat(int index) {

@@ -253,7 +253,10 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<ProductsRouteArgs>();
-          return _i24.Products(color: args.color, model: args.model);
+          return _i24.Products(
+              color: args.color,
+              model: args.model,
+              homeMainModel: args.homeMainModel);
         }),
     OffersRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
         routeData: routeData,
@@ -716,20 +719,26 @@ class ReservationSuccessRouteArgs {
 
 class ProductsRoute extends _i1.PageRouteInfo<ProductsRouteArgs> {
   ProductsRoute(
-      {required _i44.Color color, required _i48.SubCategoryModel model})
+      {required _i44.Color color,
+      required _i48.SubCategoryModel model,
+      required _i45.HomeMainModel homeMainModel})
       : super(name,
             path: '/Products',
-            args: ProductsRouteArgs(color: color, model: model));
+            args: ProductsRouteArgs(
+                color: color, model: model, homeMainModel: homeMainModel));
 
   static const String name = 'ProductsRoute';
 }
 
 class ProductsRouteArgs {
-  const ProductsRouteArgs({required this.color, required this.model});
+  const ProductsRouteArgs(
+      {required this.color, required this.model, required this.homeMainModel});
 
   final _i44.Color color;
 
   final _i48.SubCategoryModel model;
+
+  final _i45.HomeMainModel homeMainModel;
 }
 
 class OffersRoute extends _i1.PageRouteInfo<OffersRouteArgs> {
