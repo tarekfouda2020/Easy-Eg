@@ -31,7 +31,7 @@ class BuildLocationForm extends StatelessWidget {
               iconsColor: MyColors.white,
               validate: (DropDownModel value) => value.validateDropDown(context),
               onChange: (DropDownModel model)=> finishRegisterData.onGovernChange(model),
-              finData: (filter) async => await CustomerRepository(context).getGovernments(finishRegisterData.countryModel.id,false),
+              finData: (filter) async => await CustomerRepository(context).getGovernments(finishRegisterData.countryModel.id,true),
             ),
             DropdownTextField<DropDownModel>(
               label: tr(context,"city"),
@@ -42,7 +42,7 @@ class BuildLocationForm extends StatelessWidget {
               iconsColor: MyColors.white,
               validate: (DropDownModel value) => value.validateDropDown(context),
               onChange: (DropDownModel model)=> finishRegisterData.onCityChange(model),
-              finData: (filter) async => await CustomerRepository(context).getCities(finishRegisterData.governModel?.id,false),
+              finData: (filter) async => await CustomerRepository(context).getCities(finishRegisterData.governModel?.id,true),
             ),
             DropdownTextField<DropDownModel>(
               label: tr(context,"region"),
@@ -53,7 +53,7 @@ class BuildLocationForm extends StatelessWidget {
               selectedItem: finishRegisterData.regionModel,
               validate: (DropDownModel value) => value.validateDropDown(context),
               onChange: (DropDownModel model)=> finishRegisterData.onRegionChange(model,context),
-              finData: (filter) async => await CustomerRepository(context).getRegions(finishRegisterData.cityModel?.id,false),
+              finData: (filter) async => await CustomerRepository(context).getRegions(finishRegisterData.cityModel?.id,true),
             ),
             BuildCategoriesView(registerData: finishRegisterData),
 

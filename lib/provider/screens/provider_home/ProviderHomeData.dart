@@ -15,7 +15,7 @@ class ProviderHomeData{
   late CurvedAnimation curve;
 
   List<Widget> tabsView=[
-    Conversations(color: Color(0xffd2866e)),
+    Conversations(color: Color(0xff6970FF)),
     Orders(),
     Notifications(),
     Settings(),
@@ -23,10 +23,10 @@ class ProviderHomeData{
   ];
 
   List<BottomTabModel> tabs = [
-    BottomTabModel(iconData: Icons.message, title: "conversations",color: Color(0xffd2866e)),
-    BottomTabModel(iconData: Icons.shopping_bag, title: "orders",color: Color(0xffd2866e)),
-    BottomTabModel(iconData: Icons.notifications, title: "notifications",color: Color(0xffd2866e)),
-    BottomTabModel(iconData: Icons.settings, title: "more",color: Color(0xffd2866e)),
+    BottomTabModel(iconData: Icons.message, title: "conversations",color: Color(0xff6970FF)),
+    BottomTabModel(iconData: Icons.shopping_bag, title: "orders",color: Color(0xff6970FF)),
+    BottomTabModel(iconData: Icons.notifications, title: "notifications",color: Color(0xff6970FF)),
+    BottomTabModel(iconData: Icons.settings, title: "more",color: Color(0xff6970FF)),
   ];
 
   void initBottomNavigation(TickerProvider ticker,Color color,BuildContext context) {

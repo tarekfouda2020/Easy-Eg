@@ -35,7 +35,7 @@ class _FilterState extends State<Filter> {
             Flexible(
               child: ListView(
                 children: [
-                  BuildFilterForm(filterData: filterData),
+                  BuildFilterForm(filterData: filterData,color: widget.color,),
                 ],
               ),
             ),

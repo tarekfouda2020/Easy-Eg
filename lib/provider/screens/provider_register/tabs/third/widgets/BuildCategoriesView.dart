@@ -47,38 +47,46 @@ class BuildCategoriesView extends StatelessWidget {
                   GenericState<List<SubCategoryModel>>>(
                 bloc: registerData.subCatsCubit,
                 builder: (context, state) {
-                  return Wrap(
-                    spacing: 10,
-                    runSpacing: 20,
-                    alignment: WrapAlignment.start,
-                    children: List.generate(state.data.length, (index) {
-                      return Container(
-                        width: MediaQuery.of(context).size.width * .25,
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: 20,
-                              height: 20,
-                              child: Checkbox(
-                                value: state.data[index].selected,
-                                onChanged: (value) =>
-                                    registerData.setSelectSubCat(index),
+                  if (state is GenericUpdateState) {
+                    return Wrap(
+                      spacing: 10,
+                      runSpacing: 20,
+                      alignment: WrapAlignment.start,
+                      children: List.generate(state.data.length, (index) {
+                        return Container(
+                          width: MediaQuery.of(context).size.width * .25,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                width: 20,
+                                height: 20,
+                                child: Checkbox(
+                                  value: state.data[index].selected,
+                                  onChanged: (value) =>
+                                      registerData.setSelectSubCat(index),
+                                ),
                               ),
-                            ),
-                            SizedBox(width: 10),
-                            Flexible(
-                              child: MyText(
-                                title: state.data[index].name,
-                                color: Colors.black54,
-                                size: 8,
-                                fontWeight: FontWeight.w600,
+                              SizedBox(width: 10),
+                              Flexible(
+                                child: MyText(
+                                  title: state.data[index].name,
+                                  color: Colors.black54,
+                                  size: 8,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      );
-                    }),
-                  );
+                            ],
+                          ),
+                        );
+                      }),
+                    );
+                  }
+                 return Container(
+                   height: 150,
+                   alignment: Alignment.center,
+                   child: LoadingDialog.showLoadingView(),
+                 );
                 },
               ),
             ],

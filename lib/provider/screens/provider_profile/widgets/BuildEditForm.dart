@@ -38,7 +38,7 @@ class BuildEditForm extends StatelessWidget {
               borderColor: MyColors.grey,
               validate: (value) => value!.validateEmail(context),
             ),
-            BuildCategoriesView(profileData: profileData),
+            // BuildCategoriesView(profileData: profileData),
             BlocConsumer<GenericBloc<File?>, GenericState<File?>>(
               bloc: profileData.logoCubit,
               listener: (context, state) {

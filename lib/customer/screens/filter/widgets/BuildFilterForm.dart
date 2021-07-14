@@ -2,8 +2,9 @@ part of 'FilterWidgetsImports.dart';
 
 class BuildFilterForm extends StatelessWidget {
   final FilterData filterData;
+  final Color color;
 
-  const BuildFilterForm({required this.filterData});
+  const BuildFilterForm({required this.filterData, required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -33,12 +34,13 @@ class BuildFilterForm extends StatelessWidget {
               borderColor: MyColors.grey,
               textColor: MyColors.black,
               hintColor: MyColors.blackOpacity,
+              popUpColor: color,
               validate: (DropDownModel value) =>
                   value.validateDropDown(context),
               onChange: (DropDownModel model) =>
                   filterData.onGovernChange(model),
               finData: (filter) async => await CustomerRepository(context)
-                  .getGovernments(filterData.countryModel?.id, false),
+                  .getGovernments(filterData.countryModel?.id, true),
             ),
             DropdownTextField<DropDownModel>(
               label: tr(context, "city"),
@@ -49,11 +51,12 @@ class BuildFilterForm extends StatelessWidget {
               borderColor: MyColors.grey,
               textColor: MyColors.black,
               hintColor: MyColors.blackOpacity,
+              popUpColor: color,
               validate: (DropDownModel value) =>
                   value.validateDropDown(context),
               onChange: (DropDownModel model) => filterData.onCityChange(model),
               finData: (filter) async => await CustomerRepository(context)
-                  .getCities(filterData.governModel?.id, false),
+                  .getCities(filterData.governModel?.id, true),
             ),
             DropdownTextField<DropDownModel>(
               label: tr(context, "region"),
@@ -64,12 +67,13 @@ class BuildFilterForm extends StatelessWidget {
               borderColor: MyColors.grey,
               textColor: MyColors.black,
               hintColor: MyColors.blackOpacity,
+              popUpColor: color,
               validate: (DropDownModel value) =>
                   value.validateDropDown(context),
               onChange: (DropDownModel model) =>
                   filterData.onRegionChange(model),
               finData: (filter) async => await CustomerRepository(context)
-                  .getRegions(filterData.cityModel?.id, false),
+                  .getRegions(filterData.cityModel?.id, true),
             ),
             DropdownTextField<CategoryModel>(
               label: tr(context, "category"),
@@ -80,13 +84,14 @@ class BuildFilterForm extends StatelessWidget {
               borderColor: MyColors.grey,
               textColor: MyColors.black,
               hintColor: MyColors.blackOpacity,
+              popUpColor: color,
               validate: (CategoryModel value) =>
                   value.validateDropDown(context),
               onChange: (CategoryModel model) =>
                   filterData.onCategoryChange(model),
-
               finData: (filter) async => await CustomerRepository(context)
-                  .getCategories(HomeMainModel(), false),
+                  .getCategories(HomeMainModel(governorateId: filterData.governModel?.id??0,
+                cityId: filterData.cityModel?.id??0,regionId: filterData.regionModel?.id??0,), true),
             ),
             DropdownTextField<SubCategoryModel>(
               label: tr(context, "subCategory"),
@@ -97,12 +102,15 @@ class BuildFilterForm extends StatelessWidget {
               borderColor: MyColors.grey,
               textColor: MyColors.black,
               hintColor: MyColors.blackOpacity,
+              popUpColor: color,
               validate: (SubCategoryModel value) =>
                   value.validateDropDown(context),
               onChange: (SubCategoryModel model) =>
                   filterData.onSubCategoryChange(model),
-              finData: (filter) async =>
-                  filterData.catModel?.subCategory ?? <SubCategoryModel>[],
+              finData: (filter) async => await CustomerRepository(context)
+                  .getSubCategories(HomeMainModel(governorateId: filterData.governModel?.id??0,
+                cityId: filterData.cityModel?.id??0,regionId: filterData.regionModel?.id??0,
+                category: filterData.catModel,), true),
             ),
           ],
         ),

@@ -41,26 +41,29 @@ class ThirdScreenData{
   onRegionChange(DropDownModel? model,BuildContext context){
     if (model!=null) {
       regionModel = model;
-      homeMainModel.governorateId=model.id;
+      homeMainModel.regionId=model.id;
       fetchCategoriesData(context);
     } else{
       catsCubit.onUpdateData([]);
+      subCatsCubit.onUpdateData([]);
     }
 
   }
 
   fetchCategoriesData(BuildContext context) async {
-    var data = await CustomerRepository(context)
-        .getCategories(homeMainModel, false);
+    var data = await CustomerRepository(context).getCategories(homeMainModel, false);
     catsCubit.onUpdateData(data);
     if (data.length>0) {
       onCategorySelected(context,data.first);
     }
   }
 
-  onCategorySelected(BuildContext context, CategoryModel model){
+  onCategorySelected(BuildContext context, CategoryModel model)async{
+    homeMainModel.category=model;
+    subCatsCubit.emit(GenericInitialState([]));
+    var data = await CustomerRepository(context).getSubCategories(homeMainModel, false);
     catCubit.onUpdateData(model.id);
-    subCatsCubit.onUpdateData(model.subCategory);
+    subCatsCubit.onUpdateData(data);
   }
 
   setSelectSubCat(int index){

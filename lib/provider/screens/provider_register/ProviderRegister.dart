@@ -9,6 +9,13 @@ class _ProviderRegisterState extends State<ProviderRegister>{
 
   final ProviderRegisterData registerData = new ProviderRegisterData();
 
+
+  @override
+  void initState() {
+    registerData.thirdScreenData.subCatsCubit.onUpdateData([]);
+    super.initState();
+  }
+
   @override
    Widget build(BuildContext context) {
      return PageView(
