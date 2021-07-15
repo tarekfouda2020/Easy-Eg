@@ -36,7 +36,7 @@ class BuildEditForm extends StatelessWidget {
               type: TextInputType.emailAddress,
               action: TextInputAction.next,
               borderColor: MyColors.grey,
-              validate: (value) => value!.validateEmail(context),
+              validate: (value) => value!.validateEmailORNull(context),
             ),
             // BuildCategoriesView(profileData: profileData),
             BlocConsumer<GenericBloc<File?>, GenericState<File?>>(
@@ -147,7 +147,7 @@ class BuildEditForm extends StatelessWidget {
               type: TextInputType.url,
               action: TextInputAction.next,
               borderColor: MyColors.grey,
-              validate: (value) => value!.validateEmpty(context),
+              validate: (value) => value!.noValidate(),
             ),
 
             LabelTextField(

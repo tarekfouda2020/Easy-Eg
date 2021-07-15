@@ -130,14 +130,14 @@ class ProviderProfileData {
 
   setUpdateProvider(BuildContext context) async {
     if (formKey.currentState!.validate()) {
-      var subCats = subCatsCubit.state.data
-          .where((element) => element.selected)
-          .map((e) => e.id.toString())
-          .toList();
-      if (subCats.length == 0) {
-        LoadingDialog.showSimpleToast(tr(context,"PlzSelectYourServices"));
-        return;
-      }
+      // var subCats = subCatsCubit.state.data
+      //     .where((element) => element.selected)
+      //     .map((e) => e.id.toString())
+      //     .toList();
+      // if (subCats.length == 0) {
+      //   LoadingDialog.showSimpleToast(tr(context,"PlzSelectYourServices"));
+      //   return;
+      // }
       btnKey.currentState!.animateForward();
       ProviderRegisterModel model = new ProviderRegisterModel(
         userName: name.text,
@@ -149,7 +149,7 @@ class ProviderProfileData {
         email: mail.text,
         logoImg: logoCubit.state.data,
         images: imagesCubit.state.data.addedImages,
-        idsSubCat: json.encode(subCats),
+        // idsSubCat: json.encode(subCats),
         nameAr: nameAr.text,
         nameEn: nameEn.text,
         facebook: face.text,
