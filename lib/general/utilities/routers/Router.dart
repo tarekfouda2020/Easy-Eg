@@ -65,7 +65,7 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: Competitions),
     AdaptiveRoute(page: MapScreen),
     AdaptiveRoute(page: Chats),
-    CustomRoute<int>(
+    CustomRoute<HomeMainModel>(
       page: Filter,
       transitionsBuilder: TransitionsBuilders.slideBottom,
       durationInMilliseconds: 600,

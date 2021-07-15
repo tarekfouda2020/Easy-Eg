@@ -5,12 +5,11 @@ class ProductsData {
       PagingController(firstPageKey: 1);
   final TextEditingController search = new TextEditingController();
   final int pageSize = 10;
-  int? catId;
-
-  Future<void> fetchPage(int pageKey, BuildContext context, HomeMainModel model, {bool refresh = true}) async {
+  late HomeMainModel homeMainModel;
+  Future<void> fetchPage(int pageKey, BuildContext context, {bool refresh = true}) async {
     String? text = search.text.trim().isEmpty?null:search.text.trim();
     List<ProductModel> _products = await CustomerRepository(context)
-        .getProducts(catId??0, pageKey, text, model, refresh);
+        .getProducts(pageKey, text, homeMainModel, refresh);
     if (pageKey == 1) {
       pagingController.itemList = [];
     }
@@ -45,9 +44,9 @@ class ProductsData {
   }
 
   navigateToFilter(BuildContext context,Color color)async{
-   var result = await AutoRouter.of(context).push<int?>(FilterRoute(color: color));
+   var result = await AutoRouter.of(context).push<HomeMainModel?>(FilterRoute(color: color));
    if (result!=null) {
-     catId = result;
+     homeMainModel = result;
      pagingController.refresh();
    }
   }

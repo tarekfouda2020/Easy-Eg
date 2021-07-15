@@ -59,7 +59,14 @@ class FilterData{
 
   setFilterSearch(BuildContext context){
     if (formKey.currentState!.validate()) {
-      AutoRouter.of(context).pop(subModel?.id);
+      HomeMainModel model = new HomeMainModel(
+        governorateId: governModel?.id??0,
+        cityId: catModel?.id??0,
+        regionId: regionModel?.id??0,
+        category: catModel,
+        subCatId: subModel?.id??0
+      );
+      AutoRouter.of(context).pop(model);
     }
   }
 

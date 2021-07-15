@@ -100,11 +100,10 @@ class CustomerHttpMethods {
     }
   }
 
-  Future<List<ProductModel>> getProducts(
-      int subCatId, int page, String? text, HomeMainModel model, bool refresh) async {
+  Future<List<ProductModel>> getProducts(int page, String? text, HomeMainModel model, bool refresh) async {
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,
-      "idCat": "$subCatId",
+      "idCat": "${model.subCatId}",
       "currentPage": "$page",
       "text": text,
       "idRegoin": "${model.regionId}",

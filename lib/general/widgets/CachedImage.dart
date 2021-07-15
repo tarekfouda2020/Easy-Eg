@@ -17,6 +17,7 @@ class CachedImage extends StatelessWidget{
   final Alignment? alignment;
   final Widget? child;
   final Color? borderColor;
+  final Color? loadingColor;
   final Color? bgColor;
   final BoxShape? boxShape;
   final bool haveRadius;
@@ -27,6 +28,7 @@ class CachedImage extends StatelessWidget{
     this.height,
     this.borderRadius,
     this.colorFilter,
+    this.loadingColor,
     this.alignment,
     this.child,
     this.boxShape,
@@ -73,7 +75,7 @@ class CachedImage extends StatelessWidget{
             color: bgColor??MyColors.primary.withOpacity(.5)
         ),
         child: SpinKitFadingCircle(
-          color: MyColors.primary,
+          color: loadingColor??MyColors.primary,
           size: 30.0,
         ),
       ),

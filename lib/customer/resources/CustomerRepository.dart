@@ -29,9 +29,8 @@ class CustomerRepository {
   Future<List<SubCategoryModel>> getSubCategories(HomeMainModel model, bool refresh) =>
       _customerHttpMethods.getSubCategories(model, refresh);
 
-  Future<List<ProductModel>> getProducts(
-          int subCatId, int page, String? text, HomeMainModel model, bool refresh) =>
-      _customerHttpMethods.getProducts(subCatId, page, text, model, refresh);
+  Future<List<ProductModel>> getProducts(int page, String? text, HomeMainModel model, bool refresh) =>
+      _customerHttpMethods.getProducts(page, text, model, refresh);
 
   Future<List<ProductModel>> getMapProducts(int subCatId, bool refresh) =>
       _customerHttpMethods.getMapProducts(subCatId, refresh);

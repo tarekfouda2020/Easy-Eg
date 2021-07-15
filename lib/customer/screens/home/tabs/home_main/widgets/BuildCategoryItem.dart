@@ -41,6 +41,7 @@ class BuildCategoryItem extends StatelessWidget {
                 ),
                 child: CachedImage(
                   url: model.img,
+                  loadingColor: MyColors.white,
                   bgColor: color.withOpacity(.5),
                 ),
               ),

@@ -16,10 +16,11 @@ class _ProductsState extends State<Products> {
 
   @override
   void initState() {
-    productsData.catId = widget.model.id;
-    productsData.fetchPage(1, context, widget.homeMainModel, refresh: false);
+    widget.homeMainModel.subCatId = widget.model.id;
+    productsData.homeMainModel=widget.homeMainModel;
+    productsData.fetchPage(1, context,refresh: false);
     productsData.pagingController.addPageRequestListener((pageKey) {
-      productsData.fetchPage(pageKey, context, widget.homeMainModel);
+      productsData.fetchPage(pageKey, context);
     });
     super.initState();
   }
