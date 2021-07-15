@@ -19,11 +19,12 @@ class BuildTabIcon extends StatelessWidget {
             homeData.tabs[index].iconData,
             size: 25,
             color: color,
-          ),
+          ),SizedBox(height: 5),
           MyText(
             title: tr(context,homeData.tabs[index].title),
-            size: 10,
+            size: 9,
             color: color,
+            fontWeight: FontWeight.w600,
           )
         ],
       ),
