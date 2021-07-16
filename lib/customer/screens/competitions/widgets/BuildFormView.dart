@@ -47,7 +47,7 @@ class BuildFormView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   MyText(
-                    title: tr(context,"location"),
+                    title: tr(context,"followOnFacebook"),
                     color: MyColors.blackOpacity,
                     size: 10,
                     fontWeight: FontWeight.w600,
