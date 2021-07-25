@@ -128,7 +128,16 @@
   "loginToContinue": "Login to continue",
   "enter": "login",
   "back": "back",
-  "optional": "optional"
+  "optional": "optional",
+  "Previous": "previous",
+  "SignUp":  "SignUp",
+  "Search": "Search",
+  "NoDepart": "No departments to show",
+  "Contact": "Contact us",
+  "Location": "Location on map",
+  "detSearch": "Detailed search"
+
+
 
 }
 

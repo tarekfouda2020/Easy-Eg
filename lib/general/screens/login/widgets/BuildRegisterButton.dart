@@ -16,7 +16,7 @@ class BuildRegisterButton extends StatelessWidget {
           InkWell(
             onTap: ()=>loginData.navigateUserRegister(context),
             child: MyText(
-              title: "تسجيل جديد",
+              title: tr(context, "SignUp"),
               color: MyColors.primary,
               size: 14,
             ),

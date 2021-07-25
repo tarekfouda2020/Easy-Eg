@@ -24,7 +24,7 @@ class _ContactUsState extends State<ContactUs> {
     return Scaffold(
       appBar: PreferredSize(
         child: DefaultAppBar(
-          title: "تواصل معنا",
+          title: tr(context, "contact"),
           color: widget.color,
         ),
         preferredSize: Size.fromHeight(60),

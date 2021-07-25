@@ -33,7 +33,7 @@ class BuildInfoDetails extends StatelessWidget {
                 SizedBox(width: 5),
                 Expanded(
                   child: MyText(
-                    title: "الموقع علي الخريطة",
+                    title: "${tr(context,"location")}",
                     color: color.withOpacity(.8),
                     size: 11,
                     fontWeight: FontWeight.w600,
