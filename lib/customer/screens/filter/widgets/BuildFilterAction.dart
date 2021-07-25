@@ -8,7 +8,7 @@ class BuildFilterAction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultButton(
-      title: "بحث",
+      title: tr(context, "Search"),
       margin: EdgeInsets.only(right: 20,left: 20,bottom: 20,top: 5),
       color: color,
       borderColor: color,

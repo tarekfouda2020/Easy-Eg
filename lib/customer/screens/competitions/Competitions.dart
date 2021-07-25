@@ -34,7 +34,7 @@ class _CompetitionsState extends State<Competitions> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: MyText(title: "السابقة",size: 12,color: MyColors.white,),
+                    child: MyText(title: tr(context, "Previous"),size: 12,color: MyColors.white,),
                   ),
                 ],
               ),

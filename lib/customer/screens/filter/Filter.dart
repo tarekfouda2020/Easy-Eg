@@ -23,7 +23,7 @@ class _FilterState extends State<Filter> {
     return Scaffold(
       appBar: PreferredSize(
         child: DefaultAppBar(
-          title: "البحث التفصيلي",
+          title: tr(context, "detSearch"),
           color: widget.color,
         ),
         preferredSize: Size.fromHeight(60),

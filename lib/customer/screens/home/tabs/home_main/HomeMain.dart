@@ -32,7 +32,7 @@ class _HomeMainState extends State<HomeMain>{
           params: [context, widget.model],
           loadingColor: currentColor,
           cubit: homeMainData.subCatsCubit,
-          emptyStr: "لا يوجد اقسام",
+          emptyStr: tr(context, "NoDepart"),
           itemBuilder: (context,index,item){
             return BuildCategoryItem(
               color: currentColor,

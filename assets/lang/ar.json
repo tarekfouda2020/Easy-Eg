@@ -130,7 +130,13 @@
   "loginToContinue": "قم بتسجيل الدخول للمتابعة",
   "enter": "دخول",
   "back": "رجوع",
-  "optional": "اختياري"
+  "optional": "اختياري",
+  "Previous": "السابقة",
+  "SignUp": "تسجيل جديد",
+  "Search": "البحث",
+  "NoDepart": "لايوجد اقسام",
+  "detSearch": "البحث التفصيلى "
+
 }
 
 

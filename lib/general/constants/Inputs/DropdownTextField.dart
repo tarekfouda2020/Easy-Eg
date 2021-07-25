@@ -1,5 +1,6 @@
 import 'package:base_flutter/general/blocks/lang_cubit/lang_cubit.dart';
 import 'package:base_flutter/general/constants/Inputs/CustomInputDecoration.dart';
+import 'package:base_flutter/general/utilities/localization/LocalizationMethods.dart';
 import 'package:flutter/material.dart';
 import 'package:base_flutter/general/constants/MyColors.dart';
 import 'package:base_flutter/general/widgets/MyText.dart';
@@ -83,7 +84,7 @@ class _DropdownTextFieldState<DataType> extends State<DropdownTextField> {
         // itemStyle: CustomInputTextStyle(lang: lang,color: MyColors.black),
         searchBoxDecoration: CustomInputDecoration(
             lang: lang,
-            hint: "البحث",
+            hint: tr(context, "Search"),
             enableColor: Colors.black,
             focusColor: MyColors.primary,
             borderRaduis: 5,
