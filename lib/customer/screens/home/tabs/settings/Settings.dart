@@ -3,7 +3,7 @@ part of 'SettingsImports.dart';
 
 class Settings extends StatelessWidget {
   final android = "https://play.google.com/store/apps/details?id=sa.aait.aspbranch.easy";
-  final ios = "https://play.google.com/store/apps/details?id=sa.aait.aspbranch.easy";
+  final ios = "https://apps.apple.com/us/app/easy/id1573741469";
   @override
   Widget build(BuildContext context) {
     var currentColor = context.watch<TabsColorCubit>().state.color;
