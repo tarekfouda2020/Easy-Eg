@@ -15,7 +15,7 @@ class BuildFormInputs extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             LabelTextField(
-              label: tr(context,"phone"),
+              label: tr(context, "phone"),
               controller: loginData.phone,
               margin: const EdgeInsets.symmetric(vertical: 10),
               action: TextInputAction.next,
@@ -24,7 +24,7 @@ class BuildFormInputs extends StatelessWidget {
               validate: (value) => value!.validateEmpty(context),
             ),
             LabelTextField(
-              label: tr(context,"password"),
+              label: tr(context, "password"),
               controller: loginData.password,
               validate: (value) => value!.validateEmpty(context),
               isPassword: true,
