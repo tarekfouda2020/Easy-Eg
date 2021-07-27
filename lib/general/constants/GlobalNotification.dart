@@ -101,9 +101,9 @@ class GlobalNotification {
     int userType = int.parse(_data["userType"]??"0");
     int orderId = int.parse(_data["orderId"] ?? "0");
 
-    if ((type >= 1||type < 4)&&userType==1) {
+    if ((type >= 1&&type < 4)&&userType==1) {
       AutoRouter.of(context).push(OrderDetailsRoute(color: MyColors.primary, id: orderId));
-    }else if ((type >= 1||type < 4)&&userType==2) {
+    }else if ((type >= 1&&type < 4)&&userType==2) {
       AutoRouter.of(context).push(ProviderOrderDetailsRoute(color: MyColors.primary, id: orderId));
     }else if (type == 9) {
       AutoRouter.of(context).push(CompetitionsRoute(color: MyColors.primary));

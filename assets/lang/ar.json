@@ -135,7 +135,8 @@
   "SignUp": "تسجيل جديد",
   "Search": "البحث",
   "NoDepart": "لايوجد اقسام",
-  "detSearch": "البحث التفصيلى "
+  "detSearch": "البحث التفصيلى ",
+  "registerOrLoginIfYouHaveAccount": "من فضلك حدد نوع التسجيل"
 
 }
 
