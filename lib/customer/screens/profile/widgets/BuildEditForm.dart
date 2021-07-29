@@ -36,7 +36,7 @@ class BuildEditForm extends StatelessWidget {
               type: TextInputType.emailAddress,
               action: TextInputAction.done,
               borderColor: MyColors.grey,
-              validate: (value) => value!.validateEmail(context),
+              validate: (value) => value!.noValidate(),
               onSubmit: ()=>profileData.setUpdateProfile(context),
             ),
           ],
