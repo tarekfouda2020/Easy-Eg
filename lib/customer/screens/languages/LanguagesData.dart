@@ -9,6 +9,9 @@ class LanguagesData {
       await saveUserLanguage(context, lang);
     }
     await Utils.changeLanguage(lang.toString(), context);
+    EasyLoading.dismiss().then((value) {
+      Phoenix.rebirth(context);
+    });
   }
 
   Future<void> saveUserLanguage(BuildContext context, String lang) async {
