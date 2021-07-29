@@ -5,7 +5,8 @@ class Products extends StatefulWidget {
   final SubCategoryModel model;
   final HomeMainModel homeMainModel;
 
-  const Products({required this.color, required this.model, required this.homeMainModel});
+  const Products(
+      {required this.color, required this.model, required this.homeMainModel});
 
   @override
   _ProductsState createState() => _ProductsState();
@@ -17,8 +18,8 @@ class _ProductsState extends State<Products> {
   @override
   void initState() {
     widget.homeMainModel.subCatId = widget.model.id;
-    productsData.homeMainModel=widget.homeMainModel;
-    productsData.fetchPage(1, context,refresh: false);
+    productsData.homeMainModel = widget.homeMainModel;
+    productsData.fetchPage(1, context, refresh: false);
     productsData.pagingController.addPageRequestListener((pageKey) {
       productsData.fetchPage(pageKey, context);
     });
@@ -51,7 +52,7 @@ class _ProductsState extends State<Products> {
         child: LinearContainer(
           color: widget.color,
           child: PagedListView<int, ProductModel>(
-            padding: EdgeInsets.symmetric(horizontal: 15),
+            padding: EdgeInsets.only(left: 15, right: 15, bottom: 15),
             pagingController: productsData.pagingController,
             builderDelegate: PagedChildBuilderDelegate<ProductModel>(
                 noItemsFoundIndicatorBuilder: (context) => BuildNoItemFound(

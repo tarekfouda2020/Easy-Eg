@@ -24,6 +24,7 @@ class _NotificationsState extends State<Notifications> {
         padding: EdgeInsets.only(bottom: 100),
         color: currentColor,
         child: GenericListView<NotifyModel>(
+          padding: const EdgeInsets.all(15),
           type: ListViewType.separated,
           onRefresh: notificationsData.fetchData,
           emptyStr: tr(context, "noNotifications"),
