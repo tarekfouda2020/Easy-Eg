@@ -10,7 +10,7 @@ class BuildSocialItem extends StatelessWidget {
     return Visibility(
       visible: url!="null"&&url!=null,
       child: InkWell(
-        onTap: ()=> Utils.launchURL(url: url!),
+        onTap: ()=> Utils.launchURL(url: url??""),
         child: Container(
           width: 40,
           height: 40,

@@ -154,11 +154,7 @@ class Utils {
     if (!url.toString().startsWith("https")) {
       url = "https://" + url;
     }
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      LoadingDialog.showToastNotification("من فضلك تآكد من الرابط");
-    }
+    await launch(url);
   }
 
   static void launchWhatsApp(phone) async {
@@ -177,21 +173,9 @@ class Utils {
 
   static void launchYoutube({required String url}) async {
     if (Platform.isIOS) {
-      if (await canLaunch('$url')) {
-        await launch('$url', forceSafariVC: false);
-      } else {
-        if (await canLaunch('$url')) {
-          await launch('$url');
-        } else {
-          throw 'Could not launch $url';
-        }
-      }
+      await launch('$url', forceSafariVC: false);
     } else {
-      if (await canLaunch(url)) {
-        await launch(url);
-      } else {
-        throw 'Could not launch $url';
-      }
+      await launch(url);
     }
   }
 
