@@ -24,7 +24,7 @@ class _ChampionDetailsState extends State<ChampionDetails> {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
         children: [
           ChampionDetailsLogo(),
-          ChampionDetailsTitle("title"),
+          ChampionDetailsTitle("عنوان المسابقة"),
           ChampionDetailsVideo(_championDetailsData),
           ChampionDetailsBtn(_championDetailsData),
         ],

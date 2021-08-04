@@ -5,10 +5,13 @@ class ChampionDetailsTitle extends StatelessWidget {
   const ChampionDetailsTitle(this.title);
   @override
   Widget build(BuildContext context) {
-    return MyText(
-      title: title,
-      size: 16,
-      color: MyColors.primary,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 15),
+      child: MyText(
+        title: title,
+        size: 16,
+        color: MyColors.primary,
+      ),
     );
   }
 }

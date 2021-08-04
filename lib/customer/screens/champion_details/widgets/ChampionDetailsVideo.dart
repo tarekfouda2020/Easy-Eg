@@ -8,6 +8,7 @@ class ChampionDetailsVideo extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width * .8,
       height: MediaQuery.of(context).size.height * .3,
+      margin: const EdgeInsets.only(bottom: 15),
       color: MyColors.primary,
     );
   }
