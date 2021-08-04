@@ -1,11 +1,11 @@
 part of 'HomeWidgetsImports.dart';
 
 class BuildTabIcon extends StatelessWidget {
-
   final int index;
   final bool active;
   final HomeData homeData;
-  BuildTabIcon({required this.index,required this.active,required this.homeData});
+  BuildTabIcon(
+      {required this.index, required this.active, required this.homeData});
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +15,14 @@ class BuildTabIcon extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            homeData.tabs[index].iconData,
-            size: 25,
-            color: color,
+          Visibility(
+            visible: index != 2,
+            child: Icon(
+              homeData.tabs[index].iconData,
+              size: 25,
+              color: color,
+            ),
+            replacement: NotifyIcon(active: active),
           ),
           MyText(
             title: tr(context, homeData.tabs[index].title),
@@ -30,4 +34,3 @@ class BuildTabIcon extends StatelessWidget {
     );
   }
 }
-

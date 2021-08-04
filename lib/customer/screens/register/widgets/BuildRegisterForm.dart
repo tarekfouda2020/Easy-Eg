@@ -15,7 +15,7 @@ class BuildRegisterForm extends StatelessWidget {
         child: Column(
           children: [
             LabelTextField(
-              label: tr(context,"name"),
+              label: tr(context, "name"),
               margin: EdgeInsets.only(top: 15),
               controller: registerData.name,
               type: TextInputType.name,
@@ -24,7 +24,7 @@ class BuildRegisterForm extends StatelessWidget {
               validate: (value) => value!.validateEmpty(context),
             ),
             LabelTextField(
-              label: tr(context,"phone"),
+              label: tr(context, "phone"),
               margin: EdgeInsets.only(top: 15),
               controller: registerData.phone,
               type: TextInputType.phone,
@@ -33,7 +33,7 @@ class BuildRegisterForm extends StatelessWidget {
               validate: (value) => value!.validatePhone(context),
             ),
             LabelTextField(
-              label: tr(context,"email"),
+              label: tr(context, "email") + "  (${tr(context, "optional")})",
               margin: EdgeInsets.only(top: 15),
               controller: registerData.mail,
               type: TextInputType.emailAddress,
@@ -42,7 +42,7 @@ class BuildRegisterForm extends StatelessWidget {
               validate: (value) => value!.validateEmailORNull(context),
             ),
             LabelTextField(
-              label: tr(context,"password"),
+              label: tr(context, "password"),
               margin: EdgeInsets.only(top: 15),
               controller: registerData.pass,
               type: TextInputType.text,
@@ -52,15 +52,16 @@ class BuildRegisterForm extends StatelessWidget {
               validate: (value) => value!.validatePassword(context),
             ),
             LabelTextField(
-              label: tr(context,"confirmPass"),
+              label: tr(context, "confirmPass"),
               margin: EdgeInsets.only(top: 15),
               controller: registerData.confirm,
               type: TextInputType.text,
               action: TextInputAction.done,
               borderColor: MyColors.grey,
               isPassword: true,
-              validate: (value) => value!.validatePasswordConfirm(context,pass: registerData.pass.text),
-              onSubmit: ()=>registerData.setRegisterCustomer(context),
+              validate: (value) => value!.validatePasswordConfirm(context,
+                  pass: registerData.pass.text),
+              onSubmit: () => registerData.setRegisterCustomer(context),
             ),
           ],
         ),

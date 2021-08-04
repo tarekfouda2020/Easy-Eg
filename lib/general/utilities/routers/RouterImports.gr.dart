@@ -11,6 +11,8 @@ import 'package:base_flutter/customer/models/product_model.dart' as _i47;
 import 'package:base_flutter/customer/models/sub_category_model.dart' as _i48;
 import 'package:base_flutter/customer/screens/add_reservation/AddReservationImports.dart'
     as _i22;
+import 'package:base_flutter/customer/screens/champion_details/ChampionDetailsImports.dart'
+    as _i45;
 import 'package:base_flutter/customer/screens/chats/ChatsImports.dart' as _i33;
 import 'package:base_flutter/customer/screens/competitions/CompetitionsImports.dart'
     as _i31;
@@ -87,7 +89,6 @@ import 'package:base_flutter/provider/screens/provider_profile/ProviderProfileIm
     as _i43;
 import 'package:base_flutter/provider/screens/provider_register/ProviderRegisterImports.dart'
     as _i36;
-import 'package:flutter/cupertino.dart' as _i45;
 import 'package:flutter/material.dart' as _i2;
 
 class AppRouter extends _i1.RootStackRouter {
@@ -383,6 +384,12 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (data) {
           final args = data.argsAs<CompetitionsHistoryRouteArgs>();
           return _i44.CompetitionsHistory(color: args.color);
+        }),
+    ChampionDetailsRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<ChampionDetailsRouteArgs>();
+          return _i45.ChampionDetails(args.championId);
         })
   };
 
@@ -434,12 +441,13 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(ProviderOffersRoute.name, path: '/provider-offers'),
         _i1.RouteConfig(ProviderProfileRoute.name, path: '/provider-profile'),
         _i1.RouteConfig(CompetitionsHistoryRoute.name,
-            path: '/competitions-history')
+            path: '/competitions-history'),
+        _i1.RouteConfig(ChampionDetailsRoute.name, path: '/champion-details')
       ];
 }
 
 class SplashRoute extends _i1.PageRouteInfo<SplashRouteArgs> {
-  SplashRoute({required _i45.GlobalKey<_i45.NavigatorState> navigatorKey})
+  SplashRoute({required _i2.GlobalKey<_i2.NavigatorState> navigatorKey})
       : super(name,
             path: '/', args: SplashRouteArgs(navigatorKey: navigatorKey));
 
@@ -449,7 +457,7 @@ class SplashRoute extends _i1.PageRouteInfo<SplashRouteArgs> {
 class SplashRouteArgs {
   const SplashRouteArgs({required this.navigatorKey});
 
-  final _i45.GlobalKey<_i45.NavigatorState> navigatorKey;
+  final _i2.GlobalKey<_i2.NavigatorState> navigatorKey;
 }
 
 class LoginRoute extends _i1.PageRouteInfo {
@@ -501,7 +509,7 @@ class SelectLangRoute extends _i1.PageRouteInfo {
 }
 
 class TermsRoute extends _i1.PageRouteInfo<TermsRouteArgs> {
-  TermsRoute({required _i45.Color color})
+  TermsRoute({required _i2.Color color})
       : super(name, path: '/Terms', args: TermsRouteArgs(color: color));
 
   static const String name = 'TermsRoute';
@@ -510,11 +518,11 @@ class TermsRoute extends _i1.PageRouteInfo<TermsRouteArgs> {
 class TermsRouteArgs {
   const TermsRouteArgs({required this.color});
 
-  final _i45.Color color;
+  final _i2.Color color;
 }
 
 class AboutRoute extends _i1.PageRouteInfo<AboutRouteArgs> {
-  AboutRoute({required _i45.Color color})
+  AboutRoute({required _i2.Color color})
       : super(name, path: '/About', args: AboutRouteArgs(color: color));
 
   static const String name = 'AboutRoute';
@@ -523,7 +531,7 @@ class AboutRoute extends _i1.PageRouteInfo<AboutRouteArgs> {
 class AboutRouteArgs {
   const AboutRouteArgs({required this.color});
 
-  final _i45.Color color;
+  final _i2.Color color;
 }
 
 class SelectUserRoute extends _i1.PageRouteInfo {
@@ -539,7 +547,7 @@ class ConfirmPasswordRoute extends _i1.PageRouteInfo {
 }
 
 class ChangePasswordRoute extends _i1.PageRouteInfo<ChangePasswordRouteArgs> {
-  ChangePasswordRoute({required _i45.Color color})
+  ChangePasswordRoute({required _i2.Color color})
       : super(name,
             path: '/change-password',
             args: ChangePasswordRouteArgs(color: color));
@@ -550,7 +558,7 @@ class ChangePasswordRoute extends _i1.PageRouteInfo<ChangePasswordRouteArgs> {
 class ChangePasswordRouteArgs {
   const ChangePasswordRouteArgs({required this.color});
 
-  final _i45.Color color;
+  final _i2.Color color;
 }
 
 class ImageZoomRoute extends _i1.PageRouteInfo<ImageZoomRouteArgs> {
@@ -613,7 +621,7 @@ class SelectDeptRouteArgs {
 
 class HomeRoute extends _i1.PageRouteInfo<HomeRouteArgs> {
   HomeRoute(
-      {required _i45.Color color,
+      {required _i2.Color color,
       int tab = 4,
       required _i34.HomeMainModel homeMainModel})
       : super(name,
@@ -628,7 +636,7 @@ class HomeRouteArgs {
   const HomeRouteArgs(
       {required this.color, this.tab = 4, required this.homeMainModel});
 
-  final _i45.Color color;
+  final _i2.Color color;
 
   final int tab;
 
@@ -637,7 +645,7 @@ class HomeRouteArgs {
 
 class OrderDetailsRoute extends _i1.PageRouteInfo<OrderDetailsRouteArgs> {
   OrderDetailsRoute(
-      {required _i45.Color color, required int id, _i46.OrderModel? model})
+      {required _i2.Color color, required int id, _i46.OrderModel? model})
       : super(name,
             path: '/order-details',
             args: OrderDetailsRouteArgs(color: color, id: id, model: model));
@@ -649,7 +657,7 @@ class OrderDetailsRouteArgs {
   const OrderDetailsRouteArgs(
       {required this.color, required this.id, this.model});
 
-  final _i45.Color color;
+  final _i2.Color color;
 
   final int id;
 
@@ -658,7 +666,7 @@ class OrderDetailsRouteArgs {
 
 class ProductDetailsRoute extends _i1.PageRouteInfo<ProductDetailsRouteArgs> {
   ProductDetailsRoute(
-      {required _i45.Color color, required _i47.ProductModel model})
+      {required _i2.Color color, required _i47.ProductModel model})
       : super(name,
             path: '/product-details',
             args: ProductDetailsRouteArgs(color: color, model: model));
@@ -669,14 +677,14 @@ class ProductDetailsRoute extends _i1.PageRouteInfo<ProductDetailsRouteArgs> {
 class ProductDetailsRouteArgs {
   const ProductDetailsRouteArgs({required this.color, required this.model});
 
-  final _i45.Color color;
+  final _i2.Color color;
 
   final _i47.ProductModel model;
 }
 
 class AddReservationRoute extends _i1.PageRouteInfo<AddReservationRouteArgs> {
   AddReservationRoute(
-      {required _i45.Color color, required _i47.ProductModel model})
+      {required _i2.Color color, required _i47.ProductModel model})
       : super(name,
             path: '/add-reservation',
             args: AddReservationRouteArgs(color: color, model: model));
@@ -687,7 +695,7 @@ class AddReservationRoute extends _i1.PageRouteInfo<AddReservationRouteArgs> {
 class AddReservationRouteArgs {
   const AddReservationRouteArgs({required this.color, required this.model});
 
-  final _i45.Color color;
+  final _i2.Color color;
 
   final _i47.ProductModel model;
 }
@@ -695,7 +703,7 @@ class AddReservationRouteArgs {
 class ReservationSuccessRoute
     extends _i1.PageRouteInfo<ReservationSuccessRouteArgs> {
   ReservationSuccessRoute(
-      {required _i45.Color color,
+      {required _i2.Color color,
       required _i47.ProductModel model,
       required int orderId})
       : super(name,
@@ -710,7 +718,7 @@ class ReservationSuccessRouteArgs {
   const ReservationSuccessRouteArgs(
       {required this.color, required this.model, required this.orderId});
 
-  final _i45.Color color;
+  final _i2.Color color;
 
   final _i47.ProductModel model;
 
@@ -719,7 +727,7 @@ class ReservationSuccessRouteArgs {
 
 class ProductsRoute extends _i1.PageRouteInfo<ProductsRouteArgs> {
   ProductsRoute(
-      {required _i45.Color color,
+      {required _i2.Color color,
       required _i48.SubCategoryModel model,
       required _i34.HomeMainModel homeMainModel})
       : super(name,
@@ -734,7 +742,7 @@ class ProductsRouteArgs {
   const ProductsRouteArgs(
       {required this.color, required this.model, required this.homeMainModel});
 
-  final _i45.Color color;
+  final _i2.Color color;
 
   final _i48.SubCategoryModel model;
 
@@ -742,7 +750,7 @@ class ProductsRouteArgs {
 }
 
 class OffersRoute extends _i1.PageRouteInfo<OffersRouteArgs> {
-  OffersRoute({required _i45.Color color})
+  OffersRoute({required _i2.Color color})
       : super(name, path: '/Offers', args: OffersRouteArgs(color: color));
 
   static const String name = 'OffersRoute';
@@ -751,11 +759,11 @@ class OffersRoute extends _i1.PageRouteInfo<OffersRouteArgs> {
 class OffersRouteArgs {
   const OffersRouteArgs({required this.color});
 
-  final _i45.Color color;
+  final _i2.Color color;
 }
 
 class ProfileRoute extends _i1.PageRouteInfo<ProfileRouteArgs> {
-  ProfileRoute({required _i45.Color color})
+  ProfileRoute({required _i2.Color color})
       : super(name, path: '/Profile', args: ProfileRouteArgs(color: color));
 
   static const String name = 'ProfileRoute';
@@ -764,12 +772,12 @@ class ProfileRoute extends _i1.PageRouteInfo<ProfileRouteArgs> {
 class ProfileRouteArgs {
   const ProfileRouteArgs({required this.color});
 
-  final _i45.Color color;
+  final _i2.Color color;
 }
 
 class RepeatedQuestionsRoute
     extends _i1.PageRouteInfo<RepeatedQuestionsRouteArgs> {
-  RepeatedQuestionsRoute({required _i45.Color color})
+  RepeatedQuestionsRoute({required _i2.Color color})
       : super(name,
             path: '/repeated-questions',
             args: RepeatedQuestionsRouteArgs(color: color));
@@ -780,11 +788,11 @@ class RepeatedQuestionsRoute
 class RepeatedQuestionsRouteArgs {
   const RepeatedQuestionsRouteArgs({required this.color});
 
-  final _i45.Color color;
+  final _i2.Color color;
 }
 
 class ContactUsRoute extends _i1.PageRouteInfo<ContactUsRouteArgs> {
-  ContactUsRoute({required _i45.Color color})
+  ContactUsRoute({required _i2.Color color})
       : super(name,
             path: '/contact-us', args: ContactUsRouteArgs(color: color));
 
@@ -794,11 +802,11 @@ class ContactUsRoute extends _i1.PageRouteInfo<ContactUsRouteArgs> {
 class ContactUsRouteArgs {
   const ContactUsRouteArgs({required this.color});
 
-  final _i45.Color color;
+  final _i2.Color color;
 }
 
 class LanguagesRoute extends _i1.PageRouteInfo<LanguagesRouteArgs> {
-  LanguagesRoute({required _i45.Color color})
+  LanguagesRoute({required _i2.Color color})
       : super(name, path: '/Languages', args: LanguagesRouteArgs(color: color));
 
   static const String name = 'LanguagesRoute';
@@ -807,11 +815,11 @@ class LanguagesRoute extends _i1.PageRouteInfo<LanguagesRouteArgs> {
 class LanguagesRouteArgs {
   const LanguagesRouteArgs({required this.color});
 
-  final _i45.Color color;
+  final _i2.Color color;
 }
 
 class ConversationsRoute extends _i1.PageRouteInfo<ConversationsRouteArgs> {
-  ConversationsRoute({required _i45.Color color})
+  ConversationsRoute({required _i2.Color color})
       : super(name,
             path: '/Conversations', args: ConversationsRouteArgs(color: color));
 
@@ -821,11 +829,11 @@ class ConversationsRoute extends _i1.PageRouteInfo<ConversationsRouteArgs> {
 class ConversationsRouteArgs {
   const ConversationsRouteArgs({required this.color});
 
-  final _i45.Color color;
+  final _i2.Color color;
 }
 
 class CompetitionsRoute extends _i1.PageRouteInfo<CompetitionsRouteArgs> {
-  CompetitionsRoute({required _i45.Color color})
+  CompetitionsRoute({required _i2.Color color})
       : super(name,
             path: '/Competitions', args: CompetitionsRouteArgs(color: color));
 
@@ -835,11 +843,11 @@ class CompetitionsRoute extends _i1.PageRouteInfo<CompetitionsRouteArgs> {
 class CompetitionsRouteArgs {
   const CompetitionsRouteArgs({required this.color});
 
-  final _i45.Color color;
+  final _i2.Color color;
 }
 
 class MapScreenRoute extends _i1.PageRouteInfo<MapScreenRouteArgs> {
-  MapScreenRoute({required int catId, required _i45.Color color})
+  MapScreenRoute({required int catId, required _i2.Color color})
       : super(name,
             path: '/map-screen',
             args: MapScreenRouteArgs(catId: catId, color: color));
@@ -852,14 +860,14 @@ class MapScreenRouteArgs {
 
   final int catId;
 
-  final _i45.Color color;
+  final _i2.Color color;
 }
 
 class ChatsRoute extends _i1.PageRouteInfo<ChatsRouteArgs> {
   ChatsRoute(
       {required String receiverId,
       required String receiverName,
-      required _i45.Color color,
+      required _i2.Color color,
       required int orderId})
       : super(name,
             path: '/Chats',
@@ -883,13 +891,13 @@ class ChatsRouteArgs {
 
   final String receiverName;
 
-  final _i45.Color color;
+  final _i2.Color color;
 
   final int orderId;
 }
 
 class FilterRoute extends _i1.PageRouteInfo<FilterRouteArgs> {
-  FilterRoute({required _i45.Color color})
+  FilterRoute({required _i2.Color color})
       : super(name, path: '/Filter', args: FilterRouteArgs(color: color));
 
   static const String name = 'FilterRoute';
@@ -898,7 +906,7 @@ class FilterRoute extends _i1.PageRouteInfo<FilterRouteArgs> {
 class FilterRouteArgs {
   const FilterRouteArgs({required this.color});
 
-  final _i45.Color color;
+  final _i2.Color color;
 }
 
 class ProviderRegisterRoute extends _i1.PageRouteInfo {
@@ -947,7 +955,7 @@ class ProviderHomeRoute extends _i1.PageRouteInfo {
 class ProviderOrderDetailsRoute
     extends _i1.PageRouteInfo<ProviderOrderDetailsRouteArgs> {
   ProviderOrderDetailsRoute(
-      {required _i45.Color color,
+      {required _i2.Color color,
       required int id,
       _i50.ProviderOrderModel? model})
       : super(name,
@@ -962,7 +970,7 @@ class ProviderOrderDetailsRouteArgs {
   const ProviderOrderDetailsRouteArgs(
       {required this.color, required this.id, this.model});
 
-  final _i45.Color color;
+  final _i2.Color color;
 
   final int id;
 
@@ -971,7 +979,7 @@ class ProviderOrderDetailsRouteArgs {
 
 class AcceptOrderSuccessRoute
     extends _i1.PageRouteInfo<AcceptOrderSuccessRouteArgs> {
-  AcceptOrderSuccessRoute({required _i45.Color color})
+  AcceptOrderSuccessRoute({required _i2.Color color})
       : super(name,
             path: '/accept-order-success',
             args: AcceptOrderSuccessRouteArgs(color: color));
@@ -982,11 +990,11 @@ class AcceptOrderSuccessRoute
 class AcceptOrderSuccessRouteArgs {
   const AcceptOrderSuccessRouteArgs({required this.color});
 
-  final _i45.Color color;
+  final _i2.Color color;
 }
 
 class ProviderOffersRoute extends _i1.PageRouteInfo<ProviderOffersRouteArgs> {
-  ProviderOffersRoute({required _i45.Color color})
+  ProviderOffersRoute({required _i2.Color color})
       : super(name,
             path: '/provider-offers',
             args: ProviderOffersRouteArgs(color: color));
@@ -997,11 +1005,11 @@ class ProviderOffersRoute extends _i1.PageRouteInfo<ProviderOffersRouteArgs> {
 class ProviderOffersRouteArgs {
   const ProviderOffersRouteArgs({required this.color});
 
-  final _i45.Color color;
+  final _i2.Color color;
 }
 
 class ProviderProfileRoute extends _i1.PageRouteInfo<ProviderProfileRouteArgs> {
-  ProviderProfileRoute({required _i45.Color color})
+  ProviderProfileRoute({required _i2.Color color})
       : super(name,
             path: '/provider-profile',
             args: ProviderProfileRouteArgs(color: color));
@@ -1012,12 +1020,12 @@ class ProviderProfileRoute extends _i1.PageRouteInfo<ProviderProfileRouteArgs> {
 class ProviderProfileRouteArgs {
   const ProviderProfileRouteArgs({required this.color});
 
-  final _i45.Color color;
+  final _i2.Color color;
 }
 
 class CompetitionsHistoryRoute
     extends _i1.PageRouteInfo<CompetitionsHistoryRouteArgs> {
-  CompetitionsHistoryRoute({required _i45.Color color})
+  CompetitionsHistoryRoute({required _i2.Color color})
       : super(name,
             path: '/competitions-history',
             args: CompetitionsHistoryRouteArgs(color: color));
@@ -1028,5 +1036,20 @@ class CompetitionsHistoryRoute
 class CompetitionsHistoryRouteArgs {
   const CompetitionsHistoryRouteArgs({required this.color});
 
-  final _i45.Color color;
+  final _i2.Color color;
+}
+
+class ChampionDetailsRoute extends _i1.PageRouteInfo<ChampionDetailsRouteArgs> {
+  ChampionDetailsRoute({required int championId})
+      : super(name,
+            path: '/champion-details',
+            args: ChampionDetailsRouteArgs(championId: championId));
+
+  static const String name = 'ChampionDetailsRoute';
+}
+
+class ChampionDetailsRouteArgs {
+  const ChampionDetailsRouteArgs({required this.championId});
+
+  final int championId;
 }

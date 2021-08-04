@@ -1,7 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
+
 import 'package:auto_route/auto_route.dart';
-import 'package:base_flutter/general/blocks/user_cubit/user_cubit.dart';
+import 'package:base_flutter/general/blocks/notify_count_cubit/notify_count_cubit.dart';
 import 'package:base_flutter/general/constants/MyColors.dart';
 import 'package:base_flutter/general/utilities/routers/RouterImports.gr.dart';
 import 'package:base_flutter/general/utilities/utils_functions/UtilsImports.dart';
@@ -76,6 +77,8 @@ class GlobalNotification {
 
   _showLocalNotification(RemoteMessage? message) async {
     if (message == null) return;
+    int count = context.read<NotifyCountCubit>().state.count + 1;
+    context.read<NotifyCountCubit>().onUpdateCount(count);
     var android = AndroidNotificationDetails(
       "${DateTime.now()}",
       "${message.notification?.title}",
@@ -100,22 +103,28 @@ class GlobalNotification {
     print("tttttttttt $_data");
 
     int type = int.parse(_data["type"] ?? "1");
-    int userType = int.parse(_data["userType"]??"0");
+    int userType = int.parse(_data["userType"] ?? "0");
     int orderId = int.parse(_data["orderId"] ?? "0");
 
-    if ((type >= 1&&type < 4)&&userType==1) {
-      AutoRouter.of(context).push(OrderDetailsRoute(color: MyColors.primary, id: orderId));
-    }else if ((type >= 1&&type < 4)&&userType==2) {
-      AutoRouter.of(context).push(ProviderOrderDetailsRoute(color: MyColors.primary, id: orderId));
-    }else if (type == 9) {
+    if ((type >= 1 && type < 4) && userType == 1) {
+      AutoRouter.of(context)
+          .push(OrderDetailsRoute(color: MyColors.primary, id: orderId));
+    } else if ((type >= 1 && type < 4) && userType == 2) {
+      AutoRouter.of(context).push(
+          ProviderOrderDetailsRoute(color: MyColors.primary, id: orderId));
+    } else if (type == 9) {
       AutoRouter.of(context).push(CompetitionsRoute(color: MyColors.primary));
-    }else if (type == 10) {
-      AutoRouter.of(context).push(ChatsRoute(
-          receiverId: _data["receiverId"],
-          receiverName: _data["receiverName"],
-          orderId: orderId,
-          color: MyColors.primary),
+    } else if (type == 10) {
+      AutoRouter.of(context).push(
+        ChampionDetailsRoute(championId: _data["orderid"]),
       );
+      // AutoRouter.of(context).push(
+      //   ChatsRoute(
+      //       receiverId: _data["receiverId"],
+      //       receiverName: _data["receiverName"],
+      //       orderId: orderId,
+      //       color: MyColors.primary),
+      // );
     }
   }
 }

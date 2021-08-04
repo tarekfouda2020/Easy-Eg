@@ -14,9 +14,9 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: Terms),
     AdaptiveRoute(page: About),
     CustomRoute(
-        page: SelectUser,
-        transitionsBuilder: TransitionsBuilders.zoomIn,
-        durationInMilliseconds: 1000,
+      page: SelectUser,
+      transitionsBuilder: TransitionsBuilders.zoomIn,
+      durationInMilliseconds: 1000,
     ),
     AdaptiveRoute(page: ConfirmPassword),
     CustomRoute(
@@ -26,21 +26,20 @@ part of 'RouterImports.dart';
       reverseDurationInMilliseconds: 600,
     ),
     AdaptiveRoute(page: ImageZoom),
-    CustomRoute(page: SelectAuth,
-      transitionsBuilder: TransitionsBuilders.zoomIn,
-      durationInMilliseconds: 800,
-      reverseDurationInMilliseconds: 800
-    ),
+    CustomRoute(
+        page: SelectAuth,
+        transitionsBuilder: TransitionsBuilders.zoomIn,
+        durationInMilliseconds: 800,
+        reverseDurationInMilliseconds: 800),
 
     //customer pages
     AdaptiveRoute(page: Register),
     AdaptiveRoute(page: SelectAddress),
     CustomRoute(
-      page: SelectDept,
+        page: SelectDept,
         transitionsBuilder: TransitionsBuilders.fadeIn,
         durationInMilliseconds: 800,
-        reverseDurationInMilliseconds: 800
-    ),
+        reverseDurationInMilliseconds: 800),
     CustomRoute(
       page: Home,
       transitionsBuilder: TransitionsBuilders.fadeIn,
@@ -72,7 +71,6 @@ part of 'RouterImports.dart';
       reverseDurationInMilliseconds: 600,
     ),
 
-
     //provider pages
     AdaptiveRoute(page: ProviderRegister),
     AdaptiveRoute(page: CompleteRegister),
@@ -88,8 +86,7 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: ProviderOffers),
     AdaptiveRoute(page: ProviderProfile),
     AdaptiveRoute(page: CompetitionsHistory),
-
-
+    AdaptiveRoute(page: ChampionDetails),
   ],
 )
 class $AppRouter {}

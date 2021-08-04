@@ -136,7 +136,8 @@
   "Contact": "Contact us",
   "Location": "Location on map",
   "detSearch": "Detailed search",
-  "registerOrLoginIfYouHaveAccount": "Please determine auth type"
+  "registerOrLoginIfYouHaveAccount": "Please determine auth type",
+  "championDetails": "Champion Details"
 }
 
 

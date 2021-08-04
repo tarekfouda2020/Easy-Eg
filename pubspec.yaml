@@ -69,7 +69,7 @@ dependencies:
   infinite_scroll_pagination: ^3.0.1+1
   signalr_core: ^1.1.1
   liquid_pull_to_refresh: ^3.0.0
-
+  badges: ^1.1.6
 
 
 

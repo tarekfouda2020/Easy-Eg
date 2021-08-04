@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:base_flutter/customer/models/Dtos/HomeMainModel.dart';
 import 'package:base_flutter/customer/screens/add_reservation/AddReservationImports.dart';
+import 'package:base_flutter/customer/screens/champion_details/ChampionDetailsImports.dart';
 import 'package:base_flutter/customer/screens/chats/ChatsImports.dart';
 import 'package:base_flutter/customer/screens/competitions/CompetitionsImports.dart';
 import 'package:base_flutter/customer/screens/competitions_history/CompetitionsHistoryImports.dart';
@@ -41,7 +42,5 @@ import 'package:base_flutter/provider/screens/provider_offers/ProviderOffersImpo
 import 'package:base_flutter/provider/screens/provider_order_details/ProviderOrderDetailsImports.dart';
 import 'package:base_flutter/provider/screens/provider_profile/ProviderProfileImports.dart';
 import 'package:base_flutter/provider/screens/provider_register/ProviderRegisterImports.dart';
-import 'package:flutter/cupertino.dart';
-
 
 part 'Router.dart';
