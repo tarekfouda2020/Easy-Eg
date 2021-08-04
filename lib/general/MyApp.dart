@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
           return MaterialApp.router(
               debugShowCheckedModeBanner: false,
               theme: MainData.defaultThem,
-              title: "Base Flutter",
+              title: "Easy EG",
               supportedLocales: [
                 Locale('en', 'US'),
                 Locale('ar', 'EG')

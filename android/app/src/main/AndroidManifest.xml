@@ -19,7 +19,7 @@
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:icon="@mipmap/launcher_icon"
-        android:label="Easy">
+        android:label="Easy EG">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDV1H2CcIYVHXtndUp8w_tu79A5OgLoAFU" />

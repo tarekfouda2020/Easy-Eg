@@ -81,7 +81,7 @@ class _DropdownTextFieldState<DataType> extends State<DropdownTextField> {
         clearButton: Icon(Icons.clear,size: 25,color: widget.iconsColor??MyColors.black,),
         dropDownButton: Icon(Icons.arrow_drop_down,size: 30,color: widget.iconsColor??MyColors.black,),
         style: CustomInputTextStyle(lang: lang,color: widget.textColor?? MyColors.white),
-        // itemStyle: CustomInputTextStyle(lang: lang,color: MyColors.black),
+        //itemStyle: CustomInputTextStyle(lang: lang,color: MyColors.black),
         searchBoxDecoration: CustomInputDecoration(
             lang: lang,
             hint: tr(context, "Search"),

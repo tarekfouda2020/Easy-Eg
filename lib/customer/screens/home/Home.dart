@@ -48,8 +48,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             },
           ),
           floatingActionButton: FloatingActionButton(
-            onPressed: () =>
-                homeData.animateTabsPages(4, context, widget.color),
+            onPressed: () => homeData.animateTabsPages(4, context, widget.color),
             backgroundColor: currentColor,
             elevation: 4,
             child: Icon(

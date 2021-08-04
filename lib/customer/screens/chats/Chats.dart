@@ -72,8 +72,7 @@ class _ChatsState extends State<Chats> {
   @override
   void dispose() {
     super.dispose();
-    String id = chatsData.userModel.type=="user"?chatsData.userModel.customerModel!.id
-        :chatsData.userModel.providerModel!.id;
+    String id = chatsData.userModel.type=="user"?chatsData.userModel.customerModel!.id :chatsData.userModel.providerModel!.id;
     chatsData.hubConnection.invoke("DisConnect", args: <Object>["$id"]);
   }
 }

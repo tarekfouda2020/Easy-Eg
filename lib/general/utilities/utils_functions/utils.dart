@@ -283,15 +283,13 @@ class Utils {
     }
   }
 
-  static void navigateToLocationAddress(
-      BuildContext context, LocationCubit locCubit) async {
+  static void navigateToLocationAddress(BuildContext context, LocationCubit locCubit) async {
     FocusScope.of(context).requestFocus(FocusNode());
     LoadingDialog.showLoadingDialog();
     var current = await Utils.getCurrentLocation();
     LocationModel locationModel = locCubit.state.model;
     if (current != null) {
-      locationModel =
-          LocationModel("${current.latitude}", "${current.longitude}", "");
+      locationModel = LocationModel("${current.latitude}", "${current.longitude}", "");
     }
     double lat = double.parse(locationModel.lat);
     double lng = double.parse(locationModel.lng);

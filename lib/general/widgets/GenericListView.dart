@@ -9,8 +9,7 @@ import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 
 enum ListViewType { normal, api, separated }
 
-typedef GenericBuilder = Widget Function(
-    BuildContext context, int index, dynamic item);
+typedef GenericBuilder = Widget Function(BuildContext context, int index, dynamic item);
 
 class GenericListView<T> extends StatelessWidget {
   final dynamic onRefresh;

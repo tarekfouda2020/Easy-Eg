@@ -12,12 +12,10 @@ class ChatsData {
   int count = 0;
   int pageSize = 10;
 
-  final PagingController<int, MessageModel> pagingController =
-      PagingController(firstPageKey: 1);
+  final PagingController<int, MessageModel> pagingController = PagingController(firstPageKey: 1);
 
   fetchData(BuildContext context, int orderId, int pageNumber) async {
-    var data =
-        await CustomerRepository(context).getChatMessages(orderId, pageNumber);
+    var data = await CustomerRepository(context).getChatMessages(orderId, pageNumber);
     final isLastPage = data.length < pageSize;
     if (isLastPage) {
       var lst = data.reversed.toList();
@@ -32,9 +30,7 @@ class ChatsData {
   }
 
   void setConnectServer(String userId) async {
-    hubConnection = HubConnectionBuilder()
-        .withUrl("https://hujuzat.ip4s.com/chatHub")
-        .build();
+    hubConnection = HubConnectionBuilder().withUrl("https://hujuzat.ip4s.com/chatHub").build();
     await hubConnection.start();
     hubConnection.onclose((error) => print("error when connect => $error"));
     hubConnection.on("receiveMessage", _handleIncomingChatMessage);
