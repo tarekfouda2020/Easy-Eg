@@ -23,13 +23,16 @@ class CustomerRepository {
   Future<List<DropDownModel>> getRegions(int? cityId, bool refresh) =>
       _customerHttpMethods.getRegions(cityId, refresh);
 
-  Future<List<CategoryModel>> getCategories(HomeMainModel model, bool refresh) =>
+  Future<List<CategoryModel>> getCategories(
+          HomeMainModel model, bool refresh) =>
       _customerHttpMethods.getCategories(model, refresh);
 
-  Future<List<SubCategoryModel>> getSubCategories(HomeMainModel model, bool refresh) =>
+  Future<List<SubCategoryModel>> getSubCategories(
+          HomeMainModel model, bool refresh) =>
       _customerHttpMethods.getSubCategories(model, refresh);
 
-  Future<List<ProductModel>> getProducts(int page, String? text, HomeMainModel model, bool refresh) =>
+  Future<List<ProductModel>> getProducts(
+          int page, String? text, HomeMainModel model, bool refresh) =>
       _customerHttpMethods.getProducts(page, text, model, refresh);
 
   Future<List<ProductModel>> getMapProducts(int subCatId, bool refresh) =>
@@ -58,6 +61,8 @@ class CustomerRepository {
 
   Future<OrderModel?> getOrderDetails(int id, bool refresh) =>
       _customerHttpMethods.getOrderDetails(id, refresh);
+  Future<ChampionDetailsModel?> getChampionDetails(int championId) =>
+      _customerHttpMethods.getChampionDetails(championId);
 
   Future<bool> updateProfile(UpdateCustomerModel model) =>
       _customerAuthMethods.updateProfile(model);

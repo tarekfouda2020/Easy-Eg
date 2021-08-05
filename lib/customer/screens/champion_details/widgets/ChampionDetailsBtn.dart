@@ -11,6 +11,9 @@ class ChampionDetailsBtn extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           InkWell(
+            onTap: () => Utils.launchURL(
+                url:
+                    "https://play.google.com/store/apps/details?id=sa.aait.aspbranch.easy"),
             child: Row(
               children: [
                 MyText(
@@ -27,6 +30,8 @@ class ChampionDetailsBtn extends StatelessWidget {
             ),
           ),
           InkWell(
+            onTap: () => Utils.launchURL(
+                url: "https://apps.apple.com/us/app/easy/id1573741469"),
             child: Row(
               children: [
                 MyText(

@@ -105,6 +105,8 @@ class GlobalNotification {
     int type = int.parse(_data["type"] ?? "1");
     int userType = int.parse(_data["userType"] ?? "0");
     int orderId = int.parse(_data["orderId"] ?? "0");
+    print("asadad ${type == 10}");
+    print("orderId $orderId");
 
     if ((type >= 1 && type < 4) && userType == 1) {
       AutoRouter.of(context)
@@ -116,7 +118,7 @@ class GlobalNotification {
       AutoRouter.of(context).push(CompetitionsRoute(color: MyColors.primary));
     } else if (type == 10) {
       AutoRouter.of(context).push(
-        ChampionDetailsRoute(championId: _data["orderid"]),
+        ChampionDetailsRoute(championId: orderId),
       );
       // AutoRouter.of(context).push(
       //   ChatsRoute(

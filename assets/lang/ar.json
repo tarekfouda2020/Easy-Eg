@@ -137,7 +137,9 @@
   "NoDepart": "لايوجد اقسام",
   "detSearch": "البحث التفصيلى ",
   "registerOrLoginIfYouHaveAccount": "من فضلك حدد نوع التسجيل",
-  "championDetails": "تفاصيل المسابقة"
+  "championDetails": "تفاصيل المسابقة",
+  "noDetails": "لا يوجد تفاصيل",
+  "date": "التاريخ"
 
 }
 

@@ -65,7 +65,8 @@ class CustomerHttpMethods {
     }
   }
 
-  Future<List<CategoryModel>> getCategories(HomeMainModel model, bool refresh) async {
+  Future<List<CategoryModel>> getCategories(
+      HomeMainModel model, bool refresh) async {
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,
       "idRegoin": "${model.regionId}",
@@ -82,13 +83,14 @@ class CustomerHttpMethods {
     }
   }
 
-  Future<List<SubCategoryModel>> getSubCategories(HomeMainModel model, bool refresh) async {
+  Future<List<SubCategoryModel>> getSubCategories(
+      HomeMainModel model, bool refresh) async {
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,
       "idRegoin": "${model.regionId}",
       "cityId": "${model.cityId}",
       "GovernorateId": "${model.governorateId}",
-      "catId": "${model.category?.id??0}"
+      "catId": "${model.category?.id ?? 0}"
     };
     var _data = await DioHelper(context: context, forceRefresh: refresh)
         .get(url: "/api/v1/ListSubCategories", body: body);
@@ -100,7 +102,8 @@ class CustomerHttpMethods {
     }
   }
 
-  Future<List<ProductModel>> getProducts(int page, String? text, HomeMainModel model, bool refresh) async {
+  Future<List<ProductModel>> getProducts(
+      int page, String? text, HomeMainModel model, bool refresh) async {
     Map<String, dynamic> body = {
       "lang": context.read<LangCubit>().state.locale.languageCode,
       "idCat": "${model.subCatId}",
@@ -299,6 +302,21 @@ class CustomerHttpMethods {
           _data["data"].map((e) => ConversationModel.fromJson(e)));
     } else {
       return [];
+    }
+  }
+
+  Future<ChampionDetailsModel?> getChampionDetails(int championId) async {
+    var lang = context.read<LangCubit>().state.locale.languageCode;
+    Map<String, dynamic> body = {
+      "lang": lang,
+      "competitionId": championId,
+    };
+    var _data = await DioHelper(context: context)
+        .get(url: "/api/v1/GetCompetitionInfoById", body: body);
+    if (_data != null) {
+      return ChampionDetailsModel.fromJson(_data["data"]);
+    } else {
+      return null;
     }
   }
 }

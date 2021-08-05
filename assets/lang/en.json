@@ -137,7 +137,10 @@
   "Location": "Location on map",
   "detSearch": "Detailed search",
   "registerOrLoginIfYouHaveAccount": "Please determine auth type",
-  "championDetails": "Champion Details"
+  "championDetails": "Champion Details",
+  "noDetails": "No Details",
+  "date": "Data"
+
 }
 
 

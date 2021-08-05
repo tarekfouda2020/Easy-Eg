@@ -1,15 +1,19 @@
 part of 'SettingsImports.dart';
 
-
 class Settings extends StatelessWidget {
-  final android = "https://play.google.com/store/apps/details?id=sa.aait.aspbranch.easy";
+  final android =
+      "https://play.google.com/store/apps/details?id=sa.aait.aspbranch.easy";
   final ios = "https://apps.apple.com/us/app/easy/id1573741469";
   @override
   Widget build(BuildContext context) {
     var currentColor = context.watch<TabsColorCubit>().state.color;
     return Scaffold(
       appBar: PreferredSize(
-        child: DefaultAppBar(title: tr(context,"more"),color: currentColor,back: false,),
+        child: DefaultAppBar(
+          title: tr(context, "more"),
+          color: currentColor,
+          back: false,
+        ),
         preferredSize: Size.fromHeight(60),
       ),
       body: LinearContainer(
@@ -20,72 +24,81 @@ class Settings extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 15),
             children: [
               BuildPageItem(
-                name: tr(context,"offers"),
+                name: tr(context, "offers"),
                 color: currentColor,
-                onTap: ()=> AutoRouter.of(context).push(OffersRoute(color: currentColor)),
+                onTap: () => AutoRouter.of(context)
+                    .push(OffersRoute(color: currentColor)),
               ),
               BuildPageItem(
-                name:tr(context,"competitions"),
+                name: tr(context, "competitions"),
                 color: currentColor,
-                onTap: ()=> AutoRouter.of(context).push(CompetitionsRoute(color: Color(0xff81B0FE))),
+                onTap: () => AutoRouter.of(context)
+                    .push(CompetitionsRoute(color: Color(0xff81B0FE))),
               ),
               Offstage(
                 offstage: !context.read<AuthCubit>().state.authorized,
                 child: BuildPageItem(
-                  name: tr(context,"conversations"),
+                  name: tr(context, "conversations"),
                   color: currentColor,
-                  onTap: ()=> AutoRouter.of(context).push(ConversationsRoute(color: currentColor)),
+                  onTap: () => AutoRouter.of(context)
+                      .push(ConversationsRoute(color: currentColor)),
                 ),
               ),
               Offstage(
                 offstage: !context.read<AuthCubit>().state.authorized,
                 child: BuildPageItem(
-                  name: tr(context,"profile"),
+                  name: tr(context, "profile"),
                   color: currentColor,
-                  onTap: ()=> AutoRouter.of(context).push(ProfileRoute(color: currentColor)),
+                  onTap: () => AutoRouter.of(context)
+                      .push(ProfileRoute(color: currentColor)),
                 ),
               ),
               BuildPageItem(
-                name: tr(context,"repeatedQuestions"),
+                name: tr(context, "repeatedQuestions"),
                 color: currentColor,
-                onTap: ()=> AutoRouter.of(context).push(RepeatedQuestionsRoute(color: currentColor)),
+                onTap: () => AutoRouter.of(context)
+                    .push(RepeatedQuestionsRoute(color: currentColor)),
               ),
               BuildPageItem(
-                name: tr(context,"termsAndConditions"),
+                name: tr(context, "termsAndConditions"),
                 color: currentColor,
-                onTap: ()=> AutoRouter.of(context).push(TermsRoute(color: currentColor)),
+                onTap: () => AutoRouter.of(context)
+                    .push(TermsRoute(color: currentColor)),
               ),
               BuildPageItem(
-                name: tr(context,"aboutApp"),
+                name: tr(context, "aboutApp"),
                 color: currentColor,
-                onTap: ()=> AutoRouter.of(context).push(AboutRoute(color: currentColor)),
+                onTap: () => AutoRouter.of(context)
+                    .push(AboutRoute(color: currentColor)),
               ),
               BuildPageItem(
-                name: tr(context,"contactUs"),
+                name: tr(context, "contactUs"),
                 color: currentColor,
-                onTap: ()=> AutoRouter.of(context).push(ContactUsRoute(color: currentColor)),
+                onTap: () => AutoRouter.of(context)
+                    .push(ContactUsRoute(color: currentColor)),
               ),
               BuildPageItem(
-                name: tr(context,"shareApp"),
+                name: tr(context, "shareApp"),
                 color: currentColor,
-                onTap: ()=> Utils.shareApp(Platform.isIOS?ios:android),
+                onTap: () => Utils.shareApp(Platform.isIOS ? ios : android),
               ),
               BuildPageItem(
-                name: tr(context,"lang"),
+                name: tr(context, "lang"),
                 color: currentColor,
-                onTap: ()=> AutoRouter.of(context).push(LanguagesRoute(color: currentColor)),
+                onTap: () => AutoRouter.of(context)
+                    .push(LanguagesRoute(color: currentColor)),
               ),
               Visibility(
                 visible: context.read<AuthCubit>().state.authorized,
                 child: BuildPageItem(
-                  name:tr(context,"logOut"),
+                  name: tr(context, "logOut"),
                   color: currentColor,
-                  onTap: ()=> CustomerRepository(context).logout(),
+                  onTap: () => CustomerRepository(context).logout(),
                 ),
                 replacement: BuildPageItem(
-                  name: tr(context,"login"),
+                  name: tr(context, "login"),
                   color: currentColor,
-                  onTap: ()=> AutoRouter.of(context).push(SelectAuthRoute()),
+                  onTap: () => AutoRouter.of(context).push(SelectAuthRoute()),
                 ),
               ),
               SizedBox(height: 50)
@@ -96,4 +109,3 @@ class Settings extends StatelessWidget {
     );
   }
 }
-

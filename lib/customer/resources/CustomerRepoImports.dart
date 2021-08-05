@@ -1,13 +1,14 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:base_flutter/customer/models/CategoryModel.dart';
 import 'package:base_flutter/customer/models/ConversationModel.dart';
 import 'package:base_flutter/customer/models/DropDownModel.dart';
-import 'package:base_flutter/customer/models/CategoryModel.dart';
 import 'package:base_flutter/customer/models/Dtos/AddCompetitionModel.dart';
 import 'package:base_flutter/customer/models/Dtos/AddReservationModel.dart';
 import 'package:base_flutter/customer/models/Dtos/CustomerRegisterModel.dart';
 import 'package:base_flutter/customer/models/Dtos/HomeMainModel.dart';
 import 'package:base_flutter/customer/models/Dtos/UpdateCustomerModel.dart';
 import 'package:base_flutter/customer/models/MessageModel.dart';
+import 'package:base_flutter/customer/models/champion_details_model.dart';
 import 'package:base_flutter/customer/models/competition_model.dart';
 import 'package:base_flutter/customer/models/customer_model.dart';
 import 'package:base_flutter/customer/models/offer_model.dart';
@@ -27,8 +28,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
-
-
 
 part 'CustomerAuthMethods.dart';
 part 'CustomerHttpMethods.dart';
