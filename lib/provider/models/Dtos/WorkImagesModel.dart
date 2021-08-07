@@ -7,5 +7,5 @@ class WorkImagesModel{
   List<ImageModel> existImages;
   List<File> addedImages;
 
-  WorkImagesModel({this.existImages = const [], this.addedImages = const []});
+  WorkImagesModel({this.existImages = const [],required this.addedImages});
 }

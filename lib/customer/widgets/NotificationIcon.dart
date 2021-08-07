@@ -20,6 +20,7 @@ class _NotifyIconState extends State<NotifyIcon> {
         position: BadgePosition.topEnd(top: -8, end: 10),
         animationDuration: Duration(milliseconds: 300),
         animationType: BadgeAnimationType.scale,
+        showBadge: count.state.count>0,
         badgeContent: Text(
           '${count.state.count}',
           style: TextStyle(fontSize: 8, color: Colors.white),

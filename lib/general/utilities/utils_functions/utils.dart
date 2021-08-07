@@ -200,7 +200,7 @@ class Utils {
 
     if (result != null) {
       List<File> files = result.paths.map((path) => File("$path")).toList();
-      return files.first;
+      return await compressAndGetFile(files.first);
     } else {
       return null;
     }
@@ -209,14 +209,39 @@ class Utils {
   static Future<List<File>> getImages() async {
     FilePickerResult? result = await FilePicker.platform
         .pickFiles(allowMultiple: true, type: FileType.image);
-
     if (result != null) {
       List<File> files = result.paths.map((path) => File("$path")).toList();
-      return files;
+      return await compressImages(files);
     } else {
       return [];
     }
   }
+
+  static Future<List<File>> compressImages(List<File> images)async{
+    List<File> results = [];
+    if (images.length > 0) {
+     for(int i=0;i<images.length;i++){
+       var item = await compressAndGetFile(File(images[i].path));
+       if(item!=null) results.add(item);
+     }
+    }
+    return results;
+  }
+
+  static Future<File?> compressAndGetFile(File file) async {
+    String dir = (await getApplicationDocumentsDirectory()).path;
+    num size = file.lengthSync()/2048;
+    var result = await FlutterImageCompress.compressAndGetFile(
+      file.absolute.path, "$dir/${file.path.split("/").last}",
+      quality: size>=2?60:size>=1?70:80,
+      rotate: 360,
+    );
+
+    print("============================> ${file.lengthSync()}");
+    print("============================> ${result!.lengthSync()}");
+    return result;
+  }
+
 
   static Future<File?> getVideo() async {
     FilePickerResult? result = await FilePicker.platform
@@ -224,7 +249,7 @@ class Utils {
 
     if (result != null) {
       List<File> files = result.paths.map((path) => File("$path")).toList();
-      return files.first;
+      return await compressAndGetFile(files.first);
     } else {
       return null;
     }

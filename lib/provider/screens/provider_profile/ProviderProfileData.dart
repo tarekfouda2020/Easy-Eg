@@ -24,7 +24,7 @@ class ProviderProfileData {
   final TextEditingController mainImage = new TextEditingController();
 
   final GenericBloc<WorkImagesModel> imagesCubit =
-      new GenericBloc(WorkImagesModel());
+      new GenericBloc(WorkImagesModel(addedImages: []));
   final GenericBloc<File?> logoCubit = new GenericBloc(null);
   final GenericBloc<File?> profileImageCubit = new GenericBloc(null);
   final GenericBloc<int> catCubit = new GenericBloc(0);
@@ -82,9 +82,9 @@ class ProviderProfileData {
   }
 
   setImages() async {
-    var lstImages = await Utils.getImages();
+    List<File> lstImages = await Utils.getImages();
     if (lstImages.length > 0) {
-      imagesCubit.state.data.addedImages = lstImages;
+      imagesCubit.state.data.addedImages.addAll(lstImages);
       imagesCubit.onUpdateData(imagesCubit.state.data);
     }
   }
